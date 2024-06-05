@@ -400,19 +400,19 @@ Here follows some examples:
 !!! Example "Find the instances of the word 'string' in file.txt and count them"
 
     ```bash
-    grep ’string’ file.txt | wc
+    grep -o -i string file.txt | wc -l
     ```
 
-!!! Example "Find the instances of 'string' in file.txt and output them to file.out"
+!!! Example "Find the lines with instances of 'string' in file.txt and output them to file.out"
 
     ```bash
-    grep ’string’ file.txt > file.out
+    grep string file.txt > file.out
     ```
 
-!!! Example "Find the instances of 'string' in file.txt and append them to file.out" 
+!!! Example "Find the lines with instances of 'string' in file.txt and append them to file.out" 
 
     ```bash
-    grep ’string’ file.txt >> file.out
+    grep string file.txt >> file.out
     ```
 
 ### Exporting variables 
@@ -771,46 +771,46 @@ Wild cards are also called globbing patterns.
 !!! Example "Some examples of use of wildcards"
 
     ```bash
-    "myfile?.txt"
+    myfile?.txt
     ``` 
 
     This matches myfile0.txt, myfile1.txt,... for all letters between a-z and numbers between 0-9.
 
     ```bash
-    "r*d"
+    r*d
     ```
 
     This matches red, rad, ronald, ... anything starting with r and ending with d, including rd. 
 
     ```bash
-    "r[a,i,o]ck"
+    r[a,i,o]ck
     ```
 
     This matches rack, rick, rock.
 
     ```bash
-    "a[d-j]a"
+    a[d-j]a
     ```
 
-    This matches ada, adea, aja, adeja, afa, ...  and anything that starts with an a and ends with an a and has any character(s) d to j in between.
+    This matches ada, afa, aja, ...  and any three letter word that starts with an a and ends with an a and has any character d to j in between.
    
     ```bash
-    "[0-9]"
+    [0-9]
     ``` 
   
     This matches a range of numbers from 0 to 9. 
 
     ```bash
-    "cp {*.dat,*.c,*.pdf} ~" 
+    cp {*.dat,*.c,*.pdf} ~
     ```
 
     This specifies to copy any files ending in .dat, .c, and .pdf to the user's homedirectory. No spaces are allowed between the commas, etc. 
 
     ```bash
-    "rm thisfile[!8]"
+    rm thisfile[!8]*
     ```
 
-    This will remove all files named thisfile*, except those that has an 8 in it's name. 
+    This will remove all files named thisfile*, except those that has an 8 at that position in it's name. 
 
 
 ##### Regular Expressions
