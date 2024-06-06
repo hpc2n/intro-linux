@@ -24,7 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - run: pip install mkdocs-embed-external-markdown feedparser mkdocs-gen-files markdown-exec[ansi] markdown-include mkdocs-open-in-new-tab markdown-extra 
