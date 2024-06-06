@@ -1,4 +1,4 @@
-# Linux introduction guide
+# Introduction to Linux
 
 This page contains a short introduction to Linux, a Linux chest sheet, and some links to resources for learning more about Linux. 
 
