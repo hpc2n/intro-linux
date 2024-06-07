@@ -32,14 +32,14 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - Introduction: docs/intro.md
-  - What is Linux: docs/linux.md
-  - The command line (CLI): docs/cli.md
-  - The File System: docs/filesystem.md
-  - Data Handling: docs/data.md
-  - Hints and tricks: docs/hints.md
-  - Exercises: docs/exercises.md
-  - Summary: docs/summary.md
+  - Introduction: intro.md
+  - What is Linux: linux.md
+  - The command line (CLI): cli.md
+  - The File System: filesystem.md
+  - Data Handling: data.md
+  - Hints and tricks: hints.md
+  - Exercises: exercises.md
+  - Summary: summary.md
 
 plugins:
   - search
