@@ -1,32 +1,4 @@
-# Introduction to Linux
-
-This page contains a short introduction to Linux, a Linux chest sheet, and some links to resources for learning more about Linux. 
-
-Much of this material is from the Linux introduction part of the "Introduction to HPC2N and Kebnekaise" course that HPC2N usually runs twice yearly. 
-
-HPC2N's supercomputer "Kebnekaise", as well as most HPC centers supercomputers run Linux. 
-
-"Kebnekaise" runs Linux Ubuntu, currently (spring 2024) Ubuntu 20.04. 
-
-## What is Linux
-
-Linux is a family of open-source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991, by Linus Torvalds.
-
-An operating system is the software that sits underneath all of the other software on a computer, managing the computer’s hardware (CPU, GPU, memory, storage...) and taking care of the connections between your other software and the hardware. 
-
-Linux is typically packaged as a Linux distribution, which includes the kernel and supporting system software and libraries, many of which are provided by the GNU Project.
-
-There are many Linux distribuitions, including Ubuntu, Debian, Fedora, Gentoo, and many others. Many distributions are free and open source, but there are also commercial distributions, like Red Hat Enterprise and SUSE. 
-
-Desktop Linux distributions include <a href="https://en.wikipedia.org/wiki/Desktop_environment" target="_blank">a desktop environment</a>, like GNOME, MATE, KDE Plasma, Xfce, Unity, or many others. A window manager together with applications written using a widget toolkit are generally responsible for most of what the user sees. 
-
-In addition, a windowing system of some sort (X11, Wayland) interfaces directly with the underlying operating system and libraries, providing support for graphical hardware, pointing devices, and keyboards. The window manager generally runs on top of this windowing system. 
-
-While the use of Linux on desktop is only 2-3%, the vast majority of web servers (>96%), most mobile devices (Android is based on the Linux kernel), and all supercomputers on the <a href="https://en.wikipedia.org/wiki/TOP500" target=_blank">Top500 list</a> run Linux. 
-
-There is much more information about <a href="https://en.wikipedia.org/wiki/Linux" target="_blank">Linux on Wikipedia</a>. 
-
-## Command line 
+# The command line
 
 ![Terminal](../images/terminal.png){: style="width: 400px;float: right"}
 

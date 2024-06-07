@@ -1,1048 +1,263 @@
-# The Linux Operating System
+# Linux terminology
 
-Linux is a family of open-source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991, by Linus Torvalds.
+This section will give an overview of some of the most common terminology of Linux, as it may not be familiar to someone coming from i.e. Windows. It is, however, useful to know the meaning of some of the terms you will often see when searching for information about Linux or anything done on a Linux system. 
 
-An operating system is the software that sits underneath all of the other software on a computer, managing the computer’s hardware (CPU, GPU, memory, storage...) and taking care of the connections between your other software and the hardware. 
+For a more detailed list of Linux terminology, there is a link to a <a href="https://www.miralishahidi.ir/resources/Linux%20Terminology%20Glossary.pdf" target="_blanket">Glossary of Linux Terms</a>. 
 
-Linux is typically packaged as a Linux distribution, which includes the kernel and supporting system software and libraries, many of which are provided by the GNU Project.
+## Linux
 
-There are many Linux distribuitions, including Ubuntu, Debian, Fedora, Gentoo, and many others. Many distributions are free and open source, but there are also commercial distributions, like Red Hat Enterprise and SUSE. 
+While we usually think of Linux as an operating system, that is not strictly true; Linux is a free and open-source **kernel** developed by Linus Torvalds in 1991.
 
-Desktop Linux distributions include <a href="https://en.wikipedia.org/wiki/Desktop_environment" target="_blank">a desktop environment</a>, like GNOME, MATE, KDE Plasma, Xfce, Unity, or many others. A window manager together with applications written using a widget toolkit are generally responsible for most of what the user sees. 
+## Kernel
 
-In addition, a windowing system of some sort (X11, Wayland) interfaces directly with the underlying operating system and libraries, providing support for graphical hardware, pointing devices, and keyboards. The window manager generally runs on top of this windowing system. 
+‘Kernels’ are at the core of every Operating System (OS). 
 
-While the use of Linux on desktop is only 2-3%, the vast majority of web servers (>96%), most mobile devices (Android is based on the Linux kernel), and all supercomputers on the <a href="https://en.wikipedia.org/wiki/TOP500" target=_blank">Top500 list</a> run Linux. 
+!!! NOTE 
 
-There is much more information about <a href="https://en.wikipedia.org/wiki/Linux" target="_blank">Linux on Wikipedia</a>. 
+    A kernel manages your system's hardware, as well as all the programs on your computer. 
 
-## Command line 
+    When, for instance, you press a key on your keyboard or use your mouse to click a button on the screen, this information gets sent through the kernel. It will then communicate with the operating system, to use the data as input and to show the output using the hardware (in this case the monitor). 
 
-![Terminal](../images/terminal.png){: style="width: 400px;float: right"}
+**Linux**: the base Linux kernel is open-source. A large number of [distributions](#distributions_distros) use this core. They then modify it to lesser or greater extent, suiting their particular goals.
 
-The command line is an interface for typing commands directly to a computer's operating system. It is a user interface that is navigated only with the keyboard, by typing commands at a prompt, instead of by clicking with a mouse or similar. 
+The Linux kernel: 
+- is the core component of the Linux OS
+- is open source and actively developed by a large community
+- manages hardware resources
+- handles communication between software and hardware
+- is in charge of 
+    - device drivers
+    - process management
+    - memory management
+    - other low-level system operations 
 
-The Command Line Interface (CLI) is available in all operating systems, including Windows, Linux and macOS, but it is most commonly associated with Linux. 
+## Distributions (distros)
 
-In Unix or Linux, the prompt may be shown as "%" or ">" depending on the shell.
+As we mentioned, different versions of Linux are called ‘distros’. Anyone can create their own Linux distro, so you have a lot of options to choose from. If you’re thinking about switching OSs, it’s important to read up on some of the most popular distros available, and consider using a bootable USB to try out whichever one strikes your fancy.
 
-The opposite of a CLI is a GUI (Graphical User Interface), which generally uses a mouse or similar for navigating. 
+As mentioned above, any operating system that uses the Linux kernel to communicate with the computer hardware is called a Linux distribution. The word "distribution," or distro for short, comes from the process of sharing, essentially "distributing" Linux-based operating systems for free.
 
-Command line interfaces often gives access to many more capabilities than the graphical user interface does, and it is also practical and normally faster in situations where you login with a terminal on a remote system, like Kebnekaise. 
+Developers and Linux tinkerers also release spins and remixes of mainstream Linux distros. A "spin" or "remix" refers to a customized or derived version of the original operating system. Generally, the difference between the base OS and its spin lies in the desktop interface or package selection, or both.
 
-The picture above shows a terminal window where I am logged into Kebnekaise (from my desktop defiant). 
+Take Ubuntu for example. It has several flavors of itself including Xubuntu, Lubuntu, and Kubuntu, each with a different desktop environment. Similarly, Fedora refers to its unofficial derivatives as "spins." Overall, spin, remix, and flavor, each one of them has the same meaning.
 
-!!! Warning 
+A Linux distribution, often referred to as a distro, is a complete operating system that includes the Linux kernel, software packages, and various tools and utilities. Linux distributions come in different flavors, each offering a specific set of features, desktop environments, and package management systems. Examples of popular Linux distributions include Ubuntu, Fedora, Debian, and CentOS.
 
-    You will find that many/most commands in this tutorial are prefaced with either <code>\$</code> or <code>b-an01 [~]\$</code>, or something like <code>b-an01 [~/mytestdir/testdir1]\$</code>. 
+## Desktop environments
 
-    This is the prompt from the computer system, where <code>\$</code> just is the default (<code>bash</code>) prompt, and the others are the actual prompt you will see when logged into the regular login node of Kebnekaise (home directory versus a sub directory that in this case is named <code>testdir/testdir1</code>).
+To make computing simpler for the users, operating systems have a desktop that offers a graphical way to manage the system. Windows and macOS are well-known for their signature desktops, but Linux does its thing very differently.
 
-    You can see this prompt in the picture a bit further up on the page. 
+On Linux, you'll find a lot of desktops, better known as desktop environments, available to install for free. Desktop environments usually come with a window manager program and several apps and widgets that, when combined with the window manager, enrich the user experience. Some popular desktop environments are GNOME, KDE Plasma, XFCE, Pantheon, and LXDE.
 
-    Do **NOT** copy this prompt if you are copying code snippets. It should not be included in the command. 
+## Window managers 
 
-## Navigating the File System
+window manager customization
 
-This section is going to be a high-level talk about the Linux filesystem concepts, not a low-level description of filesystem types. 
+Window managers are programs that control the placement and movement of windows on your screen. Although window managers usually work behind the scenes with desktop environments, you can also use them separately on your Linux machine. They can be complicated to set up for non-technical users though, which is primarily the reason why not everyone prefers to use them in the first place.
 
-![Tree of dir structure](../images/tree.png){: style="width: 400px;float: right"}
+Window managers are lightweight and offer better performance than desktop environments as they don't ship with a host of unnecessary apps and widgets. You'll even have to install a standalone menu and compositor if you go for a window manager.
 
-The Linux filesystem directory structure starts with the top root directory, which is shown as <code>/</code>. Below this are several other standard directories. Of particular interest are <code>usr/bin</code>, <code>home</code>, <code>usr/lib</code>, and <code>usr/lib64</code>. A common directory which you will also often find is <code>usr/local/bin</code>. 
+i3wm, bspwm, awesome, and Fluxbox are some popular window managers. KDE Plasma and GNOME desktops use the KWin and Mutter window managers under the hood.
 
-The picture on the right shows typical subdirectories under <code>/</code> (note that the command 'tree' does not work on Kebnekaise). Some of the directories have a symbolic link to a different name - this is often done to make it quicker to write, but can also be for compatibility reasons since some software have hardcoded paths. 
+‘GNU Network Object Model Environment (GNOME)’ is a visual desktop interface used by several Linux distros. In fact, it’s very similar to the Windows desktop. Therefore, distros that use GNOME can be a great starting point if you’re jumping over from that OS.
 
-- **usr/bin**: contains (most) of the system-specific binaries
-- **usr/local/bin**: non-system binaries. often locally compiled/maintained packages
-- **home**: where the home directories of the users of the system are located
-- **usr/lib**: kernel modules and shared library images needed to boot the system and run commands in the root filesystem
-- **usr/lib64**: same as /lib, just for 64-bit libraries 
+## Commands
 
-User-installed binaries are often located in **/opt**. 
+‘Commands’ are prompts that you type into a program called the ‘command line’, which enable you to give instructions to your OS. You can use multiple applications to access the command line, so the way it looks can vary, but it’s usually a simple window:
 
-!!! Example "Kebnekaise"
+The command line interface.
 
-    At Kebnekaise, most of the software you are using will be organized as "modules" which needs to be loaded before using. You should generally **not** use the binaries from the OS for compilers etc. See the section about [modules](../../documentation/modules). 
+Commands are often what people find most intimidating about using Linux. However, these days, you can do pretty much everything using a Graphical User Interface (GUI). Even so, commands are still an integral part of using Linux.
 
-### ls - listing files/directories
+## Command line interface (CLI), terminal 
 
-The ls command is used to list files. If you just give the command "ls" with no flags it will list all files in the current directory except for hidden files.
+Your ‘terminal’ is the primary way you’ll interact with Linux. This is where you enter all of your commands, and the interface tends to be very straightforward. However, you can also opt to use terminal emulators, which are software options that provide you with a more user-friendly interface.
 
-<div>
-```bash
-ls [flags] [directory]
-```
-</div>
+If you're new to Linux, you might recall getting a glimpse of a black window with a lot of text on it. That's the Linux terminal, also known as the command line.
 
-This way you can to list files/subdirectories for any directory, but the default one is the one you are currently standing in. 
+The terminal is a program used to control your operating system's shell. A shell is a text-based or graphical interface that you use to interact with your desktop. The Linux terminal is similar to Command Prompt on Windows and helps an administrator control and manage their system efficiently.
 
-Some examples: 
+While other OSes have long moved on from using terminal emulators, the command line is still prevalent on Linux-based operating systems.
 
-- <code>ls /</code> lists contents of the root directory
-- <code>ls ..</code> lists the contents of the parent directory of the current
-- <code>ls ~</code> lists the contents of your user home directory
-- <code>ls *</code> lists contents of current directory and subdirectories
+CLI, or Command-Line Interface, is a text-based interface for interacting with computer systems and executing commands. In Linux, the CLI is accessed through a terminal or console, allowing users to perform various operations, configure settings, and manage the system without a graphical user interface (GUI). The CLI provides flexibility, scripting capabilities, and direct control over the system.
 
-Commonly used flags: 
+- The Command Line Is Fast
 
-- <code>-d */</code> lists only directories
-- <code>-a</code> lists content including hidden files and directories
-- <code>-l</code> lists content in long table format (permissions, owners, size in bytes, modification date/time, file/directory name)
-- <code>-lh</code> adds an extra column to above representing size of each file/directory
-- <code>-t</code> lists content sorted by last modified date in descending order
-- <code>-tr</code> lists content sorted by last modified date in ascending order
-- <code>-R</code> lists contents recursively in all subdirectories
-- <code>-s</code> list files with their sizes
-- <code>-S</code> sort files/directories by size in descending order
-- <code>-Sr</code> sort files/directories by size in ascending order
+A lot of Linux users love to claim that the Linux command line is faster than using a GUI. Command-line programs start faster than graphical ones because there's less overhead.
 
-To get more flags, type <code>ls \--help</code> or <code>man ls</code> in the terminal to see the manual. 
+This is one reason that when Linux first debuted on PCs, distributions would default to the console environment. The less powerful PCs of the era would often struggle to run X, at least with the small amounts of RAM that desktop systems came equipped with. 
 
-!!! Example "The output for a few of the flags, for a directory with two subdirectories and some files" 
+- Programming Tools Use the Command Line 
 
-    ```bash
-    b-an01 [~/mytestdir]$ ls
-    myfile.txt  myotherfile.dat  testdir1/	testdir2/
+ Programmers have been the staunchest advocates of Linux because it has so many tools for them to get their work done: interpreters, compilers, and debuggers. And all of these tools run on the command line.
+
+While you can call all of these from a graphical IDE, it's just a front end to a command line somewhere. 
+
+- The Command Line Works Everywhere, Including on Servers
+
+One big reason that the command line has survived on Linux systems is that it works just about everywhere. If X doesn't like your graphics card, a problem that was also more common on early Linux systems, you'll find yourself dumped at the console. This means you can fall back on the command line when you need to.
+
+For this reason, it's popular to install Linux servers only with the command-line interface. This allows for more efficient server use. After all, there's no need for a GUI if no one's going to see it anyway.
+
+Many admins prefer to log in remotely via SSH to manage their servers. This lower overhead allows Linux servers to run more efficiently than Windows servers. 
+
+- Command-Line Programs Can Be Scripted
+
+One big advantage of command-line programs over graphical ones is that programmers can automate them.
+
+If you work with graphical programs such as file managers, you'll often run into repetitive operations like renaming files. If you have a lot of files, this can get tedious with a GUI file manager. The shell lets you use wildcards to generate a list of files.
+
+If you wanted to copy all your text files to a directory, you'd use this line:
+
+        
+cp *.txt /example
+
     
-    b-an01 [~/mytestdir]$ ls -a
-    ./  ../  myfile.txt  myotherfile.dat  testdir1/  testdir2/
-
-    b-an01 [~/mytestdir]$ ls -l
-    total 16
-    -rw-r--r-- 1 bbrydsoe folk   90 Jun  9 14:19 myfile.txt
-    -rw-r--r-- 1 bbrydsoe folk  101 Jun  9 14:19 myotherfile.dat
-    drwxr-xr-x 2 bbrydsoe folk 4096 Jun  9 14:14 testdir1/
-    drwxr-xr-x 2 bbrydsoe folk 4096 Jun  9 14:19 testdir2/
-
-    b-an01 [~/mytestdir]$ ls -la
-    total 24
-    drwxr-xr-x  4 bbrydsoe folk  4096 Jun  9 14:19 ./
-    drwxr-xr-x 49 bbrydsoe staff 4096 Jun  9 14:10 ../
-    -rw-r--r--  1 bbrydsoe folk    90 Jun  9 14:19 myfile.txt
-    -rw-r--r--  1 bbrydsoe folk   101 Jun  9 14:19 myotherfile.dat
-    drwxr-xr-x  2 bbrydsoe folk  4096 Jun  9 14:14 testdir1/
-    drwxr-xr-x  2 bbrydsoe folk  4096 Jun  9 14:19 testdir2/
-
-    b-an01 [~/mytestdir]$ ls -lah
-    total 24K
-    drwxr-xr-x  4 bbrydsoe folk  4.0K Jun  9 14:19 ./
-    drwxr-xr-x 49 bbrydsoe staff 4.0K Jun  9 14:10 ../
-    -rw-r--r--  1 bbrydsoe folk    90 Jun  9 14:19 myfile.txt
-    -rw-r--r--  1 bbrydsoe folk   101 Jun  9 14:19 myotherfile.dat
-    drwxr-xr-x  2 bbrydsoe folk  4.0K Jun  9 14:14 testdir1/
-    drwxr-xr-x  2 bbrydsoe folk  4.0K Jun  9 14:19 testdir2/
-
-    b-an01 [~/mytestdir]$ ls -latr
-    total 24
-    drwxr-xr-x 49 bbrydsoe staff 4096 Jun  9 14:10 ../
-    drwxr-xr-x  2 bbrydsoe folk  4096 Jun  9 14:14 testdir1/
-    drwxr-xr-x  2 bbrydsoe folk  4096 Jun  9 14:19 testdir2/
-    -rw-r--r--  1 bbrydsoe folk    90 Jun  9 14:19 myfile.txt
-    -rw-r--r--  1 bbrydsoe folk   101 Jun  9 14:19 myotherfile.dat
-    drwxr-xr-x  4 bbrydsoe folk  4096 Jun  9 14:19 ./
-
-    b-an01 [~/mytestdir]$ ls *
-    myfile.txt  myotherfile.dat
-
-    testdir1:
-    file1.txt  file2.sh  file3.c  file4.dat
-
-    testdir2:
-    file1.txt  file2.txt  file3.c
-
-    b-an01 [~/mytestdir]$ cd testdir1
-    b-an01 [~/mytestdir/testdir1]$ ls -l
-    total 16
-    -rw-r--r-- 1 bbrydsoe folk 24 Jun  9 14:16 file1.txt
-    -rw-r--r-- 1 bbrydsoe folk 52 Jun  9 14:16 file2.sh
-    -rw-r--r-- 1 bbrydsoe folk 82 Jun  9 14:17 file3.c
-    -rw-r--r-- 1 bbrydsoe folk 40 Jun  9 14:17 file4.dat
-
-    b-an01 [~/mytestdir/testdir1]$ ls -ls
-    total 16
-    4 -rw-r--r-- 1 bbrydsoe folk 24 Jun  9 14:16 file1.txt
-    4 -rw-r--r-- 1 bbrydsoe folk 52 Jun  9 14:16 file2.sh
-    4 -rw-r--r-- 1 bbrydsoe folk 82 Jun  9 14:17 file3.c
-    4 -rw-r--r-- 1 bbrydsoe folk 40 Jun  9 14:17 file4.dat
-    ```
-
-    The "drwxr-xr-x" and "-rw-r\--r\--" are examples of permissions. The prefex d means is it a directory. A "-" means no permission for that. There are three groups: owner, group, and all. Note that “r” is for read, “w” is for write, and “x” is for execute.  
-
-### chmod - change permissions 
-
-The command <code>chmod</code> is used to change permissions for files and directories. 
-
-!!! Note "There are three types of permission groups"
-
-    - **owners**: these permissions will only apply to owners and will not affect other groups.
-    - **groups**: you can assign a group of users specific permissions, which will only impact users within the group. The members of your storage directory belongs here. 
-    - **all users**: these permissions will apply to all users, so be careful with this.
-
-!!! Note "There are three kinds of file permissions"
-
-    - Read (r): This allows a user or a group to view a file (and so also to copy it).
-    - Write (w): This permits the user to write or modify a file or directory.
-    - Execute (x): A user or a group with execute permissions can execute a file. They can also view a subdirectory.  
-
-The permissions for a file, directory, or symbolic link has 10 "bits" and looks similar to this:
-
-![Permissions](../images/permissions.png){: style="width: 400px}
-
-As shown, the first bit can be "-" (a file), "d" (a directory), or "l" (a link). 
-
-The following group of 3 bits are for the owner, then the next 3 for the group, and then the last 3 for all users. Each can have the r(ead), w(rite), and (e)x(ecute) permission set. 
-
-!!! Note "To change permissions, here are some examples" 
-
-    - owner
-        - **chmod +rwx FILE/DIR** to add all permissions of a file with name FILE or a directory with name DIR
-        - **chmod -rwx FILE/DIR** to remove all permissions from a file with name FILE or a directory with name DIR 
-        - **chmod +x FILE** to add executable permissions
-        - **chmod -wx FILE** to remove write and executable permissions
-    - group
-        - **chmod g+rwx FILE** to add all permissions to FILE 
-        - **chmod g-rwx FILE** to remove all permissions to FILE
-        - **chmod g+wx FILE** to give write and execute permissions to FILE
-        - **chmod g-x FILE** to remove execute permissions to FILE
-    - others
-        - **chmod o+rwx FILE** to add all permissions to FILE
-        - **chmod o-rwx FILE** to remove all permissions to FILE
-        - **chmod o+w FILE** to add write permissions to FILE
-        - **chmod o-rwx DIR** to remove all permissions to DIR 
-    - all
-        - **chmod ugo+rwx FILE/DIR** to add all permissions for all users (owner, group, others) to file named FILE or directory named DIR
-        - **chmod a=rwx FILE/DIR** same as above
-        - **chmod a=r DIR** give read permissions to all for DIR 
 
-### chown - change ownership
+You can also use scripting languages for more complicated tasks. For many years, the scripting language of choice was the shell. The advantage of the shell is that you can use the familiar programs that you've been using on the command line in your scripts.
 
-To change ownership of a file or directory, use the command <code>chown</code>. 
+While scripting languages like Perl and Python use libraries, it's also possible to use standard Linux programs if a library doesn't exist. 
 
-<div>
-```bash
-chown [OPTIONS] USER[:GROUP] FILE(s)
-```
-</div>
+- When Unix Was Developed, There Was No GUI
 
-!!! Note "Examples"
+While Linux is not Unix, as it has no code from the system, its behavior is based on it, including its use of the command line. When Unix was developed at Bell Labs in the late '60s and early '70s, there was no such thing as a graphical user interface.
 
-    - <code>chown USERNAME FILE</code> the user with USERNAME becomes the new owner of FILE
-    - <code>chown USERNAME DIRECTORY</code> the user with USERNAME becomes the new owner of DIRECTORY (but not any subdirectories)
-    - <code>chown USERNAME:folk DIRECTORY</code> the user ownership is changed to USER and the group ownership to group "folk" for the directory DIRECTORY
-    - <code>chown :folk DIRECTORY</code> the group ownership is changed to the group "folk" for the directory DIRECTORY
-    - <code>chown -R USERNAME:folk DIRECTORY</code> the user ownership is changed to USERNAME and the group ownership is changed to group "folk" for the directory DIRECTORY and all subdirectories
+Most people submitted their programs on punch cards, while a lucky few were able to interact with the system using a terminal, like Unix's creators: Dennis Ritchie and Ken Thompson.
 
-!!! Warning 
+These terminals were either teletype machines or video terminals, which were just a screen and a keyboard. Both of these types of terminals just supported text, not graphics.
 
-    As default, <code>chown</code> does not generate output on success and returns zero. 
+Command-line interfaces were natural for this type of terminal. The use of text terminals was also a major reason why Unix developers preferred short command names, as they were faster to type. 
 
-### Create and remove directories/files 
 
-This section contains a few examples of how to work with files and directories through command line interface. 
+## Root, user 
 
-- **mkdir DIR**: Create a directory DIR
-- **rm -rf DIR**: Remove a directory DIR. The flag "-r" means recursively and "-f" means do so without asking for each file and subdirectory. Useful, but dangerous. Be careful! 
-- **cd**: Go to your home directory ($HOME)
-- **cd DIR**: Change directory to DIR
-- **cd ..**: Change directory to the parent directory of the current directory
-- **touch FILE**: create an empty file with the name FILE 
+Linux OSs have a built-in system of user roles. Each user has a designated role, with varying levels of permissions. For example, if you’re a guest, you won’t be able to modify the OS’s core files.
 
-You also user "rm" to remove files; 
+A ‘root’ account, on the other hand, has full access to every command and file in the system. That is to say, if you’re a root user, you can do just about anything you want.
 
-<div>
-```bash
-rm file.txt
-```
-</div>
+On Linux, root refers to two things: the root directory and the root user. The root directory is the parent directory that contains every file and folder on your system. You can use the wildcard "/" (forward slash) to denote the root directory in your commands.
 
-The command <code>pwd</code> tells you the current directory path. 
+On the other hand, the root user, also known as the superuser, or simply root, is the user that has all administrative privileges. The root user can view and edit any file, make changes to the system or other users, and even delete the whole directory hierarchy. Simply put, it is the Linux user with the highest level of control.
 
-!!! Example "Creating directories, changing directories, removing directory and file"
+The root is the superuser or administrator account in Linux systems with complete control over the operating system and its resources. The root user has unrestricted access to system files, can perform administrative tasks, and can modify critical system configurations. However, using the root account sparingly and relying on regular user accounts with appropriate permissions for day-to-day operations is generally recommended to enhance system security.
 
-    ```bash
-    b-an01 [~]$ mkdir mytestdir
-    b-an01 [~]$ cd mytestdir/
-    b-an01 [~/mytestdir]$ mkdir testdir1
-    b-an01 [~/mytestdir]$ mkdir testdir2
-    b-an01 [~/mytestdir]$ mkdir testdir3
-    b-an01 [~/mytestdir]$ rm -rf testdir3
-    b-an01 [~/mytestdir]$ cd testdir1
-    b-an01 [~/mytestdir/testdir1]$ touch file1.txt
-    b-an01 [~/mytestdir/testdir1]$ touch file2.sh
-    b-an01 [~/mytestdir/testdir1]$ touch file3.c
-    b-an01 [~/mytestdir/testdir1]$ touch file4.dat
-    b-an01 [~/mytestdir/testdir1]$ touch file5.txt
-    b-an01 [~/mytestdir/testdir1]$ rm file5.txt 
-    b-an01 [~/mytestdir/testdir1]$ 
-    b-an01 [~/mytestdir/testdir1]$ cd ..
-    b-an01 [~/mytestdir]$ cd testdir2/
-    b-an01 [~/mytestdir/testdir2]$ 
-    ```
+## Package manager 
 
-### cp - copy files/directories
+When it comes to Linux, you install ‘packages’ rather than programs. Typically, you’ll do this through the terminal. A ‘package manager’ is a tool that provides you with a graphical interface to help you find new packages, then install, update, and even configure them.
 
-This command is used to copy files or directories.  
+On Linux, apps are distributed in the form of packages and are available in the official repositories of your distribution. A package manager is a program used to manage packages on a Linux system. It allows you to add or delete packages from sources such as your distro's repositories. You can also add additional third-party repositories with a package manager if you want, however.
 
-- **cp myfile.txt DIR/**: copy the file "myfile.txt" to the directory DIR
-- **cp DIR1/ DIR2/**: copy the directory DIR1 into the directory DIR2 (Note: overwrites existing files with same name)
-- **cp -R DIR1/ DIR2/**: copy the directory DIR1 and all subdirectories into the directory DIR2. 
+APT, RPM, and pacman are the three most popular package managers found on Linux distros. Debian and Ubuntu-based distributions use the APT package manager; Fedora, CentOS, and RHEL have the RPM package manager, whereas Arch Linux and its derivatives ship with pacman.
 
-### mv - rename files/directories
+A Package Manager is a software tool used in Linux distributions to manage installing, removing, and updating software packages. Package managers automate resolving dependencies, retrieving packages from repositories, and handling package installations. Examples of popular package managers in Linux include apt (used by Debian-based distributions), yum/dnf (used by Red Hat-based distributions), and Pacman (used by Arch Linux).
 
-The command <code>mv</code> is used to rename files and directories. 
+## Source and binary packages 
 
-- **mv file1.txt file2.txt**: renames file1.txt to file2.txt
-- **mv DIR1/ DIR2/**: renames directory DIR1 to directory DIR2/
+A ‘binary’ file isn’t composed of regular text, but rather is made up of computer code. In many cases, binary files on Linux are executable, much like Windows .exe files. In other words, they can be run in order to perform some task or functionality.
 
-!!! Note 
+A package in Linux refers to an archive that contains the files necessary for the execution or installation of a program. Software on Linux is usually distributed as packages and there are two types of packages available to the users: source and binary packages.
 
-    <code>mv</code> complains if there is already a file/directory with the new name. You can force the renaming with "-f" at the cost of the disappearence of the file that previously held the name. 
+Source packages contain the source code of a program that a user has to manually compile and install to run the software. A binary package, on the other hand, contains prebuilt and pre-compiled executables for the software.
 
-### Symbolic links
+## Repositories
 
-Symbolic links are also called soft links, or just symlinks. It is a pointer to another file or directory. 
+Software repositories are remote servers that store a collection of packages along with the related metadata. Every Linux distro either has its own set of repositories or uses repositories of its parent distro to provide software to the users.
 
-- It is useful both for ease 
-    - you avoid using a long path each time you change to a directory, like your project directory
-    - as well as to avoid changing hard links within other scripts or programs. This is good if you for instance install a program or use a script that assumes the library it uses is called libcoolness.a and not libcoolness.2.0.a. You can then just update the symlink instead of renaming the library or updating potentially many instances where it is mentioned in the program. 
+## Open Source
 
-Command:
+Open Source is the freely available software allowing users to view, modify, and distribute its source code. Linux is an open-source operating system, which means its source code is accessible to the public, fostering collaboration, transparency, and community-driven development. Open-source software encourages innovation, flexibility, and customization, and it has played a significant role in the growth and popularity of Linux.
 
-<div>
-```bash
-ln -s real-file-or-lib link-name
-```
-</div>
+## Process
 
-!!! Example
+Every program you launch on your system runs as a collection of processes in the background. A process is the fundamental instance of a running program that does the computation on your computer.
 
-    ```bash
-    ln -s /proj/nobackup/hpc2nxxxx-yyy/mydir $HOME/myproj
-    ```
+The web browser you just opened to browse the internet launches a process, or a set of processes to help you interact with it and browse the internet. Similarly, your system's file manager, terminal, media player, and every other program depends on processes to produce the output.
 
-    This creates a symbolic link named "myproj" in your home directory, pointing to /proj/nobackup/hpc2nxxxx-yyy/mydir: 
+In Linux, a Process refers to a running instance of a program or command. Each process has its unique process ID (PID) and associated system resources, such as memory, file descriptors, and execution context. Linux provides robust process management capabilities, allowing users to start, terminate, and monitor processes, control their execution, and manage system resources efficiently.
 
-    ```bash
-    b-an01 [~]$ ls -l
-    lrwxrwxrwx  1 bbrydsoe folk    28 Feb  1  2023 myproj -> /proj/nobackup/hpc2nxxxx-yyy/mydir
-    ```
+## Shells, shell scripting
 
-### Redirection
+A Shell is a command-line interpreter that provides an interface for users to interact with the operating system. Linux offers various shells, such as Bash (Bourne Again Shell), C Shell, Korn Shell, and Zsh. Shells allow users to execute commands, run scripts, and perform system operations. They provide features like command history, input/output redirection, variables, and control structures, enhancing the power and flexibility of the command-line interface.
 
-Usually, standard input comes from the keyboard etc. and the standard output goes to the screen. There is also standard error. All of these can be redirected with Linux commands. 
+Bash (Bourne Again Shell)
 
+Bash, or Bourne Again Shell, is a popular Unix shell and command language used in Linux distributions. It provides a command-line interface for interacting with the operating system and executing commands. Bash offers features like command history, tab completion, scripting capabilities, and extensive support for shell scripting, making it a powerful tool for system administration and automation.
 
-- **>** redirects the output of some command 
-    - **Example**, output of "ls" to a file: <code>ls > test.dat</code>
-- **>>** concatenate the output of some command to the content of a ﬁle
-    - **Example**, adds the output of ls to the end of a file "test.dat": <code>ls >> test.dat</code>
-- **<** changes the standard input
-- **2>** redirects the standard error:
-    - **Example**, redirect the error that is thrown from your program named "myprogram" to a file "error.log": <code>./myprogram 2> error.log</code>
-- **2>&1** redirects both standard output and standard error
-    - **Example**, redirect output and errors from your program to the same file: <code>./myprogram > logﬁle 2>&1</code>
+Shells (Bash, Zsh, etc.)
 
-!!! Example "Some more examples"
+As mentioned before, a shell is an interface that helps you interact with your system. It can either be a command-line interface like the terminal or a graphical one like the GNOME Shell. A shell also acts as a command interpreter for any command you enter in the terminal.
 
-    ```bash 
-    cat file >> file2
-    ```
+You can install several different shells on Linux. Examples include Bash, Zsh, Fish, sh, Ksh, etc. Each shell has the same role: helping the user and processes interact with other processes on the system.
 
-    Append the contents of file 1 to file2
+Shell Scripting
 
-    ```bash
-    echo 'text to append_add_here' >> file2
-    ```
+When you write a bunch of Linux commands and wrap them up together in a single file, the resulting file is called a "shell script." Shell scripting is the process of writing scripts using Linux commands, which are then interpreted by the shell installed on your system. Batch scripts are the Windows equivalent to shell scripts on Linux.
 
-    Append some text to a file called file2
+The most popular form of shell scripting is Bash scripting, which refers to writing and executing scripts using the Bash shell. Shell scripts are a powerful way to automate tasks on your Linux machine; they make computing a lot simpler and fun for the users.
+There's a Lot More Left to Learn About Linux!
 
-    ```bash
-    printf "text to append\n" >> fileName
-    ```
+Knowing the terms and jargon brings you a step closer to your goal of becoming a Linux power user. To be able to use Linux to its full potential, you should be well-versed with the command line and know how to troubleshoot the operating system to make it work for you, and not the other way around.
 
-    Another way to append some text to a file 
+## File system
 
-!!! Example "Adding longer blocks of text to a file, using the command line." 
+A File System is a method or structure the operating system uses to organize and store files on disk or other storage devices. Linux supports different file systems, including ext4, XFS, Btrfs, and NTFS. Each file system has features, performance characteristics, and compatibility with other operating systems.
 
-    1. Open the file for writing
-    ```bash
-    cat > foo.txt
-    ```
+## GNU
 
-    2. Add some text: 
-    ```bash
-    This is a test.
-    I like the Unix operating systems.
+The ‘GNU’ project is a collection of free software that includes some of Linux’s most popular applications. It’s developed by the same people behind the General Public License (GPL), which is a big hit in the open source world. Simply put, you can do almost anything you want with software published under the GPL license, including modifying and sharing it (under the same license).
 
-    The weather is nice today.
-    I am feeling sleepy. 
-    ```
+GNU, a recursive acronym for "GNU's Not Unix," is a collection of open-source tools that anyone can use for free to develop their own apps and operating systems. The GNU Project, founded by Richard Stallman, aims at developing and distributing software for free and provides every developer with open-source tools to do the same.
 
-    3. To save the changes press CTRL-d i.e. press and hold CTRL and press d. 
+The Linux kernel is licensed under GNU's GPL (General Public License) and is thus known as GNU/Linux. Any operating system developed using the open-source GNU tools and the Linux kernel falls under the category of Linux distributions. But what are distributions, you might ask?
 
+GNU (GNU's Not Unix)
 
-### Pipes
+GNU is a free and open-source project initiated by Richard Stallman to create a complete Unix-like operating system. The GNU project provides various essential software components and utilities, including the GNU Compiler Collection (GCC), GNU Bash, GNU Core Utilities, and many others. Linux distributions often combine the Linux kernel with GNU software to create a complete operating system.
 
-Pipes are used when you want to take the output of one command and use it as input for another command. 
+## Advanced
 
-Here follows some examples: 
+### Bootloader, grub
 
-!!! Example "Find the instances of the word 'string' in file.txt and count them"
+A bootloader is a program responsible for booting your computer. Usually, the operating system and its data are stored in non-volatile storage disks, HDDs for example. The bootloader helps load the correct operating system during boot time and adds initial processes to the memory.
 
-    ```bash
-    grep -o -i string file.txt | wc -l
-    ```
+GRUB is one of the most used bootloaders when dual-booting Windows with Linux. Other examples include LILO, BURG, and Syslinux.
 
-!!! Example "Find the lines with instances of 'string' in file.txt and output them to file.out"
+## Encryption
 
-    ```bash
-    grep string file.txt > file.out
-    ```
+Encryption converts data into a secure and unreadable form to protect it from unauthorized access. Linux provides encryption tools and algorithms to secure data at rest and during transmission. Encrypted file systems, disk encryption, and network encryption are commonly used in Linux to safeguard sensitive information and ensure data privacy.
 
-!!! Example "Find the lines with instances of 'string' in file.txt and append them to file.out" 
+## IP Address (Internet Protocol Address)
 
-    ```bash
-    grep string file.txt >> file.out
-    ```
+An IP Address is a unique numerical identifier assigned to each device connected to a network. In Linux, IP addresses are used for network configuration, routing, and device communication. IP addresses can be assigned manually (static) or dynamically (through DHCP) and play a crucial role in establishing network connections and enabling internet connectivity.
 
-### Exporting variables 
+## Journaling File System
 
-<a href="https://en.wikipedia.org/wiki/Environment_variable" target="_blank">Environment variables</a> store data that is used by the operating system and other programs.
+A Journaling File System is a type of file system that maintains a log or journal of file system changes to improve reliability and reduce the risk of data loss or corruption in the event of a system failure or power outage. Linux supports various journaling file systems, including ext4, XFS, and JFS. These file systems provide built-in mechanisms to recover file system integrity quickly and minimize the time required for file system checks and repairs.
 
-Some are intrinsic to the operating system, some for a specific program/library/programming language, and some are created by the user. 
+## Kernel Panic
 
-The variables can both be used in scripts and on the command line. Usually you reference them by putting a special symbol in front of or around the variable name. By convention, environment variable names are in UPPER CASE. 
+Kernel Panic is a critical error condition in the Linux kernel where it cannot continue operating safely. It typically occurs due to severe software or hardware issues, such as a corrupted kernel, hardware failure, or incompatible drivers. When a kernel panic happens, the system halts, displays an error message, and requires a manual reboot. Kernel panics are rare but need investigation to identify and resolve the underlying cause.
 
-**Examples:**
+## LAMP Stack
 
-- **$HOME** Your home directory
-- **$PWD** This variable points to your current directory
-- **$LD_LIBRARY_PATH** a colon-separated list of directories that the dynamic linker should search for shared objects before searching in any other directories
-- **$OMP_NUM_THREADS** Number of OpenMP threads
-- **$PYTHONPATH** Path to the directory where your Python libraries and packages are installed 
+LAMP Stack is an acronym for a software stack commonly used for web development, consisting of Linux as the operating system, Apache as the web server, MySQL or MariaDB as the database management system, and PHP, Perl, or Python as the scripting language. The LAMP stack provides a robust and open-source foundation for hosting dynamic web applications and websites.
 
-!!! Note "To see the content of an environment variable named ENVIRONMENT-VARIABLE"
+## Mount
 
-    ```bash
-    echo $ENVIRONMENT-VARIABLE
-    ```
+Mounting refers to attaching a file system to a specific directory location within the Linux file hierarchy, making the contents of the file system accessible to the operating system and its users. By mounting a device or network share, Linux treats it as part of the overall file system, allowing users to access and manipulate files and directories within that mounted location.
 
-!!! Tip 
+## Query Language
 
-    You will get a long list of all environment variables currently set with the command: 
+A Query Language is a specialized language to retrieve and manipulate database data. In Linux, Structured Query Language (SQL) is commonly used for managing and querying relational databases such as MySQL or PostgreSQL. SQL allows users to perform operations like data retrieval, insertion, deletion, and modification, making it an essential skill for working with databases in Linux environments.
 
-    ```bash 
-    env
-    ```
+## TCP/IP (Transmission Control Protocol/Internet Protocol)
 
-!!! Note "Some environment variables need to be exported in order to be used"
+TCP/IP is the fundamental communication protocol suite used for network communication in Linux and the internet. It provides a reliable and standardized set of protocols that enable data transmission between devices. TCP ensures the reliable delivery of data, while IP handles the addressing and routing of data packets. TCP/IP is the backbone of network communication, allowing devices to communicate and exchange data across diverse networks.
 
-    This is how you set the environment variable VARIABLE to value: 
+## UEFI (Unified Extensible Firmware Interface)
 
-    === "For the <code>bash</code> shell"
-        ```bash
-        export VARIABLE=value
-        ```
+UEFI is a modern firmware interface that replaces the traditional BIOS (Basic Input/Output System) in newer computers. UEFI provides advanced boot and system initialization capabilities, supports large disk sizes, and offers additional security features. Linux systems are compatible with UEFI and utilize it for system booting and hardware initialization.
 
-    === "For <code>csh</code> and related shells"
-        ```bash
-        setenv VARIABLE value
-        ```
+## Virtualization
 
-**Some examples:** 
-
-!!! Example "Setting the number of OpenMP threads to 8 in <code>bash</code>"
-
-    ```bash
-    export OMP_NUM_THREADS=8
-    ```
-
-!!! Example "Adding a new path to <code>$LD\_LIBRARY\_PATH</code>" 
-
-    ```bash
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/your/custom/path/
-    ```
-
-!!! Warning 
-
-    The environment variable only retains the value you have set for the duration of the session. When you open a new terminal window or login again, you need to set it again. 
-
-    To avoid that, add it to your <code>.bashrc</code> file, but only do so if it should truly be persisten across many sessions (like adding a new directory to search to <code>LD\_LIBRARY\_PATH</code> for instance). 
-
-!!! Example "Quickly add a new directory to <code>LD\_LIBRARY\_PATH</code> in tour <code>.bashrc</code>" 
-
-    ```bash
-    echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/your/custom/path/" >> ~/.bashrc
-    ```
-
-    Change <code>/your/custom/path/</code> to the actual path to the directory for your library. 
-
-### Editors 
-
-Some editors are more suited for a GUI environment and some are more suited for a command line environment. 
-
-#### Command line
-
-These are all good editors for using on the command line: 
-
-- <a href="https://www.nano-editor.org/" target="_blank">nano</a>
-- <a href="https://en.wikipedia.org/wiki/Vi" target="_blank">vi</a>, <a href="https://en.wikipedia.org/wiki/Vim_(text_editor)" target="_blank">vim</a>
-- <a href="https://www.gnu.org/software/emacs/" target="_blank">emacs</a>
-
-They are all installed on Kebnekaise. 
-
-Of these, <code>vi/vim</code> as well as <code>emacs</code> are probably the most powerful, though the latter is better in a GUI environment. The easiest editor to use if you are not familiar with any of them is <code>nano</code>. 
-
-!!! Example "Nano"
-
-    1. Starting "nano": Type <code>nano</code> FILENAME on the command line and press <code>Enter</code>. FILENAME is whatever you want to call your file. 
-    2. If FILENAME is a file that already exists, <code>nano</code> will open the file. If it dows not exist, it will be created.
-    3. You now get an editor that looks like this: <br>
-    ![nano editor](../images/nano.png){: style="width: 400px"}
-    4. First thing to notice is that many of the commands are listed at the bottom. 
-    5. The **^** before the letter-commands means you should press CTRL and then the letter (while keeping CTRL down). 
-    6. Your prompt is in the editor window itself, and you can just type (or copy and paste) the content you want in your file.  
-    7. When you want to exit (and possibly save), you press CTRL and then x while holding CTRL down (this is written CTRL-x or ^x). <code>nano</code> will ask you if you want to save the content of the buffer to the file. After that it will exit. 
-
-    There is a <a href="https://www.nano-editor.org/dist/latest/nano.html" target="_blank">manual for <code>nano</code> here</a>.  
-
-#### GUI 
-
-If you are connecting with [ThinLinc](../../tutorials/connections/#ThinLinc), you will be presented with a graphical user interface (GUI). From there you can either open a terminal window/shell (Applications -> System Tools -> MATE Terminal) or you can choose editors from the menu by going to Applications -> Accessories. This gives several editor options, of which these have a graphical interface:  
-
-- <a href="https://help.gnome.org/users/gedit/stable/" target="_blank">Text Editor (gedit)</a>
-- <a href="https://en.wikipedia.org/wiki/Pluma_(text_editor)" target="_blank">Pluma</a> - the default editor on the MATE desktop environments (that Thinlinc runs)
-- <a href="https://en.wikipedia.org/wiki/Atom_(text_editor)" target="_blank">Atom</a> - no
-t just an editor, but an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment" target="_blank">IDE</a>
-- <a href="https://www.gnu.org/software/emacs/" target="_blank">Emacs (GUI)</a>
-- <a href="https://en.wikipedia.org/wiki/NEdit" target="_blank">NEdit "Nirvana Text Editor"</a>
-
-If you are not familiar with any of these, a good recommendation would be to use <code>Text Editor/gedit</code>. 
-
-!!! Example "Text Editor/gedit"
-
-    1. Starting "gedit": From the menu, choose Applications -> Accessories -> Text Editor.
-    2. You then get a window that looks like this: <br> 
-    ![gedit editor](../images/gedit.png){: style="width: 400px"}
-    3. You can open files by clicking "Open" in the top menu. 
-    4. Clicking the small green file icon with a green plus will create a new document. 
-    5. Save by clicking "Save" in the menu. 
-    6. The menu on the top right (the three horizontal lines) gives you several other options, including "Find" and "Find and Replace". 
-
-
-## Data Handling
-
-This section will briefly cover compressing/decompressing files/directories, transferring files, and logging in. There will be links to other sections which cover the material in more detail. 
-
-### Compressing and decompressing 
-
-Compressing files are done with utilities like <a href="http://www.gnu.org/software/gzip/gzip.html" target="_blank">gzip</a>, <a href="http://www.bzip.org/" target="_blank">bzip2</a>, or <a href="http://en.wikipedia.org/wiki/ZIP_%28file_format%29" target="_blank">zip</a>. 
-
-!!! Example "Compressing a file with gzip"
-
-    ```bash
-    gzip FILE
-    ```
-
-    This results in FILE.gz
-
-!!! Example "Decompressing a file with gzip"
-
-    ```bash
-    gunzip FILE.gz
-    ```
-
-    You now again have FILE 
-
-
-### Archiving
-
-Archiving is generally done with <a href="http://www.gnu.org/software/tar/tar.html" target="_blank">tar</a>. 
-
-A **tarball** is a commonly used name to refer to an archive file in the tar (Tape Archive) format. 
-
-A tarball can be compressed with something like gzip or bzip2. 
-
-<div>
-```bash
-tar [-options] <name of the tar archive> [files or directories which to add into archive]
-
-Basic options:
-
-    -c, --create — create a new archive;
-    -a, --auto-compress — additionally compress the archive with a compressor which will be automatically determined by the file name extension of the archive. If the archive's name ends with *.tar.gz then use gzip, if *.tar.xz then use xz, *.tar.zst for Zstandard etc.;
-    -r, --append — append files to the end of an archive;
-    -x, --extract, --get — extract files from an archive;
-    -f, --file — specify the archive's name;
-    -t, --list — show a list of files and folders in the archive;
-    -v, --verbose — show a list of processed files.
-```
-</div> 
-
-Here follows some examples: 
-
-!!! Example "Generate a tarball"
-
-    ```bash
-    tar -cvf DIRECTORY.tar DIRECTORY
-    ```
-
-!!! Example "Extracting the files from a tarball"
-
-    ```bash
-    tar -xvf DIRECTORY.tar
-    ```
-
-!!! Example "Generate a tarball and compress it with gzip"
-
-    ```bash
-    tar -zcvf DIRECTORY.tar.gz DIRECTORY
-    ```
-
-!!! Example "Uncompressing and extracting files from a tarball" 
-
-    ```bash
-    tar -zxvf DIRECTORY.tar.gz
-    ```
-
-More information in the main [Archiving and compressing section](../../documentation/filesystems/#archiving__and__compressing). 
-
-### File transfer and syncing 
-
-There are several possible ways to transfer files and data to and from HPC2N’s systems: scp, sftp, rsync...
-
-!!! Warning 
-
-    FTP is not permitted due to security problems! 
-
-#### SCP
-
-SCP (Secure CoPy) is a simple way of transferring files between two machines that use the SSH (Secure SHell) protocol. 
-
-!!! Example "From local system to a remote system"
-
-    ```bash
-    $ scp sourcefilename user@hostname:somedir/destfilename
-    ```
-
-!!! Example "From a remote system to a local system"
-
-    ```bash
-    $ scp user@hostname:somedir/sourcefilename destfilename
-    ```
-
-#### SFTP
-
-SFTP (SSH File Transfer Protocol or sometimes called Secure File Transfer Protocol) is a network protocol that provides file transfer over a reliable data stream.
-
-!!! Example "From a local system to a remote system"
-
-    ```bash
-    enterprise-d [~]$ sftp user@kebnekaise.hpc2n.umu.se
-    Connecting to kebnekaise.hpc2n.umu.se...
-    user@kebnekaise.hpc2n.umu.se's password:
-    sftp> put file.c C/file.c
-    Uploading file.c to /home/u/user/C/file.c
-    file.c                          100%    1    0.0KB/s   00:00
-    sftp> put -P irf.png pic/
-    Uploading irf.png to /home/u/user/pic/irf.png
-    irf.png                         100% 2100    2.1KB/s   00:00
-    sftp>
-    ```
-
-!!! Example "From a remote system to a local system"
-
-    ```bash
-    sftp> get file2.c C/file2.c
-    Fetching /home/u/user/file2.c to C/file2.c
-    /home/u/user/file.txt  100%  1  0.1KB/s 00:00    
-    sftp> get -P file3.c C/
-    Fetching /home/u/user/file3.c to C/file3.c
-    /home/u/user/file.txt  100%  1  0.4KB/s 00:00    
-    sftp> exit
-    enterprise-d [~]$ 
-    ```
-
-#### rsync
-
-rsync is a utility for efficiently transferring and synchronizing files between a computer and a storage drive and across networked computers by comparing the modification times and sizes of files.
-
-!!! Example "Recursively sync files from one remote directory to a local directory. Also preserve symbolic links and time stamps, and allows resume of partially transferred files on restart" 
-
-    ```bash
-    rsync -rlpt username@remote_host:sourcedir/ /path/to/localdir
-    ```
-
-!!! Example "Recursively sync a local directory to a remote destination directory, preserving owners, permission, modification times, and symbolic links"
-
-    ```bash
-    rsync -a /path/to/localdir/ username@remote_host:destination_directory
-    ```
-
-Much more information and examples in [the File transfer section](../../documentation/filesystems/#file__transfer). 
-
-### Connecting with ssh
-
-The <code>ssh</code> command is used for connecting to a remote computer.
-
-Some useful examples:
-
-!!! Example "Connecting to Kebnekaise"
-  
-    ```bash 
-    ssh username@kebnekaise.hpc2n.umu.se
-    ```
-
-!!! Example "Connecting to Kebnekaise and enabling graphical display"
-
-    ```bash
-    ssh -Y username@kebnekaise.hpc2n.umu.se
-    ```
-
-    **Note** that you need to have an X11 server like Xming or Cygwin on Windows, XQuartz on macOS (included on Linux) to open a graphical display. 
-
-!!! Tip 
-
-    If you are using a graphical display, then we are **strongly** recommending ThinLinc. Read more about using that to access HPC2N in the [ThinLinc connection guide](../connections#ThinLinc). 
-
-More information about accessing Kebnekaise in the section about [Accessing](../../documentation/access/). 
-
-### More advanced topics
-
-This section will look at finding patterns ([grep](#grep), [awk](#awk), [wild cards](#wild__cards), [regular expressions](#regular__expressions)) and [scripting](#scripting).  
-
-#### Finding patterns 
-
-Here you will find descptions on how to search for files with specific patterns. 
-
-##### grep 
-
-This command searches for patterns in text files.
-
-!!! Example "Find the pattern 'word' in FILE"
-
-    ```bash
-    grep ’word’ FILE
-    ```
-
-!!! Example "Find the pattern 'word' recursively under the directory path/to/dir" 
-
-    ```bash
-    grep -rine ’word’ path/to/dir
-    ```
-
-##### awk 
-
-This command finds patterns in a file and can perform arithmetic/string operations. 
-
-!!! Example "Search for the pattern 'snow' in the file FILE and print out the first column"
-
-    ```bash
-    awk ’/snow/ {print$1}’ FILE
-    ```
-
-##### Wild cards
-
-Wild cards are useful 'stand-ins' for one or more character or number, that you can use for instance when finding patterns or when removing/listing all files of a certain type. 
-
-Wild cards are also called globbing patterns. 
-
-- **?** represents a single character
-- **\*** represents a string of characters (0 or more)
-- **[ ]** represents a range
-- **{ }** the terms are separated by commas and each term must be a wildcard or exact name
-- **[!]**  matches any character that is NOT listed between the [ and ]. This is a logical NOT.
-- **\** specifies an "escape" character, when using a subsequent special character. 
-
-!!! Warning 
-
-    You may need quotation marks as well around some wildcards. 
-
-!!! Example "Some examples of use of wildcards"
-
-    ```bash
-    myfile?.txt
-    ``` 
-
-    This matches myfile0.txt, myfile1.txt,... for all letters between a-z and numbers between 0-9.
-
-    ```bash
-    r*d
-    ```
-
-    This matches red, rad, ronald, ... anything starting with r and ending with d, including rd. 
-
-    ```bash
-    r[a,i,o]ck
-    ```
-
-    This matches rack, rick, rock.
-
-    ```bash
-    a[d-j]a
-    ```
-
-    This matches ada, afa, aja, ...  and any three letter word that starts with an a and ends with an a and has any character d to j in between.
-   
-    ```bash
-    [0-9]
-    ``` 
-  
-    This matches a range of numbers from 0 to 9. 
-
-    ```bash
-    cp {*.dat,*.c,*.pdf} ~
-    ```
-
-    This specifies to copy any files ending in .dat, .c, and .pdf to the user's homedirectory. No spaces are allowed between the commas, etc. 
-
-    ```bash
-    rm thisfile[!8]*
-    ```
-
-    This will remove all files named thisfile*, except those that has an 8 at that position in it's name. 
-
-
-##### Regular Expressions
-
-Regular Expressions are a type of globbing patterns that are used when you are working with text. 
-
-Regular Expressions can be used with programs like grep, find and many others. 
-
-!!! NOTE
-
-    If your regular expressions does not do as you expect, you may need to use single quotation marks around the sentence and you may also have to use backslashes on every single special character.
-
-Some common examples of regular expressions: 
-
-- **.** matches any single character. Same as **?** in standard wildcard expressions. 
-- **\\** is used as an "escape" character for a subsequent special character. 
-- **.*** is used to match any string, equivalent to * in standard wildcards.
-- ***** the proceeding item is matched zero or more times. ie. n* will match n, nn, nnnn, nnnnnnn but not na or any other character.
-- **^** means "the beginning of the line". So "^a" means find a line starting with an "a".
-- **\$** means "the end of the line". So "a$" means find a line ending with an "a".
-- **[ ]** specifies a range. Same as for normal wildcards. This is an 'or' relationship (you only need one to match).
-- **|** This wildcard makes a logical OR relationship between wildcards. You can thus search something or something else. You may need to add a '\' before this command to avoid the shell thinking you want a pipe. 
-- **[^]** This is the equivalent of [!] in standard wildcards, i.e. it is a logical “not” and will match anything not listed within the square brackets. 
-
-!!! Example 
-
-    ```bash
-    $ cat myfile | grep '^s.*n$'
-    ```
-
-    This command searches the file myfile for lines starting with an "s" and ending with an "n", and prints them to the standard output. 
-
-#### Scripting 
-
-Scripting is used to perform complex or repetitive tasks without user intervention. All Linux commands can be used in a script including wild cards. 
-
-The most common reason for making a script is probably to avoid writing the same command again and again. 
-
-!!! NOTE
-
-    If it is just a one-line command you want to do again and again, then ['alias'](#alias) is more suited for this. 
-
-!!! Example "Simple example of a script 'analysis.sh'"
-
-    ```bash
-    #!/bin/bash
-    grep ’ABCD’ file.pdb > file_filtered.pdb
-    program < file_filtered.pdb > output.dat
-    ```
-
-    This script can be executed with ./analysis.sh (remember to check that the [permission](#chmod__-__change__permissions) for executing a script as user is set). 
-
-To change the permissions to execute a script (here named analysis.sh), for just the user, you could do: 
-
-<div>
-```bash
-$ chmod u+x analysis.sh
-```
-</div>
-
-The above script can then be executed with
-
-<div>
-```bash
-$ ./analysis.se
-```
-</div>
-
-For more examples of (more useful) scripts, see for instance this <a href=https://www.hostinger.com/tutorials/bash-script-example" target="_blank">list of 25 Easy Bash Script Examples</a>. 
-
-### Alias 
-
-You will often have to write the same command again and again. If it is a longer command, it is reducing your productivity having to repeat it. Then you can use the <code>alias</code> command to create an 'alias' for your command. 
-
-To see the currently definted aliases, execute the 'alias' command: 
-
-<div>
-```bash
-$ alias
-```
-</div>
-
-!!! Example "Example"
-
-    This is how it might look when you run <code>alias</code>: 
-
-    ```bash
-    b-an01 [~]$ alias
-    alias cdn='cat >/dev/null'
-    alias dir='ls -lAF'
-    alias l='dir'
-    alias ls='ls -F'
-    ```
-
-    As an example, this means that if you type 'dir' the actual command that is executed is 'ls -lAF'. 
-
-In order to create a new alias, you could write: 
-
-<div>
-```bash
-$ alias shortName="your custom command here"
-```
-</div>
-
-!!! Warning 
-
-    The alias will only be valid in that shell, and only until you logout. Next time you will have to issue the 'alias' command again, unless you add it to either your <code>.bashrc</code> or <code>.bash.profile</code> file. 
-
-!!! Example "Adding a new alias to the .bashrc file, using 'nano' editor" 
-
-    1. Open the file: <code>nano ~/.bashrc</code>
- 
-    2. Inside the editor, scroll down to where your aliases are. If you do not have any, just add them at the end, like this
-    ```bash
-    #My custom aliases
-    alias c="clear"
-    alias ll="ls -alF"
-    # Colourize ls output
-    alias ls='ls --color=auto'
-    # Colourize grep output
-    alias grep='grep --color=auto'
-    # Easily list my SLURM batch jobs
-    alias jobs='squeue -u $USER'
-    # Find all entries starting with d in the output from the ls -lahrt command
-    alias ldir=’ls -lahrt | egrep "^d"’
-    ```
-    3. Save and Exit the file: <code>CTRL-x</code> (Press CTRL and hold it down while pressing x). Answer 'Y' to save. 
-    4. Next time you start a shell or after a new login your new alias is available. To make it available immediately, run 
-    ```bash
-    $ source ~/.bashrc
-    ``` 
-
-## Hints and tricks 
-
-This section contains some hints that might make working with Linux easier. 
-
-### Short-cuts on the CLI
-
-CTRL-SOMEKEY refers to pressing down the CTRL key and then another key while continuing to hold down CTRL. 
-
-Examples: 
-
-- **CTRL-a**: Go to the beginning of the line
-- **CTRL-e**: Go to the end of the line
-- **CTRL-l**: Clear the terminal
-- **TAB**: Auto-complete (i.e. start write a command or file name and then press TAB to auto-complete, if possible)
-- **ARROW-UP**: Pressing the arrow-up key repeatedly will let you cycle through recent commands
-- **CTRL-r**: you will get a prompt to write text to search in the list of recent commands. The list is saved in <code>.bash.history</code> in your $HOME. 
-
-### Misc
-
-- Write 'clear' to clear the terminal
-- write 'history' to see a list of the most recent commands written in the terminal
-    - You can change the number of saved commands by setting the environment variable HISTSIZE in your <code>.bashrc file</code> in your home directory. 
-    - Example: Open <code>.bashrc</code> with <code>nano</code>. Somewhere (at the end for instance) add: <code>export HISTSIZE=NUMBER"</code> where <code>NUMBER</code> is the number of commands to save, for instance 10000. 
-- <code>man PROGRAM</code> will give you the manual for a specific program or command, if it exists
-    - Example: <code>man gcc</code> will give open manual/help for the compiler <code>gcc</code>, containing flags to the compiler etc. **Note** that you need to first load a module that has gcc in. 
-
-## Linux Cheat Sheet
-
-written by P. Ojeda. 
-
-[PDF version](../../files/linux_cheat_sheet_Oct2015_edit.pdf) 
-
-The below is the same content as in the PDF file, but with minor changes/updates by B. Brydsö. 
-
-**Miscellaneous**
-
-| Command | Effect | &boxv; | Command | Effect |
-| ------- | ------ | - | - | - | 
-| ls | List files in current directory | &boxv; | less FILE | See the content of file FILE | 
-| ls -lah | List files in human readable format | &boxv; | vim FILE | Edit FILE with vim |
-| cd /dir | Change to the directory “dir” | &boxv; | whereis data | Prints out the location of “data” | 
-| pwd | Your current PATH | &boxv; | tar -cvzf file.tgz FILE | Pack and compress “FILE” | 
-| rm FILE | Delete FILE | &boxv; | gunzip file.tgz | Uncompress “file.tgz” | 
-| rm -rf DIR | Delete directory DIR | &boxv; | tar -xvf file.tar | Unpack “file.tar” | 
-
-**Wildcards** 
-
-| Wildcard | Meaning | 
-| -------- | ------- | 
-| * | Means zero or any number of characters. Ex. File* could be File, File2, Fileuiwie, ... | 
-| ? | Means only one character. Ex. File? could be File1, Filex, Fileh, but not File22 | 
-| [] | Means a range of characters. Ex. File[1-3] could be File1, File2, File3 | 
-
-**grep**
-
-| Command | Meaning | 
-| ------- | ------- | 
-| grep 'word' file | Search for the pattern 'word' in 'file' |
-| grep -rine 'word' home | Search for the pattern 'word' recursively in the directory /home | 
-
-**find** 
-
-| Command | Meaning |
-| ------- | ------- |
-| find /home -name '*.dat' | Find the files in the directory home ending in '.dat' |
-| find /home -mtime +60 | Find every file in /home that was modified more than 60 days ago | 
-
-**pipes** 
-
-| Command | Meaning | 
-| ------- | ------- | 
-| \| | Take the output of one command as the input of another. Ex. ls | grep 'word' | 
-
-**Secure copy protocol** 
-
-| Command | Effect | 
-| ------- | ------ | 
-| scp file user123@kebnekaise.hpc2n.umu.se:/home/u/user123/ | Copy “file” to the home directory of the user “user123” | 
-
-**Note: vim commands are in ESC mode** 
-
-| Bash shortcuts | Meaning | &boxv; | vim commands | Meaning | 
-| -------------- | ------- | ------ | ------------ | ------- | 
-| ctrl+r | Make a reverse search | &boxv; | :w file.txt | Save file.txt | 
-| ctrl+a | Go to the beginning of the line | &boxv; | :q! | Exit without saving |
-| ctrl+e | Go to the end of the line | &boxv; | :%s/pat1/pat2/g | Replace pattern “pat1” by “pat2” | 
-| ctrl+w | Delete the previous word | &boxv; | ctrl+v | Start selection | 
-| ctrl+k | Delete words after cursor | &boxv; | dd | Delete line | 
-| ctrl+u | Delete current line | &boxv; | x | Delete character |
-| ctrl+l | Clean terminal | &boxv; | r | Replace character | 
-
-**awk**
-
-| Command | Meaning | 
-| ------- | ------- | 
-| awk '/gold/ {print $1}' coins.txt | Search for pattern “gold” in the file coins.txt and print first column | 
-
-**Batch jobs** 
-
-| Command | Effect | 
-| ------- | ------ | 
-| sbatch job.sh | Launch “job.sh” to the queue | 
-| squeue -u user123 | Check the jobs from the user “user123" | 
-| scancel JOBID | Remove the job with id “JOBID” from the queue | 
-| squeue -f JOBID | Check the details about the job with id “JOBID” | 
-
-**sshfs**
-
-| Command | Meaning | 
-| ------- | ------- | 
-| sshfs user123@kebnekaise.hpc2n.umu.se /dir1/ /local/dir2 | Mount /dir1 (on Quarry) into your /local/dir2 | 
-| fusermount -u /local/dir2 | Unmount the /local/dir2 | 
-
+Virtualization in Linux involves running multiple virtual instances of operating systems or applications on a single physical computer. It enables efficient resource utilization, improved scalability, and isolating different environments. Linux provides robust virtualization technologies such as Kernel-based Virtual Machine (KVM), Xen, and containerization platforms like Docker and LXC.
