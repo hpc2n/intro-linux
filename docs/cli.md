@@ -1,4 +1,14 @@
-# The Linux Operating System
+# Introduction to Linux
+
+This page contains a short introduction to Linux, a Linux chest sheet, and some links to resources for learning more about Linux. 
+
+Much of this material is from the Linux introduction part of the "Introduction to HPC2N and Kebnekaise" course that HPC2N usually runs twice yearly. 
+
+HPC2N's supercomputer "Kebnekaise", as well as most HPC centers supercomputers run Linux. 
+
+"Kebnekaise" runs Linux Ubuntu, currently (spring 2024) Ubuntu 20.04. 
+
+## What is Linux
 
 Linux is a family of open-source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991, by Linus Torvalds.
 
