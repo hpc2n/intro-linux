@@ -33,7 +33,15 @@ The Linux kernel:
 
 ## Distributions (distros)
 
-As we mentioned, different versions of Linux are called ‘distros’. Anyone can create their own Linux distro, so you have a lot of options to choose from. If you’re thinking about switching OSs, it’s important to read up on some of the most popular distros available, and consider using a bootable USB to try out whichever one strikes your fancy.
+!!! NOTE 
+
+    Different versions of Linux are called ‘distros’. 
+
+There are a large number of Linux distributions, as anyone can create their own Linux distro. It is thus important to check at least the most popular distros if you are considering to switch to another operating system. Some are easier to use than others. 
+
+!!! NOTE 
+
+    Many distros can be downloaded and put on a bootable USB, so you can try them out before deciding. 
 
 As mentioned above, any operating system that uses the Linux kernel to communicate with the computer hardware is called a Linux distribution. The word "distribution," or distro for short, comes from the process of sharing, essentially "distributing" Linux-based operating systems for free.
 
