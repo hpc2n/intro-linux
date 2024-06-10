@@ -35,21 +35,37 @@ The Linux kernel:
 
 !!! NOTE 
 
-    Different versions of Linux are called ‘distros’. 
+    Different versions of Linux are called distributions or "distros". 
 
 There are a large number of Linux distributions, as anyone can create their own Linux distro. It is thus important to check at least the most popular distros if you are considering to switch to another operating system. Some are easier to use than others. 
 
-!!! NOTE 
+Examples of popular Linux distros are: Ubuntu, Debian, Fedora, CentOS, Slackware, Gentoo, Arch, Mint, and many others. 
 
-    Many distros can be downloaded and put on a bootable USB, so you can try them out before deciding. 
+!! NOTE
 
-As mentioned above, any operating system that uses the Linux kernel to communicate with the computer hardware is called a Linux distribution. The word "distribution," or distro for short, comes from the process of sharing, essentially "distributing" Linux-based operating systems for free.
+    Many distros can be downloaded and put on a bootable USB, so you can try them out before deciding.
 
-Developers and Linux tinkerers also release spins and remixes of mainstream Linux distros. A "spin" or "remix" refers to a customized or derived version of the original operating system. Generally, the difference between the base OS and its spin lies in the desktop interface or package selection, or both.
+Any operating system that uses the Linux kernel is called a Linux distribution ("distro"). The reason for that name comes from <u>sharing</u>, or <u>distributing</u>  the Linux OS for free.
 
-Take Ubuntu for example. It has several flavors of itself including Xubuntu, Lubuntu, and Kubuntu, each with a different desktop environment. Similarly, Fedora refers to its unofficial derivatives as "spins." Overall, spin, remix, and flavor, each one of them has the same meaning.
+Aside from distributions, developers make customized versions of the various "mainstream" Linux distributions. These are called <u>remixes</u>, flavours, and <u>spins</u>. Often the differences are choices of packages, desktop environments, etc. There is no hard difference between calling the customized versions remixes, flavours, or spins - it is mainly a choice. 
 
-A Linux distribution, often referred to as a distro, is a complete operating system that includes the Linux kernel, software packages, and various tools and utilities. Linux distributions come in different flavors, each offering a specific set of features, desktop environments, and package management systems. Examples of popular Linux distributions include Ubuntu, Fedora, Debian, and CentOS.
+A distro is a complete operating system, including 
+- the Linux kernel
+- software packages
+- various tools and utilities
+
+The different spins/flavours of that distro could have 
+- different package managers
+- desktop environments
+- various other features.
+
+!!! Example "Example: Ubuntu"
+
+    The <u>distro</u> Ubuntu has several **flavors**: Xubuntu, Lubuntu, Kubuntu, etc. each which  has a different desktop environment. 
+
+!!! Example "Example: "Fedora"
+
+    The <u>distro</u> Fedora uses the expression **spins** for its derivatives. 
 
 ## Desktop environments
 
