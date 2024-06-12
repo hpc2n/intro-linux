@@ -69,9 +69,15 @@ The different spins/flavours of that distro could have
 
 ## Desktop environments
 
-To make computing simpler for the users, operating systems have a desktop that offers a graphical way to manage the system. Windows and macOS are well-known for their signature desktops, but Linux does its thing very differently.
+To make it easier for users to work on their computer, many operating systems have a desktop that offers a graphical interface manage the system. Windows and macOS are common examples. Linux also has (optional) desktop(s), but things are done a little different. 
 
-On Linux, you'll find a lot of desktops, better known as desktop environments, available to install for free. Desktop environments usually come with a window manager program and several apps and widgets that, when combined with the window manager, enrich the user experience. Some popular desktop environments are GNOME, KDE Plasma, XFCE, Pantheon, and LXDE.
+Linux offers a great many desktops, which are called "desktop environments". The vast majority of those are available to install for free. 
+
+Desktop environments (usually) come with a program called a "window manager", as well as apps and widgets that, combined with the window manager, makes for a better user interface that can be further customized. 
+
+!!! Note
+
+    Popular desktop environments are GNOME, KDE Plasma, XFCE, Pantheon, LXDE, and many more.
 
 ## Window managers 
 
