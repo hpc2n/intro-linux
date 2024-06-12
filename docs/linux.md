@@ -81,29 +81,35 @@ Desktop environments (usually) come with a program called a "window manager", as
 
 ## Window managers 
 
-window manager customization
+Window managers:  
+- are programs controlling placement and movement of windows on your screen
+- usually work together with desktop environments
+- can also be used separately on your Linux machine
+- are lightweight and can offer better performance than desktop environments
+    - do not ship with unnecessary apps and widget (you even have to install menu and compositor if you go with just a window manager)
+- can be complicated to set up for non-technical users, since you need to install everything extra yourself
 
-Window managers are programs that control the placement and movement of windows on your screen. Although window managers usually work behind the scenes with desktop environments, you can also use them separately on your Linux machine. They can be complicated to set up for non-technical users though, which is primarily the reason why not everyone prefers to use them in the first place.
+!!! Note 
 
-Window managers are lightweight and offer better performance than desktop environments as they don't ship with a host of unnecessary apps and widgets. You'll even have to install a standalone menu and compositor if you go for a window manager.
-
-i3wm, bspwm, awesome, and Fluxbox are some popular window managers. KDE Plasma and GNOME desktops use the KWin and Mutter window managers under the hood.
-
-‘GNU Network Object Model Environment (GNOME)’ is a visual desktop interface used by several Linux distros. In fact, it’s very similar to the Windows desktop. Therefore, distros that use GNOME can be a great starting point if you’re jumping over from that OS.
+    - Some of the popular window managers are: i3wm, bspwm, awesome, Fluxbox
+    - KDE Plasma and GNOME desktops use the KWin and Mutter window managers "under the hood"
+    - "GNU Network Object Model Environment (GNOME)" is a desktop environment used by several Linux distros. It is quite similar to the Windows desktop and can be a good choice if you are changing from that OS
 
 ## Commands
 
-‘Commands’ are prompts that you type into a program called the ‘command line’, which enable you to give instructions to your OS. You can use multiple applications to access the command line, so the way it looks can vary, but it’s usually a simple window:
+The prompts that you type on the terminal are called "commands". The terminal is also commonly called the "command line" or the "command line interface" (CLI).
 
-The command line interface.
+There are several applications that can be used to access the command line, so it will vary how it looks, but it is usually a simple window (commonly white or green on black background or black on white background). 
 
-Commands are often what people find most intimidating about using Linux. However, these days, you can do pretty much everything using a Graphical User Interface (GUI). Even so, commands are still an integral part of using Linux.
+![Terminal](../images/terminal.png){: style="width: 350px; float: left;"}
+
+Using commands on a command line interface is something many people find the most intimidating thing about Linux. However, while the command line is an integral part of using Linux, and some actions may be faster or more direct when done on the command line, most things can actually be done through a Graphical User Interface (GUI). 
 
 ## Command line interface (CLI), terminal 
 
-Your ‘terminal’ is the primary way you’ll interact with Linux. This is where you enter all of your commands, and the interface tends to be very straightforward. However, you can also opt to use terminal emulators, which are software options that provide you with a more user-friendly interface.
+The terminal or command line interface is often the primary way to interact with Linux. 
 
-If you're new to Linux, you might recall getting a glimpse of a black window with a lot of text on it. That's the Linux terminal, also known as the command line.
+The terminal is where you enter your ["commands"](#commands). It is usually very straightforward and simple, but you can also choose to use a terminal emulator which will give you a more user-friendly interface.
 
 The terminal is a program used to control your operating system's shell. A shell is a text-based or graphical interface that you use to interact with your desktop. The Linux terminal is similar to Command Prompt on Windows and helps an administrator control and manage their system efficiently.
 
