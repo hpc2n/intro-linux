@@ -126,44 +126,34 @@ While other operating systems like Windows once regularly used something like a 
 - The command line works everywhere: it is easy to use remotely through SSH, for installing and maintaining servers, you can use it without starting a graphical interface, which gives less overhead and makes it faster and more efficient
 -  You can script command line programs: this is a big advantage; you can avoid many repetitive operations when using a script
     - Example: renaming, copying, or moving many files through a graphical file manager can be a hassle. On the command line you can script it. For instance, copying all your .dat files to a directory could be done like this: <code>cp *.dat /mydir</code>
-
-
-You can also use scripting languages for more complicated tasks. For many years, the scripting language of choice was the shell. The advantage of the shell is that you can use the familiar programs that you've been using on the command line in your scripts.
-
-While scripting languages like Perl and Python use libraries, it's also possible to use standard Linux programs if a library doesn't exist. 
-
-- When Unix Was Developed, There Was No GUI
-
-While Linux is not Unix, as it has no code from the system, its behavior is based on it, including its use of the command line. When Unix was developed at Bell Labs in the late '60s and early '70s, there was no such thing as a graphical user interface.
-
-Most people submitted their programs on punch cards, while a lucky few were able to interact with the system using a terminal, like Unix's creators: Dennis Ritchie and Ken Thompson.
-
-These terminals were either teletype machines or video terminals, which were just a screen and a keyboard. Both of these types of terminals just supported text, not graphics.
-
-Command-line interfaces were natural for this type of terminal. The use of text terminals was also a major reason why Unix developers preferred short command names, as they were faster to type. 
-
+    - You can also use scripting for more complicated tasks. 
+    - Some of the most commonly used scripting languages are the shell, perl, and Python.
 
 ## Root, user 
 
-Linux OSs have a built-in system of user roles. Each user has a designated role, with varying levels of permissions. For example, if you’re a guest, you won’t be able to modify the OS’s core files.
+All Linux operating systems have a built-in system of user roles, where each user has a specific role, with varying levels of permissions. 
 
-A ‘root’ account, on the other hand, has full access to every command and file in the system. That is to say, if you’re a root user, you can do just about anything you want.
+Some of the common roles are:
+- user: nothing more, nothing less. The user can normally do what they want in their own home directory and perhaps a few other directories where they have been given permission to work. A user cannot install anything to the system outside of these directories where they have permission, and also cannot change most setup files (other than those affecting only themself).
+- root: The root user or root account has administrative priviliges; complete access to all configurations, commands, and files in the system. Other words for root is **superuser** or **administrator**, though **root** is the most common term on Linux. 
 
-On Linux, root refers to two things: the root directory and the root user. The root directory is the parent directory that contains every file and folder on your system. You can use the wildcard "/" (forward slash) to denote the root directory in your commands.
+!!! NOTE 
 
-On the other hand, the root user, also known as the superuser, or simply root, is the user that has all administrative privileges. The root user can view and edit any file, make changes to the system or other users, and even delete the whole directory hierarchy. Simply put, it is the Linux user with the highest level of control.
+    root refers to both **the root directory** and **the root user**. 
 
-The root is the superuser or administrator account in Linux systems with complete control over the operating system and its resources. The root user has unrestricted access to system files, can perform administrative tasks, and can modify critical system configurations. However, using the root account sparingly and relying on regular user accounts with appropriate permissions for day-to-day operations is generally recommended to enhance system security.
+    The root directory is the top level/parent directory containing all files and folders of the system. It is designated with a "/", and this is how you can denote it in your commands. 
 
 ## Package manager 
 
-When it comes to Linux, you install ‘packages’ rather than programs. Typically, you’ll do this through the terminal. A ‘package manager’ is a tool that provides you with a graphical interface to help you find new packages, then install, update, and even configure them.
+On Linux, the programs you install are often referred to as "packages". Commonly, they are installed on the command line. A "package manager" is a tool that gives you a graphical interface to help you find new packages, install, update, and sometimes even configure them.
 
-On Linux, apps are distributed in the form of packages and are available in the official repositories of your distribution. A package manager is a program used to manage packages on a Linux system. It allows you to add or delete packages from sources such as your distro's repositories. You can also add additional third-party repositories with a package manager if you want, however.
+On Linux, most **apps** are distributed as packages and are available in the official repositories of your distribution. You can also add third-party repositories with a package manager if you want access to even more packages. 
 
-APT, RPM, and pacman are the three most popular package managers found on Linux distros. Debian and Ubuntu-based distributions use the APT package manager; Fedora, CentOS, and RHEL have the RPM package manager, whereas Arch Linux and its derivatives ship with pacman.
-
-A Package Manager is a software tool used in Linux distributions to manage installing, removing, and updating software packages. Package managers automate resolving dependencies, retrieving packages from repositories, and handling package installations. Examples of popular package managers in Linux include apt (used by Debian-based distributions), yum/dnf (used by Red Hat-based distributions), and Pacman (used by Arch Linux).
+There are several different package managers available for the different Linux distros. These are some of the popular ones:
+- APT: used by Debian and Ubuntu-based distributions. 
+- RPM: used by Fedora, CentOS, and RHEL.
+- pacman: used by Arch Linux and its derivatives. 
+- yum/dnf: used by Red Hat-based distributions. 
 
 ## Source and binary packages 
 
