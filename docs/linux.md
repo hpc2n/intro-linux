@@ -157,15 +157,12 @@ There are several different package managers available for the different Linux d
 
 ## Source and binary packages 
 
-A ‘binary’ file isn’t composed of regular text, but rather is made up of computer code. In many cases, binary files on Linux are executable, much like Windows .exe files. In other words, they can be run in order to perform some task or functionality.
-
-A package in Linux refers to an archive that contains the files necessary for the execution or installation of a program. Software on Linux is usually distributed as packages and there are two types of packages available to the users: source and binary packages.
-
-Source packages contain the source code of a program that a user has to manually compile and install to run the software. A binary package, on the other hand, contains prebuilt and pre-compiled executables for the software.
+- Source packages: these contain the source code of a program: A user must manually compile and install it to run the software. 
+- Binary packages: these contain prebuilt and pre-compiled executables for the software.
 
 ## Repositories
 
-Software repositories are remote servers that store a collection of packages along with the related metadata. Every Linux distro either has its own set of repositories or uses repositories of its parent distro to provide software to the users.
+Collections of packages and their metadata can be found in **software repositories** on remote servers. Most Linux distros has their own set of repositories or else they use the repositories of their parent distro. 
 
 ## Open Source
 
