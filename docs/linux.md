@@ -107,48 +107,26 @@ Using commands on a command line interface is something many people find the mos
 
 ## Command line interface (CLI), terminal 
 
-The terminal or command line interface is often the primary way to interact with Linux. 
+The terminal, console, or "command line interface" (often abbreviated "CLI") is a text.based interface which is often the primary way to interact with Linux. 
 
 The terminal is where you enter your ["commands"](#commands). It is usually very straightforward and simple, but you can also choose to use a terminal emulator which will give you a more user-friendly interface.
 
-The terminal is a program used to control your operating system's shell. A shell is a text-based or graphical interface that you use to interact with your desktop. The Linux terminal is similar to Command Prompt on Windows and helps an administrator control and manage their system efficiently.
+It is a program that is used to control your operating system's ["shell"](#shell). Briefly; a shell is a text-based (or graphical interface) through which the user interact with the desktop. 
 
-While other OSes have long moved on from using terminal emulators, the command line is still prevalent on Linux-based operating systems.
+!!! NOTE 
 
-CLI, or Command-Line Interface, is a text-based interface for interacting with computer systems and executing commands. In Linux, the CLI is accessed through a terminal or console, allowing users to perform various operations, configure settings, and manage the system without a graphical user interface (GUI). The CLI provides flexibility, scripting capabilities, and direct control over the system.
+    The Linux terminal is similar to "Command Prompt" on Windows. It is used by the "super user" or "administrator" to control and manage the system efficiently.
 
-- The Command Line Is Fast
+    It can be used to configure settings, for scripting, directly controlling the system, as well as giving various other commands to any program on the system. 
 
-A lot of Linux users love to claim that the Linux command line is faster than using a GUI. Command-line programs start faster than graphical ones because there's less overhead.
+While other operating systems like Windows once regularly used something like a terminal, it is now more seldom used except for some administrative management. On Linux, however, the terminal is still very much used. This may surprise some, but there are several good reasons: 
 
-This is one reason that when Linux first debuted on PCs, distributions would default to the console environment. The less powerful PCs of the era would often struggle to run X, at least with the small amounts of RAM that desktop systems came equipped with. 
+- The command line is fast: The CLI is usually much faster than using a GUI, and command-line programs will also start faster that graphical programs due to less overhead. 
+-  Many programming tools use the command line: compilers, interpreters, debuggers all run on the command line. Yes, there are often a graphical IDE you can install, but that is just a wrapper for the command line program. 
+- The command line works everywhere: it is easy to use remotely through SSH, for installing and maintaining servers, you can use it without starting a graphical interface, which gives less overhead and makes it faster and more efficient
+-  You can script command line programs: this is a big advantage; you can avoid many repetitive operations when using a script
+    - Example: renaming, copying, or moving many files through a graphical file manager can be a hassle. On the command line you can script it. For instance, copying all your .dat files to a directory could be done like this: <code>cp *.dat /mydir</code>
 
-- Programming Tools Use the Command Line 
-
- Programmers have been the staunchest advocates of Linux because it has so many tools for them to get their work done: interpreters, compilers, and debuggers. And all of these tools run on the command line.
-
-While you can call all of these from a graphical IDE, it's just a front end to a command line somewhere. 
-
-- The Command Line Works Everywhere, Including on Servers
-
-One big reason that the command line has survived on Linux systems is that it works just about everywhere. If X doesn't like your graphics card, a problem that was also more common on early Linux systems, you'll find yourself dumped at the console. This means you can fall back on the command line when you need to.
-
-For this reason, it's popular to install Linux servers only with the command-line interface. This allows for more efficient server use. After all, there's no need for a GUI if no one's going to see it anyway.
-
-Many admins prefer to log in remotely via SSH to manage their servers. This lower overhead allows Linux servers to run more efficiently than Windows servers. 
-
-- Command-Line Programs Can Be Scripted
-
-One big advantage of command-line programs over graphical ones is that programmers can automate them.
-
-If you work with graphical programs such as file managers, you'll often run into repetitive operations like renaming files. If you have a lot of files, this can get tedious with a GUI file manager. The shell lets you use wildcards to generate a list of files.
-
-If you wanted to copy all your text files to a directory, you'd use this line:
-
-        
-cp *.txt /example
-
-    
 
 You can also use scripting languages for more complicated tasks. For many years, the scripting language of choice was the shell. The advantage of the shell is that you can use the familiar programs that you've been using on the command line in your scripts.
 
