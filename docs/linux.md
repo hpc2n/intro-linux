@@ -166,7 +166,11 @@ Collections of packages and their metadata can be found in **software repositori
 
 ## Open Source
 
-Open Source is the freely available software allowing users to view, modify, and distribute its source code. Linux is an open-source operating system, which means its source code is accessible to the public, fostering collaboration, transparency, and community-driven development. Open-source software encourages innovation, flexibility, and customization, and it has played a significant role in the growth and popularity of Linux.
+Wikipedia defines Open Source as: 
+
+Source code that is made freely available for possible modification and redistribution. Products include permission to use the source code, design documents, or content of the product. The open-source model is a decentralized software development model that encourages open collaboration. A main principle of open-source software development is peer production, with products such as source code, blueprints, and documentation freely available to the public. The open-source movement in software began as a response to the limitations of proprietary code. 
+
+Open source has played a significant role in the growth and popularity of Linux.
 
 ## Process
 
