@@ -18,7 +18,7 @@ While we usually think of Linux as an operating system, that is not strictly tru
 
     When, for instance, you press a key on your keyboard or use your mouse to click a button on the screen, this information gets sent through the kernel. It will then communicate with the operating system, to use the data as input and to show the output using the hardware (in this case the monitor). 
 
-**Linux**: the base Linux kernel is open-source. A large number of [distributions](#distributions_distros) use this core. They then modify it to lesser or greater extent, suiting their particular goals.
+**Linux**: the base Linux kernel is open-source. A large number of distributions (distros) use this core. They then modify it to lesser or greater extent, suiting their particular goals.
 
 The Linux kernel: 
 - is the core component of the Linux OS
@@ -192,7 +192,7 @@ All programs depends on processes to run and produce output.
     - Each process also has associated system resources (memory, file descriptors, etc)
     - There are robust process management capabilities. Users can start, terminate, monitor processes, control their execution, manage system resources
 
-## Shells, shell scripting
+## Shells
 
 A Shell is a command-line interpreter which provides an interface for users to interact with the operating system. 
 
