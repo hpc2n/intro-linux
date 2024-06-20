@@ -272,28 +272,60 @@ GRUB is one of the most used bootloaders, including when dual-booting Windows wi
 
 ## Encryption
 
-Encryption converts data into a secure and unreadable form to protect it from unauthorized access. Linux provides encryption tools and algorithms to secure data at rest and during transmission. Encrypted file systems, disk encryption, and network encryption are commonly used in Linux to safeguard sensitive information and ensure data privacy.
+Encryption scrambles data into a secure and unreadable form so it can only be accessed by authorized parties. 
+
+Linux provides encryption to secure data, both during transmission and on the system. This is done through encrypted file systems, disk encryption, and network encryption. 
 
 ## IP Address (Internet Protocol Address)
 
-An IP Address is a unique numerical identifier assigned to each device connected to a network. In Linux, IP addresses are used for network configuration, routing, and device communication. IP addresses can be assigned manually (static) or dynamically (through DHCP) and play a crucial role in establishing network connections and enabling internet connectivity.
+(Much of this section was taken from Wikipedia) 
+
+An Internet Protocol address (IP address) is a unique numerical label that is assigned to every device that is connected to a network. 
+
+IP addresses in Linux are used for: 
+- network configuration
+- routing
+- device communication
+
+IP addresses can either be assigned manually (static IP address) or dynamically (DHCP). They are crucially important in establishing network connections and enabling internet connectivity.
+
+Two versions of the Internet Protocol are in common use on the Internet today:
+- The original version of the Internet Protocol (deployed in 1983 in the ARPANET) is Internet Protocol version 4 (IPv4). 
+    - An IPv4 address has a size of 32 bits, which limits the address space to 4294967296 (232) addresses. Some addresses are reserved for special purposes such as private networks (≈18 million addresses) and multicast addressing (≈270 million addresses).
+    - IPv4 addresses are usually represented in dot-decimal notation, consisting of four decimal numbers, each ranging from 0 to 255, separated by dots, e.g., 192.0.2.1. Each part represents a group of 8 bits (an octet) of the address.  
+- The Internet Protocol Version 6 (IPv6) was developed in 1995. IPv6 technology was in various testing stages until the mid-2000s when commercial production deployment commenced. 
+    - In IPv6, the address size was increased from 32 bits in IPv4 to 128 bits, thus providing up to 2128 (approximately 3.403×1038) addresses. This is deemed sufficient for the foreseeable future. 
 
 ## Kernel Panic
 
-Kernel Panic is a critical error condition in the Linux kernel where it cannot continue operating safely. It typically occurs due to severe software or hardware issues, such as a corrupted kernel, hardware failure, or incompatible drivers. When a kernel panic happens, the system halts, displays an error message, and requires a manual reboot. Kernel panics are rare but need investigation to identify and resolve the underlying cause.
+Kernel Panic is a critical error condition in the Linux kernel. When this happens it cannot continue operating safely. The reason for it happening is usually severe software or hardware issues, such as: a corrupted kernel, hardware failure, or incompatible drivers. 
+
+The system halts when there is a kernel panic. An error message is displayed, and a manual reboot needs to be done. 
+
+Kernel panics happen quite rarely, but are something that gives cause for concernt and needs to be investigated so the cause can be found and resolved. 
 
 ## Mount
 
-Mounting refers to attaching a file system to a specific directory location within the Linux file hierarchy, making the contents of the file system accessible to the operating system and its users. By mounting a device or network share, Linux treats it as part of the overall file system, allowing users to access and manipulate files and directories within that mounted location.
+Mounting means to attach a file system to a specific directory location in the Linux file hierarchy. This causes the contents of the file system to become accessible to the operating system and the users. 
+
+When a device (local or network) has been mounted, Linux will behave as if it is a part of the file system. That means users can access and manipulate directories and files of that location. 
 
 ## TCP/IP (Transmission Control Protocol/Internet Protocol)
 
-TCP/IP is the fundamental communication protocol suite used for network communication in Linux and the internet. It provides a reliable and standardized set of protocols that enable data transmission between devices. TCP ensures the reliable delivery of data, while IP handles the addressing and routing of data packets. TCP/IP is the backbone of network communication, allowing devices to communicate and exchange data across diverse networks.
+TCP/IP 
+- is the fundamental communication protocol suite used for network communication in Linux and the internet. 
+- provides a reliable and standardized set of protocols that enable data transmission between devices. 
+- is the backbone of network communication, letting the devices talk to each other and exchange data. 
+
+TCP ensures reliable delivery of data and IP handles addressing and routing of data packets. 
 
 ## UEFI (Unified Extensible Firmware Interface)
 
-UEFI is a modern firmware interface that replaces the traditional BIOS (Basic Input/Output System) in newer computers. UEFI provides advanced boot and system initialization capabilities, supports large disk sizes, and offers additional security features. Linux systems are compatible with UEFI and utilize it for system booting and hardware initialization.
+UEFI is
+- a modern firmware interface
+- replaces the traditional BIOS (Basic Input/Output System) 
+- provides advanced boot and system initialization capabilities
+- supports large disk sizes
+- offers additional security features. 
+- can be used by Linux systems for booting and initialization of hardware. 
 
-## Virtualization
-
-Virtualization in Linux involves running multiple virtual instances of operating systems or applications on a single physical computer. It enables efficient resource utilization, improved scalability, and isolating different environments. Linux provides robust virtualization technologies such as Kernel-based Virtual Machine (KVM), Xen, and containerization platforms like Docker and LXC.
