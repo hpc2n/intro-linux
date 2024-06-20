@@ -42,7 +42,7 @@ The picture above shows a terminal window where I am logged into Kebnekaise (fro
 
 !!! Exercises "Code-along: try a few commands"
 
-    NOTE: These commands will all be described in more details in the next section about [Navigating the File System](filesystem) 
+    NOTE: These commands will all be described in more details in the next section about [Navigating the File System](filesystem.md) 
 
     List some files and directories:
     ```bash

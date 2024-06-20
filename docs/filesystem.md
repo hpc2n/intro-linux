@@ -1,34 +1,8 @@
-# The command line
-
-![Terminal](../images/terminal.png){: style="width: 400px;float: right"}
-
-The command line is an interface for typing commands directly to a computer's operating system. It is a user interface that is navigated only with the keyboard, by typing commands at a prompt, instead of by clicking with a mouse or similar. 
-
-The Command Line Interface (CLI) is available in all operating systems, including Windows, Linux and macOS, but it is most commonly associated with Linux. 
-
-In Unix or Linux, the prompt may be shown as "%" or ">" depending on the shell.
-
-The opposite of a CLI is a GUI (Graphical User Interface), which generally uses a mouse or similar for navigating. 
-
-Command line interfaces often gives access to many more capabilities than the graphical user interface does, and it is also practical and normally faster in situations where you login with a terminal on a remote system, like Kebnekaise. 
-
-The picture above shows a terminal window where I am logged into Kebnekaise (from my desktop defiant). 
-
-!!! Warning 
-
-    You will find that many/most commands in this tutorial are prefaced with either <code>\$</code> or <code>b-an01 [~]\$</code>, or something like <code>b-an01 [~/mytestdir/testdir1]\$</code>. 
-
-    This is the prompt from the computer system, where <code>\$</code> just is the default (<code>bash</code>) prompt, and the others are the actual prompt you will see when logged into the regular login node of Kebnekaise (home directory versus a sub directory that in this case is named <code>testdir/testdir1</code>).
-
-    You can see this prompt in the picture a bit further up on the page. 
-
-    Do **NOT** copy this prompt if you are copying code snippets. It should not be included in the command. 
-
-## Navigating the File System
+# Navigating the File System
 
 This section is going to be a high-level talk about the Linux filesystem concepts, not a low-level description of filesystem types. 
 
-![Tree of dir structure](../images/tree.png){: style="width: 400px;float: right"}
+![Tree of dir structure](images/tree.png){: style="width: 400px;float: right"}
 
 The Linux filesystem directory structure starts with the top root directory, which is shown as <code>/</code>. Below this are several other standard directories. Of particular interest are <code>usr/bin</code>, <code>home</code>, <code>usr/lib</code>, and <code>usr/lib64</code>. A common directory which you will also often find is <code>usr/local/bin</code>. 
 
