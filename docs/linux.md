@@ -174,54 +174,87 @@ Open source has played a significant role in the growth and popularity of Linux.
 
 ## Process
 
-Each program you start on your system will run a number of processes in the background. A <code>process</code> is the instance of a running program which does the computation.
+Each program you start on your system will run a number of processes in the background. A <code>process</code> is the instance of a running program which does the computation. It is the allocation of memory for the program as well as a thread for execution. 
 
-!!! Example "Examples"
+!!! Example "Examples that launches a process or a set of processes"
 
-    - The web browser you just opened to browse the internet launches a process, or a set of processes to help you interact with it and browse the internet. Similarly, your system's file manager, terminal, media player, and every other program depends on processes to produce the output.
+    - You start a program, maybe a game
+    - You start your web browser
+    - You open a new tab in your web browser
+    - You run a command in a terminal 
 
-In Linux, a Process refers to a running instance of a program or command. Each process has its unique process ID (PID) and associated system resources, such as memory, file descriptors, and execution context. Linux provides robust process management capabilities, allowing users to start, terminate, and monitor processes, control their execution, and manage system resources efficiently.
+All programs depends on processes to run and produce output. 
+
+!!! NOTE
+
+    - In Linux a <code>process</code> refers to a running instance of a program or command. 
+    - Each process has a unique process ID (PID)
+    - Each process also has associated system resources (memory, file descriptors, etc)
+    - There are robust process management capabilities. Users can start, terminate, monitor processes, control their execution, manage system resources
 
 ## Shells, shell scripting
 
-A Shell is a command-line interpreter that provides an interface for users to interact with the operating system. Linux offers various shells, such as Bash (Bourne Again Shell), C Shell, Korn Shell, and Zsh. Shells allow users to execute commands, run scripts, and perform system operations. They provide features like command history, input/output redirection, variables, and control structures, enhancing the power and flexibility of the command-line interface.
+A Shell is a command-line interpreter which provides an interface for users to interact with the operating system. 
 
-Bash (Bourne Again Shell)
+There are several different shells: Bash (Bourne Again Shell), C Shell, Korn Shell, and Zsh, etc. 
 
-Bash, or Bourne Again Shell, is a popular Unix shell and command language used in Linux distributions. It provides a command-line interface for interacting with the operating system and executing commands. Bash offers features like command history, tab completion, scripting capabilities, and extensive support for shell scripting, making it a powerful tool for system administration and automation.
+Shells allow users to: 
+- execute commands
+- run scripts
+- perform system operations
 
-Shells (Bash, Zsh, etc.)
+Shells provide features like: 
+- command history
+- input/output redirection
+- variables
+- control structures
 
-As mentioned before, a shell is an interface that helps you interact with your system. It can either be a command-line interface like the terminal or a graphical one like the GNOME Shell. A shell also acts as a command interpreter for any command you enter in the terminal.
+The two main "families" of shells are C-shell and Bourne shell.  
 
-You can install several different shells on Linux. Examples include Bash, Zsh, Fish, sh, Ksh, etc. Each shell has the same role: helping the user and processes interact with other processes on the system.
+- **csh**: The C shell (csh or the improved version, tcsh) is a Unix shell created by Bill Joy while he was a graduate student at University of California, Berkeley in the late 1970s. The C shell is a command processor which is typically run in a text window, allowing the user to type and execute commands. The C shell can also read commands from a file, called a script. The style of the shell script language resembles C. 
+- **tcsh**: a Unix shell based on and backward compatible with the C shell (csh). It is essentially the C shell with programmable command-line completion, command-line editing, and a few other features. Unlike the other common shells, functions cannot be defined in a tcsh script and the user must use aliases instead (as in csh).
+- **sh**: The Bourne shell (sh) is a shell command-line interpreter for computer operating systems, developed by Stephen Bourne at Bell Labs. It is used as an interactive command interpreter, but was also intended as a scripting language and contains most of the features that are commonly considered to produce structured programs. 
+- **bash**: (Bourne Again Shell). It provides a command-line interface for interacting with the operating system and executing commands. Bash offers features like command history, tab completion, scripting capabilities, and extensive support for shell scripting, making it a powerful tool for system administration and automation.
+- **ksh**: KornShell. It is a Unix shell which was developed by David Korn at Bell Labs in the early 1980s. KornShell is backward-compatible with the Bourne shell and includes many features of the C shell, inspired by the requests of Bell Labs users. 
+- **zsh**: The Z shell (Zsh) is a Unix shell that can be used as an interactive login shell and as a command interpreter for shell scripting. Zsh is an extended Bourne shell with many improvements, including some features of Bash, ksh, and tcsh. 
 
-Shell Scripting
+Bash and tcsh are probably the most "popular" of the shells. 
 
-When you write a bunch of Linux commands and wrap them up together in a single file, the resulting file is called a "shell script." Shell scripting is the process of writing scripts using Linux commands, which are then interpreted by the shell installed on your system. Batch scripts are the Windows equivalent to shell scripts on Linux.
+### Shell Scripting
 
-The most popular form of shell scripting is Bash scripting, which refers to writing and executing scripts using the Bash shell. Shell scripts are a powerful way to automate tasks on your Linux machine; they make computing a lot simpler and fun for the users.
-There's a Lot More Left to Learn About Linux!
+A shell script is a computer program designed to be run by a Unix shell, a command-line interpreter.
 
-Knowing the terms and jargon brings you a step closer to your goal of becoming a Linux power user. To be able to use Linux to its full potential, you should be well-versed with the command line and know how to troubleshoot the operating system to make it work for you, and not the other way around.
+When you write several Linux commands and place them together in a single file, the resulting file is called a "shell script." 
+
+Shell scripting is the process of writing scripts using Linux commands, which are then interpreted by the shell installed on your system. 
+
+!!! Note 
+
+    The Windows equivalent to shell scripts are "batch scripts". Do NOT confuse these with the batch scripts used by batch systems! 
+
+The most popular shell scripting language is Bash scripting - this means writing and executing scripts using the Bash shell. 
 
 ## File system
 
-A File System is a method or structure the operating system uses to organize and store files on disk or other storage devices. Linux supports different file systems, including ext4, XFS, Btrfs, and NTFS. Each file system has features, performance characteristics, and compatibility with other operating systems.
+A file system provides a data storage service that allows applications to share mass storage. Without a file system, applications could access the storage in incompatible ways that lead to resource contention, data corruption and data loss.
+
+A File System is a method or structure the operating system uses to organize and store files on disk or other storage devices. 
+
+!!! NOTE
+
+    Linux supports several different file systems, including ext4, XFS, Btrfs, and NTFS. These file systems has different features, performance characteristics, and compatibility with other operating systems. 
 
 ## GNU
 
-The ‘GNU’ project is a collection of free software that includes some of Linux’s most popular applications. It’s developed by the same people behind the General Public License (GPL), which is a big hit in the open source world. Simply put, you can do almost anything you want with software published under the GPL license, including modifying and sharing it (under the same license).
+GNU is an extensive collection of free software, which can be used as an operating system or can be used in parts with other operating systems. The use of the completed GNU tools led to the family of operating systems popularly known as Linux. Most of GNU is licensed under the GNU Project's own General Public License.i
 
-GNU, a recursive acronym for "GNU's Not Unix," is a collection of open-source tools that anyone can use for free to develop their own apps and operating systems. The GNU Project, founded by Richard Stallman, aims at developing and distributing software for free and provides every developer with open-source tools to do the same.
+GNU is a recursive acronym for "GNU's Not Unix".
 
-The Linux kernel is licensed under GNU's GPL (General Public License) and is thus known as GNU/Linux. Any operating system developed using the open-source GNU tools and the Linux kernel falls under the category of Linux distributions. But what are distributions, you might ask?
-
-GNU (GNU's Not Unix)
-
-GNU is a free and open-source project initiated by Richard Stallman to create a complete Unix-like operating system. The GNU project provides various essential software components and utilities, including the GNU Compiler Collection (GCC), GNU Bash, GNU Core Utilities, and many others. Linux distributions often combine the Linux kernel with GNU software to create a complete operating system.
+The Linux kernel is licensed under GNU's GPL (General Public License) and is thus known as GNU/Linux. Any operating system developed using the open-source GNU tools and the Linux kernel falls under the category of Linux distributions. 
 
 ## Advanced
+
+There are many other terms which you may come across when reading about Linux. These are a few of them. 
 
 ### Bootloader, grub
 
