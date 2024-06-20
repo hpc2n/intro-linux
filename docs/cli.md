@@ -1,6 +1,6 @@
 # The command line
 
-![Terminal](../images/terminal.png){: style="width: 400px;float: right"}
+![Terminal](images/terminal.png){: style="width: 400px;float: right"}
 
 The command line is an interface for typing commands directly to a computer's operating system. It is a user interface that is navigated only with the keyboard, by typing commands at a prompt, instead of by clicking with a mouse or similar. 
 
@@ -28,7 +28,7 @@ The picture above shows a terminal window where I am logged into Kebnekaise (fro
 
 This section is going to be a high-level talk about the Linux filesystem concepts, not a low-level description of filesystem types. 
 
-![Tree of dir structure](../images/tree.png){: style="width: 400px;float: right"}
+![Tree of dir structure](images/tree.png){: style="width: 400px;float: right"}
 
 The Linux filesystem directory structure starts with the top root directory, which is shown as <code>/</code>. Below this are several other standard directories. Of particular interest are <code>usr/bin</code>, <code>home</code>, <code>usr/lib</code>, and <code>usr/lib64</code>. A common directory which you will also often find is <code>usr/local/bin</code>. 
 
@@ -168,7 +168,7 @@ The command <code>chmod</code> is used to change permissions for files and direc
 
 The permissions for a file, directory, or symbolic link has 10 "bits" and looks similar to this:
 
-![Permissions](../images/permissions.png){: style="width: 400px}
+![Permissions](images/permissions.png){: style="width: 400px}
 
 As shown, the first bit can be "-" (a file), "d" (a directory), or "l" (a link). 
 
