@@ -6,9 +6,11 @@ The command line is an interface for typing commands directly to a computer's op
 
 The Command Line Interface (CLI) is available in all operating systems, including Windows, Linux and macOS, but it is most commonly associated with Linux. 
 
-In Unix or Linux, the prompt may be shown as "%" or ">" depending on the shell.
+!!! NOTE 
 
-The opposite of a CLI is a GUI (Graphical User Interface), which generally uses a mouse or similar for navigating. 
+    In Unix or Linux, the prompt may be shown as "%" or ">" depending on the shell.
+
+The opposite of a <code>CLI</code> is a <code>GUI</code> (Graphical User Interface), which generally uses a mouse or similar for navigating. 
 
 Command line interfaces often gives access to many more capabilities than the graphical user interface does, and it is also practical and normally faster in situations where you login with a terminal on a remote system, like Kebnekaise. 
 
@@ -24,27 +26,10 @@ The picture above shows a terminal window where I am logged into Kebnekaise (fro
 
     Do **NOT** copy this prompt if you are copying code snippets. It should not be included in the command. 
 
-## Navigating the File System
+!!! Exercise "Exercise: Open a terminal" 
 
-This section is going to be a high-level talk about the Linux filesystem concepts, not a low-level description of filesystem types. 
+    
 
-![Tree of dir structure](images/tree.png){: style="width: 400px;float: right"}
-
-The Linux filesystem directory structure starts with the top root directory, which is shown as <code>/</code>. Below this are several other standard directories. Of particular interest are <code>usr/bin</code>, <code>home</code>, <code>usr/lib</code>, and <code>usr/lib64</code>. A common directory which you will also often find is <code>usr/local/bin</code>. 
-
-The picture on the right shows typical subdirectories under <code>/</code> (note that the command 'tree' does not work on Kebnekaise). Some of the directories have a symbolic link to a different name - this is often done to make it quicker to write, but can also be for compatibility reasons since some software have hardcoded paths. 
-
-- **usr/bin**: contains (most) of the system-specific binaries
-- **usr/local/bin**: non-system binaries. often locally compiled/maintained packages
-- **home**: where the home directories of the users of the system are located
-- **usr/lib**: kernel modules and shared library images needed to boot the system and run commands in the root filesystem
-- **usr/lib64**: same as /lib, just for 64-bit libraries 
-
-User-installed binaries are often located in **/opt**. 
-
-!!! Example "Kebnekaise"
-
-    At Kebnekaise, most of the software you are using will be organized as "modules" which needs to be loaded before using. You should generally **not** use the binaries from the OS for compilers etc. See the section about [modules](../../documentation/modules). 
 
 ### ls - listing files/directories
 

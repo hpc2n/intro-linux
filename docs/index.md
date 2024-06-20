@@ -1,15 +1,14 @@
 # Welcome to the course: Introduction to Linux
 
-```{admonition} This material
+!!! admonition "This material"
    
    Here you will find the content of the workshop Introduction to Linux. 
    
    - Documentation at the HPC centres 
       - HPC2N: https://docs.hpc2n.umu.se/tutorials/linuxguide/
       - UPPMAX: 
-```
 
-```{admonition} Content
+!!! admonition "Content"
 
    - This NAISS course aims to give a brief, but comprehensive introduction to the Linux operating system.
    - You will learn about
@@ -19,9 +18,8 @@
       - data handling
       - some handy hints and tricks 
    - This course will consist of lectures and type-alongs, as well as a few exercises where you get to try out what you have just learned.    
-```
 
-```{admonition} Cluster-specific approaches
+!! admonition "Cluster-specific approaches"
 
    - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise) and will focus on the compute systems at both centres. 
 ```
