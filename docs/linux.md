@@ -278,25 +278,13 @@ Encryption converts data into a secure and unreadable form to protect it from un
 
 An IP Address is a unique numerical identifier assigned to each device connected to a network. In Linux, IP addresses are used for network configuration, routing, and device communication. IP addresses can be assigned manually (static) or dynamically (through DHCP) and play a crucial role in establishing network connections and enabling internet connectivity.
 
-## Journaling File System
-
-A Journaling File System is a type of file system that maintains a log or journal of file system changes to improve reliability and reduce the risk of data loss or corruption in the event of a system failure or power outage. Linux supports various journaling file systems, including ext4, XFS, and JFS. These file systems provide built-in mechanisms to recover file system integrity quickly and minimize the time required for file system checks and repairs.
-
 ## Kernel Panic
 
 Kernel Panic is a critical error condition in the Linux kernel where it cannot continue operating safely. It typically occurs due to severe software or hardware issues, such as a corrupted kernel, hardware failure, or incompatible drivers. When a kernel panic happens, the system halts, displays an error message, and requires a manual reboot. Kernel panics are rare but need investigation to identify and resolve the underlying cause.
 
-## LAMP Stack
-
-LAMP Stack is an acronym for a software stack commonly used for web development, consisting of Linux as the operating system, Apache as the web server, MySQL or MariaDB as the database management system, and PHP, Perl, or Python as the scripting language. The LAMP stack provides a robust and open-source foundation for hosting dynamic web applications and websites.
-
 ## Mount
 
 Mounting refers to attaching a file system to a specific directory location within the Linux file hierarchy, making the contents of the file system accessible to the operating system and its users. By mounting a device or network share, Linux treats it as part of the overall file system, allowing users to access and manipulate files and directories within that mounted location.
-
-## Query Language
-
-A Query Language is a specialized language to retrieve and manipulate database data. In Linux, Structured Query Language (SQL) is commonly used for managing and querying relational databases such as MySQL or PostgreSQL. SQL allows users to perform operations like data retrieval, insertion, deletion, and modification, making it an essential skill for working with databases in Linux environments.
 
 ## TCP/IP (Transmission Control Protocol/Internet Protocol)
 
