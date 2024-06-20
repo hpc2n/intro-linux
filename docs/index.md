@@ -2,11 +2,15 @@
 
 !!! admonition "This material"
    
-   Here you will find the content of the workshop Introduction to Linux. 
+   Here you will find the content of the workshop "Introduction to Linux". 
    
    - Documentation at the HPC centres 
       - HPC2N: https://docs.hpc2n.umu.se/tutorials/linuxguide/
       - UPPMAX: 
+
+!!! note "Prerequisites"
+
+    You need access to a Linux system. The course project will be on Triolith, but you can use your own computer or any other computer you have access to that runs Linux. 
 
 !!! admonition "Content"
 
