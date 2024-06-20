@@ -101,7 +101,7 @@ The prompts that you type on the terminal are called "commands". The terminal is
 
 There are several applications that can be used to access the command line, so it will vary how it looks, but it is usually a simple window (commonly white or green on black background or black on white background). 
 
-![Terminal](../images/terminal.png){: style="width: 350px; float: left;"}
+![Terminal](images/terminal.png){: style="width: 350px; float: left;"}
 
 Using commands on a command line interface is something many people find the most intimidating thing about Linux. However, while the command line is an integral part of using Linux, and some actions may be faster or more direct when done on the command line, most things can actually be done through a Graphical User Interface (GUI). 
 
