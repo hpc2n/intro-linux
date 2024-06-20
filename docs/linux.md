@@ -111,7 +111,7 @@ The terminal, console, or "command line interface" (often abbreviated "CLI") is 
 
 The terminal is where you enter your ["commands"](#commands). It is usually very straightforward and simple, but you can also choose to use a terminal emulator which will give you a more user-friendly interface.
 
-It is a program that is used to control your operating system's ["shell"](#shell). Briefly; a shell is a text-based (or graphical interface) through which the user interact with the desktop. 
+It is a program that is used to control your operating system's ["shell"](#shells). Briefly; a shell is a text-based (or graphical interface) through which the user interact with the desktop. 
 
 !!! NOTE 
 
