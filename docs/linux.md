@@ -174,9 +174,11 @@ Open source has played a significant role in the growth and popularity of Linux.
 
 ## Process
 
-Every program you launch on your system runs as a collection of processes in the background. A process is the fundamental instance of a running program that does the computation on your computer.
+Each program you start on your system will run a number of processes in the background. A <code>process</code> is the instance of a running program which does the computation.
 
-The web browser you just opened to browse the internet launches a process, or a set of processes to help you interact with it and browse the internet. Similarly, your system's file manager, terminal, media player, and every other program depends on processes to produce the output.
+!!! Example "Examples"
+
+    - The web browser you just opened to browse the internet launches a process, or a set of processes to help you interact with it and browse the internet. Similarly, your system's file manager, terminal, media player, and every other program depends on processes to produce the output.
 
 In Linux, a Process refers to a running instance of a program or command. Each process has its unique process ID (PID) and associated system resources, such as memory, file descriptors, and execution context. Linux provides robust process management capabilities, allowing users to start, terminate, and monitor processes, control their execution, and manage system resources efficiently.
 
