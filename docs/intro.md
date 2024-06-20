@@ -7,7 +7,7 @@
 
     - What is Linux?
     - Learn about the command line interface (CLI)
-    - Naviagate the file system - ls, mkdir, cd, rm, cp, mv, redirection, pipes, etc.  
+    - Navigate the file system - ls, mkdir, cd, rm, cp, mv, redirection, pipes, etc.  
     - Data handling - compressing, archiving, file transfer, patterns, etc.  
     - Hints and tricks of Linux
 
