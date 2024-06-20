@@ -258,9 +258,17 @@ There are many other terms which you may come across when reading about Linux. T
 
 ### Bootloader, grub
 
-A bootloader is a program responsible for booting your computer. Usually, the operating system and its data are stored in non-volatile storage disks, HDDs for example. The bootloader helps load the correct operating system during boot time and adds initial processes to the memory.
+!!! NOTE
 
-GRUB is one of the most used bootloaders when dual-booting Windows with Linux. Other examples include LILO, BURG, and Syslinux.
+    A bootloader is a program responsible for booting your computer. 
+
+When a computer is turned off, its software - including the operating systems, application code, and data - remains stored on non-volatile memory. 
+
+The computer normally does not have an operating system or its loader in random-access memory (RAM) when it is powered on. 
+
+First the computer executes a small program (the boot loader) stored in read-only memory (ROM) along with some needed data, to initialize RAM, to access the nonvolatile device (storage system like HDD) or devices from which the operating system programs and data can be loaded into RAM. 
+
+GRUB is one of the most used bootloaders, including when dual-booting Windows with Linux. Other examples include LILO, BURG, and Syslinux.
 
 ## Encryption
 
