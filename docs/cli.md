@@ -28,8 +28,21 @@ The picture above shows a terminal window where I am logged into Kebnekaise (fro
 
 !!! Exercise "Exercise: Open a terminal" 
 
-    
+    Do one of the following: 
 
+    1. Tetralith
+        - Use an SSH client of your choice or <a href="http://www.cendio.com/thinlinc/what-is-thinlinc" target="_blank">ThinLinc</a>
+        - Log in with your USERNAME: 
+        ```bash
+        ssh USERNAME@tetralith.nsc.liu.se
+        ```
+        - If you logged in with ThinLinc, open a terminal
+    2. Any other HPC system of your choice
+    3. Open a terminal on your own computer 
+
+!!! Exercises "Code-along: try a few commands"
+
+    NOTE: These commands will all be described in more details in the next section about [Navigating the File System](../filesystem) 
 
 ### ls - listing files/directories
 
