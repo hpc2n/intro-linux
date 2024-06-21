@@ -42,6 +42,7 @@ nav:
   - Summary: summary.md
   - Extras: 
     - Install tree: tree.md
+    - Linux cheat sheet: cheat.md
 plugins:
   - search
   - external-markdown

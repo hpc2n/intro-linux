@@ -47,7 +47,11 @@ Basic options:
 ```
 </div> 
 
-Here follows some examples: 
+!!! Hint 
+
+    Code-along! You can download the tarball <code>temp.tar.gz</code> to play with (right-click and save): <a href="../temp.tar.gz">temp.tar.gz</a>. 
+
+**Here follows some examples: **  
 
 !!! Example "Generate a tarball"
 
@@ -73,17 +77,17 @@ Here follows some examples:
     tar -zxvf DIRECTORY.tar.gz
     ```
 
-More information in the main [Archiving and compressing section](../../documentation/filesystems/#archiving__and__compressing). 
+More information can be found in HPC2N's documentation's <a href="https://docs.hpc2n.umu.se/documentation/filesystems/#archiving__and__compressing" target="_blank">Archiving and compressing section</a>. 
 
-### File transfer and syncing 
+## File transfer and syncing 
 
-There are several possible ways to transfer files and data to and from HPC2N’s systems: scp, sftp, rsync...
+There are several possible ways to transfer files and data to and from Linux systems: scp, sftp, rsync...
 
 !!! Warning 
 
-    FTP is not permitted due to security problems! 
+    FTP is generally not permitted due to security problems! 
 
-#### SCP
+### SCP
 
 SCP (Secure CoPy) is a simple way of transferring files between two machines that use the SSH (Secure SHell) protocol. 
 
@@ -99,11 +103,13 @@ SCP (Secure CoPy) is a simple way of transferring files between two machines tha
     $ scp user@hostname:somedir/sourcefilename destfilename
     ```
 
-#### SFTP
+### SFTP
 
 SFTP (SSH File Transfer Protocol or sometimes called Secure File Transfer Protocol) is a network protocol that provides file transfer over a reliable data stream.
 
 !!! Example "From a local system to a remote system"
+
+    This example was made with the remote system "Kebnekaise" belonging to HPC2N. 
 
     ```bash
     enterprise-d [~]$ sftp user@kebnekaise.hpc2n.umu.se
@@ -131,7 +137,7 @@ SFTP (SSH File Transfer Protocol or sometimes called Secure File Transfer Protoc
     enterprise-d [~]$ 
     ```
 
-#### rsync
+### rsync
 
 rsync is a utility for efficiently transferring and synchronizing files between a computer and a storage drive and across networked computers by comparing the modification times and sizes of files.
 
@@ -147,15 +153,15 @@ rsync is a utility for efficiently transferring and synchronizing files between 
     rsync -a /path/to/localdir/ username@remote_host:destination_directory
     ```
 
-Much more information and examples in [the File transfer section](../../documentation/filesystems/#file__transfer). 
+Much more information and examples can be found in the HPC2N documentation's <a href="https://docs.hpc2n.umu.se/documentation/filesystems/#file__transfer" target="_blank">File transfer section</a>. 
 
-### Connecting with ssh
+## Connecting with ssh
 
 The <code>ssh</code> command is used for connecting to a remote computer.
 
 Some useful examples:
 
-!!! Example "Connecting to Kebnekaise"
+!!! Example "Connecting to a compute cluster called Kebnekaise"
   
     ```bash 
     ssh username@kebnekaise.hpc2n.umu.se
@@ -171,19 +177,17 @@ Some useful examples:
 
 !!! Tip 
 
-    If you are using a graphical display, then we are **strongly** recommending ThinLinc. Read more about using that to access HPC2N in the [ThinLinc connection guide](../connections#ThinLinc). 
+    If you are using a graphical display, then we are **strongly** recommending ThinLinc.  
 
-More information about accessing Kebnekaise in the section about [Accessing](../../documentation/access/). 
-
-### More advanced topics
+## More advanced topics
 
 This section will look at finding patterns ([grep](#grep), [awk](#awk), [wild cards](#wild__cards), [regular expressions](#regular__expressions)) and [scripting](#scripting).  
 
-#### Finding patterns 
+### Finding patterns 
 
 Here you will find descptions on how to search for files with specific patterns. 
 
-##### grep 
+#### grep 
 
 This command searches for patterns in text files.
 
@@ -199,7 +203,7 @@ This command searches for patterns in text files.
     grep -rine ’word’ path/to/dir
     ```
 
-##### awk 
+#### awk 
 
 This command finds patterns in a file and can perform arithmetic/string operations. 
 
@@ -209,7 +213,7 @@ This command finds patterns in a file and can perform arithmetic/string operatio
     awk ’/snow/ {print$1}’ FILE
     ```
 
-##### Wild cards
+#### Wild cards
 
 Wild cards are useful 'stand-ins' for one or more character or number, that you can use for instance when finding patterns or when removing/listing all files of a certain type. 
 
@@ -271,7 +275,7 @@ Wild cards are also called globbing patterns.
     This will remove all files named thisfile*, except those that has an 8 at that position in it's name. 
 
 
-##### Regular Expressions
+#### Regular Expressions
 
 Regular Expressions are a type of globbing patterns that are used when you are working with text. 
 
@@ -301,7 +305,7 @@ Some common examples of regular expressions:
 
     This command searches the file myfile for lines starting with an "s" and ending with an "n", and prints them to the standard output. 
 
-#### Scripting 
+### Scripting 
 
 Scripting is used to perform complex or repetitive tasks without user intervention. All Linux commands can be used in a script including wild cards. 
 
@@ -309,7 +313,7 @@ The most common reason for making a script is probably to avoid writing the same
 
 !!! NOTE
 
-    If it is just a one-line command you want to do again and again, then ['alias'](#alias) is more suited for this. 
+    If it is just a one-line command you want to do again and again, then ['alias'](../hints#alias) is more suited for this. 
 
 !!! Example "Simple example of a script 'analysis.sh'"
 
@@ -319,7 +323,7 @@ The most common reason for making a script is probably to avoid writing the same
     program < file_filtered.pdb > output.dat
     ```
 
-    This script can be executed with ./analysis.sh (remember to check that the [permission](#chmod__-__change__permissions) for executing a script as user is set). 
+    This script can be executed with ./analysis.sh (remember to check that the [permission](../filesystem/#chmod__-__change__permissions) for executing a script as user is set). 
 
 To change the permissions to execute a script (here named analysis.sh), for just the user, you could do: 
 
@@ -338,179 +342,3 @@ $ ./analysis.se
 </div>
 
 For more examples of (more useful) scripts, see for instance this <a href=https://www.hostinger.com/tutorials/bash-script-example" target="_blank">list of 25 Easy Bash Script Examples</a>. 
-
-### Alias 
-
-You will often have to write the same command again and again. If it is a longer command, it is reducing your productivity having to repeat it. Then you can use the <code>alias</code> command to create an 'alias' for your command. 
-
-To see the currently definted aliases, execute the 'alias' command: 
-
-<div>
-```bash
-$ alias
-```
-</div>
-
-!!! Example "Example"
-
-    This is how it might look when you run <code>alias</code>: 
-
-    ```bash
-    b-an01 [~]$ alias
-    alias cdn='cat >/dev/null'
-    alias dir='ls -lAF'
-    alias l='dir'
-    alias ls='ls -F'
-    ```
-
-    As an example, this means that if you type 'dir' the actual command that is executed is 'ls -lAF'. 
-
-In order to create a new alias, you could write: 
-
-<div>
-```bash
-$ alias shortName="your custom command here"
-```
-</div>
-
-!!! Warning 
-
-    The alias will only be valid in that shell, and only until you logout. Next time you will have to issue the 'alias' command again, unless you add it to either your <code>.bashrc</code> or <code>.bash.profile</code> file. 
-
-!!! Example "Adding a new alias to the .bashrc file, using 'nano' editor" 
-
-    1. Open the file: <code>nano ~/.bashrc</code>
- 
-    2. Inside the editor, scroll down to where your aliases are. If you do not have any, just add them at the end, like this
-    ```bash
-    #My custom aliases
-    alias c="clear"
-    alias ll="ls -alF"
-    # Colourize ls output
-    alias ls='ls --color=auto'
-    # Colourize grep output
-    alias grep='grep --color=auto'
-    # Easily list my SLURM batch jobs
-    alias jobs='squeue -u $USER'
-    # Find all entries starting with d in the output from the ls -lahrt command
-    alias ldir=’ls -lahrt | egrep "^d"’
-    ```
-    3. Save and Exit the file: <code>CTRL-x</code> (Press CTRL and hold it down while pressing x). Answer 'Y' to save. 
-    4. Next time you start a shell or after a new login your new alias is available. To make it available immediately, run 
-    ```bash
-    $ source ~/.bashrc
-    ``` 
-
-## Hints and tricks 
-
-This section contains some hints that might make working with Linux easier. 
-
-### Short-cuts on the CLI
-
-CTRL-SOMEKEY refers to pressing down the CTRL key and then another key while continuing to hold down CTRL. 
-
-Examples: 
-
-- **CTRL-a**: Go to the beginning of the line
-- **CTRL-e**: Go to the end of the line
-- **CTRL-l**: Clear the terminal
-- **TAB**: Auto-complete (i.e. start write a command or file name and then press TAB to auto-complete, if possible)
-- **ARROW-UP**: Pressing the arrow-up key repeatedly will let you cycle through recent commands
-- **CTRL-r**: you will get a prompt to write text to search in the list of recent commands. The list is saved in <code>.bash.history</code> in your $HOME. 
-
-### Misc
-
-- Write 'clear' to clear the terminal
-- write 'history' to see a list of the most recent commands written in the terminal
-    - You can change the number of saved commands by setting the environment variable HISTSIZE in your <code>.bashrc file</code> in your home directory. 
-    - Example: Open <code>.bashrc</code> with <code>nano</code>. Somewhere (at the end for instance) add: <code>export HISTSIZE=NUMBER"</code> where <code>NUMBER</code> is the number of commands to save, for instance 10000. 
-- <code>man PROGRAM</code> will give you the manual for a specific program or command, if it exists
-    - Example: <code>man gcc</code> will give open manual/help for the compiler <code>gcc</code>, containing flags to the compiler etc. **Note** that you need to first load a module that has gcc in. 
-
-## Linux Cheat Sheet
-
-written by P. Ojeda. 
-
-[PDF version](../../files/linux_cheat_sheet_Oct2015_edit.pdf) 
-
-The below is the same content as in the PDF file, but with minor changes/updates by B. Brydsö. 
-
-**Miscellaneous**
-
-| Command | Effect | &boxv; | Command | Effect |
-| ------- | ------ | - | - | - | 
-| ls | List files in current directory | &boxv; | less FILE | See the content of file FILE | 
-| ls -lah | List files in human readable format | &boxv; | vim FILE | Edit FILE with vim |
-| cd /dir | Change to the directory “dir” | &boxv; | whereis data | Prints out the location of “data” | 
-| pwd | Your current PATH | &boxv; | tar -cvzf file.tgz FILE | Pack and compress “FILE” | 
-| rm FILE | Delete FILE | &boxv; | gunzip file.tgz | Uncompress “file.tgz” | 
-| rm -rf DIR | Delete directory DIR | &boxv; | tar -xvf file.tar | Unpack “file.tar” | 
-
-**Wildcards** 
-
-| Wildcard | Meaning | 
-| -------- | ------- | 
-| * | Means zero or any number of characters. Ex. File* could be File, File2, Fileuiwie, ... | 
-| ? | Means only one character. Ex. File? could be File1, Filex, Fileh, but not File22 | 
-| [] | Means a range of characters. Ex. File[1-3] could be File1, File2, File3 | 
-
-**grep**
-
-| Command | Meaning | 
-| ------- | ------- | 
-| grep 'word' file | Search for the pattern 'word' in 'file' |
-| grep -rine 'word' home | Search for the pattern 'word' recursively in the directory /home | 
-
-**find** 
-
-| Command | Meaning |
-| ------- | ------- |
-| find /home -name '*.dat' | Find the files in the directory home ending in '.dat' |
-| find /home -mtime +60 | Find every file in /home that was modified more than 60 days ago | 
-
-**pipes** 
-
-| Command | Meaning | 
-| ------- | ------- | 
-| \| | Take the output of one command as the input of another. Ex. ls | grep 'word' | 
-
-**Secure copy protocol** 
-
-| Command | Effect | 
-| ------- | ------ | 
-| scp file user123@kebnekaise.hpc2n.umu.se:/home/u/user123/ | Copy “file” to the home directory of the user “user123” | 
-
-**Note: vim commands are in ESC mode** 
-
-| Bash shortcuts | Meaning | &boxv; | vim commands | Meaning | 
-| -------------- | ------- | ------ | ------------ | ------- | 
-| ctrl+r | Make a reverse search | &boxv; | :w file.txt | Save file.txt | 
-| ctrl+a | Go to the beginning of the line | &boxv; | :q! | Exit without saving |
-| ctrl+e | Go to the end of the line | &boxv; | :%s/pat1/pat2/g | Replace pattern “pat1” by “pat2” | 
-| ctrl+w | Delete the previous word | &boxv; | ctrl+v | Start selection | 
-| ctrl+k | Delete words after cursor | &boxv; | dd | Delete line | 
-| ctrl+u | Delete current line | &boxv; | x | Delete character |
-| ctrl+l | Clean terminal | &boxv; | r | Replace character | 
-
-**awk**
-
-| Command | Meaning | 
-| ------- | ------- | 
-| awk '/gold/ {print $1}' coins.txt | Search for pattern “gold” in the file coins.txt and print first column | 
-
-**Batch jobs** 
-
-| Command | Effect | 
-| ------- | ------ | 
-| sbatch job.sh | Launch “job.sh” to the queue | 
-| squeue -u user123 | Check the jobs from the user “user123" | 
-| scancel JOBID | Remove the job with id “JOBID” from the queue | 
-| squeue -f JOBID | Check the details about the job with id “JOBID” | 
-
-**sshfs**
-
-| Command | Meaning | 
-| ------- | ------- | 
-| sshfs user123@kebnekaise.hpc2n.umu.se /dir1/ /local/dir2 | Mount /dir1 (on Quarry) into your /local/dir2 | 
-| fusermount -u /local/dir2 | Unmount the /local/dir2 | 
-
