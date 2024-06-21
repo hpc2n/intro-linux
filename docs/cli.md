@@ -18,7 +18,7 @@ The picture above shows a terminal window where I am logged into Kebnekaise (fro
 
 !!! Warning 
 
-    You will find that many/most commands in this tutorial are prefaced with either <code>\$</code> or <code>b-an01 [~]\$</code>, or something like <code>b-an01 [~/mytestdir/testdir1]\$</code>. 
+    You will find that many/most commands in this course are prefaced with either <code>\$</code> or <code>b-an01 [~]\$</code>, or something like <code>b-an01 [~/mytestdir/testdir1]\$</code>. 
 
     This is the prompt from the computer system, where <code>\$</code> just is the default (<code>bash</code>) prompt, and the others are an example of a prompt you would see when logged into a compute cluster (in this case Kebnekaise - home directory versus a sub directory that in this case is named <code>testdir/testdir1</code>).
 
