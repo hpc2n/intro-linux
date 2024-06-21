@@ -40,7 +40,8 @@ nav:
   - Hints and tricks: hints.md
   - Exercises: exercises.md
   - Summary: summary.md
-
+  - Extras 
+      - Install tree: tree.md
 plugins:
   - search
   - external-markdown
