@@ -1,6 +1,6 @@
 # The command line
 
-![Terminal](images/terminal.png){: style="width: 400px;float: right"}
+![Terminal](images/terminal.png){: style="width: 400px;float: right;padding: 3px;}
 
 The command line is an interface for typing commands directly to a computer's operating system. It is a user interface that is navigated only with the keyboard, by typing commands at a prompt, instead of by clicking with a mouse or similar. 
 

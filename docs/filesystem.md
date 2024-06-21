@@ -358,7 +358,7 @@ Pipes are used when you want to take the output of one command and use it as inp
 
 Here follows some examples: 
 
-**HINT: try the examples!** You need a file <code>file.txt</code> for the examples. Either create a suitable one with some instances of the word string, or download (right-click and save): <a href="file.txt">file.txt</a> 
+**HINT: try the examples!** You need a file <code>file.txt</code> for the examples. Either create a suitable one with some instances of the word string, or download (right-click and save): <a href="../file.txt">file.txt</a> 
 
 !!! Example "Find the instances of the word 'string' in file.txt and count them"
 
