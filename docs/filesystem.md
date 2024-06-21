@@ -412,12 +412,12 @@ The variables can both be used in scripts and on the command line. Usually you r
 
     This is how you set the environment variable VARIABLE to value: 
 
-    === "For the <code>bash</code> shell"
+    For the <code>bash</code> shell
         ```bash
         export VARIABLE=value
         ```
 
-    === "For <code>csh</code> and related shells"
+    For <code>csh</code> and related shells
         ```bash
         setenv VARIABLE value
         ```
