@@ -4,9 +4,10 @@
    
    Here you will find the content of the workshop "Introduction to Linux". 
    
-   - Documentation at the HPC centres 
+   - Documentation about Linux at the Swedish HPC centres 
       - HPC2N: https://docs.hpc2n.umu.se/tutorials/linuxguide/
-      - UPPMAX: 
+      - UPPMAX: https://docs.uppmax.uu.se/getting_started/linux/
+      -  
 
 !!! note "Prerequisites"
 
@@ -28,7 +29,7 @@
    - The course is a cooperation between UPPMAX (Rackham, Snowy, Bianca) and HPC2N (Kebnekaise) and will focus on the compute systems at both centres. 
 ```
 
-# Preliminary schedule
+## Preliminary schedule
 
 
 ```{list-table} Preliminary schedule
