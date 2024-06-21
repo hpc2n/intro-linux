@@ -187,6 +187,10 @@ This section will look at finding patterns ([grep](#grep), [awk](#awk), [wild ca
 
 Here you will find descptions on how to search for files with specific patterns. 
 
+!!! Hint 
+
+    Try out some of these examples. You can use the contents of the tarball <a href="../patterns.tar.gz">patterns.tar.gz</a> to play with. (Right-click and save to download. <code>tar zxvf patterns.tar.gz</code> to unpack. 
+
 #### grep 
 
 This command searches for patterns in text files.
