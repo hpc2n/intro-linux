@@ -59,8 +59,8 @@ The picture above shows a terminal window where I am logged into Kebnekaise (fro
     mkdir MYDIR
     ```
 
-   List your files and directories again: 
-   ```bash
-   ls
-   ```
+    List your files and directories again: 
+    ```bash
+    ls
+    ```
  

@@ -41,7 +41,7 @@ There are a large number of Linux distributions, as anyone can create their own 
 
 Examples of popular Linux distros are: Ubuntu, Debian, Fedora, CentOS, Slackware, Gentoo, Arch, Mint, and many others. 
 
-!! NOTE
+!!! NOTE
 
     Many distros can be downloaded and put on a bootable USB, so you can try them out before deciding.
 
@@ -101,9 +101,12 @@ The prompts that you type on the terminal are called "commands". The terminal is
 
 There are several applications that can be used to access the command line, so it will vary how it looks, but it is usually a simple window (commonly white or green on black background or black on white background). 
 
-![Terminal](images/terminal.png){: style="width: 350px; float: left;"}
+![Terminal](images/terminal.png){: style="width: 380px; float: left; padding: 3px;"}
 
-Using commands on a command line interface is something many people find the most intimidating thing about Linux. However, while the command line is an integral part of using Linux, and some actions may be faster or more direct when done on the command line, most things can actually be done through a Graphical User Interface (GUI). 
+Using commands on a command line interface is something many people find to be the most intimidating thing about Linux. 
+
+However, while the command line is an integral part of using Linux, and some actions may be faster or more direct when done on the command line, most things can actually be done through a Graphical User Interface (GUI). 
+<br><br style="clear: both;">
 
 ## Command line interface (CLI), terminal 
 
