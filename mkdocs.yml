@@ -41,7 +41,7 @@ nav:
   - Exercises: exercises.md
   - Summary: summary.md
   - Extras 
-      - Install tree: tree.md
+    - Install tree: tree.md
 plugins:
   - search
   - external-markdown
