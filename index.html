@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Material for the course Introduction to Linux" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Introduction to Linux</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/intro-linux/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".">
+          <img src="images/hpc2n-blue-text.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#preliminary__schedule">Preliminary schedule</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="linux/">Linux terminology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="editors/">Editors</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="data/">Data Handling</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="linux-terms/">More Linux terms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="welcome__to__the__course__introduction__to__linux">Welcome to the course: Introduction to Linux<a class="headerlink" href="#welcome__to__the__course__introduction__to__linux" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">This material</p>
+<p>Here you will find the content of the workshop &ldquo;Introduction to Linux&rdquo;. </p>
+<ul>
+<li>Documentation about Linux at some of the Swedish HPC centres <ul>
+<li>HPC2N: https://docs.hpc2n.umu.se/tutorials/linuxguide/</li>
+<li>UPPMAX: https://docs.uppmax.uu.se/getting_started/linux/</li>
+<li>LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/guides/linux/linux_basics_intro/ </li>
+<li>PDC: https://www.pdc.kth.se/support/documents/basics/introduction.html#basic-linux-for-new-hpc-users</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Prerequisites</p>
+<ul>
+<li>You need access to a Linux system. </li>
+<li>The course project will be on Tetralith, but you can use your own computer or any other computer you have access to that runs Linux. </li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Content</p>
+</div>
+<ul>
+<li>This NAISS course aims to give a brief, but comprehensive introduction to the Linux operating system.</li>
+<li>You will learn about<ul>
+<li>Linux terminology</li>
+<li>the command line</li>
+<li>navigating the file system</li>
+<li>editors on the Linux system </li>
+<li>data handling</li>
+<li>some handy hints and tricks </li>
+</ul>
+</li>
+<li>This course will consist of lectures and type-alongs, as well as a few exercises where you get to try out what you have just learned.    </li>
+</ul>
+<div class="admonition admonition">
+<p class="admonition-title">Cluster-specific approaches</p>
+<p>The course is given by HPC2N (Kebnekaise), but will be done under NAISS on the NAISS system &ldquo;Tetralith&rdquo;.  </p>
+</div>
+<h2 id="preliminary__schedule">Preliminary schedule<a class="headerlink" href="#preliminary__schedule" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Topic</th>
+<th>Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9:00</td>
+<td>Welcome+Syllabus</td>
+<td></td>
+</tr>
+<tr>
+<td>9:10</td>
+<td>Introduction to Linux</td>
+<td>Lecture</td>
+</tr>
+<tr>
+<td>9:15</td>
+<td>Linux terminology</td>
+<td>Lecture</td>
+</tr>
+<tr>
+<td>9:25</td>
+<td>The command line (CLI)</td>
+<td>Lecture+code along</td>
+</tr>
+<tr>
+<td>9:35</td>
+<td>The file system</td>
+<td>Lecture+code along</td>
+</tr>
+<tr>
+<td>10:05</td>
+<td>Editors</td>
+<td>Lecture+code along</td>
+</tr>
+<tr>
+<td>10:15</td>
+<td>Data handling</td>
+<td>Lecture+code along</td>
+</tr>
+<tr>
+<td>10:40</td>
+<td>Hints and tricks</td>
+<td>Lecture+code along</td>
+</tr>
+<tr>
+<td>10:50</td>
+<td>Exercises</td>
+<td></td>
+</tr>
+<tr>
+<td>10:55</td>
+<td>Summary</td>
+<td></td>
+</tr>
+<tr>
+<td>11:00</td>
+<td>END</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="intro/" class="btn btn-neutral float-right" title="Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="intro/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="assets/_markdown_exec_pyodide.js"></script>
+      <script src="search/main.js"></script>
+      <script src="js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.0
+Build Date UTC : 2024-06-22 14:45:13.007708+00:00
+-->

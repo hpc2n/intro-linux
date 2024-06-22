@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/linux-terms/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>More Linux terms - Introduction to Linux</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="../assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "More Linux terms";
+        var mkdocs_page_input_path = "linux-terms.md";
+        var mkdocs_page_url = "/intro-linux/linux-terms/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/hpc2n-blue-text.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux terminology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../editors/">Editors</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../data/">Data Handling</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">More Linux terms</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#process">Process</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#shells">Shells</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#shell__scripting">Shell Scripting</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file__system">File system</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gnu">GNU</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#advanced">Advanced</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bootloader__grub">Bootloader, grub</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#encryption">Encryption</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ip__address__internet__protocol__address">IP Address (Internet Protocol Address)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#kernel__panic">Kernel Panic</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mount">Mount</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tcpip__transmission__control__protocolinternet__protocol">TCP/IP (Transmission Control Protocol/Internet Protocol)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uefi__unified__extensible__firmware__interface">UEFI (Unified Extensible Firmware Interface)</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Extras</li>
+      <li class="breadcrumb-item active">More Linux terms</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="more__linux__terminology">More Linux terminology<a class="headerlink" href="#more__linux__terminology" title="Permanent link">&para;</a></h1>
+<p>This section lists some more of the most common terminology of Linux. </p>
+<p>For a more detailed list of Linux terminology, there is a link to a <a href="https://www.miralishahidi.ir/resources/Linux%20Terminology%20Glossary.pdf" target="_blanket">Glossary of Linux Terms</a>. </p>
+<h2 id="process">Process<a class="headerlink" href="#process" title="Permanent link">&para;</a></h2>
+<p>Each program you start on your system will run a number of processes in the background. A <code>process</code> is the instance of a running program which does the computation. It is the allocation of memory for the program as well as a thread for execution. </p>
+<div class="admonition example">
+<p class="admonition-title">Examples that launches a process or a set of processes</p>
+<ul>
+<li>You start a program, maybe a game</li>
+<li>You start your web browser</li>
+<li>You open a new tab in your web browser</li>
+<li>You run a command in a terminal </li>
+</ul>
+</div>
+<p>All programs depends on processes to run and produce output. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>In Linux a <code>process</code> refers to a running instance of a program or command. </li>
+<li>Each process has a unique process ID (PID)</li>
+<li>Each process also has associated system resources (memory, file descriptors, etc)</li>
+<li>There are robust process management capabilities. Users can start, terminate, monitor processes, control their execution, manage system resources</li>
+</ul>
+</div>
+<h2 id="shells">Shells<a class="headerlink" href="#shells" title="Permanent link">&para;</a></h2>
+<p>A Shell is a command-line interpreter which provides an interface for users to interact with the operating system. </p>
+<p>There are several different shells: Bash (Bourne Again Shell), C Shell, Korn Shell, and Zsh, etc. </p>
+<p>Shells allow users to: 
+- execute commands
+- run scripts
+- perform system operations</p>
+<p>Shells provide features like: 
+- command history
+- input/output redirection
+- variables
+- control structures</p>
+<p>The two main &ldquo;families&rdquo; of shells are C-shell and Bourne shell.  </p>
+<ul>
+<li><strong>csh</strong>: The C shell (csh or the improved version, tcsh) is a Unix shell created by Bill Joy while he was a graduate student at University of California, Berkeley in the late 1970s. The C shell is a command processor which is typically run in a text window, allowing the user to type and execute commands. The C shell can also read commands from a file, called a script. The style of the shell script language resembles C. </li>
+<li><strong>tcsh</strong>: a Unix shell based on and backward compatible with the C shell (csh). It is essentially the C shell with programmable command-line completion, command-line editing, and a few other features. Unlike the other common shells, functions cannot be defined in a tcsh script and the user must use aliases instead (as in csh).</li>
+<li><strong>sh</strong>: The Bourne shell (sh) is a shell command-line interpreter for computer operating systems, developed by Stephen Bourne at Bell Labs. It is used as an interactive command interpreter, but was also intended as a scripting language and contains most of the features that are commonly considered to produce structured programs. </li>
+<li><strong>bash</strong>: (Bourne Again Shell). It provides a command-line interface for interacting with the operating system and executing commands. Bash offers features like command history, tab completion, scripting capabilities, and extensive support for shell scripting, making it a powerful tool for system administration and automation.</li>
+<li><strong>ksh</strong>: KornShell. It is a Unix shell which was developed by David Korn at Bell Labs in the early 1980s. KornShell is backward-compatible with the Bourne shell and includes many features of the C shell, inspired by the requests of Bell Labs users. </li>
+<li><strong>zsh</strong>: The Z shell (Zsh) is a Unix shell that can be used as an interactive login shell and as a command interpreter for shell scripting. Zsh is an extended Bourne shell with many improvements, including some features of Bash, ksh, and tcsh. </li>
+</ul>
+<p>Bash and tcsh are probably the most &ldquo;popular&rdquo; of the shells. </p>
+<h3 id="shell__scripting">Shell Scripting<a class="headerlink" href="#shell__scripting" title="Permanent link">&para;</a></h3>
+<p>A shell script is a computer program designed to be run by a Unix shell, a command-line interpreter.</p>
+<p>When you write several Linux commands and place them together in a single file, the resulting file is called a &ldquo;shell script.&rdquo; </p>
+<p>Shell scripting is the process of writing scripts using Linux commands, which are then interpreted by the shell installed on your system. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Windows equivalent to shell scripts are &ldquo;batch scripts&rdquo;. Do NOT confuse these with the batch scripts used by batch systems! </p>
+</div>
+<p>The most popular shell scripting language is Bash scripting - this means writing and executing scripts using the Bash shell. </p>
+<h2 id="file__system">File system<a class="headerlink" href="#file__system" title="Permanent link">&para;</a></h2>
+<p>A file system provides a data storage service that allows applications to share mass storage. Without a file system, applications could access the storage in incompatible ways that lead to resource contention, data corruption and data loss.</p>
+<p>A File System is a method or structure the operating system uses to organize and store files on disk or other storage devices. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Linux supports several different file systems, including ext4, XFS, Btrfs, and NTFS. These file systems has different features, performance characteristics, and compatibility with other operating systems. </p>
+</div>
+<h2 id="gnu">GNU<a class="headerlink" href="#gnu" title="Permanent link">&para;</a></h2>
+<p>GNU is an extensive collection of free software, which can be used as an operating system or can be used in parts with other operating systems. The use of the completed GNU tools led to the family of operating systems popularly known as Linux. Most of GNU is licensed under the GNU Project&rsquo;s own General Public License.i</p>
+<p>GNU is a recursive acronym for &ldquo;GNU&rsquo;s Not Unix&rdquo;.</p>
+<p>The Linux kernel is licensed under GNU&rsquo;s GPL (General Public License) and is thus known as GNU/Linux. Any operating system developed using the open-source GNU tools and the Linux kernel falls under the category of Linux distributions. </p>
+<h2 id="advanced">Advanced<a class="headerlink" href="#advanced" title="Permanent link">&para;</a></h2>
+<p>There are many other terms which you may come across when reading about Linux. These are a few of them. </p>
+<h3 id="bootloader__grub">Bootloader, grub<a class="headerlink" href="#bootloader__grub" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A bootloader is a program responsible for booting your computer. </p>
+</div>
+<p>When a computer is turned off, its software - including the operating systems, application code, and data - remains stored on non-volatile memory. </p>
+<p>The computer normally does not have an operating system or its loader in random-access memory (RAM) when it is powered on. </p>
+<p>First the computer executes a small program (the boot loader) stored in read-only memory (ROM) along with some needed data, to initialize RAM, to access the nonvolatile device (storage system like HDD) or devices from which the operating system programs and data can be loaded into RAM. </p>
+<p>GRUB is one of the most used bootloaders, including when dual-booting Windows with Linux. Other examples include LILO, BURG, and Syslinux.</p>
+<h2 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link">&para;</a></h2>
+<p>Encryption scrambles data into a secure and unreadable form so it can only be accessed by authorized parties. </p>
+<p>Linux provides encryption to secure data, both during transmission and on the system. This is done through encrypted file systems, disk encryption, and network encryption. </p>
+<h2 id="ip__address__internet__protocol__address">IP Address (Internet Protocol Address)<a class="headerlink" href="#ip__address__internet__protocol__address" title="Permanent link">&para;</a></h2>
+<p>(Much of this section was taken from Wikipedia) </p>
+<p>An Internet Protocol address (IP address) is a unique numerical label that is assigned to every device that is connected to a network. </p>
+<p>IP addresses in Linux are used for: 
+- network configuration
+- routing
+- device communication</p>
+<p>IP addresses can either be assigned manually (static IP address) or dynamically (DHCP). They are crucially important in establishing network connections and enabling internet connectivity.</p>
+<p>Two versions of the Internet Protocol are in common use on the Internet today:
+- The original version of the Internet Protocol (deployed in 1983 in the ARPANET) is Internet Protocol version 4 (IPv4). 
+    - An IPv4 address has a size of 32 bits, which limits the address space to 4294967296 (232) addresses. Some addresses are reserved for special purposes such as private networks (≈18 million addresses) and multicast addressing (≈270 million addresses).
+    - IPv4 addresses are usually represented in dot-decimal notation, consisting of four decimal numbers, each ranging from 0 to 255, separated by dots, e.g., 192.0.2.1. Each part represents a group of 8 bits (an octet) of the address.<br />
+- The Internet Protocol Version 6 (IPv6) was developed in 1995. IPv6 technology was in various testing stages until the mid-2000s when commercial production deployment commenced. 
+    - In IPv6, the address size was increased from 32 bits in IPv4 to 128 bits, thus providing up to 2128 (approximately 3.403×1038) addresses. This is deemed sufficient for the foreseeable future. </p>
+<h2 id="kernel__panic">Kernel Panic<a class="headerlink" href="#kernel__panic" title="Permanent link">&para;</a></h2>
+<p>Kernel Panic is a critical error condition in the Linux kernel. When this happens it cannot continue operating safely. The reason for it happening is usually severe software or hardware issues, such as: a corrupted kernel, hardware failure, or incompatible drivers. </p>
+<p>The system halts when there is a kernel panic. An error message is displayed, and a manual reboot needs to be done. </p>
+<p>Kernel panics happen quite rarely, but are something that gives cause for concernt and needs to be investigated so the cause can be found and resolved. </p>
+<h2 id="mount">Mount<a class="headerlink" href="#mount" title="Permanent link">&para;</a></h2>
+<p>Mounting means to attach a file system to a specific directory location in the Linux file hierarchy. This causes the contents of the file system to become accessible to the operating system and the users. </p>
+<p>When a device (local or network) has been mounted, Linux will behave as if it is a part of the file system. That means users can access and manipulate directories and files of that location. </p>
+<h2 id="tcpip__transmission__control__protocolinternet__protocol">TCP/IP (Transmission Control Protocol/Internet Protocol)<a class="headerlink" href="#tcpip__transmission__control__protocolinternet__protocol" title="Permanent link">&para;</a></h2>
+<p>TCP/IP 
+- is the fundamental communication protocol suite used for network communication in Linux and the internet. 
+- provides a reliable and standardized set of protocols that enable data transmission between devices. 
+- is the backbone of network communication, letting the devices talk to each other and exchange data. </p>
+<p>TCP ensures reliable delivery of data and IP handles addressing and routing of data packets. </p>
+<h2 id="uefi__unified__extensible__firmware__interface">UEFI (Unified Extensible Firmware Interface)<a class="headerlink" href="#uefi__unified__extensible__firmware__interface" title="Permanent link">&para;</a></h2>
+<p>UEFI is
+- a modern firmware interface
+- replaces the traditional BIOS (Basic Input/Output System) 
+- provides advanced boot and system initialization capabilities
+- supports large disk sizes
+- offers additional security features. 
+- can be used by Linux systems for booting and initialization of hardware. </p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../tree/" class="btn btn-neutral float-left" title="Install tree"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cheat/" class="btn btn-neutral float-right" title="Linux cheat sheet">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../tree/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../cheat/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/_markdown_exec_pyodide.js"></script>
+      <script src="../search/main.js"></script>
+      <script src="../js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
