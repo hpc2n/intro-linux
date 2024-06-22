@@ -22,6 +22,7 @@
       - Linux terminology
       - the command line
       - navigating the file system
+      - editors on the Linux system 
       - data handling
       - some handy hints and tricks 
    - This course will consist of lectures and type-alongs, as well as a few exercises where you get to try out what you have just learned.    
@@ -39,7 +40,8 @@
 | 9:10 | Introduction to Linux | Lecture | 
 | 9:15 | Linux terminology | Lecture | 
 | 9:25 | The command line (CLI) | Lecture+code along | 
-| 9:35 | The file system | Lecture+code along | 
+| 9:35 | The file system | Lecture+code along |
+| 10:05 | Editors | Lecture+code along|  
 | 10:15 | Data handling | Lecture+code along | 
 | 10:40 | Hints and tricks | Lecture+code along | 
 | 10:50 | Exercises | |

@@ -36,11 +36,13 @@ nav:
   - Linux terminology: linux.md
   - The command line (CLI): cli.md
   - The File System: filesystem.md
+  - Editors: editors.md
   - Data Handling: data.md
   - Hints and tricks: hints.md
   - Summary: summary.md
   - Extras: 
     - Install tree: tree.md
+    - More Linux terms: linux-terms.md
     - Linux cheat sheet: cheat.md
 plugins:
   - search
