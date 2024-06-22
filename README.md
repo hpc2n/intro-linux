@@ -12,7 +12,7 @@ Materials: Clone this repo or download a zip of the material (click the green "C
 
 Lecture recordings: TBA
 
-**Lecture recordings from the current course will be posted to HPC2N's YouTube page: https://www.youtube.com/user/HPC2N
+**Lecture recordings from the current course will be posted to HPC2N's YouTube page:** https://www.youtube.com/user/HPC2N
 
 Date: 16 September 2024
 
