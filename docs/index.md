@@ -5,10 +5,10 @@
     Here you will find the content of the workshop "Introduction to Linux". 
    
     - Documentation about Linux at some of the Swedish HPC centres 
-        - HPC2N: https://docs.hpc2n.umu.se/tutorials/linuxguide/
-        - UPPMAX: https://docs.uppmax.uu.se/getting_started/linux/
-        - LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/guides/linux/linux_basics_intro/ 
-        - PDC: https://www.pdc.kth.se/support/documents/basics/introduction.html#basic-linux-for-new-hpc-users
+        - HPC2N: <a href="https://docs.hpc2n.umu.se/tutorials/linuxguide/" target="_blank">https://docs.hpc2n.umu.se/tutorials/linuxguide/</a>
+        - UPPMAX: <a href="https://docs.uppmax.uu.se/getting_started/linux/" target="_blank">https://docs.uppmax.uu.se/getting_started/linux/</a>
+        - LUNARC: <a href="https://lunarc-documentation.readthedocs.io/en/latest/guides/linux/linux_basics_intro/" target="_blank">https://lunarc-documentation.readthedocs.io/en/latest/guides/linux/linux_basics_intro/</a>
+        - PDC: <a href="https://www.pdc.kth.se/support/documents/basics/introduction.html#basic-linux-for-new-hpc-users" target="_blank">https://www.pdc.kth.se/support/documents/basics/introduction.html#basic-linux-for-new-hpc-users</a> 
 
 !!! note "Prerequisites"
 
@@ -39,7 +39,7 @@
 | Time | Topic | Activity | 
 | ---- | ----- | -------- |
 | 9:00 | Welcome+Syllabus | |
-| 9:10 | Introduction to Linux | Lecture | 
+| 9:05 | Introduction to Linux | Lecture | 
 | 9:15 | Linux terminology | Lecture | 
 | 9:25 | The command line (CLI) | Lecture+code along | 
 | 9:35 | The file system | Lecture+code along |
