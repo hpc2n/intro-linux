@@ -14,6 +14,7 @@
 
     - You need access to a Linux system. 
     - The course project will be on Tetralith, but you can use your own computer or any other computer you have access to that runs Linux. 
+        - For those using Tetralith, there is a <a href="https://www.nsc.liu.se/support/getting-started/" target="_blank">Get started guide for NSC here</a>. 
 
 !!! note "Content"
 
@@ -26,10 +27,11 @@
       - data handling
       - some handy hints and tricks 
    - This course will consist of lectures and type-alongs, as well as a few exercises where you get to try out what you have just learned.    
+   - It is the first instance of this course, so we will be grateful if you will fill the evaluation survey so we can improve the course: <a href="https://forms.office.com/e/n2ss7F4h3C" target="_blank">https://forms.office.com/e/n2ss7F4h3C</a>. 
 
 !!! admonition "Cluster-specific approaches"
 
-    The course is given by HPC2N (Kebnekaise), but will be done under NAISS on the NAISS system "Tetralith".  
+    The course is given by HPC2N (Kebnekaise), but will be done under NAISS on the NAISS system "Tetralith". There is a <a href="https://www.nsc.liu.se/support/getting-started/" target="_blank">Get started guide for NSC here</a>.   
 
 ## Preliminary schedule
 
