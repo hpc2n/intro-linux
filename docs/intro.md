@@ -38,6 +38,8 @@ Linux is typically packaged as a Linux distribution, which includes the kernel a
 
 In addition, a windowing system of some sort (X11, Wayland) interfaces directly with the underlying operating system and libraries, providing support for graphical hardware, pointing devices, and keyboards. The window manager generally runs on top of this windowing system.
 
+![how-os-diagram](images/how-os-diagram.png){: style="width: 400px;float: right;padding: 3px;}
+
 While the use of Linux on desktop is only 2-3%, the vast majority of web servers (>96%), most mobile devices (Android is based on the Linux kernel), and all supercomputers on the <a href="https://en.wikipedia.org/wiki/TOP500" target="_blank">Top500</a> list run Linux.
 
 ## More information 

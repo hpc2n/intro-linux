@@ -45,7 +45,7 @@ Examples of popular Linux distros are: Ubuntu, Debian, Fedora, CentOS, Slackware
 
     Many distros can be downloaded and put on a bootable USB, so you can try them out before deciding.
 
-Any operating system that uses the Linux kernel is called a Linux distribution ("distro"). The reason for that name comes from <u>sharing</u>, or <u>distributing</u>  the Linux OS for free.
+Any operating system that uses the Linux kernel is called a Linux distribution ("distro"). The reason for that name comes from <u>sharing</u>, or <u>distributing</u>  the Linux OS (usually for free).
 
 Aside from distributions, developers make customized versions of the various "mainstream" Linux distributions. These are called <u>remixes</u>, flavours, and <u>spins</u>. Often the differences are choices of packages, desktop environments, etc. There is no hard difference between calling the customized versions remixes, flavours, or spins - it is mainly a choice. 
 
