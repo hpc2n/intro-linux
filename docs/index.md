@@ -15,19 +15,6 @@
     - You need access to a Linux system. 
     - The course project will be on Tetralith, but you can use your own computer or any other computer you have access to that runs Linux. 
         - For those using Tetralith, there is a <a href="https://www.nsc.liu.se/support/getting-started/" target="_blank">Get started guide for NSC here</a>. 
-        - The login node for Tetralith is ``tetralith.nsc.liu.se``. 
-        - It looks like this when I login the first time from my computer "defiant":
-        ```bash
-        bbrydsoe@defiant:~$ ssh x_bibr@tetralith.nsc.liu.se
-        The authenticity of host 'tetralith.nsc.liu.se (2001:6b0:17:140::1:10)' can't be established.
-        ECDSA key fingerprint is SHA256:dwFmOFzy59e+OdZmMLAW3fj+GeMGACYwjPgc7LKZgSU.
-        Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-        Warning: Permanently added 'tetralith.nsc.liu.se,2001:6b0:17:140::1:10' (ECDSA) to the list of known hosts.
-        Password: 
-        Verification code: 
-        ```
-        - The verification code it askes about is a 2FA that you need to set. See here: <a href="https://www.nsc.liu.se/support/2fa/" target="_blank">https://www.nsc.liu.se/support/2fa/</a>.
-        - The project storage for the course project is in ``/proj/intro-linux/users/YOUR-USERNAME``. 
 
 !!! note "Content"
 
@@ -45,6 +32,20 @@
 !!! admonition "Cluster-specific approaches"
 
     The course is given by HPC2N (Kebnekaise), but will be done under NAISS on the NAISS system "Tetralith". There is a <a href="https://www.nsc.liu.se/support/getting-started/" target="_blank">Get started guide for NSC here</a>.   
+
+    - The login node for Tetralith is ``tetralith.nsc.liu.se``.
+    - It looks like this when I login the first time from my computer "defiant":
+    ```bash
+    bbrydsoe@defiant:~$ ssh x_bibr@tetralith.nsc.liu.se
+    The authenticity of host 'tetralith.nsc.liu.se (2001:6b0:17:140::1:10)' can't be established.
+    ECDSA key fingerprint is SHA256:dwFmOFzy59e+OdZmMLAW3fj+GeMGACYwjPgc7LKZgSU.
+    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+    Warning: Permanently added 'tetralith.nsc.liu.se,2001:6b0:17:140::1:10' (ECDSA) to the list of known hosts.
+    Password:
+    Verification code:
+    ```
+    - The verification code it askes about is a 2FA that you need to set. See here: <a href="https://www.nsc.liu.se/support/2fa/" target="_blank">https://www.nsc.liu.se/support/2fa/</a>.
+    - The project storage for the course project is in ``/proj/intro-linux/users/YOUR-USERNAME``.
 
 ## Preliminary schedule
 
