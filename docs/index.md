@@ -26,7 +26,8 @@
         Password: 
         Verification code: 
         ```
-        - The verification code it askes about is a 2FA that you need to set. See here: <a href="https://www.nsc.liu.se/support/2fa/" target="_blank">https://www.nsc.liu.se/support/2fa/</a>. 
+        - The verification code it askes about is a 2FA that you need to set. See here: <a href="https://www.nsc.liu.se/support/2fa/" target="_blank">https://www.nsc.liu.se/support/2fa/</a>.
+        - The project storage for the course project is in ``/proj/intro-linux/users/YOUR-USERNAME``. 
 
 !!! note "Content"
 
