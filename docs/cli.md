@@ -2,6 +2,8 @@
 
 ![Terminal](images/terminal.png){: style="width: 400px;float: right;padding: 3px;}
 
+The picture above shows a terminal window where I am logged into Kebnekaise (from my desktop defiant). 
+
 The command line is an interface for typing commands directly to a computer's operating system. It is a user interface that is navigated only with the keyboard, by typing commands at a prompt, instead of by clicking with a mouse or similar. 
 
 The Command Line Interface (CLI) is available in all operating systems, including Windows, Linux and macOS, but it is most commonly associated with Linux. 
@@ -12,9 +14,7 @@ The Command Line Interface (CLI) is available in all operating systems, includin
 
 The opposite of a <code>CLI</code> is a <code>GUI</code> (Graphical User Interface), which generally uses a mouse or similar for navigating. 
 
-Command line interfaces often gives access to many more capabilities than the graphical user interface does, and it is also practical and normally faster in situations where you login with a terminal on a remote system, like Kebnekaise. 
-
-The picture above shows a terminal window where I am logged into Kebnekaise (from my desktop defiant). 
+Command line interfaces often gives access to many more capabilities than the graphical user interface does, and it is also practical and normally faster in situations where you login with a terminal on a remote system, like Tetralith, or Kebnekaise as I did above. 
 
 !!! Warning 
 
