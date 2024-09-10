@@ -8,7 +8,7 @@ The Command Line Interface (CLI) is available in all operating systems, includin
 
 !!! NOTE 
 
-    In Unix or Linux, the prompt may be shown as "%" or ">" depending on the shell.
+    In Unix or Linux, the prompt may be shown as ``$``, ``%`` or ``>`` depending on the shell.
 
 The opposite of a <code>CLI</code> is a <code>GUI</code> (Graphical User Interface), which generally uses a mouse or similar for navigating. 
 
