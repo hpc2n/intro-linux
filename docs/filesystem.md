@@ -2,7 +2,7 @@
 
 This section is going to be a high-level talk about the Linux filesystem concepts, not a low-level description of filesystem types. 
 
-![Tree of dir structure](images/tree.png){: style="width: 400px;float: right"}
+![Tree of dir structure](images/tree.png){: style="width: 500px;float: right"}
 
 The Linux filesystem directory structure starts with the top root directory, which is shown as <code>/</code>. Below this are several other standard directories. Of particular interest are <code>usr/bin</code>, <code>home</code>, <code>usr/lib</code>, and <code>usr/lib64</code>. A common directory which you will also often find is <code>usr/local/bin</code>. 
 
@@ -18,7 +18,9 @@ User-installed binaries are often located in **/opt**.
 
 !!! note
 
-    If you are on a local cluster, on an HPC centre, etc. where you are not root, you will as default be in your home directory when you login. You can use ``cd ..`` a few times to go to the root of the system and do ``tree`` there if you want, or do ``tree`` in your home directory (always return there with just ``cd``). 
+    If you are on a local cluster, on an HPC centre, etc. where you are not root, you will as default be in your home directory when you login. You can use ``cd ..`` a couple times to go to the root of the system and do ``tree`` there if you want, or do ``tree`` in your home directory (always return there with just ``cd``). 
+
+    Running ``tree`` in ``/`` on a supercomuting centre will probably give a very large/long output! 
 
 ## ls - listing files/directories
 
@@ -57,47 +59,47 @@ To get more flags, type <code>ls \--help</code> or <code>man ls</code> in the te
 !!! Example "The output for a few of the flags, for a directory with two subdirectories and some files" 
 
     ```bash
-    b-an01 [~/mytestdir]$ ls
-    myfile.txt  myotherfile.dat  testdir1/	testdir2/
+    [x_birbr@tetralith1 mytestdir]$ ls
+    myfile.txt  myotherfile.txt  testdir1  testdir2
     
-    b-an01 [~/mytestdir]$ ls -a
+    [x_birbr@tetralith1 mytestdir]$ ls -a
     ./  ../  myfile.txt  myotherfile.dat  testdir1/  testdir2/
 
-    b-an01 [~/mytestdir]$ ls -l
-    total 16
-    -rw-r--r-- 1 bbrydsoe folk   90 Jun  9 14:19 myfile.txt
-    -rw-r--r-- 1 bbrydsoe folk  101 Jun  9 14:19 myotherfile.dat
-    drwxr-xr-x 2 bbrydsoe folk 4096 Jun  9 14:14 testdir1/
-    drwxr-xr-x 2 bbrydsoe folk 4096 Jun  9 14:19 testdir2/
+    [x_birbr@tetralith1 mytestdir]$ ls -l
+    total 3
+    -rw-rw-r-- 1 x_birbr x_birbr   27 Sep 11 11:43 myfile.txt
+    -rw-rw-r-- 1 x_birbr x_birbr   33 Sep 11 11:43 myotherfile.txt
+    drwxrwxr-x 2 x_birbr x_birbr 4096 Sep 11 11:40 testdir1
+    drwxrwxr-x 2 x_birbr x_birbr 4096 Sep 11 11:39 testdir2
 
-    b-an01 [~/mytestdir]$ ls -la
-    total 24
-    drwxr-xr-x  4 bbrydsoe folk  4096 Jun  9 14:19 ./
-    drwxr-xr-x 49 bbrydsoe staff 4096 Jun  9 14:10 ../
-    -rw-r--r--  1 bbrydsoe folk    90 Jun  9 14:19 myfile.txt
-    -rw-r--r--  1 bbrydsoe folk   101 Jun  9 14:19 myotherfile.dat
-    drwxr-xr-x  2 bbrydsoe folk  4096 Jun  9 14:14 testdir1/
-    drwxr-xr-x  2 bbrydsoe folk  4096 Jun  9 14:19 testdir2/
+    [x_birbr@tetralith1 mytestdir]$ ls -la
+    total 5
+    drwxrwxr-x 4 x_birbr x_birbr 4096 Sep 11 11:43 .
+    drwx------ 3 x_birbr x_birbr 4096 Sep 11 11:43 ..
+    -rw-rw-r-- 1 x_birbr x_birbr   27 Sep 11 11:43 myfile.txt
+    -rw-rw-r-- 1 x_birbr x_birbr   33 Sep 11 11:43 myotherfile.txt
+    drwxrwxr-x 2 x_birbr x_birbr 4096 Sep 11 11:40 testdir1
+    drwxrwxr-x 2 x_birbr x_birbr 4096 Sep 11 11:39 testdir2
 
-    b-an01 [~/mytestdir]$ ls -lah
-    total 24K
-    drwxr-xr-x  4 bbrydsoe folk  4.0K Jun  9 14:19 ./
-    drwxr-xr-x 49 bbrydsoe staff 4.0K Jun  9 14:10 ../
-    -rw-r--r--  1 bbrydsoe folk    90 Jun  9 14:19 myfile.txt
-    -rw-r--r--  1 bbrydsoe folk   101 Jun  9 14:19 myotherfile.dat
-    drwxr-xr-x  2 bbrydsoe folk  4.0K Jun  9 14:14 testdir1/
-    drwxr-xr-x  2 bbrydsoe folk  4.0K Jun  9 14:19 testdir2/
+    [x_birbr@tetralith1 mytestdir]$ ls -lah
+    total 5.0K
+    drwxrwxr-x 4 x_birbr x_birbr 4.0K Sep 11 11:43 .
+    drwx------ 3 x_birbr x_birbr 4.0K Sep 11 11:43 ..
+    -rw-rw-r-- 1 x_birbr x_birbr   27 Sep 11 11:43 myfile.txt
+    -rw-rw-r-- 1 x_birbr x_birbr   33 Sep 11 11:43 myotherfile.txt
+    drwxrwxr-x 2 x_birbr x_birbr 4.0K Sep 11 11:40 testdir1
+    drwxrwxr-x 2 x_birbr x_birbr 4.0K Sep 11 11:39 testdir2
 
-    b-an01 [~/mytestdir]$ ls -latr
-    total 24
-    drwxr-xr-x 49 bbrydsoe staff 4096 Jun  9 14:10 ../
-    drwxr-xr-x  2 bbrydsoe folk  4096 Jun  9 14:14 testdir1/
-    drwxr-xr-x  2 bbrydsoe folk  4096 Jun  9 14:19 testdir2/
-    -rw-r--r--  1 bbrydsoe folk    90 Jun  9 14:19 myfile.txt
-    -rw-r--r--  1 bbrydsoe folk   101 Jun  9 14:19 myotherfile.dat
-    drwxr-xr-x  4 bbrydsoe folk  4096 Jun  9 14:19 ./
+    [x_birbr@tetralith1 mytestdir]$ ls -latr
+    total 5
+    drwxrwxr-x 2 x_birbr x_birbr 4096 Sep 11 11:39 testdir2
+    drwxrwxr-x 2 x_birbr x_birbr 4096 Sep 11 11:40 testdir1
+    -rw-rw-r-- 1 x_birbr x_birbr   27 Sep 11 11:43 myfile.txt
+    -rw-rw-r-- 1 x_birbr x_birbr   33 Sep 11 11:43 myotherfile.txt
+    drwx------ 3 x_birbr x_birbr 4096 Sep 11 11:43 ..
+    drwxrwxr-x 4 x_birbr x_birbr 4096 Sep 11 11:43 .
 
-    b-an01 [~/mytestdir]$ ls *
+    [x_birbr@tetralith1 mytestdir]$ ls *
     myfile.txt  myotherfile.dat
 
     testdir1:
@@ -106,20 +108,20 @@ To get more flags, type <code>ls \--help</code> or <code>man ls</code> in the te
     testdir2:
     file1.txt  file2.txt  file3.c
 
-    b-an01 [~/mytestdir]$ cd testdir1
+    [x_birbr@tetralith1 mytestdir]$ cd testdir1
     b-an01 [~/mytestdir/testdir1]$ ls -l
-    total 16
-    -rw-r--r-- 1 bbrydsoe folk 24 Jun  9 14:16 file1.txt
-    -rw-r--r-- 1 bbrydsoe folk 52 Jun  9 14:16 file2.sh
-    -rw-r--r-- 1 bbrydsoe folk 82 Jun  9 14:17 file3.c
-    -rw-r--r-- 1 bbrydsoe folk 40 Jun  9 14:17 file4.dat
+    total 2
+    -rw-rw-r-- 1 x_birbr x_birbr 31 Sep 11 11:47 file1.txt
+    -rw-rw-r-- 1 x_birbr x_birbr 16 Sep 11 11:49 file2.sh
+    -rw-rw-r-- 1 x_birbr x_birbr 74 Sep 11 11:49 file3.c
+    -rw-rw-r-- 1 x_birbr x_birbr 25 Sep 11 11:50 file4.dat
 
-    b-an01 [~/mytestdir/testdir1]$ ls -ls
-    total 16
-    4 -rw-r--r-- 1 bbrydsoe folk 24 Jun  9 14:16 file1.txt
-    4 -rw-r--r-- 1 bbrydsoe folk 52 Jun  9 14:16 file2.sh
-    4 -rw-r--r-- 1 bbrydsoe folk 82 Jun  9 14:17 file3.c
-    4 -rw-r--r-- 1 bbrydsoe folk 40 Jun  9 14:17 file4.dat
+    [x_birbr@tetralith1 mytestdir]$ ls -ls
+    total 2
+    1 -rw-rw-r-- 1 x_birbr x_birbr 31 Sep 11 11:47 file1.txt
+    1 -rw-rw-r-- 1 x_birbr x_birbr 16 Sep 11 11:49 file2.sh
+    1 -rw-rw-r-- 1 x_birbr x_birbr 74 Sep 11 11:49 file3.c
+    1 -rw-rw-r-- 1 x_birbr x_birbr 25 Sep 11 11:50 file4.dat
     ```
 
     The "drwxr-xr-x" and "-rw-r\--r\--" are examples of permissions. The prefex d means is it a directory. A "-" means no permission for that. There are three groups: owner, group, and all. Note that “r” is for read, “w” is for write, and “x” is for execute.  
@@ -218,23 +220,35 @@ The command <code>pwd</code> tells you the current directory path.
     **HINT: Code-along!**
 
     ```bash
-    b-an01 [~]$ mkdir mytestdir
-    b-an01 [~]$ cd mytestdir/
-    b-an01 [~/mytestdir]$ mkdir testdir1
-    b-an01 [~/mytestdir]$ mkdir testdir2
-    b-an01 [~/mytestdir]$ mkdir testdir3
-    b-an01 [~/mytestdir]$ rm -rf testdir3
+    [x_birbr@tetralith1 ~]$ mkdir mytestdir
+    [x_birbr@tetralith1 ~]$ cd mytestdir/
+    [x_birbr@tetralith1 mytestdir]$ mkdir testdir1
+    [x_birbr@tetralith1 mytestdir]$ mkdir testdir2
+    [x_birbr@tetralith1 mytestdir]$ mkdir testdir3
+    [x_birbr@tetralith1 mytestdir]$ rm -rf testdir3
+    [x_birbr@tetralith1 mytestdir]$ cd testdir1
+    [x_birbr@tetralith1 testdir1]$ touch file1.txt
+    [x_birbr@tetralith1 testdir1]$ touch file2.sh
+    [x_birbr@tetralith1 testdir1]$ touch file3.c
+    [x_birbr@tetralith1 testdir1]$ touch file4.dat
+    [x_birbr@tetralith1 testdir1]$ touch file5.txt
+    [x_birbr@tetralith1 testdir1]$ rm file5.txt 
+    [x_birbr@tetralith1 testdir1]$ 
+    [x_birbr@tetralith1 testdir1]$ cd ..
+    [x_birbr@tetralith1 mytestdir]$ cd testdir2/
+    [x_birbr@tetralith1 testdir2]$ 
+    ```
+
+!!! Note
+
+    This was done on Tetralith. You will notice that only the current (subdir) is shown in the prompt. At some other centres **all** the (sub)dirs would be shown. 
+
+    Example: HPC2N
+    
+    ```bash
+    b-an01 [~]$ cd mytestdir
     b-an01 [~/mytestdir]$ cd testdir1
-    b-an01 [~/mytestdir/testdir1]$ touch file1.txt
-    b-an01 [~/mytestdir/testdir1]$ touch file2.sh
-    b-an01 [~/mytestdir/testdir1]$ touch file3.c
-    b-an01 [~/mytestdir/testdir1]$ touch file4.dat
-    b-an01 [~/mytestdir/testdir1]$ touch file5.txt
-    b-an01 [~/mytestdir/testdir1]$ rm file5.txt 
     b-an01 [~/mytestdir/testdir1]$ 
-    b-an01 [~/mytestdir/testdir1]$ cd ..
-    b-an01 [~/mytestdir]$ cd testdir2/
-    b-an01 [~/mytestdir/testdir2]$ 
     ```
 
 ## cp - copy files/directories
@@ -288,14 +302,16 @@ ln -s real-file-or-lib link-name
 !!! Example
 
     ```bash
-    ln -s /proj/nobackup/hpc2nxxxx-yyy/mydir $HOME/myproj
+    ln -s /proj/intro-linux/users/MYUSERNAME $HOME/myproj
     ```
 
-    This creates a symbolic link named "myproj" in your home directory, pointing to the location /proj/nobackup/hpc2nxxxx-yyy/mydir: 
+    This creates a symbolic link named "myproj" in your home directory, pointing to the location /proj/intro-linux/users/MYUSERNAME. The directory "intro-linux" is the project storage directory for this course project. For me, this would look like this: 
 
     ```bash
-    b-an01 [~]$ ls -l
-    lrwxrwxrwx  1 bbrydsoe folk    28 Feb  1  2023 myproj -> /proj/nobackup/hpc2nxxxx-yyy/mydir
+    [x_birbr@tetralith1 ~]$ ls -l
+    total 2
+    lrwxrwxrwx 1 x_birbr x_birbr   31 Sep 11 12:01 myproj -> /proj/intro-linux/users/x_birbr
+    drwxrwxr-x 4 x_birbr x_birbr 4096 Sep 11 11:43 mytestdir
     ```
 
 ## Redirection

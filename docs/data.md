@@ -189,23 +189,27 @@ Here you will find descptions on how to search for files with specific patterns.
 
 !!! Hint 
 
-    Try out some of these examples. You can use the contents of the tarball <a href="../patterns.tar.gz">patterns.tar.gz</a> to play with. (Right-click and save to download. <code>tar zxvf patterns.tar.gz</code> to unpack. 
+    Try out some of these examples. You can use the contents of the tarball <a href="../patterns.tar.gz">patterns.tar.gz</a> to play with. Right-click and save to download, or right-click and copy the url, then do ``wget THE-URL-YOU-COPIED`` in a terminal window to download it there. Then do <code>tar -zxvf patterns.tar.gz</code> to unpack.  
 
 #### grep 
 
-This command searches for patterns in text files.
+This command searches for patterns in text files. FILE is the name of whatever file you want to look at. The file ``fil.txt`` is a good option here if you want to test. 
 
 !!! Example "Find the pattern 'word' in FILE"
 
     ```bash
-    grep ’word’ FILE
+    grep 'word' FILE
     ```
 
 !!! Example "Find the pattern 'word' recursively under the directory path/to/dir" 
 
     ```bash
-    grep -rine ’word’ path/to/dir
+    grep -rine 'word' path/to/dir
     ```
+
+!!! Exercise "Try finding the pattern ``string`` in file.txt"
+
+    Download <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/file.txt">file.txt</a> here (not the same as fil.txt above). 
 
 #### awk 
 
@@ -214,7 +218,7 @@ This command finds patterns in a file and can perform arithmetic/string operatio
 !!! Example "Search for the pattern 'snow' in the file FILE and print out the first column"
 
     ```bash
-    awk ’/snow/ {print$1}’ FILE
+    awk '/snow/ {print$1}' FILE
     ```
 
 #### Wild cards
@@ -240,7 +244,7 @@ Wild cards are also called globbing patterns.
     myfile?.txt
     ``` 
 
-    This matches myfile0.txt, myfile1.txt,... for all letters between a-z and numbers between 0-9.
+    This matches myfile0.txt, myfile1.txt,... for all letters between a-z and numbers between 0-9. Try with ``ls myfile?.txt``. 
 
     ```bash
     r*d
@@ -258,7 +262,7 @@ Wild cards are also called globbing patterns.
     a[d-j]a
     ```
 
-    This matches ada, afa, aja, ...  and any three letter word that starts with an a and ends with an a and has any character d to j in between.
+    This matches ada, afa, aja, ...  and any three letter word that starts with an a and ends with an a and has any character d to j in between. Try with ``ls a[d-j]a``. 
    
     ```bash
     [0-9]
@@ -270,13 +274,13 @@ Wild cards are also called globbing patterns.
     cp {*.dat,*.c,*.pdf} ~
     ```
 
-    This specifies to copy any files ending in .dat, .c, and .pdf to the user's homedirectory. No spaces are allowed between the commas, etc. 
+    This specifies to copy any files ending in .dat, .c, and .pdf to the user's homedirectory. No spaces are allowed between the commas, etc. You could test it by creating a matched file in ``patterns`` directory with ``touch file.c`` and running the above command to see it only copies that one from the ``patterns`` directory. 
 
     ```bash
     rm thisfile[!8]*
     ```
 
-    This will remove all files named thisfile*, except those that has an 8 at that position in it's name. 
+    This will remove all files named thisfile*, except those that has an 8 at that position in it's name. Try running it in the ``patterns`` directory! Do ``ls`` before and after to see the change. Remember, you can always recreate the directory ``patterns`` by untar'ing it again.  
 
 
 #### Regular Expressions
@@ -321,13 +325,15 @@ The most common reason for making a script is probably to avoid writing the same
 
 !!! Example "Simple example of a script 'analysis.sh'"
 
+    You can download <a href="analysis.sh> here and [program.sh]
+
     ```bash
     #!/bin/bash
-    grep ’ABCD’ file.pdb > file_filtered.pdb
-    program < file_filtered.pdb > output.dat
+    grep 'ABCD' file.dat > file_filtered.dat
+    ./program.sh < file_filtered.dat > output.dat
     ```
 
-    This script can be executed with ./analysis.sh (remember to check that the [permission](../filesystem/#chmod__-__change__permissions) for executing a script as user is set). 
+    This script can be executed with ./analysis.sh (remember to check that the [permission](../filesystem/#chmod__-__change__permissions) for executing a script as user is set - you should also make sure program.sh has permissions set to execute as user). 
 
 To change the permissions to execute a script (here named analysis.sh), for just the user, you could do: 
 

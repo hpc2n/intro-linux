@@ -19,7 +19,7 @@ Of these, <code>vi/vim</code> as well as <code>emacs</code> are probably the mos
     1. Starting "nano": Type <code>nano</code> FILENAME on the command line and press <code>Enter</code>. FILENAME is whatever you want to call your file. 
     2. If FILENAME is a file that already exists, <code>nano</code> will open the file. If it dows not exist, it will be created.
     3. You now get an editor that looks like this: <br>
-    ![nano editor](../images/nano.png){: style="width: 400px"}
+    ![nano editor](../images/nano.png){: style="width: 500px"}
     4. First thing to notice is that many of the commands are listed at the bottom. 
     5. The **^** before the letter-commands means you should press CTRL and then the letter (while keeping CTRL down). 
     6. Your prompt is in the editor window itself, and you can just type (or copy and paste) the content you want in your file.  
@@ -29,24 +29,38 @@ Of these, <code>vi/vim</code> as well as <code>emacs</code> are probably the mos
 
 ## GUI 
 
-If you are connecting with <a href="https://www.cendio.com/thinlinc/download/" target="_blank">ThinLinc</a>, you will be presented with a graphical user interface (GUI). From there you can either open a terminal window/shell (Applications -> System Tools -> MATE Terminal) or you can choose editors from the menu by going to Applications -> Accessories. This gives several editor options, of which these have a graphical interface:  
+If you are connecting with <a href="https://www.cendio.com/thinlinc/download/" target="_blank">ThinLinc</a>, you will be presented with a graphical user interface (GUI). (For Tetralith, the server is ``tetralith.nsc.liu.se``). From within Thinlinc you can either open a terminal window/shell or you can choose editors from the menu. 
 
-- <a href="https://help.gnome.org/users/gedit/stable/" target="_blank">Text Editor (gedit)</a>
-- <a href="https://en.wikipedia.org/wiki/Pluma_(text_editor)" target="_blank">Pluma</a> - the default editor on the MATE desktop environments (that Thinlinc runs)
-- <a href="https://en.wikipedia.org/wiki/Atom_(text_editor)" target="_blank">Atom</a> - no
+It differs a bit how Thinlinc looks depending on the centre, and it also differs which desktop environment they are running. For instance, NSC's Tetralith has the Xfce environment while HPC2N's Kebnekaise has MATE. 
+
+Examples to open terminal: 
+
+- HPC2N: "Applications" -> "System Tools" -> "MATE Terminal" 
+- NSC: "Applications" -> "System" -> "Xfce Terminal"
+
+To choose editors from the menu: 
+
+- HPC2N: "Applications -> Accessories". 
+- NSC: "Applications" -> Accessories" and "Applications" -> "Development". 
+
+Regardless, this gives several editor options, of which these have a graphical interface:  
+
+- HPC2N/NSC: <a href="https://help.gnome.org/users/gedit/stable/" target="_blank">Text Editor (gedit)</a>
+- HPC2N: <a href="https://en.wikipedia.org/wiki/Pluma_(text_editor)" target="_blank">Pluma</a> - the default editor on the MATE desktop environments (that Thinlinc runs)
+- HPC2N: <a href="https://en.wikipedia.org/wiki/Atom_(text_editor)" target="_blank">Atom</a> - no
 t just an editor, but an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment" target="_blank">IDE</a>
-- <a href="https://www.gnu.org/software/emacs/" target="_blank">Emacs (GUI)</a>
-- <a href="https://en.wikipedia.org/wiki/NEdit" target="_blank">NEdit "Nirvana Text Editor"</a>
+- HPC2N/NSC: <a href="https://www.gnu.org/software/emacs/" target="_blank">Emacs (GUI)</a>
+- HPC2N/NSC (under "Applications" -> "Development"): <a href="https://en.wikipedia.org/wiki/NEdit" target="_blank">NEdit "Nirvana Text Editor"</a>
 
 If you are not familiar with any of these, a good recommendation would be to use <code>Text Editor/gedit</code>. 
 
 !!! Example "Text Editor/gedit"
 
     1. Starting "gedit": From the menu, choose Applications -> Accessories -> Text Editor.
-    2. You then get a window that looks like this: <br> 
+    2. You then get a window that looks similar to this: <br> 
     ![gedit editor](../images/gedit.png){: style="width: 400px"}
     3. You can open files by clicking "Open" in the top menu. 
-    4. Clicking the small green file icon with a green plus will create a new document. 
+    4. Clicking the small file icon with a plus (located beside the "Open" button") will create a new document. 
     5. Save by clicking "Save" in the menu. 
     6. The menu on the top right (the three horizontal lines) gives you several other options, including "Find" and "Find and Replace". 
 
