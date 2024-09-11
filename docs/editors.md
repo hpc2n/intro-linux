@@ -19,7 +19,7 @@ Of these, <code>vi/vim</code> as well as <code>emacs</code> are probably the mos
     1. Starting "nano": Type <code>nano</code> FILENAME on the command line and press <code>Enter</code>. FILENAME is whatever you want to call your file. 
     2. If FILENAME is a file that already exists, <code>nano</code> will open the file. If it dows not exist, it will be created.
     3. You now get an editor that looks like this: <br>
-    ![nano editor](../images/nano.png){: style="width: 500px"}
+    ![nano editor](images/nano.png){: style="width: 500px"}
     4. First thing to notice is that many of the commands are listed at the bottom. 
     5. The **^** before the letter-commands means you should press CTRL and then the letter (while keeping CTRL down). 
     6. Your prompt is in the editor window itself, and you can just type (or copy and paste) the content you want in your file.  

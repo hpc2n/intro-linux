@@ -323,9 +323,13 @@ The most common reason for making a script is probably to avoid writing the same
 
     If it is just a one-line command you want to do again and again, then ['alias'](../hints#alias) is more suited for this. 
 
+!!! hint
+
+    Type along!
+
 !!! Example "Simple example of a script 'analysis.sh'"
 
-    You can download <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/analysis.sh">analysis.sh here</a> and <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/program.sh">program.sh here</a>. You can get <a href="
+    You can download <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/analysis.sh">analysis.sh here</a> and <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/program.sh">program.sh here</a>. You can get <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/file.dat">file.dat here</a>. Hint: right-click, copy url, and then use ``wget`` to get it where you want it directly.  
 
     ```bash
     #!/bin/bash
@@ -333,7 +337,7 @@ The most common reason for making a script is probably to avoid writing the same
     ./program.sh < file_filtered.dat > output.dat
     ```
 
-    This script can be executed with ./analysis.sh (remember to check that the [permission](../filesystem/#chmod__-__change__permissions) for executing a script as user is set - you should also make sure program.sh has permissions set to execute as user). 
+    This script can be executed with ``./analysis.sh`` (remember to check that the [permission](../filesystem/#chmod__-__change__permissions) for executing the script ``analysis.sh`` as user is set - you should also make sure ``program.sh`` has permissions set to execute as user). 
 
 To change the permissions to execute a script (here named analysis.sh), for just the user, you could do: 
 
