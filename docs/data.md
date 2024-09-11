@@ -325,7 +325,7 @@ The most common reason for making a script is probably to avoid writing the same
 
 !!! Example "Simple example of a script 'analysis.sh'"
 
-    You can download <a href="analysis.sh> here and [program.sh]
+    You can download <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/analysis.sh">analysis.sh here</a> and <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/program.sh">program.sh here</a>. You can get <a href="
 
     ```bash
     #!/bin/bash
