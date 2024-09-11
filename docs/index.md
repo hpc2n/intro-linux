@@ -47,8 +47,12 @@
     - The verification code it askes about is a 2FA that you need to set. See here: <a href="https://www.nsc.liu.se/support/2fa/" target="_blank">https://www.nsc.liu.se/support/2fa/</a>.
     - The project storage for the course project is in ``/proj/intro-linux/users/YOUR-USERNAME``.
 
-## Preliminary schedule
+## Important info
 
+- There is an "important info" page for this course, containing info on the course project, login info for Tetralith, etc. It can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/Ed16r0fqgGpLm6T2u-bl5yIBZjmV_GvBy-EOsg9fcWK-UQ?e=LDLQX4" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/Ed16r0fqgGpLm6T2u-bl5yIBZjmV_GvBy-EOsg9fcWK-UQ?e=LDLQX4</a>
+- There is a Q/A page for use during the lectures. Since the lectures are recorded, you may get recorded if you ask questions in the Zoom, but you can always write questions on the Q/A and get answers there. It also has the advantage that you can go back and look at the answers later. The Q/A page can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EQUtySAkcGREswBAeZiGJgUBilEListST0Oftyf2FqSnSg?e=DPcQoP" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EQUtySAkcGREswBAeZiGJgUBilEListST0Oftyf2FqSnSg?e=DPcQoP</a> 
+
+## Preliminary schedule
 
 | Time | Topic | Activity | 
 | ---- | ----- | -------- |
