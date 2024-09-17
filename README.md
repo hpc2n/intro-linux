@@ -10,7 +10,7 @@ The registration and schedule is here: https://www.hpc2n.umu.se/events/courses/2
 
 Materials: Clone this repo or download a zip of the material (click the green "Code" button then pick "Download ZIP"). 
 
-Lecture recordings: TBA
+Lecture recordings: https://www.youtube.com/watch?v=ScMjWTZvtag&list=PL6jMHLEmPVLzoudy66m5isl2LD-YY_05L
 
 **Lecture recordings from the current course will be posted to HPC2N's YouTube page:** https://www.youtube.com/user/HPC2N
 
