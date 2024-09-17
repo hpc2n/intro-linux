@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/data/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Data Handling - Introduction to Linux</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="../assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Data Handling";
+        var mkdocs_page_input_path = "data.md";
+        var mkdocs_page_url = "/intro-linux/data/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/hpc2n-blue-text-intro-linux.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux terminology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../editors/">Editors</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Data Handling</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#compressing__and__decompressing">Compressing and decompressing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#archiving">Archiving</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file__transfer__and__syncing">File transfer and syncing</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#scp">SCP</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sftp">SFTP</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rsync">rsync</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#connecting__with__ssh">Connecting with ssh</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#more__advanced__topics">More advanced topics</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#finding__patterns">Finding patterns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#grep">grep</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#awk">awk</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#wild__cards">Wild cards</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#regular__expressions">Regular Expressions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scripting">Scripting</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-terms/">More Linux terms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Data Handling</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="data__handling">Data Handling<a class="headerlink" href="#data__handling" title="Permanent link">&para;</a></h1>
+<p>This section will briefly cover compressing/decompressing files/directories, transferring files, and logging in.  </p>
+<h2 id="compressing__and__decompressing">Compressing and decompressing<a class="headerlink" href="#compressing__and__decompressing" title="Permanent link">&para;</a></h2>
+<p>Compressing files are done with utilities like <a href="http://www.gnu.org/software/gzip/gzip.html" target="_blank">gzip</a>, <a href="http://www.bzip.org/" target="_blank">bzip2</a>, or <a href="http://en.wikipedia.org/wiki/ZIP_%28file_format%29" target="_blank">zip</a>. </p>
+<div class="admonition example">
+<p class="admonition-title">Compressing a file with gzip</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gzip<span class="w"> </span>FILE
+</span></code></pre></div>
+<p>This results in FILE.gz</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Decompressing a file with gzip</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>gunzip<span class="w"> </span>FILE.gz
+</span></code></pre></div>
+<p>You now again have FILE </p>
+</div>
+<h2 id="archiving">Archiving<a class="headerlink" href="#archiving" title="Permanent link">&para;</a></h2>
+<p>Archiving is generally done with <a href="http://www.gnu.org/software/tar/tar.html" target="_blank">tar</a>. </p>
+<p>A <strong>tarball</strong> is a commonly used name to refer to an archive file in the tar (Tape Archive) format. </p>
+<p>A tarball can be compressed with something like gzip or bzip2. </p>
+<div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tar<span class="w"> </span><span class="o">[</span>-options<span class="o">]</span><span class="w"> </span>&lt;name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>tar<span class="w"> </span>archive&gt;<span class="w"> </span><span class="o">[</span>files<span class="w"> </span>or<span class="w"> </span>directories<span class="w"> </span>which<span class="w"> </span>to<span class="w"> </span>add<span class="w"> </span>into<span class="w"> </span>archive<span class="o">]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Basic<span class="w"> </span>options:
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span>-c,<span class="w"> </span>--create<span class="w"> </span>—<span class="w"> </span>create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>archive<span class="p">;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span>-a,<span class="w"> </span>--auto-compress<span class="w"> </span>—<span class="w"> </span>additionally<span class="w"> </span>compress<span class="w"> </span>the<span class="w"> </span>archive<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>compressor<span class="w"> </span>which<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>automatically<span class="w"> </span>determined<span class="w"> </span>by<span class="w"> </span>the<span class="w"> </span>file<span class="w"> </span>name<span class="w"> </span>extension<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>archive.<span class="w"> </span>If<span class="w"> </span>the<span class="w"> </span>archive<span class="s1">&#39;s name ends with *.tar.gz then use gzip, if *.tar.xz then use xz, *.tar.zst for Zstandard etc.;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s1">    -r, --append — append files to the end of an archive;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="s1">    -x, --extract, --get — extract files from an archive;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s1">    -f, --file — specify the archive&#39;</span>s<span class="w"> </span>name<span class="p">;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span>-t,<span class="w"> </span>--list<span class="w"> </span>—<span class="w"> </span>show<span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>folders<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>archive<span class="p">;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span>-v,<span class="w"> </span>--verbose<span class="w"> </span>—<span class="w"> </span>show<span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>processed<span class="w"> </span>files.
+</span></code></pre></div>
+</div>
+
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Code-along! You can download the tarball <code>temp.tar.gz</code> to play with (right-click and save): <a href="../temp.tar.gz">temp.tar.gz</a>. </p>
+</div>
+<p>**Here follows some examples: **  </p>
+<div class="admonition example">
+<p class="admonition-title">Generate a tarball</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>tar<span class="w"> </span>-cvf<span class="w"> </span>DIRECTORY.tar<span class="w"> </span>DIRECTORY
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Extracting the files from a tarball</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>tar<span class="w"> </span>-xvf<span class="w"> </span>DIRECTORY.tar
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Generate a tarball and compress it with gzip</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>tar<span class="w"> </span>-zcvf<span class="w"> </span>DIRECTORY.tar.gz<span class="w"> </span>DIRECTORY
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Uncompressing and extracting files from a tarball</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>tar<span class="w"> </span>-zxvf<span class="w"> </span>DIRECTORY.tar.gz
+</span></code></pre></div>
+</div>
+<p>More information can be found in HPC2N&rsquo;s documentation&rsquo;s <a href="https://docs.hpc2n.umu.se/documentation/filesystems/#archiving__and__compressing" target="_blank">Archiving and compressing section</a>. </p>
+<h2 id="file__transfer__and__syncing">File transfer and syncing<a class="headerlink" href="#file__transfer__and__syncing" title="Permanent link">&para;</a></h2>
+<p>There are several possible ways to transfer files and data to and from Linux systems: scp, sftp, rsync&hellip;</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>FTP is generally not permitted due to security problems! </p>
+</div>
+<h3 id="scp">SCP<a class="headerlink" href="#scp" title="Permanent link">&para;</a></h3>
+<p>SCP (Secure CoPy) is a simple way of transferring files between two machines that use the SSH (Secure SHell) protocol. </p>
+<div class="admonition example">
+<p class="admonition-title">From local system to a remote system</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>scp<span class="w"> </span>sourcefilename<span class="w"> </span>user@hostname:somedir/destfilename
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">From a remote system to a local system</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>scp<span class="w"> </span>user@hostname:somedir/sourcefilename<span class="w"> </span>destfilename
+</span></code></pre></div>
+</div>
+<h3 id="sftp">SFTP<a class="headerlink" href="#sftp" title="Permanent link">&para;</a></h3>
+<p>SFTP (SSH File Transfer Protocol or sometimes called Secure File Transfer Protocol) is a network protocol that provides file transfer over a reliable data stream.</p>
+<div class="admonition example">
+<p class="admonition-title">From a local system to a remote system</p>
+<p>This example was made with the remote system &ldquo;Kebnekaise&rdquo; belonging to HPC2N. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>enterprise-d<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$<span class="w"> </span>sftp<span class="w"> </span>user@kebnekaise.hpc2n.umu.se
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Connecting<span class="w"> </span>to<span class="w"> </span>kebnekaise.hpc2n.umu.se...
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>user@kebnekaise.hpc2n.umu.se<span class="err">&#39;</span>s<span class="w"> </span>password:
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>sftp&gt;<span class="w"> </span>put<span class="w"> </span>file.c<span class="w"> </span>C/file.c
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Uploading<span class="w"> </span>file.c<span class="w"> </span>to<span class="w"> </span>/home/u/user/C/file.c
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>file.c<span class="w">                          </span><span class="m">100</span>%<span class="w">    </span><span class="m">1</span><span class="w">    </span><span class="m">0</span>.0KB/s<span class="w">   </span><span class="m">00</span>:00
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>sftp&gt;<span class="w"> </span>put<span class="w"> </span>-P<span class="w"> </span>irf.png<span class="w"> </span>pic/
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>Uploading<span class="w"> </span>irf.png<span class="w"> </span>to<span class="w"> </span>/home/u/user/pic/irf.png
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>irf.png<span class="w">                         </span><span class="m">100</span>%<span class="w"> </span><span class="m">2100</span><span class="w">    </span><span class="m">2</span>.1KB/s<span class="w">   </span><span class="m">00</span>:00
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>sftp&gt;
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">From a remote system to a local system</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sftp&gt;<span class="w"> </span>get<span class="w"> </span>file2.c<span class="w"> </span>C/file2.c
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Fetching<span class="w"> </span>/home/u/user/file2.c<span class="w"> </span>to<span class="w"> </span>C/file2.c
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>/home/u/user/file.txt<span class="w">  </span><span class="m">100</span>%<span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">0</span>.1KB/s<span class="w"> </span><span class="m">00</span>:00<span class="w">    </span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>sftp&gt;<span class="w"> </span>get<span class="w"> </span>-P<span class="w"> </span>file3.c<span class="w"> </span>C/
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Fetching<span class="w"> </span>/home/u/user/file3.c<span class="w"> </span>to<span class="w"> </span>C/file3.c
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>/home/u/user/file.txt<span class="w">  </span><span class="m">100</span>%<span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">0</span>.4KB/s<span class="w"> </span><span class="m">00</span>:00<span class="w">    </span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>sftp&gt;<span class="w"> </span><span class="nb">exit</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>enterprise-d<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$<span class="w"> </span>
+</span></code></pre></div>
+</div>
+<h3 id="rsync">rsync<a class="headerlink" href="#rsync" title="Permanent link">&para;</a></h3>
+<p>rsync is a utility for efficiently transferring and synchronizing files between a computer and a storage drive and across networked computers by comparing the modification times and sizes of files.</p>
+<div class="admonition example">
+<p class="admonition-title">Recursively sync files from one remote directory to a local directory. Also preserve symbolic links and time stamps, and allows resume of partially transferred files on restart</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>rsync<span class="w"> </span>-rlpt<span class="w"> </span>username@remote_host:sourcedir/<span class="w"> </span>/path/to/localdir
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Recursively sync a local directory to a remote destination directory, preserving owners, permission, modification times, and symbolic links</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>rsync<span class="w"> </span>-a<span class="w"> </span>/path/to/localdir/<span class="w"> </span>username@remote_host:destination_directory
+</span></code></pre></div>
+</div>
+<p>Much more information and examples can be found in the HPC2N documentation&rsquo;s <a href="https://docs.hpc2n.umu.se/documentation/filesystems/#file__transfer" target="_blank">File transfer section</a>. </p>
+<h2 id="connecting__with__ssh">Connecting with ssh<a class="headerlink" href="#connecting__with__ssh" title="Permanent link">&para;</a></h2>
+<p>The <code>ssh</code> command is used for connecting to a remote computer.</p>
+<p>Some useful examples:</p>
+<div class="admonition example">
+<p class="admonition-title">Connecting to a compute cluster called Kebnekaise</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ssh<span class="w"> </span>username@kebnekaise.hpc2n.umu.se
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Connecting to Kebnekaise and enabling graphical display</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ssh<span class="w"> </span>-Y<span class="w"> </span>username@kebnekaise.hpc2n.umu.se
+</span></code></pre></div>
+<p><strong>Note</strong> that you need to have an X11 server like Xming or Cygwin on Windows, XQuartz on macOS (included on Linux) to open a graphical display. </p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are using a graphical display, then we are <strong>strongly</strong> recommending ThinLinc.  </p>
+</div>
+<h2 id="more__advanced__topics">More advanced topics<a class="headerlink" href="#more__advanced__topics" title="Permanent link">&para;</a></h2>
+<p>This section will look at finding patterns (<a href="#grep">grep</a>, <a href="#awk">awk</a>, <a href="#wild__cards">wild cards</a>, <a href="#regular__expressions">regular expressions</a>) and <a href="#scripting">scripting</a>.  </p>
+<h3 id="finding__patterns">Finding patterns<a class="headerlink" href="#finding__patterns" title="Permanent link">&para;</a></h3>
+<p>Here you will find descptions on how to search for files with specific patterns. </p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Try out some of these examples. You can use the contents of the tarball <a href="../patterns.tar.gz">patterns.tar.gz</a> to play with. Right-click and save to download, or right-click and copy the url, then do <code>wget THE-URL-YOU-COPIED</code> in a terminal window to download it there. Then do <code>tar -zxvf patterns.tar.gz</code> to unpack.  </p>
+</div>
+<h4 id="grep">grep<a class="headerlink" href="#grep" title="Permanent link">&para;</a></h4>
+<p>This command searches for patterns in text files. FILE is the name of whatever file you want to look at. The file <code>fil.txt</code> is a good option here if you want to test. </p>
+<div class="admonition example">
+<p class="admonition-title">Find the pattern &lsquo;word&rsquo; in FILE</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>grep<span class="w"> </span><span class="s1">&#39;word&#39;</span><span class="w"> </span>FILE
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Find the pattern &lsquo;word&rsquo; recursively under the directory path/to/dir</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>grep<span class="w"> </span>-rine<span class="w"> </span><span class="s1">&#39;word&#39;</span><span class="w"> </span>path/to/dir
+</span></code></pre></div>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Try finding the pattern <code>string</code> in file.txt</p>
+<p>Download <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/file.txt">file.txt</a> here (not the same as fil.txt above). </p>
+</div>
+<h4 id="awk">awk<a class="headerlink" href="#awk" title="Permanent link">&para;</a></h4>
+<p>This command finds patterns in a file and can perform arithmetic/string operations. </p>
+<div class="admonition example">
+<p class="admonition-title">Search for the pattern &lsquo;snow&rsquo; in the file FILE and print out the first column</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>awk<span class="w"> </span><span class="s1">&#39;/snow/ {print$1}&#39;</span><span class="w"> </span>FILE
+</span></code></pre></div>
+</div>
+<h4 id="wild__cards">Wild cards<a class="headerlink" href="#wild__cards" title="Permanent link">&para;</a></h4>
+<p>Wild cards are useful &lsquo;stand-ins&rsquo; for one or more character or number, that you can use for instance when finding patterns or when removing/listing all files of a certain type. </p>
+<p>Wild cards are also called globbing patterns. </p>
+<ul>
+<li><strong>?</strong> represents a single character</li>
+<li><strong>*</strong> represents a string of characters (0 or more)</li>
+<li><strong>[ ]</strong> represents a range</li>
+<li><strong>{ }</strong> the terms are separated by commas and each term must be a wildcard or exact name</li>
+<li><strong>[!]</strong>  matches any character that is NOT listed between the [ and ]. This is a logical NOT.</li>
+<li>*<em>*</em> specifies an &ldquo;escape&rdquo; character, when using a subsequent special character. </li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You may need quotation marks as well around some wildcards. </p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Some examples of use of wildcards</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>myfile?.txt
+</span></code></pre></div>
+<p>This matches myfile0.txt, myfile1.txt,&hellip; for all letters between a-z and numbers between 0-9. Try with <code>ls myfile?.txt</code>. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>r*d
+</span></code></pre></div>
+<p>This matches red, rad, ronald, &hellip; anything starting with r and ending with d, including rd. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>r<span class="o">[</span>a,i,o<span class="o">]</span>ck
+</span></code></pre></div>
+<p>This matches rack, rick, rock.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>a<span class="o">[</span>d-j<span class="o">]</span>a
+</span></code></pre></div>
+<p>This matches ada, afa, aja, &hellip;  and any three letter word that starts with an a and ends with an a and has any character d to j in between. Try with <code>ls a[d-j]a</code>. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="o">[</span><span class="m">0</span>-9<span class="o">]</span>
+</span></code></pre></div>
+<p>This matches a range of numbers from 0 to 9. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>cp<span class="w"> </span><span class="o">{</span>*.dat,*.c,*.pdf<span class="o">}</span><span class="w"> </span>~
+</span></code></pre></div>
+<p>This specifies to copy any files ending in .dat, .c, and .pdf to the user&rsquo;s homedirectory. No spaces are allowed between the commas, etc. You could test it by creating a matched file in <code>patterns</code> directory with <code>touch file.c</code> and running the above command to see it only copies that one from the <code>patterns</code> directory. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>rm<span class="w"> </span>thisfile<span class="o">[</span>!8<span class="o">]</span>*
+</span></code></pre></div>
+<p>This will remove all files named thisfile*, except those that has an 8 at that position in it&rsquo;s name. Try running it in the <code>patterns</code> directory! Do <code>ls</code> before and after to see the change. Remember, you can always recreate the directory <code>patterns</code> by untar&rsquo;ing it again.  </p>
+</div>
+<h4 id="regular__expressions">Regular Expressions<a class="headerlink" href="#regular__expressions" title="Permanent link">&para;</a></h4>
+<p>Regular Expressions are a type of globbing patterns that are used when you are working with text. </p>
+<p>Regular Expressions can be used with programs like grep, find and many others. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your regular expressions does not do as you expect, you may need to use single quotation marks around the sentence and you may also have to use backslashes on every single special character.</p>
+</div>
+<p>Some common examples of regular expressions: </p>
+<ul>
+<li><strong>.</strong> matches any single character. Same as <strong>?</strong> in standard wildcard expressions. </li>
+<li><strong>\</strong> is used as an &ldquo;escape&rdquo; character for a subsequent special character. </li>
+<li><strong>.</strong>* is used to match any string, equivalent to * in standard wildcards.</li>
+<li><strong>*</strong> the proceeding item is matched zero or more times. ie. n* will match n, nn, nnnn, nnnnnnn but not na or any other character.</li>
+<li><strong>^</strong> means &ldquo;the beginning of the line&rdquo;. So &ldquo;^a&rdquo; means find a line starting with an &ldquo;a&rdquo;.</li>
+<li><strong>$</strong> means &ldquo;the end of the line&rdquo;. So &ldquo;a$&rdquo; means find a line ending with an &ldquo;a&rdquo;.</li>
+<li><strong>[ ]</strong> specifies a range. Same as for normal wildcards. This is an &lsquo;or&rsquo; relationship (you only need one to match).</li>
+<li><strong>|</strong> This wildcard makes a logical OR relationship between wildcards. You can thus search something or something else. You may need to add a &lsquo;' before this command to avoid the shell thinking you want a pipe. </li>
+<li><strong>[^]</strong> This is the equivalent of [!] in standard wildcards, i.e. it is a logical “not” and will match anything not listed within the square brackets. </li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>$<span class="w"> </span>cat<span class="w"> </span>myfile<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;^s.*n$&#39;</span>
+</span></code></pre></div>
+<p>This command searches the file myfile for lines starting with an &ldquo;s&rdquo; and ending with an &ldquo;n&rdquo;, and prints them to the standard output. </p>
+</div>
+<h3 id="scripting">Scripting<a class="headerlink" href="#scripting" title="Permanent link">&para;</a></h3>
+<p>Scripting is used to perform complex or repetitive tasks without user intervention. All Linux commands can be used in a script including wild cards. </p>
+<p>The most common reason for making a script is probably to avoid writing the same command again and again. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If it is just a one-line command you want to do again and again, then <a href="../hints#alias">&lsquo;alias&rsquo;</a> is more suited for this. </p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Type along!</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Simple example of a script &lsquo;analysis.sh&rsquo;</p>
+<p>You can download <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/analysis.sh">analysis.sh here</a> and <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/program.sh">program.sh here</a>. You can get <a href="https://raw.githubusercontent.com/hpc2n/intro-linux/main/docs/file.dat">file.dat here</a>. Hint: right-click, copy url, and then use <code>wget</code> to get it where you want it directly.  </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>grep<span class="w"> </span><span class="s1">&#39;ABCD&#39;</span><span class="w"> </span>file.dat<span class="w"> </span>&gt;<span class="w"> </span>file_filtered.dat
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>./program.sh<span class="w"> </span>&lt;<span class="w"> </span>file_filtered.dat<span class="w"> </span>&gt;<span class="w"> </span>output.dat
+</span></code></pre></div>
+<p>This script can be executed with <code>./analysis.sh</code> (remember to check that the <a href="../filesystem/#chmod__-__change__permissions">permission</a> for executing the script <code>analysis.sh</code> as user is set - you should also make sure <code>program.sh</code> has permissions set to execute as user). </p>
+</div>
+<p>To change the permissions to execute a script (here named analysis.sh), for just the user, you could do: </p>
+<div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>analysis.sh
+</span></code></pre></div>
+</div>
+
+<p>The above script can then be executed with</p>
+<div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>$<span class="w"> </span>./analysis.se
+</span></code></pre></div>
+</div>
+
+<p>For more examples of (more useful) scripts, see for instance this <a href=https://www.hostinger.com/tutorials/bash-script-example" target="_blank">list of 25 Easy Bash Script Examples</a>. </p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../editors/" class="btn btn-neutral float-left" title="Editors"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hints/" class="btn btn-neutral float-right" title="Hints and tricks">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../editors/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../hints/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/_markdown_exec_pyodide.js"></script>
+      <script src="../search/main.js"></script>
+      <script src="../js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

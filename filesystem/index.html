@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/filesystem/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>The File System - Introduction to Linux</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="../assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "The File System";
+        var mkdocs_page_input_path = "filesystem.md";
+        var mkdocs_page_url = "/intro-linux/filesystem/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/hpc2n-blue-text-intro-linux.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../linux/">Linux terminology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">The File System</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#ls__-__listing__filesdirectories">ls - listing files/directories</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#chmod__-__change__permissions">chmod - change permissions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#chown__-__change__ownership">chown - change ownership</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create__and__remove__directoriesfiles">Create and remove directories/files</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cp__-__copy__filesdirectories">cp - copy files/directories</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mv__-__rename__filesdirectories">mv - rename files/directories</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exercise">Exercise</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#symbolic__links">Symbolic links</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#redirection">Redirection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pipes">Pipes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exporting__variables">Exporting variables</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../editors/">Editors</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../data/">Data Handling</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-terms/">More Linux terms</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">The File System</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="navigating__the__file__system">Navigating the File System<a class="headerlink" href="#navigating__the__file__system" title="Permanent link">&para;</a></h1>
+<p>This section is going to be a high-level talk about the Linux filesystem concepts, not a low-level description of filesystem types. </p>
+<p><img alt="Tree of dir structure" src="../images/tree.png" style="width: 500px;float: right" /></p>
+<p>The Linux filesystem directory structure starts with the top root directory, which is shown as <code>/</code>. Below this are several other standard directories. Of particular interest are <code>usr/bin</code>, <code>home</code>, <code>usr/lib</code>, and <code>usr/lib64</code>. A common directory which you will also often find is <code>usr/local/bin</code>. </p>
+<p>The picture on the right shows typical subdirectories under <code>/</code> (note that the command &lsquo;tree&rsquo; does not work at all HPC centres, though it does work on Tetralith - see the page <a href="../tree">tree</a> under &ldquo;Extras section for how to install if it is missing). Some of the directories have a symbolic link to a different name - this is often done to make it quicker to write, but can also be for compatibility reasons since some software have hardcoded paths. </p>
+<ul>
+<li><strong>usr/bin</strong>: contains (most) of the system-specific binaries</li>
+<li><strong>usr/local/bin</strong>: non-system binaries. often locally compiled/maintained packages</li>
+<li><strong>home</strong>: where the home directories of the users of the system are located</li>
+<li><strong>usr/lib</strong>: kernel modules and shared library images needed to boot the system and run commands in the root filesystem</li>
+<li><strong>usr/lib64</strong>: same as /lib, just for 64-bit libraries </li>
+</ul>
+<p>User-installed binaries are often located in <strong>/opt</strong>. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are on a local cluster, on an HPC centre, etc. where you are not root, you will as default be in your home directory when you login. You can use <code>cd ..</code> a couple times to go to the root of the system and do <code>tree</code> there if you want, or do <code>tree</code> in your home directory (always return there with just <code>cd</code>). </p>
+<p>Running <code>tree</code> in <code>/</code> on a supercomuting centre will probably give a very large/long output! </p>
+</div>
+<h2 id="ls__-__listing__filesdirectories">ls - listing files/directories<a class="headerlink" href="#ls__-__listing__filesdirectories" title="Permanent link">&para;</a></h2>
+<p>The ls command is used to list files. If you just give the command &ldquo;ls&rdquo; with no flags it will list all files in the current directory except for hidden files.</p>
+<div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls<span class="w"> </span><span class="o">[</span>flags<span class="o">]</span><span class="w"> </span><span class="o">[</span>directory<span class="o">]</span>
+</span></code></pre></div>
+</div>
+
+<p>This way you can to list files/subdirectories for any directory, but the default one is the one you are currently standing in. </p>
+<p>Some examples: </p>
+<ul>
+<li><code>ls /</code> lists contents of the root directory</li>
+<li><code>ls ..</code> lists the contents of the parent directory of the current</li>
+<li><code>ls ~</code> lists the contents of your user home directory</li>
+<li><code>ls *</code> lists contents of current directory and subdirectories</li>
+</ul>
+<p>Commonly used flags: </p>
+<ul>
+<li><code>-d */</code> lists only directories</li>
+<li><code>-a</code> lists content including hidden files and directories</li>
+<li><code>-l</code> lists content in long table format (permissions, owners, size in bytes, modification date/time, file/directory name)</li>
+<li><code>-lh</code> adds an extra column to above representing size of each file/directory</li>
+<li><code>-t</code> lists content sorted by last modified date in descending order</li>
+<li><code>-tr</code> lists content sorted by last modified date in ascending order</li>
+<li><code>-R</code> lists contents recursively in all subdirectories</li>
+<li><code>-s</code> list files with their sizes</li>
+<li><code>-S</code> sort files/directories by size in descending order</li>
+<li><code>-Sr</code> sort files/directories by size in ascending order</li>
+</ul>
+<p>To get more flags, type <code>ls --help</code> or <code>man ls</code> in the terminal to see the manual. </p>
+<div class="admonition example">
+<p class="admonition-title">The output for a few of the flags, for a directory with two subdirectories and some files</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>ls
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>myfile.txt<span class="w">  </span>myotherfile.txt<span class="w">  </span>testdir1<span class="w">  </span>testdir2
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>-a
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>./<span class="w">  </span>../<span class="w">  </span>myfile.txt<span class="w">  </span>myotherfile.dat<span class="w">  </span>testdir1/<span class="w">  </span>testdir2/
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>-l
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>total<span class="w"> </span><span class="m">3</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w">   </span><span class="m">27</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>myfile.txt
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w">   </span><span class="m">33</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>myotherfile.txt
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:40<span class="w"> </span>testdir1
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:39<span class="w"> </span>testdir2
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>-la
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>total<span class="w"> </span><span class="m">5</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>drwxrwxr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>.
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>drwx------<span class="w"> </span><span class="m">3</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>..
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w">   </span><span class="m">27</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>myfile.txt
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w">   </span><span class="m">33</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>myotherfile.txt
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:40<span class="w"> </span>testdir1
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:39<span class="w"> </span>testdir2
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>-lah
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>total<span class="w"> </span><span class="m">5</span>.0K
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>drwxrwxr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>.
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>drwx------<span class="w"> </span><span class="m">3</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>..
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w">   </span><span class="m">27</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>myfile.txt
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w">   </span><span class="m">33</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>myotherfile.txt
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:40<span class="w"> </span>testdir1
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:39<span class="w"> </span>testdir2
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>-latr
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>total<span class="w"> </span><span class="m">5</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:39<span class="w"> </span>testdir2
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>drwxrwxr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:40<span class="w"> </span>testdir1
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w">   </span><span class="m">27</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>myfile.txt
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w">   </span><span class="m">33</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>myotherfile.txt
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>drwx------<span class="w"> </span><span class="m">3</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>..
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>drwxrwxr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>.
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>*
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>myfile.txt<span class="w">  </span>myotherfile.dat
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>testdir1:
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>file1.txt<span class="w">  </span>file2.sh<span class="w">  </span>file3.c<span class="w">  </span>file4.dat
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>testdir2:
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>file1.txt<span class="w">  </span>file2.txt<span class="w">  </span>file3.c
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>testdir1
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>b-an01<span class="w"> </span><span class="o">[</span>~/mytestdir/testdir1<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>-l
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>total<span class="w"> </span><span class="m">2</span>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">31</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:47<span class="w"> </span>file1.txt
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">16</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:49<span class="w"> </span>file2.sh
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">74</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:49<span class="w"> </span>file3.c
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">25</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:50<span class="w"> </span>file4.dat
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>-ls
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>total<span class="w"> </span><span class="m">2</span>
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="m">1</span><span class="w"> </span>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">31</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:47<span class="w"> </span>file1.txt
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="m">1</span><span class="w"> </span>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">16</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:49<span class="w"> </span>file2.sh
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="m">1</span><span class="w"> </span>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">74</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:49<span class="w"> </span>file3.c
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a><span class="m">1</span><span class="w"> </span>-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">25</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:50<span class="w"> </span>file4.dat
+</span></code></pre></div>
+<p>The &ldquo;drwxr-xr-x&rdquo; and &ldquo;-rw-r--r--&rdquo; are examples of permissions. The prefex d means is it a directory. A &ldquo;-&rdquo; means no permission for that. There are three groups: owner, group, and all. Note that “r” is for read, “w” is for write, and “x” is for execute.  </p>
+</div>
+<h2 id="chmod__-__change__permissions">chmod - change permissions<a class="headerlink" href="#chmod__-__change__permissions" title="Permanent link">&para;</a></h2>
+<p>The command <code>chmod</code> is used to change permissions for files and directories. </p>
+<div class="admonition note">
+<p class="admonition-title">There are three types of permission groups</p>
+<ul>
+<li><strong>owners</strong>: these permissions will only apply to owners and will not affect other groups.</li>
+<li><strong>groups</strong>: you can assign a group of users specific permissions, which will only impact users within the group. The members of your storage directory belongs here. </li>
+<li><strong>all users</strong>: these permissions will apply to all users, so be careful with this.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">There are three kinds of file permissions</p>
+<ul>
+<li>Read (r): This allows a user or a group to view a file (and so also to copy it).</li>
+<li>Write (w): This permits the user to write or modify a file or directory.</li>
+<li>Execute (x): A user or a group with execute permissions can execute a file. They can also view a subdirectory.  </li>
+</ul>
+</div>
+<p>The permissions for a file, directory, or symbolic link has 10 &ldquo;bits&rdquo; and looks similar to this:</p>
+<p><img 400px="400px" alt="Permissions" src="../images/permissions.png" style="&quot;width:" /></p>
+<p>As shown, the first bit can be &ldquo;-&rdquo; (a file), &ldquo;d&rdquo; (a directory), or &ldquo;l&rdquo; (a link). </p>
+<p>The following group of 3 bits are for the owner, then the next 3 for the group, and then the last 3 for all users. Each can have the r(ead), w(rite), and (e)x(ecute) permission set. </p>
+<div class="admonition note">
+<p class="admonition-title">To change permissions, here are some examples</p>
+<ul>
+<li>owner<ul>
+<li><strong>chmod +rwx FILE/DIR</strong> to add all permissions of a file with name FILE or a directory with name DIR</li>
+<li><strong>chmod -rwx FILE/DIR</strong> to remove all permissions from a file with name FILE or a directory with name DIR </li>
+<li><strong>chmod +x FILE</strong> to add executable permissions</li>
+<li><strong>chmod -wx FILE</strong> to remove write and executable permissions</li>
+</ul>
+</li>
+<li>group<ul>
+<li><strong>chmod g+rwx FILE</strong> to add all permissions to FILE </li>
+<li><strong>chmod g-rwx FILE</strong> to remove all permissions to FILE</li>
+<li><strong>chmod g+wx FILE</strong> to give write and execute permissions to FILE</li>
+<li><strong>chmod g-x FILE</strong> to remove execute permissions to FILE</li>
+</ul>
+</li>
+<li>others<ul>
+<li><strong>chmod o+rwx FILE</strong> to add all permissions to FILE</li>
+<li><strong>chmod o-rwx FILE</strong> to remove all permissions to FILE</li>
+<li><strong>chmod o+w FILE</strong> to add write permissions to FILE</li>
+<li><strong>chmod o-rwx DIR</strong> to remove all permissions to DIR </li>
+</ul>
+</li>
+<li>all<ul>
+<li><strong>chmod ugo+rwx FILE/DIR</strong> to add all permissions for all users (owner, group, others) to file named FILE or directory named DIR</li>
+<li><strong>chmod a=rwx FILE/DIR</strong> same as above</li>
+<li><strong>chmod a=r DIR</strong> give read permissions to all for DIR </li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="chown__-__change__ownership">chown - change ownership<a class="headerlink" href="#chown__-__change__ownership" title="Permanent link">&para;</a></h2>
+<p>To change ownership of a file or directory, use the command <code>chown</code>. </p>
+<div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>chown<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>USER<span class="o">[</span>:GROUP<span class="o">]</span><span class="w"> </span>FILE<span class="o">(</span>s<span class="o">)</span>
+</span></code></pre></div>
+</div>
+
+<div class="admonition note">
+<p class="admonition-title">Examples</p>
+<ul>
+<li><code>chown USERNAME FILE</code> the user with USERNAME becomes the new owner of FILE</li>
+<li><code>chown USERNAME DIRECTORY</code> the user with USERNAME becomes the new owner of DIRECTORY (but not any subdirectories)</li>
+<li><code>chown USERNAME:folk DIRECTORY</code> the user ownership is changed to USER and the group ownership to group &ldquo;folk&rdquo; for the directory DIRECTORY</li>
+<li><code>chown :folk DIRECTORY</code> the group ownership is changed to the group &ldquo;folk&rdquo; for the directory DIRECTORY</li>
+<li><code>chown -R USERNAME:folk DIRECTORY</code> the user ownership is changed to USERNAME and the group ownership is changed to group &ldquo;folk&rdquo; for the directory DIRECTORY and all subdirectories</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As default, <code>chown</code> does not generate output on success and returns zero. </p>
+</div>
+<h2 id="create__and__remove__directoriesfiles">Create and remove directories/files<a class="headerlink" href="#create__and__remove__directoriesfiles" title="Permanent link">&para;</a></h2>
+<p>This section contains a few examples of how to work with files and directories through command line interface. </p>
+<ul>
+<li><strong>mkdir DIR</strong>: Create a directory DIR</li>
+<li><strong>rm -rf DIR</strong>: Remove a directory DIR. The flag &ldquo;-r&rdquo; means recursively and &ldquo;-f&rdquo; means do so without asking for each file and subdirectory. Useful, but dangerous. Be careful! </li>
+<li><strong>cd</strong>: Go to your home directory ($HOME)</li>
+<li><strong>cd DIR</strong>: Change directory to DIR</li>
+<li><strong>cd ..</strong>: Change directory to the parent directory of the current directory</li>
+<li><strong>touch FILE</strong>: create an empty file with the name FILE </li>
+</ul>
+<p>You also user &ldquo;rm&rdquo; to remove files; </p>
+<div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>rm<span class="w"> </span>file.txt
+</span></code></pre></div>
+</div>
+
+<p>The command <code>pwd</code> tells you the current directory path. </p>
+<div class="admonition example">
+<p class="admonition-title">Creating directories, changing directories, removing directory and file</p>
+<p><strong>HINT: Code-along!</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>mkdir<span class="w"> </span>mytestdir
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>mytestdir/
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>mkdir<span class="w"> </span>testdir1
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>mkdir<span class="w"> </span>testdir2
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>mkdir<span class="w"> </span>testdir3
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>testdir3
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>testdir1
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>file1.txt
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>file2.sh
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>file3.c
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>file4.dat
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>file5.txt
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>rm<span class="w"> </span>file5.txt<span class="w"> </span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>mytestdir<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>testdir2/
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir2<span class="o">]</span>$<span class="w"> </span>
+</span></code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This was done on Tetralith. You will notice that only the current (subdir) is shown in the prompt. At some other centres <strong>all</strong> the (sub)dirs would be shown. </p>
+<p>Example: HPC2N</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>b-an01<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>mytestdir
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>b-an01<span class="w"> </span><span class="o">[</span>~/mytestdir<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>testdir1
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>b-an01<span class="w"> </span><span class="o">[</span>~/mytestdir/testdir1<span class="o">]</span>$<span class="w"> </span>
+</span></code></pre></div>
+</div>
+<h2 id="cp__-__copy__filesdirectories">cp - copy files/directories<a class="headerlink" href="#cp__-__copy__filesdirectories" title="Permanent link">&para;</a></h2>
+<p>This command is used to copy files or directories.  </p>
+<ul>
+<li><strong>cp myfile.txt DIR/</strong>: copy the file &ldquo;myfile.txt&rdquo; to the directory DIR</li>
+<li><strong>cp DIR1/ DIR2/</strong>: copy the directory DIR1 into the directory DIR2 (Note: overwrites existing files with same name)</li>
+<li><strong>cp -R DIR1/ DIR2/</strong>: copy the directory DIR1 and all subdirectories into the directory DIR2. </li>
+</ul>
+<h2 id="mv__-__rename__filesdirectories">mv - rename files/directories<a class="headerlink" href="#mv__-__rename__filesdirectories" title="Permanent link">&para;</a></h2>
+<p>The command <code>mv</code> is used to rename files and directories. It can also be used to <strong>move</strong> a file or directory to another location. </p>
+<ul>
+<li><strong>mv file1.txt file2.txt</strong>: renames <code>file1.txt</code> to <code>file2.txt</code></li>
+<li><strong>mv DIR1/ DIR2/</strong>: renames directory <code>DIR1</code> to directory <code>DIR2/</code></li>
+<li><strong>mv file1.txt DIR1/</strong>: moves the file <code>file1.txt</code> into the directory <code>DIR1/</code> </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>mv</code> complains if there is already a file/directory with the new name. You can force the renaming with &ldquo;-f&rdquo; at the cost of the disappearence of the file that previously held the name. </p>
+</div>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<ol>
+<li>Create three files (touch)</li>
+<li>Create a directory and then create a subdirectory of that directory (mkdir, cd)</li>
+<li>Create a file in the subdirectory (touch)</li>
+<li>Create another file inside the directory you created and then move it to the subdirectory (touch, cd, mv)</li>
+<li>Rename one of the directories (mv)</li>
+<li>Delete/remove a file (rm)</li>
+<li>Delete/remove the subdirectory (rm)  </li>
+</ol>
+</div>
+<h2 id="symbolic__links">Symbolic links<a class="headerlink" href="#symbolic__links" title="Permanent link">&para;</a></h2>
+<p>Symbolic links are also called soft links, or just symlinks. It is a pointer to another file or directory. </p>
+<ul>
+<li>It is useful both for ease <ul>
+<li>you avoid using a long path each time you change to a directory, like your project directory</li>
+<li>as well as to avoid changing hard links within other scripts or programs. This is good if you for instance install a program or use a script that assumes the library it uses is called libcoolness.a and not libcoolness.2.0.a. You can then just update the symlink instead of renaming the library or updating potentially many instances where it is mentioned in the program. </li>
+</ul>
+</li>
+</ul>
+<p>Command:</p>
+<div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ln<span class="w"> </span>-s<span class="w"> </span>real-file-or-lib<span class="w"> </span>link-name
+</span></code></pre></div>
+</div>
+
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ln<span class="w"> </span>-s<span class="w"> </span>/proj/intro-linux/users/MYUSERNAME<span class="w"> </span><span class="nv">$HOME</span>/myproj
+</span></code></pre></div>
+<p>This creates a symbolic link named &ldquo;myproj&rdquo; in your home directory, pointing to the location /proj/intro-linux/users/MYUSERNAME. The directory &ldquo;intro-linux&rdquo; is the project storage directory for this course project. For me, this would look like this: </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>-l
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>total<span class="w"> </span><span class="m">2</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w">   </span><span class="m">31</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:01<span class="w"> </span>myproj<span class="w"> </span>-&gt;<span class="w"> </span>/proj/intro-linux/users/x_birbr
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>drwxrwxr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>mytestdir
+</span></code></pre></div>
+</div>
+<h2 id="redirection">Redirection<a class="headerlink" href="#redirection" title="Permanent link">&para;</a></h2>
+<p>Usually, standard input comes from the keyboard etc. and the standard output goes to the screen. There is also standard error. All of these can be redirected with Linux commands. </p>
+<ul>
+<li><strong>&gt;</strong> redirects the output of some command <ul>
+<li><strong>Example</strong>, output of &ldquo;ls&rdquo; to a file: <code>ls &gt; test.dat</code></li>
+</ul>
+</li>
+<li><strong>&gt;&gt;</strong> concatenate the output of some command to the content of a ﬁle<ul>
+<li><strong>Example</strong>, adds the output of ls to the end of a file &ldquo;test.dat&rdquo;: <code>ls &gt;&gt; test.dat</code></li>
+</ul>
+</li>
+<li><strong>&lt;</strong> changes the standard input</li>
+<li><strong>2&gt;</strong> redirects the standard error:<ul>
+<li><strong>Example</strong>, redirect the error that is thrown from your program named &ldquo;myprogram&rdquo; to a file &ldquo;error.log&rdquo;: <code>./myprogram 2&gt; error.log</code></li>
+</ul>
+</li>
+<li><strong>2&gt;&amp;1</strong> redirects both standard output and standard error<ul>
+<li><strong>Example</strong>, redirect output and errors from your program to the same file: <code>./myprogram &gt; logﬁle 2&gt;&amp;1</code></li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Some more examples</p>
+<p><strong>HINT: code-along!</strong> </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cat<span class="w"> </span>file<span class="w"> </span>&gt;&gt;<span class="w"> </span>file2
+</span></code></pre></div>
+<p>Append the contents of file 1 to file2</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;text to append_add_here&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>file2
+</span></code></pre></div>
+<p>Append some text to a file called file2</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;text to append\n&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>fileName
+</span></code></pre></div>
+<p>Another way to append some text to a file </p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Adding longer blocks of text to a file, using the command line.</p>
+<p><strong>HINT: code-along!</strong> </p>
+<ol>
+<li>
+<p>Open the file for writing
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>foo.txt
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Add some text: 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>This<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>test.
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>I<span class="w"> </span>like<span class="w"> </span>the<span class="w"> </span>Unix<span class="w"> </span>operating<span class="w"> </span>systems.
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>The<span class="w"> </span>weather<span class="w"> </span>is<span class="w"> </span>nice<span class="w"> </span>today.
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>I<span class="w"> </span>am<span class="w"> </span>feeling<span class="w"> </span>sleepy.<span class="w"> </span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>To save the changes press CTRL-d i.e. press and hold CTRL and press d. </p>
+</li>
+</ol>
+</div>
+<h2 id="pipes">Pipes<a class="headerlink" href="#pipes" title="Permanent link">&para;</a></h2>
+<p>Pipes are used when you want to take the output of one command and use it as input for another command. </p>
+<p>Here follows some examples: </p>
+<p><strong>HINT: try the examples!</strong> You need a file <code>file.txt</code> for the examples. Either create a suitable one with some instances of the word string, or download (right-click and save): <a href="../file.txt">file.txt</a> </p>
+<div class="admonition example">
+<p class="admonition-title">Find the instances of the word &lsquo;string&rsquo; in file.txt and count them</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>grep<span class="w"> </span>-o<span class="w"> </span>-i<span class="w"> </span>string<span class="w"> </span>file.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Find the lines with instances of &lsquo;string&rsquo; in file.txt and output them to file.out</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>grep<span class="w"> </span>string<span class="w"> </span>file.txt<span class="w"> </span>&gt;<span class="w"> </span>file.out
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Find the lines with instances of &lsquo;string&rsquo; in file.txt and append them to file.out</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>grep<span class="w"> </span>string<span class="w"> </span>file.txt<span class="w"> </span>&gt;&gt;<span class="w"> </span>file.out
+</span></code></pre></div>
+</div>
+<h2 id="exporting__variables">Exporting variables<a class="headerlink" href="#exporting__variables" title="Permanent link">&para;</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Environment_variable" target="_blank">Environment variables</a> store data that is used by the operating system and other programs.</p>
+<p>Some are intrinsic to the operating system, some for a specific program/library/programming language, and some are created by the user. </p>
+<p>The variables can both be used in scripts and on the command line. Usually you reference them by putting a special symbol in front of or around the variable name. By convention, environment variable names are in UPPER CASE. </p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>$HOME</strong> Your home directory</li>
+<li><strong>$PWD</strong> This variable points to your current directory</li>
+<li><strong>$LD_LIBRARY_PATH</strong> a colon-separated list of directories that the dynamic linker should search for shared objects before searching in any other directories</li>
+<li><strong>$OMP_NUM_THREADS</strong> Number of OpenMP threads</li>
+<li><strong>$PYTHONPATH</strong> Path to the directory where your Python libraries and packages are installed </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">To see the content of an environment variable named ENVIRONMENT-VARIABLE</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$ENVIRONMENT</span>-VARIABLE
+</span></code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You will get a long list of all environment variables currently set with the command: </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>env
+</span></code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Some environment variables need to be exported in order to be used</p>
+<p>This is how you set the environment variable VARIABLE to value: </p>
+<p>For the <code>bash</code> shell
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">VARIABLE</span><span class="o">=</span>value
+</span></code></pre></div></p>
+<p>For <code>csh</code> and related shells
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>setenv<span class="w"> </span>VARIABLE<span class="w"> </span>value
+</span></code></pre></div></p>
+</div>
+<p><strong>Some examples:</strong> </p>
+<div class="admonition example">
+<p class="admonition-title">Setting the number of OpenMP threads to 8 in <code>bash</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span>
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Adding a new path to <code>$LD_LIBRARY_PATH</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/your/custom/path/
+</span></code></pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The environment variable only retains the value you have set for the duration of the session. When you open a new terminal window or login again, you need to set it again. </p>
+<p>To avoid that, add it to your <code>.bashrc</code> file, but only do so if it should truly be persisten across many sessions (like adding a new directory to search to <code>LD_LIBRARY_PATH</code> for instance). </p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Quickly add a new directory to <code>LD_LIBRARY_PATH</code> in tour <code>.bashrc</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export LD_LIBRARY_PATH=</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">:/your/custom/path/&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span></code></pre></div>
+<p>Change <code>/your/custom/path/</code> to the actual path to the directory for your library. </p>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../cli/" class="btn btn-neutral float-left" title="The command line (CLI)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../editors/" class="btn btn-neutral float-right" title="Editors">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../cli/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../editors/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/_markdown_exec_pyodide.js"></script>
+      <script src="../search/main.js"></script>
+      <script src="../js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
