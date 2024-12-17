@@ -8,26 +8,27 @@
         - HPC2N: <a href="https://docs.hpc2n.umu.se/tutorials/linuxguide/" target="_blank">https://docs.hpc2n.umu.se/tutorials/linuxguide/</a>
         - UPPMAX: <a href="https://docs.uppmax.uu.se/getting_started/linux/" target="_blank">https://docs.uppmax.uu.se/getting_started/linux/</a>
         - LUNARC: <a href="https://lunarc-documentation.readthedocs.io/en/latest/guides/linux/linux_basics_intro/" target="_blank">https://lunarc-documentation.readthedocs.io/en/latest/guides/linux/linux_basics_intro/</a>
-        - PDC: <a href="https://www.pdc.kth.se/support/documents/basics/introduction.html#basic-linux-for-new-hpc-users" target="_blank">https://www.pdc.kth.se/support/documents/basics/introduction.html#basic-linux-for-new-hpc-users</a> 
+        - PDC: <a href="https://support.pdc.kth.se/doc/support-docs/basics/introduction/#basic-linux-for-new-hpc-users" target="_blank">https://support.pdc.kth.se/doc/support-docs/basics/introduction/#basic-linux-for-new-hpc-users</a> 
+    - Documentation from Software Carpentry: <a href="https://swcarpentry.github.io/shell-novice/" target="_blank">https://swcarpentry.github.io/shell-novice/</a> 
 
 !!! note "Prerequisites"
 
     - You need access to a Linux system. 
-    - The course project will be on Tetralith, but you can use your own computer or any other computer you have access to that runs Linux. 
+    - You will use your own computer or any other computer (including computing access at computing centers) you have access to and that runs Linux. 
+    - The course project will be on Tetralith, for those that do not have other access to a computer that runs Linux.  
         - For those using Tetralith, there is a <a href="https://www.nsc.liu.se/support/getting-started/" target="_blank">Get started guide for NSC here</a>. 
 
 !!! note "Content"
 
    - This NAISS course aims to give a brief, but comprehensive introduction to the Linux operating system.
    - You will learn about
-      - Linux terminology
       - the command line
       - navigating the file system
       - editors on the Linux system 
       - data handling
       - some handy hints and tricks 
    - This course will consist of lectures and type-alongs, as well as a few exercises where you get to try out what you have just learned.    
-   - It is the first instance of this course, so we will be grateful if you will fill the evaluation survey so we can improve the course: <a href="https://forms.office.com/e/n2ss7F4h3C" target="_blank">https://forms.office.com/e/n2ss7F4h3C</a>. 
+   - It is the second instance of this course, and it has been somewhat reworked based on previous participant input. We would be grateful if you will fill the evaluation survey so we can further improve the course:  
 
 !!! admonition "Cluster-specific approaches"
 
@@ -44,8 +45,8 @@
     Password:
     Verification code:
     ```
-    - The verification code it askes about is a 2FA that you need to set. See here: <a href="https://www.nsc.liu.se/support/2fa/" target="_blank">https://www.nsc.liu.se/support/2fa/</a>.
-    - The project storage for the course project is in ``/proj/intro-linux/users/YOUR-USERNAME``.
+    - The verification code it asks about is a 2FA that you need to set. See here: <a href="https://www.nsc.liu.se/support/2fa/" target="_blank">https://www.nsc.liu.se/support/2fa/</a>.
+    - The project storage for the course project is in ``/proj/linux-intro/users/YOUR-USERNAME``.
 
 ## Important info
 
