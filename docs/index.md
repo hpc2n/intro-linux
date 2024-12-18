@@ -46,24 +46,37 @@
     Verification code:
     ```
     - The verification code it asks about is a 2FA that you need to set. See here: <a href="https://www.nsc.liu.se/support/2fa/" target="_blank">https://www.nsc.liu.se/support/2fa/</a>.
-    - The project storage for the course project is in ``/proj/linux-intro/users/YOUR-USERNAME``.
+    - You will probably not need it for the course, but the compute project ID is: naiss2024-22-1676 
+    - The project storage for the course project is in ``/proj/linux-intro/users/YOUR-USERNAME`` 
+        - Example, for the user ``x_birbr``, this would be: ``/proj/linux-intro/users/x_birbr``
 
 ## Important info
 
-- There is an "important info" page for this course, containing info on the course project, login info for Tetralith, etc. It can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/Ed16r0fqgGpLm6T2u-bl5yIBZjmV_GvBy-EOsg9fcWK-UQ?e=LDLQX4" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/Ed16r0fqgGpLm6T2u-bl5yIBZjmV_GvBy-EOsg9fcWK-UQ?e=LDLQX4</a>
-- There is a Q/A page for use during the lectures. Since the lectures are recorded, you may get recorded if you ask questions in the Zoom, but you can always write questions on the Q/A and get answers there. It also has the advantage that you can go back and look at the answers later. The Q/A page can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EQUtySAkcGREswBAeZiGJgUBilEListST0Oftyf2FqSnSg?e=DPcQoP" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EQUtySAkcGREswBAeZiGJgUBilEListST0Oftyf2FqSnSg?e=DPcQoP</a> 
+- There is an "important info" page for this course, containing info on the course project, login info for Tetralith, etc. It can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EVoQLj_qpDROmwcJiy-ZmBYBrsS4etjGAsJawMuGsgjAwQ?e=prrP8f" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EVoQLj_qpDROmwcJiy-ZmBYBrsS4etjGAsJawMuGsgjAwQ?e=prrP8f</a>
+- There is a Q/A page for use during the lectures. Since the lectures are recorded, you may get recorded if you ask questions in the Zoom, but you can always write questions on the Q/A and get answers there. It also has the advantage that you can go back and look at the answers later. The Q/A page can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EfQFzUvKVelJgDl213GEO9MBOU6Vx_aWRbbygwzkDzkt7w?e=M4H6fz" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EfQFzUvKVelJgDl213GEO9MBOU6Vx_aWRbbygwzkDzkt7w?e=M4H6fz</a> 
 
 ## Preliminary schedule
 
 | Time | Topic | Activity | 
 | ---- | ----- | -------- |
 | 9:00 | Welcome+Syllabus | |
-| 9:05 | Introduction to Linux | Lecture | 
-| 9:15 | Linux terminology | Lecture | 
+| 9:10 | Introduction to Linux, motivation | Lecture | 
 | 9:25 | The command line (CLI) | Lecture+code along | 
-| 9:35 | The file system | Lecture+code along+exercise |
-| 10:10 | Editors | Lecture+code along |  
-| 10:20 | Data handling | Lecture+code along | 
-| 10:40 | Hints and tricks | Lecture+code along | 
-| 10:55 | Summary   | | 
-| 11:00 | END | |  
+| 9:45 | The file system | Lecture+code along+exercise |
+| 10:15 | BREAK | | 
+| 10:30 | Editors | Lecture+code along |  
+| 10:50 | Data handling | Lecture+code along | 
+| 11:20 | Hints and tricks | Lecture+code along | 
+| 11:35 | More time for exercises | | 
+| 11:55 | Summary   | | 
+| 12:00 | END | |  
+
+## Preparations 
+
+In order to type along and do the exercises, please prepare your course environment now: 
+
+1. Login to the system you are using (Tetralith, your own computer, other system)
+2. Create a directory to work in (``mkdir intro-linux``) and then switch to it (``cd intro-linux``)  
+    - **NOTE** If you are working on Tetralith, first switch to your working directory: ``cd /proj/linux-intro/users/YOUR-USERNAME``
+3. Download the exercises with ``wget ADD-PATH-TO-TARBALL`` 
+

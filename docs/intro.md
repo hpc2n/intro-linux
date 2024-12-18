@@ -3,26 +3,19 @@
 - Welcome page and syllabus: <a href="https://hpc2n.github.io/intro-linux/index.html">https://hpc2n.github.io/intro-linux/index.html</a>
     - Also link at the House symbol at the top of the page. 
 
-!!! Admonition "Learning outcomes"
+!!! Admonition "Learning outcomes for this course"
 
-    - What is Linux?
+    - What is Linux and why should I use it?
     - Learn about the command line interface (CLI)
     - Navigate the file system - ls, mkdir, cd, rm, cp, mv, redirection, pipes, etc.  
     - Data handling - compressing, archiving, file transfer, patterns, etc.  
     - Hints and tricks of Linux
 
-## Why Linux 
-
-- Most HPC centers supercomputers run some flavour of Linux. 
-- It is stable and reliable
-- Customizable
-- Runs on any hardware
-- Strong community
-- Many flavours are open source and free
-- Lots of applications
-- Lightweight
-
 ## What is Linux
+
+!!! note 
+
+    Most of the commands you learn in this course is agnostic and works on any Linux/Unix like system. MacOS is also a Unix-like OS, and the majority of the commands are the same. 
 
 Linux is a family of open-source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991, by Linus Torvalds.
 
@@ -39,6 +32,19 @@ Linux is typically packaged as a Linux distribution, which includes the kernel a
 In addition, a windowing system of some sort (X11, Wayland) interfaces directly with the underlying operating system and libraries, providing support for graphical hardware, pointing devices, and keyboards. The window manager generally runs on top of this windowing system.
 
 ![how-os-diagram](images/how-os-diagram.png){: style="width: 400px;float: right;padding: 3px;}
+
+
+
+## Why Linux 
+
+- Most HPC centers supercomputers run some flavour of Linux.
+- It is stable and reliable
+- Customizable
+- Runs on any hardware
+- Strong community
+- Many flavours are open source and free
+- Lots of applications
+- Lightweight
 
 While the use of Linux on desktop is only 2-3%, the vast majority of web servers (>96%), most mobile devices (Android is based on the Linux kernel), and all supercomputers on the <a href="https://en.wikipedia.org/wiki/TOP500" target="_blank">Top500</a> list run Linux.
 
