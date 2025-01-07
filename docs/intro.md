@@ -31,9 +31,6 @@ Linux is typically packaged as a Linux distribution, which includes the kernel a
 
 In addition, a windowing system of some sort (X11, Wayland) interfaces directly with the underlying operating system and libraries, providing support for graphical hardware, pointing devices, and keyboards. The window manager generally runs on top of this windowing system.
 
-![how-os-diagram](images/how-os-diagram.png){: style="width: 400px;float: right;padding: 3px;}
-
-
 
 ## Why Linux 
 

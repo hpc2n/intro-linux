@@ -42,6 +42,7 @@ nav:
   - Summary: summary.md
   - Extras: 
     - Install tree: tree.md
+    - Linux system overview: connections.md
     - Linux terminology: linux-terms.md
     - Linux cheat sheet: cheat.md
 plugins:
