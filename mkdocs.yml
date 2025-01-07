@@ -33,7 +33,7 @@ extra_css:
 nav:
   - Home: index.md
   - Introduction: intro.md
-  - Linux terminology: linux.md
+    #  - Linux terminology: linux.md
   - The command line (CLI): cli.md
   - The File System: filesystem.md
   - Editors: editors.md
@@ -42,7 +42,7 @@ nav:
   - Summary: summary.md
   - Extras: 
     - Install tree: tree.md
-    - More Linux terms: linux-terms.md
+    - Linux terminology: linux-terms.md
     - Linux cheat sheet: cheat.md
 plugins:
   - search
