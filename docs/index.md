@@ -79,4 +79,5 @@ In order to type along and do the exercises, please prepare your course environm
 2. Create a directory to work in (``mkdir intro-linux``) and then switch to it (``cd intro-linux``)  
     - **NOTE** If you are working on Tetralith, first switch to your working directory: ``cd /proj/linux-intro/users/YOUR-USERNAME``
 3. Download the exercises with ``wget ADD-PATH-TO-TARBALL`` 
-
+4. Extract the exercises with ``tar zxvf TARBALL``
+5. Enter the directory that was created: ``cd PATH``
