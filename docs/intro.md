@@ -51,8 +51,8 @@ The shell is a special user program. It is an interface between the keyboard and
 
 The shell we are looking at in this course is the Linux/Unix shell, which is a command-line interpreter providing a Command Line Interface (CLI) for Unix-like systems. More about that in the next part. 
 
-!!! info 
-  
+!!! Note
+
     There are several shells, which has somewhat different properties: 
 
     - The Bourne Shell (sh)
@@ -61,28 +61,23 @@ The shell we are looking at in this course is the Linux/Unix shell, which is a c
     - The Korn Shell (ksh) 
     - The Z Shell (zsh) 
 
-<details>
+!!! Important 
 
-  <summary>Overview</summary>
-  
-     | Shell | Complete path-name | Prompt for root user | Prompt for non root user |
-     | ----- | ------------------ | -------------------- | ------------------------ |  
-     | Bourne shell (sh) | /bin/sh and /sbin/sh | # | $ | 
+    Most centers has ``bash`` as default as that is what is compatible with SLURM - the batch scheduler used at most centers in Sweden. 
 
-</details>
+    For the majority of the material in this course, it does not matter which shell you are using, but there are some commands where it is relevant. We will therefore be using ``bash`` for this course. 
 
-Shell 	Complete path-name 	Prompt for root user 	Prompt for non root user
-Bourne shell (sh) 	/bin/sh and /sbin/sh 	# 	$
-GNU Bourne-Again shell (bash) 	/bin/bash 	bash-VersionNumber# 	bash-VersionNumber$
-C shell (csh) 	/bin/csh 	# 	%
-Korn shell (ksh) 	/bin/ksh 	# 	$
-Z Shell (zsh) 	/bin/zsh 	<hostname># 	<hostname>%
+## Why Linux/Unix (shell) 
 
-## Why Linux/Unix
+The Linux/Unix shell has existed for a very long time (Thompson shell, 1971; Bourne shell, 1979). 
 
-The Linux/Unix shell has been around longer than most of its users have been alive. It has survived because it’s a powerful tool that allows users to perform complex and powerful tasks, often with just a few keystrokes or lines of code. It helps users automate repetitive tasks and easily combine smaller tasks into larger, more powerful workflows.
+- The reason it keeps being used is that it is a very powerful tool which lets users perform complex and powerful tasks. 
+- These tasks can often be done using a few keystrokes or maybe a few lines of code. 
+- It can be used to automate repetitive tasks or to combine smaller tasks into **scripts**, which helps the user work faster are more effective. 
 
-Use of the shell is fundamental to a wide range of advanced computing tasks, including high-performance computing. These lessons will introduce you to this powerful tool.
+Using the Linux/Unix shell is fundamental for a large number of advanced computing tasks, including in HPC (high-performance computing). 
+
+In addition: 
 
 - Most HPC centers supercomputers run some flavour of Linux.
 - It is stable and reliable
@@ -94,6 +89,8 @@ Use of the shell is fundamental to a wide range of advanced computing tasks, inc
 - Lightweight
 
 While the use of Linux on desktop is only 2-3%, the vast majority of web servers (>96%), most mobile devices (Android is based on the Linux kernel), and all supercomputers on the <a href="https://en.wikipedia.org/wiki/TOP500" target="_blank">Top500</a> list run Linux.
+
+For all of these reasons, and many more, it is a good idea to be more proficient in Linux. This course aims to help you with that. 
 
 ## More information 
 

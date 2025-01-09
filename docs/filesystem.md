@@ -2,11 +2,29 @@
 
 This section is going to be a high-level talk about the Linux filesystem concepts, not a low-level description of filesystem types. 
 
+!!! Note "Learning objectives" 
+
+    **Questions** 
+
+    - How do I list my files?
+    - How do create and remove files and directories?
+    - How do I copy/rename files and directories? 
+    
+    **Learning objectives** 
+
+    - Learn how to navigate the Linux file system
+    - Learn about files and directories
+    - Learn about paths 
+    - Be able to create and delete files and directories, as well as rename and copy them 
+    - Get a brief introduction to **permissions** 
+    - Learn about options (flags) and arguments to shell commands 
+    - Learn about the **tab completion**
+     
 ![Tree of dir structure](images/tree.png){: style="width: 500px;float: right"}
 
 The Linux filesystem directory structure starts with the top root directory, which is shown as <code>/</code>. Below this are several other standard directories. Of particular interest are <code>usr/bin</code>, <code>home</code>, <code>usr/lib</code>, and <code>usr/lib64</code>. A common directory which you will also often find is <code>usr/local/bin</code>. 
 
-The picture on the right shows typical subdirectories under <code>/</code> (note that the command 'tree' does not work at all HPC centres, though it does work on Tetralith - see the page [tree](../tree) under "Extras section for how to install if it is missing). Some of the directories have a symbolic link to a different name - this is often done to make it quicker to write, but can also be for compatibility reasons since some software have hardcoded paths. 
+The picture on the right shows typical subdirectories under <code>/</code> (note that the command 'tree' does not work at all HPC centres, though it does work on Tetralith - see the page [tree](../tree) under "Extras section for how to install if it is missing). Some of the directories have a **symbolic link** to a different name - this is often done to make it quicker to write, but can also be for compatibility reasons since some software have hardcoded paths. 
 
 - **usr/bin**: contains (most) of the system-specific binaries
 - **usr/local/bin**: non-system binaries. often locally compiled/maintained packages
@@ -18,7 +36,7 @@ User-installed binaries are often located in **/opt**.
 
 !!! note
 
-    If you are on a local cluster, on an HPC centre, etc. where you are not root, you will as default be in your home directory when you login. You can use ``cd ..`` a couple times to go to the root of the system and do ``tree`` there if you want, or do ``tree`` in your home directory (always return there with just ``cd``). 
+    If you are on a local cluster, on an HPC centre, etc. where you are not root, you will as default be in your home directory when you login. You can use ``cd ..`` a couple times to go to the root of the system and do ``tree`` there if you want, or do ``tree`` in your home directory (you can always return there with just ``cd``). 
 
     Running ``tree`` in ``/`` on a supercomuting centre will probably give a very large/long output! 
 
