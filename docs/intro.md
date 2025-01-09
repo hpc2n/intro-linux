@@ -7,8 +7,22 @@
 
     - What is Linux and why should I use it?
     - Learn about the command line interface (CLI)
-    - Navigate the file system - ls, mkdir, cd, rm, cp, mv, redirection, pipes, etc.  
-    - Data handling - compressing, archiving, file transfer, patterns, etc.  
+    - Navigate the file system 
+        - ls
+        - mkdir
+        - cd
+        - rm
+        - cp
+        - mv
+        - redirection
+        - pipes
+        - etc.  
+    - Data handling 
+        - compressing
+        - archiving
+        - file transfer
+        - patterns
+        - etc.  
     - Hints and tricks of Linux
 
 ## What is Linux
@@ -31,8 +45,44 @@ Linux is typically packaged as a Linux distribution, which includes the kernel a
 
 In addition, a windowing system of some sort (X11, Wayland) interfaces directly with the underlying operating system and libraries, providing support for graphical hardware, pointing devices, and keyboards. The window manager generally runs on top of this windowing system.
 
+## Shell 
 
-## Why Linux 
+The shell is a special user program. It is an interface between the keyboard and the operating system (OS) I.e. it takes commands input the user give from the keyboard and sends it to the OS which then performs the actions requested. 
+
+The shell we are looking at in this course is the Linux/Unix shell, which is a command-line interpreter providing a Command Line Interface (CLI) for Unix-like systems. More about that in the next part. 
+
+!!! info 
+  
+    There are several shells, which has somewhat different properties: 
+
+    - The Bourne Shell (sh)
+    - The GNU Bourne-Again shell (bash)
+    - The C shell (csh)
+    - The Korn Shell (ksh) 
+    - The Z Shell (zsh) 
+
+<details>
+
+  <summary>Overview</summary>
+  
+     | Shell | Complete path-name | Prompt for root user | Prompt for non root user |
+     | ----- | ------------------ | -------------------- | ------------------------ |  
+     | Bourne shell (sh) | /bin/sh and /sbin/sh | # | $ | 
+
+</details>
+
+Shell 	Complete path-name 	Prompt for root user 	Prompt for non root user
+Bourne shell (sh) 	/bin/sh and /sbin/sh 	# 	$
+GNU Bourne-Again shell (bash) 	/bin/bash 	bash-VersionNumber# 	bash-VersionNumber$
+C shell (csh) 	/bin/csh 	# 	%
+Korn shell (ksh) 	/bin/ksh 	# 	$
+Z Shell (zsh) 	/bin/zsh 	<hostname># 	<hostname>%
+
+## Why Linux/Unix
+
+The Linux/Unix shell has been around longer than most of its users have been alive. It has survived because it’s a powerful tool that allows users to perform complex and powerful tasks, often with just a few keystrokes or lines of code. It helps users automate repetitive tasks and easily combine smaller tasks into larger, more powerful workflows.
+
+Use of the shell is fundamental to a wide range of advanced computing tasks, including high-performance computing. These lessons will introduce you to this powerful tool.
 
 - Most HPC centers supercomputers run some flavour of Linux.
 - It is stable and reliable
