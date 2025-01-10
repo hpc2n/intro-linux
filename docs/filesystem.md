@@ -24,21 +24,88 @@ This section is going to be a high-level talk about the Linux filesystem concept
 
 The Linux filesystem directory structure starts with the top root directory, which is shown as <code>/</code>. Below this are several other standard directories. Of particular interest are <code>usr/bin</code>, <code>home</code>, <code>usr/lib</code>, and <code>usr/lib64</code>. A common directory which you will also often find is <code>usr/local/bin</code>. 
 
-The picture on the right shows typical subdirectories under <code>/</code> (note that the command 'tree' does not work at all HPC centres, though it does work on Tetralith - see the page [tree](../tree) under "Extras section for how to install if it is missing). Some of the directories have a **symbolic link** to a different name - this is often done to make it quicker to write, but can also be for compatibility reasons since some software have hardcoded paths. 
+The picture on the right shows typical subdirectories under <code>/</code> (note that the command 'tree' does not work at all HPC centres, though it does work on Tetralith - see the page [tree](../tree) under "Extras section for how to install if it is missing). Some of the directories have a **symbolic link** to a different name - this is often done to make it quicker to write, but can also be for compatibility reasons since some software have hardcoded paths.
 
-- **usr/bin**: contains (most) of the system-specific binaries
-- **usr/local/bin**: non-system binaries. often locally compiled/maintained packages
-- **home**: where the home directories of the users of the system are located
-- **usr/lib**: kernel modules and shared library images needed to boot the system and run commands in the root filesystem
-- **usr/lib64**: same as /lib, just for 64-bit libraries 
+!!! Note
+
+    The ``path`` or ``pathname`` is the representation of the location of a file or folder/directory on a computer file system.
+ 
+
+- **/** is the root of the directory structure on a Linux filesystem 
+- **/usr/bin** contains (most) of the system-specific binaries
+- **/usr/local/bin** holds non-system binaries. often locally compiled/maintained packages
+- **/home** is where the home directories of the users of the system are located
+- **/usr/lib** holds kernel modules and shared library images needed to boot the system and run commands in the root filesystem
+- **/usr/lib64** is the same as **/usr/lib**, just for 64-bit libraries 
 
 User-installed binaries are often located in **/opt**. 
+
+The file system could also be illustrated like this: 
+
+![folders of filesystem structure](images/filesystem-folders.png){: style="width: 500px;float: left"}
+
+!!! warning "Note"
+
+    The character ``/`` can be 
+
+    1. the root directory, if it is at the front of a file or directory name 
+    2. a separator if it appears inside a path. 
 
 !!! note
 
     If you are on a local cluster, on an HPC centre, etc. where you are not root, you will as default be in your home directory when you login. You can use ``cd ..`` a couple times to go to the root of the system and do ``tree`` there if you want, or do ``tree`` in your home directory (you can always return there with just ``cd``). 
 
-    Running ``tree`` in ``/`` on a supercomuting centre will probably give a very large/long output! 
+    Running ``tree`` in ``/`` on a supercomputing centre will probably give a very large/long output! 
+
+### Home folders on Tetralith
+
+![home folders file structure](images/homefolders-focus.png){: style="width: 500px;float: left"}
+
+The above shows an illustration where the home folders are emphasized. 
+
+## pwd
+
+The command ``pwd`` (print working directory) will print out the full pathname of the working directory to the screen. 
+
+You can use this to find out which directory you are in.
+
+### Example, in your home directory 
+
+On Tetralith, user ``x_birbr``: 
+
+```bash
+[x_birbr@tetralith3 ~]$ pwd
+/home/x_birbr
+[x_birbr@tetralith3 ~]$ 
+```
+
+On Kebnekaise, user ``bbrydsoe``: 
+
+```bash
+b-an01 [~]$ pwd
+/home/b/bbrydsoe
+b-an01 [~]$ 
+```
+
+### Example, in a directory named ``testdir``
+
+On Tetralith, user ``x_birbr``:
+
+```bash
+[x_birbr@tetralith3 testdir]$ pwd
+/home/x_birbr/testdir
+[x_birbr@tetralith3 testdir]$
+```
+
+### Example, in subdirectory ``mydir`` under directory ``testdir``
+
+On Tetralith, user ``x_birbr``: 
+
+```bash
+[x_birbr@tetralith3 mydir]$ pwd
+/home/x_birbr/testdir/mydir
+[x_birbr@tetralith3 mydir]$ 
+```
 
 ## ls - listing files/directories
 
