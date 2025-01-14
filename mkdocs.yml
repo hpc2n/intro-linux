@@ -36,6 +36,7 @@ nav:
     #  - Linux terminology: linux.md
   - The command line (CLI): cli.md
   - The File System: filesystem.md
+  - Pipes and filters: pipesfilters.md
   - Editors: editors.md
   - Data Handling: data.md
   - Hints and tricks: hints.md
@@ -44,6 +45,7 @@ nav:
     - Install tree: tree.md
     - Linux system overview: connections.md
     - Linux terminology: linux-terms.md
+    - More commands: more-commands.md
     - Linux cheat sheet: cheat.md
 plugins:
   - search

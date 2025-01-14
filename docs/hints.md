@@ -77,6 +77,15 @@ $ alias shortName="your custom command here"
     $ source ~/.bashrc
     ```
 
+## Finding help 
+
+You can often get more info on flags/options and usage for a Linux command with
+
+- ``COMMAND --help``
+- ``man COMMAND``
+
+where COMMAND is the Linux command you want information about, like ``ls``, ``mkdir``, ``gcc``, etc. 
+
 ## Misc
 
 - Write 'clear' to clear the terminal

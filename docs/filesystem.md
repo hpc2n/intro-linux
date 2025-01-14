@@ -59,9 +59,29 @@ The file system could also be illustrated like this:
 
 ### Home folders on Tetralith
 
-![home folders file structure](images/homefolders-focus.png){: style="width: 500px;float: left"}
+![home folders file structure](images/homefolders-focus.png){: style="width: 500px;float: left"}   
+<br><br style="clear: both;">
 
 The above shows an illustration where the home folders are emphasized. 
+
+## Your home directory
+
+When you login to the computer (as a non root user), you will end up in your home directory. 
+
+The ``path`` to your home directory varies somewhat. Here are some examples for me: 
+
+- Tetralith: ``/home/x_birbr``
+- Kebnekaise: ``/home/b/bbrydsoe``
+- My laptop, ncc-1701: ``/home/bbrydsoe``
+- My home desktop, defiant: ``/home/bbrydsoe``
+
+!!! note 
+
+    You can always use the command ``pwd`` to see the actualy path! 
+
+    You will always return to your home directory by giving the command ``cd`` and pressing enter. 
+
+There are is also an "environment variable" that can be used as shortcut for the path: ``$HOME``. We will talk more about (environment) variables later. 
 
 ## pwd
 
@@ -107,6 +127,58 @@ On Tetralith, user ``x_birbr``:
 [x_birbr@tetralith3 mydir]$ 
 ```
 
+## cd - changing directory 
+
+The command ``cd```is used to change directory. 
+
+- **cd**: Go to your home directory ($HOME)
+- **cd DIR**: Change directory to DIR
+- **cd ..**: Change directory to the parent directory of the current directory
+- **cd -**: go back to the previous directory
+
+!!! example
+
+    This is the structure of the exercises directory that you got after extracting the tarball: 
+
+    ![folders of exercises directory structure](images/exercises-folders.png){: style="width: 500px;float: left"}
+    <br><br style="clear: both;">
+
+    Remember, $HOME is an ``environment variable`` which gives a shortcut to your home directory. 
+
+    To change to the directory ``exercises`` when you are in your home directory, you do
+    ```bash
+    cd exercises
+    ```
+
+    To then change to the directory ``testdir1`` you do
+    ```bash
+    cd testdir1
+    ```
+
+    To quickly go back to your home directory, do 
+    ```bash
+    cd 
+    ```
+
+    To quickly go to a subdirectory, for instance ``exercises/testdir2`` you then do 
+    ```bash
+    cd exercises/testdir2
+    ```
+
+    To go to the above directory from anywhere on the system in question, do 
+    ```bash
+    cd $HOME/exercises/testdir2
+    ```
+
+
+!!! info
+
+    You can use **full paths** (also know as **absolute paths**) or **relative paths** to give the location. 
+
+    An absolute path makes no assumptions about your current location in relation to the location of the file or directory you want to access. It specifies the location from the root of the file system. 
+
+    The path with reference to your current directory is called the relative path. 
+
 ## ls - listing files/directories
 
 The ls command is used to list files. If you just give the command "ls" with no flags it will list all files in the current directory except for hidden files.
@@ -126,20 +198,29 @@ Some examples:
 - <code>ls ~</code> lists the contents of your user home directory
 - <code>ls *</code> lists contents of current directory and subdirectories
 
-Commonly used flags: 
+!!! Note "Commonly used flags" 
 
-- <code>-d */</code> lists only directories
-- <code>-a</code> lists content including hidden files and directories
-- <code>-l</code> lists content in long table format (permissions, owners, size in bytes, modification date/time, file/directory name)
-- <code>-lh</code> adds an extra column to above representing size of each file/directory
-- <code>-t</code> lists content sorted by last modified date in descending order
-- <code>-tr</code> lists content sorted by last modified date in ascending order
-- <code>-R</code> lists contents recursively in all subdirectories
-- <code>-s</code> list files with their sizes
-- <code>-S</code> sort files/directories by size in descending order
-- <code>-Sr</code> sort files/directories by size in ascending order
+    - <code>-d */</code> lists only directories
+    - <code>-a</code> lists content including hidden files and directories
+    - <code>-l</code> lists content in long table format (permissions, owners, size in bytes, modification date/time, file/directory name)
+    - <code>-lh</code> adds an extra column to above representing size of each file/directory
+    - <code>-t</code> lists content sorted by last modified date in descending order
+    - <code>-tr</code> lists content sorted by last modified date in ascending order
+    - <code>-R</code> lists contents recursively in all subdirectories
+    - <code>-s</code> list files with their sizes
+    - <code>-S</code> sort files/directories by size in descending order
+    - <code>-Sr</code> sort files/directories by size in ascending order
 
 To get more flags, type <code>ls \--help</code> or <code>man ls</code> in the terminal to see the manual. 
+
+!!! tip
+
+    You can often get more info on flags/options and usage for a Linux command with 
+
+    - <code>COMMAND \--help</code>
+    - <code>man COMMAND</code>
+
+    where COMMAND is the Linux command you want information about, like <code>ls</code>, <code>mkdir</code>, etc. 
 
 !!! Example "The output for a few of the flags, for a directory with two subdirectories and some files" 
 
@@ -257,27 +338,9 @@ The following group of 3 bits are for the owner, then the next 3 for the group, 
         - **chmod a=rwx FILE/DIR** same as above
         - **chmod a=r DIR** give read permissions to all for DIR 
 
-## chown - change ownership
+!!! Note
 
-To change ownership of a file or directory, use the command <code>chown</code>. 
-
-<div>
-```bash
-chown [OPTIONS] USER[:GROUP] FILE(s)
-```
-</div>
-
-!!! Note "Examples"
-
-    - <code>chown USERNAME FILE</code> the user with USERNAME becomes the new owner of FILE
-    - <code>chown USERNAME DIRECTORY</code> the user with USERNAME becomes the new owner of DIRECTORY (but not any subdirectories)
-    - <code>chown USERNAME:folk DIRECTORY</code> the user ownership is changed to USER and the group ownership to group "folk" for the directory DIRECTORY
-    - <code>chown :folk DIRECTORY</code> the group ownership is changed to the group "folk" for the directory DIRECTORY
-    - <code>chown -R USERNAME:folk DIRECTORY</code> the user ownership is changed to USERNAME and the group ownership is changed to group "folk" for the directory DIRECTORY and all subdirectories
-
-!!! Warning 
-
-    As default, <code>chown</code> does not generate output on success and returns zero. 
+    It is also possible to change the ownership of a file or a directory. We are not going to cover this here, but you can read about the command <code>chown</code> and how to use it in the "[More commands](../more-commands)" section under EXTRAS.  
 
 ## Create and remove directories/files 
 
@@ -288,6 +351,7 @@ This section contains a few examples of how to work with files and directories t
 - **cd**: Go to your home directory ($HOME)
 - **cd DIR**: Change directory to DIR
 - **cd ..**: Change directory to the parent directory of the current directory
+- **cd -**: go back to the previous directory 
 - **touch FILE**: create an empty file with the name FILE 
 
 You also user "rm" to remove files; 
@@ -305,13 +369,13 @@ The command <code>pwd</code> tells you the current directory path.
     **HINT: Code-along!**
 
     ```bash
-    [x_birbr@tetralith1 ~]$ mkdir mytestdir
-    [x_birbr@tetralith1 ~]$ cd mytestdir/
-    [x_birbr@tetralith1 mytestdir]$ mkdir testdir1
-    [x_birbr@tetralith1 mytestdir]$ mkdir testdir2
-    [x_birbr@tetralith1 mytestdir]$ mkdir testdir3
-    [x_birbr@tetralith1 mytestdir]$ rm -rf testdir3
-    [x_birbr@tetralith1 mytestdir]$ cd testdir1
+    [x_birbr@tetralith1 ~]$ mkdir myowntestdir
+    [x_birbr@tetralith1 ~]$ cd myowntestdir/
+    [x_birbr@tetralith1 myowntestdir]$ mkdir testdir1
+    [x_birbr@tetralith1 myowntestdir]$ mkdir testdir2
+    [x_birbr@tetralith1 myowntestdir]$ mkdir testdir3
+    [x_birbr@tetralith1 myowntestdir]$ rm -rf testdir3
+    [x_birbr@tetralith1 myowntestdir]$ cd testdir1
     [x_birbr@tetralith1 testdir1]$ touch file1.txt
     [x_birbr@tetralith1 testdir1]$ touch file2.sh
     [x_birbr@tetralith1 testdir1]$ touch file3.c
@@ -320,7 +384,7 @@ The command <code>pwd</code> tells you the current directory path.
     [x_birbr@tetralith1 testdir1]$ rm file5.txt 
     [x_birbr@tetralith1 testdir1]$ 
     [x_birbr@tetralith1 testdir1]$ cd ..
-    [x_birbr@tetralith1 mytestdir]$ cd testdir2/
+    [x_birbr@tetralith1 myowntestdir]$ cd testdir2/
     [x_birbr@tetralith1 testdir2]$ 
     ```
 
@@ -344,6 +408,42 @@ This command is used to copy files or directories.
 - **cp DIR1/ DIR2/**: copy the directory DIR1 into the directory DIR2 (Note: overwrites existing files with same name)
 - **cp -R DIR1/ DIR2/**: copy the directory DIR1 and all subdirectories into the directory DIR2. 
 
+!!! example "Code-along"
+
+    Go to the directory ``mytestdir`` under ``exercises`` directory that you got from the downloaded tarball. This is how the structure looks: 
+
+    ![folders of exercises directory structure](images/exercises-folders.png){: style="width: 500px;float: left"}
+    <br><br style="clear: both;">
+ 
+    1. Change to the subdirectory: 
+
+       ```bash
+       cd exercises
+       cd mytestdir
+       ```
+    2. Copy the file ``myfile.txt`` to the subdirectory ``testdir1``: 
+
+       ```bash
+       cp myfile.txt testdir1
+       ``` 
+    3. Create a new directory called ``testdir3`` inside ``testdir1``
+
+       ```bash
+       cd testdir1
+       mkdir testdir3
+       ```
+    4. Copy the new subdirectory ``testdir3`` to the directory ``testdir2``. Remember, "testdir2" is located outside "testdir1" and at the same "level". This can be done in more than one way. Remember you need the option ``-r`` (for recursive) when copying directories:  
+        a) "Go up one" and then copy: 
+           ```bash
+           cd ..
+           cp -r testdir1/testdir3 testdir2/
+           ```
+        b) Copy will standing inside ``testdir1``
+           ```bash
+           cp -r testdir3 ../testdir2
+           ```
+    5. If you give the full path while copying, this can be done from anywhere.  
+
 ## mv - rename files/directories
 
 The command <code>mv</code> is used to rename files and directories. It can also be used to **move** a file or directory to another location. 
@@ -356,17 +456,66 @@ The command <code>mv</code> is used to rename files and directories. It can also
 
     <code>mv</code> complains if there is already a file/directory with the new name. You can force the renaming with "-f" at the cost of the disappearence of the file that previously held the name. 
 
-## Exercise 
+### Exercise 
 
 !!! Exercise "Exercise"
 
     1. Create three files (touch)
     2. Create a directory and then create a subdirectory of that directory (mkdir, cd)
     3. Create a file in the subdirectory (touch)
-    4. Create another file inside the directory you created and then move it to the subdirectory (touch, cd, mv)
+    4. Create another file inside the directory you created and then move it to the subdirectory you created (touch, cd, mv)
     5. Rename one of the directories (mv)
     6. Delete/remove a file (rm)
     7. Delete/remove the subdirectory (rm)  
+
+??? note "Solution - click to reveal" 
+ 
+    1. I am randomly naming the files ``afile.txt``, ``bfile.txt``, ``cfile.txt``
+       ```bash
+       touch afile.txt
+       touch bfile.txt
+       touch cfile.txt
+       ```
+    2. I am naming the directory ``newdir`` and the subdirectory ``subdir``
+
+       ```bash 
+       mkdir newdir
+       cd newdir
+       mkdir subdir
+       ```    
+    3. I am creating a file named ``newfile.dat``
+    
+       ```bash
+       cd subdir
+       touch newfile.dat
+       ```
+    4. I am naming the file ``secondfile.txt``
+
+       ```bash
+       cd ..
+       touch secondfile.txt
+       mv secondfile.txt subdir
+       ```
+    5. I will rename the first directory (top-level directory) I created, calling it ``fancydir`` 
+
+       ```bash
+       cd ..
+       mv newdir fancydir
+       ```
+    6. I will remove the file ``afile.txt`` while standing "above" the directory ``fancydir`` (previously called ``newdir``) 
+
+       ```bash
+       rm fancydir/afile.txt
+       ```
+    7. I am removing the subdirectory ``subdir`` while standing above the directory ``fancydir``
+
+       ```bash
+       rm -r fancydir/subdir 
+       ```
+
+!!! tip
+
+    You can always check with ``pwd`` that you are standing in the directory you think you are! 
 
 ## Symbolic links
 
@@ -399,159 +548,20 @@ ln -s real-file-or-lib link-name
     drwxrwxr-x 4 x_birbr x_birbr 4096 Sep 11 11:43 mytestdir
     ```
 
-## Redirection
+!!! note "Keypoints"
 
-Usually, standard input comes from the keyboard etc. and the standard output goes to the screen. There is also standard error. All of these can be redirected with Linux commands. 
-
-
-- **>** redirects the output of some command 
-    - **Example**, output of "ls" to a file: <code>ls > test.dat</code>
-- **>>** concatenate the output of some command to the content of a ﬁle
-    - **Example**, adds the output of ls to the end of a file "test.dat": <code>ls >> test.dat</code>
-- **<** changes the standard input
-- **2>** redirects the standard error:
-    - **Example**, redirect the error that is thrown from your program named "myprogram" to a file "error.log": <code>./myprogram 2> error.log</code>
-- **2>&1** redirects both standard output and standard error
-    - **Example**, redirect output and errors from your program to the same file: <code>./myprogram > logﬁle 2>&1</code>
-
-!!! Example "Some more examples"
-
-    **HINT: code-along!** 
-
-    ```bash 
-    cat file >> file2
-    ```
-
-    Append the contents of file 1 to file2
-
-    ```bash
-    echo 'text to append_add_here' >> file2
-    ```
-
-    Append some text to a file called file2
-
-    ```bash
-    printf "text to append\n" >> fileName
-    ```
-
-    Another way to append some text to a file 
-
-!!! Example "Adding longer blocks of text to a file, using the command line." 
-
-    **HINT: code-along!** 
-
-    1. Open the file for writing
-    ```bash
-    cat > foo.txt
-    ```
-
-    2. Add some text: 
-    ```bash
-    This is a test.
-    I like the Unix operating systems.
-
-    The weather is nice today.
-    I am feeling sleepy. 
-    ```
-
-    3. To save the changes press CTRL-d i.e. press and hold CTRL and press d. 
-
-
-## Pipes
-
-Pipes are used when you want to take the output of one command and use it as input for another command. 
-
-Here follows some examples: 
-
-**HINT: try the examples!** You need a file <code>file.txt</code> for the examples. Either create a suitable one with some instances of the word string, or download (right-click and save): <a href="../file.txt">file.txt</a> 
-
-!!! Example "Find the instances of the word 'string' in file.txt and count them"
-
-    ```bash
-    grep -o -i string file.txt | wc -l
-    ```
-
-!!! Example "Find the lines with instances of 'string' in file.txt and output them to file.out"
-
-    ```bash
-    grep string file.txt > file.out
-    ```
-
-!!! Example "Find the lines with instances of 'string' in file.txt and append them to file.out" 
-
-    ```bash
-    grep string file.txt >> file.out
-    ```
-
-## Exporting variables 
-
-<a href="https://en.wikipedia.org/wiki/Environment_variable" target="_blank">Environment variables</a> store data that is used by the operating system and other programs.
-
-Some are intrinsic to the operating system, some for a specific program/library/programming language, and some are created by the user. 
-
-The variables can both be used in scripts and on the command line. Usually you reference them by putting a special symbol in front of or around the variable name. By convention, environment variable names are in UPPER CASE. 
-
-**Examples:**
-
-- **$HOME** Your home directory
-- **$PWD** This variable points to your current directory
-- **$LD_LIBRARY_PATH** a colon-separated list of directories that the dynamic linker should search for shared objects before searching in any other directories
-- **$OMP_NUM_THREADS** Number of OpenMP threads
-- **$PYTHONPATH** Path to the directory where your Python libraries and packages are installed 
-
-!!! Note "To see the content of an environment variable named ENVIRONMENT-VARIABLE"
-
-    ```bash
-    echo $ENVIRONMENT-VARIABLE
-    ```
-
-!!! Tip 
-
-    You will get a long list of all environment variables currently set with the command: 
-
-    ```bash 
-    env
-    ```
-
-!!! Note "Some environment variables need to be exported in order to be used"
-
-    This is how you set the environment variable VARIABLE to value: 
-
-    For the <code>bash</code> shell
-        ```bash
-        export VARIABLE=value
-        ```
-
-    For <code>csh</code> and related shells
-        ```bash
-        setenv VARIABLE value
-        ```
-
-**Some examples:** 
-
-!!! Example "Setting the number of OpenMP threads to 8 in <code>bash</code>"
-
-    ```bash
-    export OMP_NUM_THREADS=8
-    ```
-
-!!! Example "Adding a new path to <code>$LD\_LIBRARY\_PATH</code>" 
-
-    ```bash
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/your/custom/path/
-    ```
-
-!!! Warning 
-
-    The environment variable only retains the value you have set for the duration of the session. When you open a new terminal window or login again, you need to set it again. 
-
-    To avoid that, add it to your <code>.bashrc</code> file, but only do so if it should truly be persisten across many sessions (like adding a new directory to search to <code>LD\_LIBRARY\_PATH</code> for instance). 
-
-!!! Example "Quickly add a new directory to <code>LD\_LIBRARY\_PATH</code> in tour <code>.bashrc</code>" 
-
-    ```bash
-    echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/your/custom/path/" >> ~/.bashrc
-    ```
-
-    Change <code>/your/custom/path/</code> to the actual path to the directory for your library. 
+    - Your home directory is generally located in ``/home/USERNAME`` or ``/home/U/USERNAME``
+    - Your home directory can also be addressed with the environment variable ``$HOME``
+    - ``pwd`` is useful for determining your path and current location
+    - To change directory you use the command ``cd`` DIR
+    - Just giving the command ``cd`` takes you to your homedirectory 
+    - ``ls`` is used to list files and directories
+    - You change permissions for files and directories with ``chmod``
+    - You create a directory named DIR with ``mkdir DIR``
+    - You remove a directory named DIR with ``rm -r DIR``
+    - You can create an (empty) file named FILE with ``touch FILE``
+    - You can remove a file named FILE with ``rm FILE``
+    - The command to copy files and directories is ``cp``
+    - The command to rename files and directories is ``mv`` 
+    - Symbolic links are pointers to another file or directory 
 
