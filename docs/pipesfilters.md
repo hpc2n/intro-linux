@@ -19,10 +19,9 @@ In this section we will look at redirection, pipes (for combining multiple comma
     - Learn to sort and filter the output 
     - Learn about variables and environment variables 
 
-## Redirection
+## Redirection (I/O) 
 
-Usually, standard input comes from the keyboard etc. and the standard output goes to the screen. There is also standard error. All of these can be redirected with Linux commands. 
-
+I/O redirection: Usually, standard input comes from the keyboard etc. and the standard output goes to the screen. There is also standard error. All of these can be redirected with Linux commands. 
 
 - **>** redirects the output of some command 
     - **Example**, output of "ls" to a file: <code>ls > test.dat</code>
@@ -76,14 +75,23 @@ Usually, standard input comes from the keyboard etc. and the standard output goe
 
     3. To save the changes press CTRL-d i.e. press and hold CTRL and press d. 
 
+## wc, grep, find 
+
+These are some simple and very useful commands. 
+
+### wc 
+
+wc is the ‘word count’ command: it counts the number of lines, words, and characters in files (returning the values in that order from left to right). 
 
 ## Pipes
+
+Also redirection! 
 
 Pipes are used when you want to take the output of one command and use it as input for another command. 
 
 Here follows some examples: 
 
-**HINT: try the examples!** You need a file <code>file.txt</code> for the examples. Either create a suitable one with some instances of the word string, or download (right-click and save): <a href="../file.txt">file.txt</a> 
+**HINT: try the examples!** You need a file <code>file.txt</code> for the examples. Either use the one found in ``exercises/script/`` or create a suitable one with some instances of the word string. You can also download the file found in ``exercises/script/`` (right-click and save): <a href="../file.txt">file.txt</a> 
 
 !!! Example "Find the instances of the word 'string' in file.txt and count them"
 

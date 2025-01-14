@@ -407,6 +407,7 @@ This command is used to copy files or directories.
 - **cp myfile.txt DIR/**: copy the file "myfile.txt" to the directory DIR
 - **cp DIR1/ DIR2/**: copy the directory DIR1 into the directory DIR2 (Note: overwrites existing files with same name)
 - **cp -R DIR1/ DIR2/**: copy the directory DIR1 and all subdirectories into the directory DIR2. 
+- **cp -i file.txt DIR/**: Interactive. It will ask before overwriting if there is a file with the same name. 
 
 !!! example "Code-along"
 
@@ -451,6 +452,8 @@ The command <code>mv</code> is used to rename files and directories. It can also
 - **mv file1.txt file2.txt**: renames <code>file1.txt</code> to <code>file2.txt</code>
 - **mv DIR1/ DIR2/**: renames directory <code>DIR1</code> to directory <code>DIR2/</code>
 - **mv file1.txt DIR1/**: moves the file <code>file1.txt</code> into the directory <code>DIR1/</code> 
+- **mv -i file1.txt file2.txt**: interactive. Asks before overwriting if there is already a file with the destination name. 
+- **mv -i DIR1/ DIR2/**: interactive. Asks before overwriting if there is already a directory with that name. 
 
 !!! Note 
 
