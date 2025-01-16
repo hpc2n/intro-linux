@@ -18,10 +18,23 @@
             - cp: copy files or directories
             - mv: move or rename files or directories      
         - symbolic link: pointer to another file or directory
+    - Pipes and filters
+        - less, more, cat
+        - echo
+        - redirection
+        - wc, sort
+        - pipes
         - environment variables: stores data that is used by the operating system and other programs. Can be exported and referenced. 
     - Editors 
         - command-line: nano, vim, emacs
         - gui: gedit, pluma, emacs 
+    - Patterns and scripting 
+        - finding patterns
+            - grep, find
+            - awk
+            - wild cards
+            - regular expressions
+        - scripting
     - Data Handling 
         - compressing and decompressing 
             - gzip/gunzip 
@@ -35,13 +48,11 @@
             - rsync
         - connecting
             - ssh
-        - finding patterns 
-            - grep
-            - awk 
-            - wild cards 
-            - regular expressions
-        - scripting 
+    - Hints and tricks 
+        - auto-complete
+        - short-cuts
         - alias 
+        - finding help 
 
 !!! Questions 
 

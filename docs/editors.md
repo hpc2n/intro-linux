@@ -1,6 +1,29 @@
 # Editors 
 
+!!! note "Learning objectives"
+
+    **Questions**
+
+    - Which editors are good to use on the command line?
+    - Which editors are good for using in a GUI (graphical user interface) environment? 
+
+    **Objectives** 
+
+    - Learn about some command line editors
+    - Try and use ``nano``
+    - Learn about some GUI editors
+    - Try use ``gedit`` 
+
 Some editors are more suited for a GUI environment and some are more suited for a command line environment. 
+
+!!! note "less, more, cat - if you just need to see the content"
+
+    If you just need to see the content of a file, these commands that was mentioned under the [Pipes and filters]() section are probably the best, since there is no risk of you making changes to the file if you are just looking in it. 
+
+    - more: forward navigation and limited backward navigation in a file named FILE. Usage: more FILE
+    - less: forward and backward navigation and also has search options. Usage less FILE
+    - cat: a tool for file-related operations (view, concatenate, create, copy, merge, and manipulate file contents). Usage: cat [option] FILE where option is various optional options (hint: man cat for more info).
+
 
 ## Command line
 
@@ -63,4 +86,12 @@ If you are not familiar with any of these, a good recommendation would be to use
     4. Clicking the small file icon with a plus (located beside the "Open" button") will create a new document. 
     5. Save by clicking "Save" in the menu. 
     6. The menu on the top right (the three horizontal lines) gives you several other options, including "Find" and "Find and Replace". 
+
+!!! note "Keypoints"
+
+    - Some editors are best for the command line and some are best for a GUI environment
+    - ``nano`` is a good first editor for the command line
+    - other editors for the command line are: ``vi``/``vim``, ``emacs``, etc. 
+    - ``gedit`` (Text editor) is a good first editor for the GUI
+    - other editors for a GUI environment are: ``Pluma``, ``Atom``, ``emacs (GUI)``, ``NEdit``, etc. 
 

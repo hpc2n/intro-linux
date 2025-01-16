@@ -2,6 +2,22 @@
 
 This section will briefly cover compressing/decompressing files/directories, transferring files, and logging in.  
 
+!!! note "Objectives" 
+
+    **Questions**
+
+    - How do I compress and decompress files and directories under Linux?
+    - How do I create an archive (tarball)?
+    - How do I transfer and sync files?
+    - How do I connect with SSH? 
+
+    **Learning objectives** 
+
+    - Learn about compressing and decompressing files and directories with ``gzip``
+    - Learn about archiving (creating a tarball) with ``tar``
+    - Learn about transferring and syncing files
+    - Learn about connectin gwith SSH 
+
 ## Compressing and decompressing 
 
 Compressing files are done with utilities like <a href="http://www.gnu.org/software/gzip/gzip.html" target="_blank">gzip</a>, <a href="http://www.bzip.org/" target="_blank">bzip2</a>, or <a href="http://en.wikipedia.org/wiki/ZIP_%28file_format%29" target="_blank">zip</a>. 
@@ -49,9 +65,9 @@ Basic options:
 
 !!! Hint 
 
-    Code-along! You can download the tarball <code>temp.tar.gz</code> to play with (right-click and save): <a href="../temp.tar.gz">temp.tar.gz</a>. 
+    Code-along! You can either download the tarball <code>temp.tar.gz</code> to play with (right-click and save): <a href="../temp.tar.gz">temp.tar.gz</a> or use the exercises.tar.gz tarball. 
 
-**Here follows some examples: **  
+**Here follows some examples:**  
 
 !!! Example "Generate a tarball"
 
@@ -177,4 +193,12 @@ Some useful examples:
 
 !!! Tip 
 
-    If you are using a graphical display, then we are **strongly** recommending ThinLinc.  
+    If you are using a graphical display, then we are **strongly** recommending ThinLinc. There is information about connecting with ThinLinc at most Swedish HPC centres. Here is the <a href="https://docs.hpc2n.umu.se/tutorials/connections/#thinlinc" target="_blank">information from HPC2N</a>.  
+
+!!! note "Keypoints" 
+
+    - Files and directories can be compressed with ``zip``, ``gzip`` and other programs on Linux
+    - Creating a "tarball" with ``tar`` is often very useful, since this means you can transfer just one file instead of many. It can be combined with compressing. 
+    - ``sftp`` and ``rsync`` are useful for transferring and syncing your files between different computers 
+    - ``SSH`` is a way to connect to a remote computer from the command line 
+

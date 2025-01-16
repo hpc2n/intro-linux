@@ -27,6 +27,28 @@ These are commands to see the content of a file, and now is a good time to intro
 - **less**: forward and backward navigation and also has search options. Usage ``less FILE``
 - **cat**: a tool for file-related operations (view, concatenate, create, copy, merge, and manipulate file contents). Usage: ``cat [option] FILE`` where option is various optional options (hint: ``man cat`` for more info). 
 
+## echo
+
+The echo command in Linux is a built-in command that allows users to display lines of text or strings that are passed as arguments. It is commonly used in shell scripts and batch files to output status text to the screen or a file.
+
+**Syntax**
+
+```bash
+echo [option] [string]
+```
+
+You can find options with ``man echo``. ``string`` is the string that we want to display or do something with. 
+
+**Example - try it!**
+
+Display the string "I am participating in the Introduction to Linux course": 
+
+```bash
+bbrydsoe@defiant:~$ echo "I am participating in the Introduction to Linux course"
+I am participating in the Introduction to Linux course
+bbrydsoe@defiant:~$ 
+```
+
 ## Redirection  
 
 I/O redirection: Usually, standard input comes from the keyboard etc. and the standard output goes to the screen. There is also standard error. All of these can be redirected with Linux commands. 
@@ -105,7 +127,7 @@ And more text.
 And just a liiiitle more text. 
 ```
 
-!!!  note "Try it"
+!!!  tip "Try it"
 
      Try the two examples above. You can check with ``cat myfile3.txt`` that it is correct. 
 
@@ -125,24 +147,20 @@ These are some simple and very useful commands.
 
 **Examples** 
 
-We will work with the files in the directory ``exercises/patterns`` that you got from the tarball you downloaded. 
-
 I ran the examples on my work desktop "defiant". My username is "bbrydsoe". 
 
-1) 
+!!! try "Code along"
 
+    Code along for the examples below. We will work with the files in the directory ``exercises/patterns`` that you got from the tarball you downloaded.
+
+1. 
+ 
 ```bash
 bbrydsoe@defiant:~/exercises/patterns$ wc myfile1.txt 
  4 15 80 myfile1.txt
 ```
-
-``wc`` counted the number of lines, words, and characters in the file ``myfile1.txt``. It says there are **4 lines**, **15 words**, and **80 characters**. 
-
-!!! note "Try it out!"
-
-     Run ``wc`` on the file (or a different one), then check if it is correct. For now, you can look at the content of a file named FILE with ``type FILE``. We will soon talk about editors. 
-
-2) 
+``wc`` counted the number of lines, words, and characters in the file ``myfile1.txt``. It says there are **4 lines**, **15 words**, and **80 characters**.<br><br> 
+2. 
 
 ```bash
 bbrydsoe@defiant:~/exercises/patterns$ wc *.txt
@@ -166,18 +184,16 @@ The sort command is used in Linux to print the output of a file in given order. 
  14  69 365 total
 ```
 
-All lines, words, characters in the files with the extension ``.txt``. Also sums up the total. 
-
-3) 
+All lines, words, characters in the files with the extension ``.txt``. Also sums up the total.<br><br> 
+3. 
 
 ```bash
 bbrydsoe@defiant:~/exercises/patterns$ wc -l myfile2.txt 
 2 myfile2.txt
 ```
 
-With ``wc -l`` you only get the number of lines of the file. 
-
-4) 
+With ``wc -l`` you only get the number of lines of the file. <br><br>
+4.
 
 ```bash
 bbrydsoe@defiant:~/exercises/patterns$ wc
@@ -232,9 +248,11 @@ The sort command is used in Linux to print the output of a file in given order.
 
 **Examples**
 
-I suggest using the file ``numbers.txt`` in the directory ``exercises/patterns``. 
+!!! tip "Code along"
 
-1) Sort the file ``numbers.txt``
+    I suggest using the file ``numbers.txt`` in the directory ``exercises/patterns``. 
+
+1. Sort the file ``numbers.txt``
 
 ```bash
 bbrydsoe@defiant:~/exercises/patterns$ sort numbers.txt 
@@ -251,8 +269,7 @@ bbrydsoe@defiant:~/exercises/patterns$ sort numbers.txt
 74
 754
 ```
-
-2) Let us try sorting with the options ``-n`` instead 
+2. Let us try sorting with the options ``-n`` instead 
 
 ```bash
 bbrydsoe@defiant:~/exercises/patterns$ sort -n numbers.txt 
@@ -270,9 +287,8 @@ bbrydsoe@defiant:~/exercises/patterns$ sort -n numbers.txt
 754
 ```
 
-This is the difference between the default (alphanumerical) and numerical sorting. 
-
-3) Try run sort on the output file ``filelength.txt`` you got from the section ``wc - capturing output`` above. 
+This is the difference between the default (alphanumerical) and numerical sorting.<br><br> 
+3. What if we run sort on the output file ``filelength.txt`` we got from the section ``wc - capturing output`` above. 
 
 ```bash
 bbrydsoe@defiant:~/exercises/patterns$ sort -n filelength.txt 
@@ -309,9 +325,11 @@ The pipe is symbolized by a ``|`` between the commands.
 
 **Examples**
 
-We recommend you use the files in the directory ``exercises/patterns`` to work with. 
+!!! tip "Code along!" 
 
-Further up on the page, we counted the lines in all the files with extensions ``.txt`` and threw the output to a file. Let us instead *pipe* the output to ``sort -n`` so we can sort it numerically. 
+    Try code along for the three examples below. We recommend you use the files in the directory ``exercises/patterns`` to work with. 
+
+1. Further up on the page, we counted the lines in all the files with extensions ``.txt`` and threw the output to a file. Let us instead *pipe* the output to ``sort -n`` so we can sort it numerically. 
 
 ```bash
 bbrydsoe@defiant:~/exercises/patterns$ wc -l *.txt | sort -n
@@ -335,8 +353,7 @@ bbrydsoe@defiant:~/exercises/patterns$ wc -l *.txt | sort -n
  12 numbers.txt
  26 total
 ```
-
-We could also use ``tail`` on the output to instead see the end of the output: 
+2. We could also use ``tail`` on the output to instead see the end of the output: 
 
 ```bash
 bbrydsoe@defiant:~/exercises/patterns$ wc -l *.txt | tail -3
@@ -344,8 +361,7 @@ bbrydsoe@defiant:~/exercises/patterns$ wc -l *.txt | tail -3
   0 thisfile.txt
  26 total
 ```
-
-Or we could combine several commands, and sort the output of ``wc`` and then run ``head`` on *that* output: 
+3. Or we could combine several commands, and sort the output of ``wc`` and then run ``head`` on *that* output: 
 
 ```bash
 bbrydsoe@defiant:~/exercises/patterns$ wc -l *.txt | sort -n | head -3
@@ -355,8 +371,9 @@ bbrydsoe@defiant:~/exercises/patterns$ wc -l *.txt | sort -n | head -3
 bbrydsoe@defiant:~/exercises/patterns$ 
 ```
 
-
 ## Exporting variables 
+
+Variables can be very useful.  
 
 <a href="https://en.wikipedia.org/wiki/Environment_variable" target="_blank">Environment variables</a> store data that is used by the operating system and other programs.
 
@@ -400,6 +417,9 @@ The variables can both be used in scripts and on the command line. Usually you r
         setenv VARIABLE value
         ```
 
+You can create your own variables to use, for instance in scripts. More about that under the section [scripting](../patterns#scripting). 
+
+
 **Some examples:** 
 
 !!! Example "Setting the number of OpenMP threads to 8 in <code>bash</code>"
@@ -420,7 +440,7 @@ The variables can both be used in scripts and on the command line. Usually you r
 
     To avoid that, add it to your <code>.bashrc</code> file, but only do so if it should truly be persisten across many sessions (like adding a new directory to search to <code>LD\_LIBRARY\_PATH</code> for instance). 
 
-!!! Example "Quickly add a new directory to <code>LD\_LIBRARY\_PATH</code> in tour <code>.bashrc</code>" 
+!!! Example "Quickly add a new directory to <code>LD\_LIBRARY\_PATH</code> in your <code>.bashrc</code>" 
 
     ```bash
     echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/your/custom/path/" >> ~/.bashrc
@@ -428,4 +448,20 @@ The variables can both be used in scripts and on the command line. Usually you r
 
     Change <code>/your/custom/path/</code> to the actual path to the directory for your library. 
 
+!!! note "Keypoints"
+
+    - ``less``, ``more``, ``cat`` are good commands for seeing the content of files
+    - ``echo`` is used to print output of a string or an environment variable
+    - redirection is used to redirect the output of a command
+    - the output of one command can be passed to another command
+    - the command ``wc`` can be used to count words, lines, or characters
+    - the command ``sort`` is used to sort input 
+    - pipes are used when passing the output of one command to another command. It is show as ``|``
+    - environment variables are used to store data that is used by the operating system and other programs
+    - Some common environment variables are: 
+        - **$HOME** Your home directory
+        - **$PWD** This variable points to your current directory
+        - **$LD_LIBRARY_PATH** a colon-separated list of directories that the dynamic linker should search for shared objects before searching in any other directories
+        - **$OMP_NUM_THREADS** Number of OpenMP threads
+        - **$PYTHONPATH** Path to the directory where your Python libraries and packages are installed 
 
