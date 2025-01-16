@@ -2,7 +2,7 @@
 
 ## Course description
 
-This course is an introduction to Linux, which is what is used on most Swedish HPC centers and indeed on the vast majority of HPC clusters worldwide. 
+This NAISS/HPC2N course is an introduction to Linux, which is what is used on most Swedish HPC centers and indeed on the vast majority of HPC clusters worldwide. 
 
 It is meant for beginners to the Linux operating system.
 
@@ -18,4 +18,7 @@ Date: 21 January 2025
 
 Time: 09:00-12:00
 
-Location: Online (ZOOM)
+Location: Online (ZOOM). Link is sent to registered participants a few days before the course. 
+
+![NAISS](docs/images/NAISS_supr_blue_small.png){: style="width: 200px;float: left;padding: 3px;}
+
