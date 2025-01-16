@@ -20,5 +20,5 @@ Time: 09:00-12:00
 
 Location: Online (ZOOM). Link is sent to registered participants a few days before the course. 
 
-![NAISS](docs/images/NAISS_supr_blue_small.png){: style="width: 200px;float: left;padding: 3px;}
+![NAISS](docs/images/NAISS_supr_blue_small.png) ![HPC2N](docs/images/HPC2N-blue-text.png)
 
