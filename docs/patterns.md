@@ -330,7 +330,7 @@ The most common reason for making a script is probably to avoid writing the same
     This example script will find all files with extension ``.eps`` in the current directory (and below) and then copy them to the directory ``figures``. <br> 
     Afterwards it creates a variable FIGFILES that contains the full path to the directory with the figures, and all the files in it. <br> 
     Then follows a loop over all files. <br> 
-    Inside the loop we convert ``.eps`` files to ``.pdf`` files. The extra lines before is just a way to avoid the newly created ``.pdf`` files end up with extension ``.eps.pdf``.  
+    Inside the loop we convert ``.eps`` files to ``.pdf`` files. The extra line before is just a way to avoid the newly created ``.pdf`` files ends up with extension ``.eps.pdf``.  
 
     ```bash 
     #!/bin/bash
@@ -338,7 +338,6 @@ The most common reason for making a script is probably to avoid writing the same
     FIGFILES="$HOME/figures/*"
     for f in $FIGFILES
     do
-        echo "${f%.*}"
         g=${f%.*}
         ps2pdf -DEPSCrop "$f" "$g.pdf"
     done 
