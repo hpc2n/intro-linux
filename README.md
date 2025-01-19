@@ -1,4 +1,4 @@
-# Introduction to Linux - September 2024
+# Introduction to Linux - January 2025
 
 ## Course description
 
