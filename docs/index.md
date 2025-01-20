@@ -18,19 +18,32 @@
     - The course project will be on Tetralith, for those that do not have other access to a computer that runs Linux.  
         - For those using Tetralith, there is a <a href="https://www.nsc.liu.se/support/getting-started/" target="_blank">Get started guide for NSC here</a>. 
 
-!!! note "Content"
+!!! note "Learning outcome"
 
    - This NAISS course aims to give a brief, but comprehensive introduction to the Linux operating system.
+
+   - What is Linux and why should I use it?
    - You will learn about
-      - the command line
+      - the command line interface (CLI)
       - navigating the file system
+          - ls
+          - mkdir
+          - cd
+          - rm
+          - cp
+          - mv
+          - redirection
+          - pipes
+          - etc.
       - editors on the Linux system 
       - pipes, sorting, filters
       - patterns, scripting
       - data handling
       - some handy hints and tricks 
+
    - This course will consist of lectures and type-alongs, as well as a few exercises where you get to try out what you have just learned.    
-   - It is the second instance of this course, and it has been somewhat reworked based on previous participant input. We would be grateful if you will fill the evaluation survey so we can further improve the course: <a href="https://forms.office.com/e/0a97qf9A3t" target="_blank">https://forms.office.com/e/0a97qf9A3t</a> 
+
+- This is the second instance of this course, and it has been somewhat reworked based on previous participant input. We would be grateful if you will fill the evaluation survey so we can further improve the course: <a href="https://forms.office.com/e/0a97qf9A3t" target="_blank">https://forms.office.com/e/0a97qf9A3t</a> 
 
 !!! admonition "Cluster-specific approaches"
 
