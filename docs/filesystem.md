@@ -346,25 +346,71 @@ The following group of 3 bits are for the owner, then the next 3 for the group, 
 
 ## Create and remove directories/files 
 
-This section contains a few examples of how to work with files and directories through command line interface. 
+This section will show how to work with files and directories through command line interface. 
+
+### Directories 
 
 - **mkdir DIR**: Create a directory DIR
-- **rm -rf DIR**: Remove a directory DIR. The flag "-r" means recursively and "-f" means do so without asking for each file and subdirectory. Useful, but dangerous. Be careful! 
+    - **mkdir -p DIR/SUBDIR**: create a directory DIR with the subdirectory SUBDIR
+- **rm -r DIR**: Remove a directory DIR. The flag "-r" means recursively 
+    - You can also add "-f". This means do so without asking for each file and subdirectory. Useful, but dangerous. Be careful! 
+
+!!! note "Examples"
+
+    Create a directory called ``mynewdir`` 
+
+    ```bash
+    mkdir mynewdir
+    ```
+
+    Create a directory called ``cooldir`` which has a subdirectory called ``fancydir``
+
+    ```bash
+    mkdir -p cooldir/fancydir
+    ```
+
+    Remove the directory ``mynewdir``
+
+    ```bash
+    rm -r mynewdir
+    ```
+
+### Files 
+
+To create files, you would normally use an editor (``nano``, ``vim``, ``emacs``, etc.), but it is also possible to create an empty file with the command ``touch``. 
+
+```bash 
+touch FILE
+```
+
+You can remove files with ``rm``. Again, you can use the flag/option ``-f`` to force-remove a file (without asking). 
+
+!!! note "Examples"
+
+    Create a file called ``file.txt``
+
+    ```bash
+    touch file.txt
+    ```
+
+    Remove the file ``file.txt`` 
+
+    ```bash
+    rm file.txt
+    ```
+### Examples
+
+**Reminder** 
+
+- **mkdir DIR**: Create a directory DIR
+- **rm -rf DIR**: Remove a directory DIR. The flag “-r” means recursively and “-f” means do so without asking for each file and subdirectory. Useful, but dangerous. Be careful! 
 - **cd**: Go to your home directory ($HOME)
 - **cd DIR**: Change directory to DIR
 - **cd ..**: Change directory to the parent directory of the current directory
 - **cd -**: go back to the previous directory 
 - **touch FILE**: create an empty file with the name FILE 
-
-You also user "rm" to remove files; 
-
-<div>
-```bash
-rm file.txt
-```
-</div>
-
-The command <code>pwd</code> tells you the current directory path. 
+- **rm FILE**: remove the file with the name FILE 
+- The command <code>pwd</code> tells you the current directory path. 
 
 !!! Example "Creating directories, changing directories, removing directory and file"
 
