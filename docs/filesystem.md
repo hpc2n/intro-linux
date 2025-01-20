@@ -538,18 +538,18 @@ ln -s real-file-or-lib link-name
 ```
 </div>
 
-!!! Example
+!!! Example (on Tetralith) 
 
     ```bash
-    ln -s /proj/intro-linux/users/MYUSERNAME $HOME/myproj
+    ln -s /proj/linux-intro/users/MYUSERNAME $HOME/myproj
     ```
 
-    This creates a symbolic link named "myproj" in your home directory, pointing to the location /proj/intro-linux/users/MYUSERNAME. The directory "intro-linux" is the project storage directory for this course project. For me, this would look like this: 
+    This creates a symbolic link named "myproj" in your home directory, pointing to the location /proj/linux-intro/users/MYUSERNAME. The directory "linux-intro" is the project storage directory for this course project. For me, this would look like this: 
 
     ```bash
     [x_birbr@tetralith1 ~]$ ls -l
     total 2
-    lrwxrwxrwx 1 x_birbr x_birbr   31 Sep 11 12:01 myproj -> /proj/intro-linux/users/x_birbr
+    lrwxrwxrwx 1 x_birbr x_birbr   31 Sep 11 12:01 myproj -> /proj/linux-intro/users/x_birbr
     drwxrwxr-x 4 x_birbr x_birbr 4096 Sep 11 11:43 mytestdir
     ```
 
