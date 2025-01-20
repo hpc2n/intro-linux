@@ -586,7 +586,7 @@ ln -s real-file-or-lib link-name
 ```
 </div>
 
-!!! Example (on Tetralith) 
+!!! note "Example (on Tetralith)"
 
     ```bash
     ln -s /proj/linux-intro/users/MYUSERNAME $HOME/myproj
