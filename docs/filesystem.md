@@ -129,7 +129,7 @@ On Tetralith, user ``x_birbr``:
 
 ## cd - changing directory 
 
-The command ``cd```is used to change directory. 
+The command ``cd`` is used to change directory. 
 
 - **cd**: Go to your home directory ($HOME)
 - **cd DIR**: Change directory to DIR
