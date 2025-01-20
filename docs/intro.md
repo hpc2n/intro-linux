@@ -3,28 +3,6 @@
 - Welcome page and syllabus: <a href="https://hpc2n.github.io/intro-linux/index.html">https://hpc2n.github.io/intro-linux/index.html</a>
     - Also link at the House symbol at the top of the page. 
 
-!!! Admonition "Learning outcomes for this course"
-
-    - What is Linux and why should I use it?
-    - Learn about the command line interface (CLI)
-    - Navigate the file system 
-        - ls
-        - mkdir
-        - cd
-        - rm
-        - cp
-        - mv
-        - redirection
-        - pipes
-        - etc.  
-    - Data handling 
-        - compressing
-        - archiving
-        - file transfer
-        - patterns
-        - etc.  
-    - Hints and tricks of Linux
-
 ## What is Linux
 
 !!! note 
