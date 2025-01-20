@@ -78,10 +78,10 @@
 | 9:10 | Introduction to Linux, motivation | Lecture | 
 | 9:25 | The command line (CLI) | Lecture+code along | 
 | 9:40 | The file system | Lecture+code along+exercise |
-| 10:05 | Pipes and filters | Lecture+code along+exercise | 
-| 10:25 | BREAK | | 
-| 10:40 | Editors | Lecture+code along |  
-| 10:55 | Patterns and scripting | Lecture+code along+exercises | 
+| 10:10 | Pipes and filters | Lecture+code along+exercise | 
+| 10:30 | BREAK | | 
+| 10:45 | Editors | Lecture+code along |  
+| 11:00 | Patterns and scripting | Lecture+code along+exercises | 
 | 11:25 | Data handling | Lecture+code along | 
 | 11:40 | Hints and tricks | Lecture+code along | 
 | 11:55 | Summary   | | 
