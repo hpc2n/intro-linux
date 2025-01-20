@@ -143,7 +143,9 @@ The command ``cd`` is used to change directory.
     ![folders of exercises directory structure](images/exercises-folders.png){: style="width: 500px;float: left"}
     <br><br style="clear: both;">
 
-    Remember, $HOME is an ``environment variable`` which gives a shortcut to your home directory. 
+    Remember, $HOME is an ``environment variable`` which gives a shortcut to your home directory.
+
+    **NOTE** if you are on Tetralith and placed the exercises under ``/proj/linux-intro/users/USERNAME`` then ``$HOME`` would be replaced by that path. 
 
     To change to the directory ``exercises`` when you are in your home directory, you do
     ```bash
