@@ -184,6 +184,8 @@ Wild cards are also called "glob" or "globbing" patterns.
 
 <br>
 
+**Common wildcards**
+
 - **?** represents a single character
 - **\*** represents a string of characters (0 or more)
 - **[ ]** represents a range
