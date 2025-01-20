@@ -463,6 +463,8 @@ This command is used to copy files or directories.
 
     ![folders of exercises directory structure](images/exercises-folders.png){: style="width: 500px;float: left"}
     <br><br style="clear: both;">
+
+    **NOTE** if you are on Tetralith and placed the exercises under ``/proj/linux-intro/users/USERNAME`` then ``$HOME`` would be replaced by that path. 
  
     1. Change to the subdirectory: 
 
