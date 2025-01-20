@@ -176,7 +176,13 @@ Things ``awk`` can do:
 
 Wild cards are useful 'stand-ins' for one or more character or number, that you can use for instance when finding patterns or when removing/listing all files of a certain type. 
 
-Wild cards are also called globbing patterns. 
+Wild cards are also called "glob" or "globbing" patterns. 
+
+??? Globs 
+
+    Globs, also known as glob (or globbing) patterns are patterns that can expand a wildcard pattern into a list of pathnames that match the given pattern. On the early versions of Linux, the command interpreters relied on a program that expanded these characters into unquoted arguments to a command: ``/etc/glob`` .
+
+<br>
 
 - **?** represents a single character
 - **\*** represents a string of characters (0 or more)
