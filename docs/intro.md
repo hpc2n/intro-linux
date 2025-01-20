@@ -41,7 +41,7 @@ The shell we are looking at in this course is the Linux/Unix shell, which is a c
 
 !!! Important 
 
-    Most centers has ``bash`` as default as that is what is compatible with SLURM - the batch scheduler used at most centers in Sweden. 
+    Most centers has ``bash`` as default. There are several reasons, but one is that it is what is compatible with SLURM - the batch scheduler used at most centers in Sweden. ``bash`` is also good for scripting. 
 
     For the majority of the material in this course, it does not matter which shell you are using, but there are some commands where it is relevant. We will therefore be using ``bash`` for this course. 
 
