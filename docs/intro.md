@@ -51,7 +51,7 @@ The Linux/Unix shell has existed for a very long time (Thompson shell, 1971; Bou
 
 - The reason it keeps being used is that it is a very powerful tool which lets users perform complex and powerful tasks. 
 - These tasks can often be done using a few keystrokes or maybe a few lines of code. 
-- It can be used to automate repetitive tasks or to combine smaller tasks into **scripts**, which helps the user work faster are more effective. 
+- It can be used to automate repetitive tasks or to combine smaller tasks into **scripts**, which helps the user work faster and be more effective. 
 
 Using the Linux/Unix shell is fundamental for a large number of advanced computing tasks, including in HPC (high-performance computing). 
 
