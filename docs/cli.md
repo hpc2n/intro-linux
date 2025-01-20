@@ -67,7 +67,7 @@ Short answer:
     - A **Command line interface** is an interface where the user type a command and then press RETURN/ENTER to execute the command
     - A **shell** is the main interface seen by the user when they login. It is used to start other programs. It is a command-line shell, and there are many different ones, as mentioned earlier. Command-line shells include flow control constructs to combine commands. In addition to typing commands at an interactive prompt, users can write scripts. 
 
-<br>
+## Try it out 
 
 !!! question "Exercise: Open a terminal" 
 
@@ -106,6 +106,8 @@ Short answer:
     ```bash
     ls
     ```
+
+## Error messages 
 
 !!! error "Error messages"
 
