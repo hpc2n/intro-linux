@@ -77,14 +77,13 @@
 | 9:00 | Welcome+Syllabus | |
 | 9:10 | Introduction to Linux, motivation | Lecture | 
 | 9:25 | The command line (CLI) | Lecture+code along | 
-| 9:45 | The file system | Lecture+code along+exercise |
-| 10:00 | Pipes and filters | Lecture+code along+exercise | 
-| 10:20 | BREAK | | 
-| 10:35 | Editors | Lecture+code along |  
-| 10:50 | Patterns and scripting | Lecture+code along+exercises | 
-| 11:20 | Data handling | Lecture+code along | 
-| 11:35 | Hints and tricks | Lecture+code along | 
-| 11:45 | More time for exercises | | 
+| 9:40 | The file system | Lecture+code along+exercise |
+| 10:05 | Pipes and filters | Lecture+code along+exercise | 
+| 10:25 | BREAK | | 
+| 10:40 | Editors | Lecture+code along |  
+| 10:55 | Patterns and scripting | Lecture+code along+exercises | 
+| 11:25 | Data handling | Lecture+code along | 
+| 11:40 | Hints and tricks | Lecture+code along | 
 | 11:55 | Summary   | | 
 | 12:00 | END | |  
 
