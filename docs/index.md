@@ -25,17 +25,19 @@
       - the command line
       - navigating the file system
       - editors on the Linux system 
+      - pipes, sorting, filters
+      - patterns, scripting
       - data handling
       - some handy hints and tricks 
    - This course will consist of lectures and type-alongs, as well as a few exercises where you get to try out what you have just learned.    
-   - It is the second instance of this course, and it has been somewhat reworked based on previous participant input. We would be grateful if you will fill the evaluation survey so we can further improve the course:  
+   - It is the second instance of this course, and it has been somewhat reworked based on previous participant input. We would be grateful if you will fill the evaluation survey so we can further improve the course: <a href="https://forms.office.com/e/0a97qf9A3t" target="_blank">https://forms.office.com/e/0a97qf9A3t</a> 
 
 !!! admonition "Cluster-specific approaches"
 
     The course is given by HPC2N (Kebnekaise), but will be done under NAISS on the NAISS system "Tetralith". There is a <a href="https://www.nsc.liu.se/support/getting-started/" target="_blank">Get started guide for NSC here</a>.   
 
     - The login node for Tetralith is ``tetralith.nsc.liu.se``.
-    - It looks like this when I login the first time from my computer "defiant":
+    - It looks like this when I (``x_birbr`` on "Tetralith") login the first time from my computer "defiant":
     ```bash
     bbrydsoe@defiant:~$ ssh x_bibr@tetralith.nsc.liu.se
     The authenticity of host 'tetralith.nsc.liu.se (2001:6b0:17:140::1:10)' can't be established.
