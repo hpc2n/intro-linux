@@ -1,8 +1,8 @@
-# Welcome to the course: Introduction to Linux
+# Welcome to the course: Command line 101
 
 !!! note "This material"
    
-    Here you will find the content of the workshop "Introduction to Linux". 
+    Here you will find the content of the workshop "Command line 101". 
    
     - Documentation about Linux at some of the Swedish HPC centres 
         - HPC2N: <a href="https://docs.hpc2n.umu.se/tutorials/linuxguide/" target="_blank">https://docs.hpc2n.umu.se/tutorials/linuxguide/</a>
