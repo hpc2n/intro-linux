@@ -36,17 +36,19 @@ nav:
     #  - Linux terminology: linux.md
   - The command line (CLI): cli.md
   - The File System: filesystem.md
-  - Pipes and filters: pipesfilters.md
+  - Modifying the file tree: modify.md
   - Editors: editors.md
-  - Patterns and scripting: patterns.md
-  - Data Handling: data.md
+  - Piping: pipesfilters.md
+  - Finding patterns: patterns.md
+  - Scripting: scripting.md 
   - Hints and tricks: hints.md
   - Summary: summary.md
   - Extras: 
     - Install tree: tree.md
     - Linux system overview: connections.md
-    - Linux terminology: linux-terms.md
+    - Linux terminology: linux-terminology.md
     - More commands: more-commands.md
+    - Data handling: data.md
     - Linux cheat sheet: cheat.md
 plugins:
   - search
@@ -73,7 +75,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.caret
   - pymdownx.tilde
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - attr_list
   - md_in_html
   - tables

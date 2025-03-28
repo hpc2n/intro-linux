@@ -16,16 +16,34 @@
 
 Some editors are more suited for a GUI environment and some are more suited for a command line environment. 
 
+## less, more, cat  
+
+If you just need to see the content of a file, one of the commands ``less``, ``more``, or ``cat`` are probably the best, since there is no risk of you making changes to the file if you are just looking in it.
+
 !!! note "less, more, cat - if you just need to see the content"
 
-    If you just need to see the content of a file, these commands that was mentioned under the [Pipes and filters]() section are probably the best, since there is no risk of you making changes to the file if you are just looking in it. 
+    If you just need to see the content of a file, these commands are probably the best, since there is no risk of you making changes to the file if you are just looking in it. 
 
-    - more: forward navigation and limited backward navigation in a file named FILE. Usage: more FILE
-    - less: forward and backward navigation and also has search options. Usage less FILE
-    - cat: a tool for file-related operations (view, concatenate, create, copy, merge, and manipulate file contents). Usage: cat [option] FILE where option is various optional options (hint: man cat for more info).
+    - more: forward navigation and limited backward navigation in a file named FILE. 
+        - Usage: ``more FILE``
+        - Exit with: ``q``
+    - less: forward and backward navigation and also has search options. 
+        - Usage ``less FILE``
+        - Exit with: ``q`` 
+    - cat: a tool for file-related operations (view, concatenate, create, copy, merge, and manipulate file contents). Usage: ``cat [option] FILE`` where option is various optional options (hint: ``man cat`` for more info).
 
+!!! warning "Reminder"
 
-## Command line
+    If you are just looking in a file, do not use an editor (nano, vim, emacs, ...) as you risk making changes if, for instance, your cat runs across the keyboard! Use something like cat or less instead. 
+
+!!! note "Try out ``less`` and ``cat``!" 
+
+    - Go to the ``exercises`` directory (that you got from the tarball at the beginning of the course) and change directory to one of the subdirectories. 
+    - Use ``less`` on one of the files. Use ``cat`` on one of the files. 
+
+    **Question**: Why is ``cat`` good for short files, but not for long files? 
+
+## Command line editors 
 
 These are all good editors for using on the command line: 
 
@@ -50,7 +68,7 @@ Of these, <code>vi/vim</code> as well as <code>emacs</code> are probably the mos
 
     There is a <a href="https://www.nano-editor.org/dist/latest/nano.html" target="_blank">manual for <code>nano</code> here</a>.  
 
-## GUI 
+## GUI editors 
 
 If you are connecting with <a href="https://www.cendio.com/thinlinc/download/" target="_blank">ThinLinc</a>, you will be presented with a graphical user interface (GUI). (For Tetralith, the server is ``tetralith.nsc.liu.se``). From within Thinlinc you can either open a terminal window/shell or you can choose editors from the menu. 
 
@@ -89,6 +107,7 @@ If you are not familiar with any of these, a good recommendation would be to use
 
 !!! note "Keypoints"
 
+    - If you just want to look in a file, it is better to use ``less``, ``more``, or ``cat`` 
     - Some editors are best for the command line and some are best for a GUI environment
     - ``nano`` is a good first editor for the command line
     - other editors for the command line are: ``vi``/``vim``, ``emacs``, etc. 
