@@ -65,8 +65,8 @@
 
 ## Important info
 
-- There is an "important info" page for this course, containing info on the course project, login info for Tetralith, etc. It can be found here: <a href="" target="_blank"></a>
-- There is a Q/A page for use during the lectures. Since the lectures are recorded, you may get recorded if you ask questions in the Zoom, but you can always write questions on the Q/A and get answers there. It also has the advantage that you can go back and look at the answers later. The Q/A page can be found here: <a href="" target="_blank"></a> 
+- There is an "important info" page for this course, containing info on the course project, login info for Tetralith, etc. It can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EfwC7eW9I69LqA7TvjrmIHkBVFJ9YiwcTlnyRayeFDP80w?e=PRlTGF" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EfwC7eW9I69LqA7TvjrmIHkBVFJ9YiwcTlnyRayeFDP80w?e=PRlTGF</a>
+- There is a Q/A page for use during the lectures. Since the lectures are recorded, you may get recorded if you ask questions in the Zoom, but you can always write questions on the Q/A and get answers there. It also has the advantage that you can go back and look at the answers later. The Q/A page can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EdlQK26U4iFGqghE3DWXZTgBAr8x_EjipwIiTYqXDpcv2Q?e=FVpKpu" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EdlQK26U4iFGqghE3DWXZTgBAr8x_EjipwIiTYqXDpcv2Q?e=FVpKpu</a> 
 
 ## Preliminary schedule
 
