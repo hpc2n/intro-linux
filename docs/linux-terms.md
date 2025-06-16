@@ -255,6 +255,8 @@ GNU is a recursive acronym for "GNU's Not Unix".
 
 The Linux kernel is licensed under GNU's GPL (General Public License) and is thus known as GNU/Linux. Any operating system developed using the open-source GNU tools and the Linux kernel falls under the category of Linux distributions. 
 
+---
+
 ## Advanced
 
 There are many other terms which you may come across when reading about Linux. These are a few of them. 
@@ -273,13 +275,13 @@ First the computer executes a small program (the boot loader) stored in read-onl
 
 GRUB is one of the most used bootloaders, including when dual-booting Windows with Linux. Other examples include LILO, BURG, and Syslinux.
 
-## Encryption
+### Encryption
 
 Encryption scrambles data into a secure and unreadable form so it can only be accessed by authorized parties. 
 
 Linux provides encryption to secure data, both during transmission and on the system. This is done through encrypted file systems, disk encryption, and network encryption. 
 
-## IP Address (Internet Protocol Address)
+### IP Address (Internet Protocol Address)
 
 (Much of this section was taken from Wikipedia) 
 
@@ -299,7 +301,7 @@ Two versions of the Internet Protocol are in common use on the Internet today:
 - The Internet Protocol Version 6 (IPv6) was developed in 1995. IPv6 technology was in various testing stages until the mid-2000s when commercial production deployment commenced. 
     - In IPv6, the address size was increased from 32 bits in IPv4 to 128 bits, thus providing up to 2128 (approximately 3.403×1038) addresses. This is deemed sufficient for the foreseeable future. 
 
-## Kernel Panic
+### Kernel Panic
 
 Kernel Panic is a critical error condition in the Linux kernel. When this happens it cannot continue operating safely. The reason for it happening is usually severe software or hardware issues, such as: a corrupted kernel, hardware failure, or incompatible drivers. 
 
@@ -307,13 +309,13 @@ The system halts when there is a kernel panic. An error message is displayed, an
 
 Kernel panics happen quite rarely, but are something that gives cause for concernt and needs to be investigated so the cause can be found and resolved. 
 
-## Mount
+### Mount
 
 Mounting means to attach a file system to a specific directory location in the Linux file hierarchy. This causes the contents of the file system to become accessible to the operating system and the users. 
 
 When a device (local or network) has been mounted, Linux will behave as if it is a part of the file system. That means users can access and manipulate directories and files of that location. 
 
-## TCP/IP (Transmission Control Protocol/Internet Protocol)
+### TCP/IP (Transmission Control Protocol/Internet Protocol)
 
 TCP/IP 
 - is the fundamental communication protocol suite used for network communication in Linux and the internet. 
@@ -322,7 +324,7 @@ TCP/IP
 
 TCP ensures reliable delivery of data and IP handles addressing and routing of data packets. 
 
-## UEFI (Unified Extensible Firmware Interface)
+### UEFI (Unified Extensible Firmware Interface)
 
 UEFI is
 - a modern firmware interface
@@ -331,4 +333,27 @@ UEFI is
 - supports large disk sizes
 - offers additional security features. 
 - can be used by Linux systems for booting and initialization of hardware. 
+
+### Virtualization 
+
+When you do virtualization in Linux it means you are running (perhaps several) "virtual" instances of OS'es on a physical computer. Typical technologies for this in Linux are KVMs (Kernel-based Virtual Machines), Docker, Singularity, and similar. Virtualization does not just allow you to use one physical machine to run several virtual ones (with perhaps different OS'es), but for instance also to run software/applications that would not run on the OS of the physical machine. Example: you need to run a Windows-only software on your machine that has Linux; you then create a virtual machine that has Windows installed and run your software. 
+
+Docker (Singularity, Apptainer, etc) images are commonly used as an easy way of distributing a full environment with OS and installed software. 
+
+### Wifi 
+
+Wifi (or Wi-Fi) is an abbreviation of "Wireless Fidelity" and it is a networking technology allowing devices to connect to "LANs" (Local Area Networks) without neccessitating wired network connection. Linux supports a number of WiFi adapters for managing and configuring wireless network connections. 
+
+!!! note 
+
+    Many of the entries on this list are fully or partially taken, with thanks, from 
+
+    - <a href="https://www.coursera.org/collections/linux-terms" target="_blank">https://www.coursera.org/collections/linux-terms</a>
+    - <a href="http://www.miralishahidi.ir/resources/Linux Terminology Glossary.pdf" target="_blank">http://www.miralishahidi.ir/resources/Linux Terminology Glossary.pdf</a>
+
+    Further inspiration and some material taken, with thanks, from 
+
+    - <a href="https://www.ricmedia.com/tutorials/linux-for-beginners-a-comprehensive-guide-to-basic-concepts-and-terminology" target="_blank">https://www.ricmedia.com/tutorials/linux-for-beginners-a-comprehensive-guide-to-basic-concepts-and-terminology</a>
+    - <a href="https://askubuntu.com/questions/506510/what-is-the-difference-between-terminal-console-shell-and-command-line/506628#506628" target="_blank">https://askubuntu.com/questions/506510/what-is-the-difference-between-terminal-console-shell-and-command-line/506628#506628</a>
+    
 
