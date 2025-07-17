@@ -72,7 +72,6 @@ See ``man grep`` for more options.
 ??? Solution "Click to reveal solution"
 
     ![grep string](images/grepstring.png){: style="width: 400px;float: right;padding: 3px;}
-<br>
      
 !!! Example "Find the instances of the word 'string' in file.txt and count them"
 
@@ -207,7 +206,7 @@ languages, though their syntax may vary between languages. In the case of Linux 
 
 ## Regular Expressions
 
-Regular Expressions are a type of globbing patterns that are used when you are working with text. 
+Regular Expressions are a type of patterns that are used when you are working with text. 
 
 Regular Expressions can be used with commands like ``grep``, ``find`` and many others. 
 
@@ -239,5 +238,5 @@ Some common examples of regular expressions:
 
     - Finding files with specific patterns in their names or content can be done with ``grep`` and ``find``
     - Wildcards are stand-ins for one or more character or number and are useful for when you are finding patterns or removing/copying/listing all files of a certain type 
-    - Regular Expressions are a type of globbing patterns that are used when you are working with text. They can be used with ``grep``, ``find``, and many many others 
+    - Regular Expressions are a type of patterns that are used when you are working with text. They can be used with ``grep``, ``find``, and many many others 
 
