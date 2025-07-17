@@ -138,17 +138,12 @@ find ../patterns/ -type f -name "*file*"
 
 ## Wild cards
 
-Wild cards are useful 'stand-ins' for one or more character or number, that you can use for instance when finding patterns or when removing/listing all files of a certain type. 
+Wild cards are powerful tools used to match one or more characters or numbers in file names or text patterns. As an example, one can use them 
+when finding patterns or when removing/listing all files of a certain type. Due to their convenience, wild cards are commonly used in programming 
+languages, though their syntax may vary between languages. In the case of Linux we can find the following wild cards:
 
-Wild cards are also called "glob" or "globbing" patterns. 
 
-??? Globs
-
-    Globs, also known as glob (or globbing) patterns are patterns that can expand a wildcard pattern into a list of pathnames that match the given pattern. On the early versions of Linux, the command interpreters relied on a program that expanded these characters into unquoted arguments to a command: ``/etc/glob`` .
-
-<br>
-
-**Common wildcards**
+**Common Linux wildcards**
 
 - **?** represents a single character
 - **\*** represents a string of characters (0 or more)
