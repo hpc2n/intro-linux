@@ -137,9 +137,10 @@ find ../patterns/ -type f -name "*file*"
 
 ## Wild cards
 
-Wild cards are powerful tools used to match one or more characters or numbers in file names or text patterns. As an example, one can use them 
-when finding patterns or when removing/listing all files of a certain type. Due to their convenience, wild cards are commonly used in programming 
-languages, though their syntax may vary between languages. In the case of Linux we can find the following wild cards:
+Wild cards are metacharacters or placeholders (<a href="https://en.wikipedia.org/wiki/Wildcard_character">Wikipedia: Wildcard</a>) used to match
+one or more characters or numbers. In Linux shells, one can use them when finding patterns or when removing/listing all files of a certain type.
+Due to their convenience, wild cards are commonly used in programming languages, though their symbols may vary between languages. Here is a list 
+of wild cards in Linux:
 
 
 **Common Linux wildcards**
@@ -149,7 +150,7 @@ languages, though their syntax may vary between languages. In the case of Linux 
 - **[ ]** represents a range
 - **{ }** the terms are separated by commas and each term must be a wildcard or exact name
 - **[!]**  matches any character that is NOT listed between the [ and ]. This is a logical NOT.
-- **\** specifies an "escape" character, when using a subsequent special character. 
+- **\\** specifies an "escape" character, when using a subsequent special character. 
 
 !!! Warning 
 
