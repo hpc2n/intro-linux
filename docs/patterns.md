@@ -122,18 +122,21 @@ For more options, check ``man find``
 
     You could do the searches inside ``exercises`` directory or inside ``exercises/patterns`` directory. 
 
-    Note that ``*`` is a wildcard that is useful here and means a string of 0 or more characters. You will hear more about it shortly. 
+    1. Find the file ``myfile.txt`` in the directory you are standing in and below: 
 
-1. Find all files with extension ``.txt`` in the directory you are standing in and below: 
+    ```bash
+    find . -type f -name "file.txt"
+    ```
 
-```bash
-find . -type f -name "*.txt"
-```
-2. Find all files with ``file`` as part of the name in the directory ``expressions/patterns`` while standing in ``exercises/script``
+    2. Find the files ``myfile.txt`` as part of the name in the directory ``expressions/patterns`` while standing in ``exercises/script``
 
-```bash
-find ../patterns/ -type f -name "*file*"
-```
+    ```bash
+    find ../patterns/ -type f -name "myfile0.txt"
+    ```
+
+# Enhancing the power of ``grep`` and ``find``
+
+
 
 ## Wild cards
 
@@ -205,6 +208,19 @@ of wild cards in Linux:
 
     This will remove all files named thisfile*, except those that has an 8 at that position in it's name. Try running it in the ``patterns`` directory! Do ``ls`` before and after to see the change. Remember, you can always recreate the directory ``patterns`` by untar'ing it again.  
 
+    Find all files with extension ``.txt`` in the directory you are standing in and below: 
+
+    ```bash
+    find . -type f -name "*.txt"
+    ```
+
+    Find all files with ``file`` as part of the name in the directory ``expressions/patterns`` while standing in ``exercises/script``
+
+    ```bash
+    find ../patterns/ -type f -name "*file*"
+    ```
+
+
 ## Regular Expressions
 
 Regular Expressions are a type of patterns that are used when you are working with text. 
@@ -238,6 +254,6 @@ Some common examples of regular expressions:
 !!! note "Keypoints" 
 
     - Finding files with specific patterns in their names or content can be done with ``grep`` and ``find``
-    - Wildcards are stand-ins for one or more character or number and are useful for when you are finding patterns or removing/copying/listing all files of a certain type 
+    - Wildcards are p for one or more character or number and are useful for when you are finding patterns or removing/copying/listing all files of a certain type 
     - Regular Expressions are a type of patterns that are used when you are working with text. They can be used with ``grep``, ``find``, and many many others 
 
