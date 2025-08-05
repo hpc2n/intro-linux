@@ -142,7 +142,14 @@ For more options, check ``man find``
 
 Wild cards are metacharacters or placeholders (<a href="https://en.wikipedia.org/wiki/Wildcard_character">Wikipedia: Wildcard</a>) used to match
 one or more characters or numbers. In Linux shells, one can use them when finding patterns or when removing/listing all files of a certain type.
-Due to their convenience, wild cards are commonly used in programming languages, though their symbols may vary between languages. Here is a list 
+
+Wild cards are also called "glob" or "globbing" patterns. 
+
+??? Globs
+
+    Globs, also known as glob (or globbing) patterns (<a href="https://en.wikipedia.org/wiki/Glob_(programming)">Wikipedia: Glob</a>) are patterns that can expand a wildcard pattern into a list of pathnames that match the given pattern. On the early versions of Linux, the command interpreters relied on a program that expanded these characters into unquoted arguments to a command: ``/etc/glob`` .
+
+Due to their convenience, the concept of wild cards are commonly used in programming languages, however the symbols may vary between languages. Here is a list 
 of wild cards in Linux:
 
 
@@ -224,6 +231,7 @@ of wild cards in Linux:
 ## Regular Expressions
 
 Regular Expressions are a type of patterns that are used when you are working with text. 
+Due to their convenience, regular expressions are commonly used in programming languages, though their syntax may vary between languages.
 
 Regular Expressions can be used with commands like ``grep``, ``find`` and many others. 
 
@@ -254,6 +262,6 @@ Some common examples of regular expressions:
 !!! note "Keypoints" 
 
     - Finding files with specific patterns in their names or content can be done with ``grep`` and ``find``
-    - Wildcards are p for one or more character or number and are useful for when you are finding patterns or removing/copying/listing all files of a certain type 
+    - Wildcards are metacharacters for one or more character or number and are useful for when you are finding patterns or removing/copying/listing all files of a certain type 
     - Regular Expressions are a type of patterns that are used when you are working with text. They can be used with ``grep``, ``find``, and many many others 
 
