@@ -40,7 +40,7 @@ Some commonly used options are:
 
 - **-i**: ignore case
 - **-o**: only output the instance of the pattern you search for, not the full line 
-- **-e**: use a regular expression as pattern for what you search for
+- **-e**: use a regular expression as pattern, can be used multiple times (OR operation), protects patterns starting with "-"
 - **-c**: do not output the line, just print a count of matching lines 
 - **-n**: Prefix  each  line of output with the 1-based line number within its input file.
 - **-r**: Read  all  files  under  each  directory, recursively. If no file operand is given, grep searches the working directory. 
@@ -102,15 +102,15 @@ find [path] [options] [expression]
 ```
 
 - **path** is the starting directory for the search
-- **options** are settings or conditions for the search
-- **expression** is the criteria for filtering and locating files (for instance, only search ``txt```files or only files named ``docs``). 
+- **options** are settings or conditions that modify how the search is performed
+- **expression** is the criteria for filtering and locating files (for instance, only search for ``txt`` files or only files named ``docs``). 
 
 **Useful common options**
 
 - **-type f**: only search for files
 - **-type d**: only search for directories
 - **-name NAME**: only search for files with a specific name NAME or pattern
-- **-size [+/-]n**: Searches for files based on size. `+n` finds larger files, `-n` finds smaller files. ‘n‘ measures size in characters.
+- **-size [+/-]n**: Searches for files based on size. `+n` finds larger files, `-n` finds smaller files. `n` measures size in units of space.
 - **-mtime n**: Finds files based on modification time. `n` represents the number of days ago.
 - **-exec command {} \;**: Executes a command on each file found. 
  
