@@ -149,6 +149,7 @@ Wild cards are also called "glob" or "globbing" patterns.
 
     Globs, also known as glob (or globbing) patterns (<a href="https://en.wikipedia.org/wiki/Glob_(programming)">Wikipedia: Glob</a>) are patterns that can expand a wildcard pattern into a list of pathnames that match the given pattern. On the early versions of Linux, the command interpreters relied on a program that expanded these characters into unquoted arguments to a command: ``/etc/glob`` .
 
+
 Due to their convenience, the concept of wild cards are commonly used in programming languages, however the symbols may vary between languages. Here is a list 
 of wild cards in Linux:
 
