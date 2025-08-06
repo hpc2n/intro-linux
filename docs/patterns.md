@@ -148,8 +148,8 @@ Wild cards are also called "glob" or "globbing" patterns.
 ??? Globs
 
     Globs, also known as glob (or globbing) patterns (<a href="https://en.wikipedia.org/wiki/Glob_(programming)">Wikipedia: Glob</a>) are patterns 
-    that can expand a wildcard pattern into a list of pathnames that match the given pattern. On the early versions of Linux, the command 
-    interpreters relied on a program that expanded these characters into unquoted arguments to a command: ``/etc/glob``.
+    that can expand a wildcard pattern into a list of pathnames that match the given pattern. On the early versions of Linux, the command: ``/etc/glob``
+    was in charge of expanding the wildcard pattern.
 
 
 Due to their convenience, the concept of wild cards are commonly used in programming languages, however the symbols may vary between languages. Here is a list 
@@ -265,6 +265,6 @@ Some common examples of regular expressions:
 !!! note "Keypoints" 
 
     - Finding files with specific patterns in their names or content can be done with ``grep`` and ``find``
-    - Wildcards are metacharacters for one or more character or number and are useful for when you are finding patterns or removing/copying/listing all files of a certain type 
-    - Regular Expressions are a type of patterns that are used when you are working with text. They can be used with ``grep``, ``find``, and many many others 
+    - Wildcards are metacharacters for one or more character or number and are useful when you are finding patterns or removing/copying/listing all files of a certain type 
+    - Regular Expressions are a type of patterns that are used when you are working with text. They can be used with ``grep``, ``find``, and other programs 
 
