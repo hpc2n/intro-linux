@@ -240,7 +240,12 @@ Regular Expressions can be used with commands like ``grep``, ``find`` and many o
 
 !!! NOTE
 
-    If your regular expressions does not do as you expect, you may need to use single quotation marks around the sentence and you may also have to use backslashes on every single special character.
+    - If your regular expressions does not do as you expect, you may need to use single quotation marks around the sentence and you may also have to use backslashes on every single special character.
+
+    - There are online tools that allow you to test Regular Expressions, for instance, <a href="https://regex101.com/">regex101.com</a>. Different languages are supported. For not too complex 
+      Regular Expressions, most of the languages options could work for ``grep`` and ``find``. 
+    
+    - Make dry-runs (tests) before running commands with Regular Expressions that modify files.
 
 Some common examples of regular expressions: 
 
