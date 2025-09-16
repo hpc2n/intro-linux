@@ -5,7 +5,7 @@
     **Questions**
 
     - How do create and remove files and directories?
-    - How do I copy/rename files and directories?
+    - How do I copy/rename files and directories? (You will see why these two operations are mentioned together.)
 
     **Learning objectives**
 
@@ -54,11 +54,13 @@ To create files, you would normally use an editor (``nano``, ``vim``, ``emacs``,
 touch FILE
 ```
 
-You can remove files with ``rm``. Again, you can use the flag/option ``-i`` to prompt before removing a file.
+You can remove files with ``rm``. Again, you can use the flag/option ``-i`` to prompt before removing a file. Be aware that files removed with ``rm`` are deleted *permanently*---they generally cannot be restored (people have gotten lucky with system backup snapshots, but don't count on those).
 
 !!! warning
 
     If you do not add the flag/option "-i" the file will be deleted without prompting. Be careful!
+
+    Be **extra** careful using ``rm`` with glob patterns (see [Wild Cards under The File System](../filesystem/#wild__cards) and [Regular expressions](../patterns/#regular__expressions) )! It is strongly recommended that you always test a pattern with ``ls`` and check that the output is what you expect before using ``rm`` on that pattern.
 
 !!! note "Examples"
 
@@ -110,7 +112,12 @@ You can remove files with ``rm``. Again, you can use the flag/option ``-i`` to p
     [x_birbr@tetralith1 testdir1]$
     [x_birbr@tetralith1 testdir1]$ cd ..
     [x_birbr@tetralith1 myowntestdir]$ cd testdir2/
-    [x_birbr@tetralith1 testdir2]$
+    [x_birbr@tetralith1 testdir2]$ touch coolfile.txt
+    [x_birbr@tetralith1 testdir2]$ touch mycool.txt
+    [x_birbr@tetralith1 testdir2]$ touch so_cool_1.txt
+    [x_birbr@tetralith1 testdir2]$ touch cool1.txt
+    [x_birbr@tetralith1 testdir2]$ ls *cool*.txt
+    [x_birbr@tetralith1 testdir2]$ rm -t *cool{,1}.txt
     ```
 
 !!! Note
@@ -251,7 +258,7 @@ The command <code>mv</code> is used to rename files and directories. It can also
 
 ## Symbolic links
 
-Symbolic links are also called soft links, or just symlinks. It is a pointer to another file or directory.
+A symbolic link is a pointer to another file or directory. Symbolic links are also called soft links, or just symlinks. 
 
 - It is useful both for ease
     - you avoid using a long path each time you change to a directory, like your project directory
@@ -289,4 +296,5 @@ ln -s real-file-or-lib link-name
     - The command to copy files and directories is ``cp``
     - The command to rename files and directories is ``mv``
     - Symbolic links are pointers to another file or directory
+    - Always test glob patterns with ``ls`` before using the same patterns with ``rm -r`` to remove files in bulk. 
 

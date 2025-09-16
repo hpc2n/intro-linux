@@ -128,59 +128,6 @@ On Tetralith, user ``x_birbr``:
 [x_birbr@tetralith3 mydir]$ 
 ```
 
-## cd - changing directory 
-
-The command ``cd`` is used to change directory. 
-
-- **cd**: Go to your home directory ($HOME)
-- **cd DIR**: Change directory to DIR
-- **cd ..**: Change directory to the parent directory of the current directory
-- **cd -**: go back to the previous directory
-
-!!! example
-
-    This is the structure of the exercises directory that you got after extracting the tarball: 
-
-    ![folders of exercises directory structure](images/exercises-folders.png){: style="width: 500px;float: left"}
-    <br><br style="clear: both;">
-
-    Remember, $HOME is an ``environment variable`` which gives a shortcut to your home directory.
-
-    **NOTE** if you are on Tetralith and placed the exercises under ``/proj/linux-intro/users/USERNAME`` then ``$HOME`` would be replaced by that path. 
-
-    To change to the directory ``exercises`` when you are in your home directory, you do
-    ```bash
-    cd exercises
-    ```
-
-    To then change to the directory ``testdir1`` you do
-    ```bash
-    cd testdir1
-    ```
-
-    To quickly go back to your home directory, do 
-    ```bash
-    cd 
-    ```
-
-    To quickly go to a subdirectory, for instance ``exercises/testdir2`` you then do 
-    ```bash
-    cd exercises/testdir2
-    ```
-
-    To go to the above directory from anywhere on the system in question, do 
-    ```bash
-    cd $HOME/exercises/testdir2
-    ```
-
-!!! info
-
-    You can use **full paths** (also know as **absolute paths**) or **relative paths** to give the location. 
-
-    An absolute path makes no assumptions about your current location in relation to the location of the file or directory you want to access. It specifies the location from the root of the file system. 
-
-    The path with reference to your current directory is called the relative path. 
-
 ## ls - listing files/directories
 
 The ls command is used to list files. If you just give the command "ls" with no flags it will list all files in the current directory except for hidden files.
@@ -296,6 +243,135 @@ To get more flags, type <code>ls \--help</code> or <code>man ls</code> in the te
 
     We will talk a bit more about permissions and how to change them when we come to the section on **scripting**. 
 
+## cd - changing directory 
+    
+The command ``cd`` is used to change directory. 
+
+- **cd**: Go to your home directory ($HOME)
+- **cd DIR**: Change directory to DIR
+- **cd ..**: Change directory to the parent directory of the current directory
+- **cd -**: go back to the previous directory
+
+!!! example
+    
+    This is the structure of the exercises directory that you got after extracting the tarball: 
+
+    ![folders of exercises directory structure](images/exercises-folders.png){: style="width: 500px;float: left"} 
+    <br><br style="clear: both;">
+
+    Remember, $HOME is an ``environment variable`` which gives a shortcut to your home directory.
+
+    **NOTE** if you are on Tetralith and placed the exercises under ``/proj/linux-intro/users/USERNAME`` then ``$HOME`` would be replaced by that path.
+
+    To change to the directory ``exercises`` when you are in your home directory, you do
+    ```bash
+    cd exercises
+    ```
+
+    To then change to the directory ``testdir1`` you do
+    ```bash
+    cd testdir1
+    ```
+    
+    To quickly go back to your home directory, do 
+    ```bash
+    cd
+    ```
+
+    To quickly go to a subdirectory, for instance ``exercises/testdir2`` you then do
+    ```bash
+    cd exercises/testdir2
+    ```
+    
+    To go to the above directory from anywhere on the system in question, do
+    ```bash
+    cd $HOME/exercises/testdir2
+    ```
+    
+!!! info
+    
+    You can use **full paths** (also know as **absolute paths**) or **relative paths** to give the location.
+
+    An absolute path makes no assumptions about your current location in relation to the location of the file or directory you want to access. It specifies the location from the root of the file system. Absolute paths are required if the file or directory you want to access is not in your current directory or any sub-directory therein.
+    
+    The path with reference to your current directory is called the relative path. A relative path only explicitly specifies sub-directories of your current directory, leaving the part of the path from the root to the current directory implicit.
+
+## Wild cards
+
+Wild cards are useful "stand-ins" for one or more character or number, that you can use for instance when finding patterns or when removing/listing all files of a certain type.
+
+Wild cards are also called "glob" or "globbing" patterns.
+
+??? Globs
+
+    Globs, also known as glob (or globbing) patterns are patterns that can expand a wildcard pattern into a list of pathnames that match the given pattern.
+
+    On the early versions of Linux, the command interpreters relied on a program that expanded these characters into unquoted arguments to a command: ``/etc/glob`` .
+
+<br>
+
+**Common wildcards**
+
+- **?** represents a single character
+- **\*** represents a string of characters (0 or more)
+- **[ ]** represents a range
+- **{ }** the terms are separated by commas and each term must be a wildcard or exact name
+- **[!]**  matches any character that is NOT listed between the [ and ]. This is a logical NOT.
+- **\** specifies an "escape" character, when using a subsequent special character. 
+
+!!! Warning
+
+    You may need quotation marks around some wildcards as well.
+
+!!! tip "Try some of the commands below"
+
+    Useful files for these examples are found in ``exercises/patterns``
+
+
+!!! Example "Some examples of the use of wildcards"
+
+    ```bash
+    myfile?.txt
+    ```
+
+    This matches myfile0.txt, myfile1.txt,... for all letters between a-z and numbers between 0-9. Try with ``ls myfile?.txt``.
+
+    ```bash
+    r*d
+    ```
+
+    This matches red, rad, ronald, ... anything starting with r and ending with d, including rd.
+
+    ```bash
+    r[a,i,o]ck
+    ```
+
+    This matches rack, rick, and rock.
+
+    ```bash
+    a[d-j]a
+    ```
+
+    This matches ada, afa, aja, ...  and any three letter word that starts with an a, ends with an a, and has any character from d to j in between. Try with ``ls a[d-j]a``.
+
+    ```bash
+    [0-9]
+    ```
+
+    This matches a range of numbers from 0 to 9.
+
+    ```bash
+    cp {*.dat,*.c,*.pdf} ~
+    ```
+
+    This specifies to copy any files ending in .dat, .c, and .pdf to the user's homedirectory. No spaces are allowed between the commas, etc. You could test it by creating a matched file in ``patterns`` directory with ``touch file.c`` and running the above command to see it only copies that one from the ``patterns`` directory.
+
+    ```bash
+    rm thisfile[!8]*
+    ```
+
+    This will remove all files named thisfile*, except those that has an 8 at that position in it's name. Try running it in the ``patterns`` directory! Do ``ls`` before and after to see the change. Remember, you can always recreate the directory ``patterns`` by untar'ing it again.
+
 !!! note "Keypoints"
 
     - Your home directory is generally located in ``/home/USERNAME`` or ``/home/U/USERNAME``
@@ -304,4 +380,5 @@ To get more flags, type <code>ls \--help</code> or <code>man ls</code> in the te
     - To change directory you use the command ``cd`` DIR
     - Just giving the command ``cd`` takes you to your homedirectory 
     - ``ls`` is used to list files and directories
+    - Wildcards are metacharacters for one or more character or number and are useful when you are finding patterns or removing/copying/listing all files of a certain type 
 

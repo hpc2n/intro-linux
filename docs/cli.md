@@ -13,9 +13,9 @@
     - You will learn about the shell and the CLI.
     - You will learn why and when you should use a CLI instead of a Graphical User Interface (GUI). 
     
-![Terminal](images/terminal.png){: style="width: 400px;float: right;padding: 3px;}
+![Terminal](images/terminal_tetralith.png){: style="width: 400px;float: right;padding: 3px;}
 
-The picture above shows a terminal window where I am logged into Kebnekaise (from my desktop defiant). 
+The picture above shows a terminal window where I am logged into Tetralith (NSC) (from my desktop enterprise). 
 
 The command line is an interface for typing commands directly to a computer's operating system. It is a user interface that is navigated only with the keyboard, by typing commands at a prompt, instead of by clicking with a mouse or similar.
  
@@ -23,13 +23,13 @@ The Command Line Interface (CLI) is available in all operating systems, includin
 
 !!! NOTE 
 
-    In Unix or Linux, the **prompt** may be shown as ``$``, ``%`` or ``>`` depending on the shell.
+    In Unix or Linux, the **prompt** may be shown as ``$``, ``%``, ``#``,  or ``>`` depending on the shell.
 
     The prompt means the shell is waiting for input from you. 
    
 The opposite of a <code>CLI</code> is a <code>GUI</code> (Graphical User Interface), which generally uses a mouse or similar for navigating. 
 
-Command line interfaces often gives access to many more capabilities than the graphical user interface does, and it is also practical and normally faster in situations where you login with a terminal on a remote system, like Tetralith, or Kebnekaise as I did above. 
+Command line interfaces often gives access to many more capabilities than the graphical user interface does, and it is also practical and normally faster in situations where you login with a terminal on a remote system, like Tetralith as I did above. 
 
 ## Shell 
 
@@ -41,11 +41,11 @@ Writing scripts in a shell allows you to automate repetitive tasks or combine se
 
 !!! Warning 
 
-    You will find that many/most commands in this course are prefaced with either <code>\$</code> or <code>[x_birbr@tetralith1 ~]\$</code>, or something like <code>[x_birbr@tetralith1 x_birbr]\$</code>. 
+    You will find that many/most commands in this course are prefaced with either <code>\$</code> or <code>[x_birbr@tetralith3 ~]\$</code>, or something like <code>[x_birbr@tetralith3 x_birbr]\$</code>. 
 
-    This is the prompt from the computer system, where <code>\$</code> just is the default (<code>bash</code>) prompt, and the others are an example of a prompt you would see when logged into a compute cluster (in this case Tetralith - my home directory versus my project storage directory.
+    This is the prompt from the computer system, where <code>\$</code> just is the default (<code>bash</code>) prompt, and the others are an example of a prompt you would see when logged into a compute cluster (in this case Tetralith - my home directory versus my personal area on my project storage directory.
 
-    You can see an example of such a prompt in the picture a bit further up on the page, though that is from where I am logged into "Kebnekaise" from my computer "defiant". 
+    You can see an example of such a prompt in the picture a bit further up on the page. That is from where I am logged into "Tetralith" from my computer "enterprise". 
 
     Do **NOT** copy this prompt if you are copying code snippets. It should **not** be included in the command. 
 

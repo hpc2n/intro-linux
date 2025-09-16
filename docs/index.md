@@ -41,12 +41,13 @@
 
     - This course will consist of lectures and type-alongs, as well as a few exercises where you get to try out what you have just learned.    
 
-- This is the third instance of this course, and it has been somewhat reworked based on previous participant input. We would be grateful if you will fill the evaluation survey so we can further improve the course: <a href="https://forms.office.com/e/hCGaARFfjJ" target="_blank">https://forms.office.com/e/hCGaARFfjJ</a> 
+- This course has been reworked based on previous participant input. We would be grateful if you will fill the evaluation survey so we can further improve the course: <a href="" target="_blank"></a> 
 
 !!! admonition "Cluster-specific approaches"
 
     The course is given by HPC2N (Kebnekaise), but will be done under NAISS on the NAISS system "Tetralith". There is a <a href="https://www.nsc.liu.se/support/getting-started/" target="_blank">Get started guide for NSC here</a>.   
 
+    - **This is only relevant if you are using Tetralith!**
     - The login node for Tetralith is ``tetralith.nsc.liu.se``.
     - It looks like this when I (``x_birbr`` on "Tetralith") login the first time from my computer "defiant":
     ```bash
@@ -59,14 +60,11 @@
     Verification code:
     ```
     - The verification code it asks about is a 2FA that you need to set. See here: <a href="https://www.nsc.liu.se/support/2fa/" target="_blank">https://www.nsc.liu.se/support/2fa/</a>.
-    - You will probably not need it for the course, but the compute project ID is: naiss2025-22-262 
-    - The project storage for the course project is in ``/proj/r-matlab-julia-naiss/users/YOUR-USERNAME`` (the reason for this is that we are reusing the course project from another course) 
-        - Example, for the user ``x_birbr``, this would be: ``/proj/r-matlab-julia-naiss/users/x_birbr``
 
 ## Important info
 
-- There is an "important info" page for this course, containing info on the course project, login info for Tetralith, etc. It can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EfwC7eW9I69LqA7TvjrmIHkBVFJ9YiwcTlnyRayeFDP80w?e=PRlTGF" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EfwC7eW9I69LqA7TvjrmIHkBVFJ9YiwcTlnyRayeFDP80w?e=PRlTGF</a>
-- There is a Q/A page for use during the lectures. Since the lectures are recorded, you may get recorded if you ask questions in the Zoom, but you can always write questions on the Q/A and get answers there. It also has the advantage that you can go back and look at the answers later. The Q/A page can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EdlQK26U4iFGqghE3DWXZTgBAr8x_EjipwIiTYqXDpcv2Q?e=FVpKpu" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EdlQK26U4iFGqghE3DWXZTgBAr8x_EjipwIiTYqXDpcv2Q?e=FVpKpu</a> 
+- There is an "important info" page for this course, containing info on the course project, login info for Tetralith, etc. It can be found here: <a href="" target="_blank"></a>
+- There is a Q/A page for use during the lectures. Since the lectures are recorded, you may get recorded if you ask questions in the Zoom, but you can always write questions on the Q/A and get answers there. It also has the advantage that you can go back and look at the answers later. The Q/A page can be found here: <a href="" target="_blank"></a> 
 
 ## Preliminary schedule
 
@@ -92,8 +90,8 @@
 In order to type along and do the exercises, please prepare your course environment now: 
 
 1. Login to the system you are using (Tetralith, your own computer, other system)
-2. Create a directory to work in (``mkdir intro-linux``) and then switch to it (``cd intro-linux``)  
-    - **NOTE** If you are working on Tetralith, first switch to your working directory: ``cd /proj/r-matlab-julia-naiss/users/YOUR-USERNAME``
-3. Download the exercises with ``wget https://github.com/hpc2n/intro-linux/raw/refs/heads/main/exercises.tar.gz`` 
-4. Extract the exercises with ``tar zxvf exercises.tar.gz``
-5. Enter the directory that was created: ``cd exercises``
+2. Open a terminal if you do not already have one open. 
+3. Create a directory to work in (``mkdir intro-linux``) and then switch to it (``cd intro-linux``)  
+4. Download the exercises with ``wget https://github.com/hpc2n/intro-linux/raw/refs/heads/main/exercises.tar.gz`` 
+5. Extract the exercises with ``tar zxvf exercises.tar.gz``
+6. Enter the directory that was created: ``cd exercises``

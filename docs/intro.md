@@ -15,13 +15,13 @@ An operating system is the software that sits underneath all of the other softwa
 
 Linux is typically packaged as a Linux distribution, which includes the kernel and supporting system software and libraries, many of which are provided by the GNU Project.
 
+In addition, a windowing system of some sort (X11, Wayland) interfaces directly with the underlying operating system and libraries, providing support for graphical hardware, pointing devices, and keyboards. The window manager generally runs on top of this windowing system.
+
 !!! Note "Distributions (distros)"
 
     There are many Linux distribuitions, including Ubuntu, Debian, Fedora, Gentoo, and many others. Many distributions are free and open source, but there are also commercial distributions, like Red Hat Enterprise and SUSE.
 
     Desktop Linux distributions include <a href="https://en.wikipedia.org/wiki/Desktop_environment" target="_blank">a desktop environment</a>, like GNOME, MATE, KDE Plasma, Xfce, Unity, or many others. A window manager together with applications written using a widget toolkit are generally responsible for most of what the user sees.
-
-In addition, a windowing system of some sort (X11, Wayland) interfaces directly with the underlying operating system and libraries, providing support for graphical hardware, pointing devices, and keyboards. The window manager generally runs on top of this windowing system.
 
 ## Shell 
 
@@ -36,6 +36,7 @@ The shell we are looking at in this course is the Linux/Unix shell, which is a c
     - The Bourne Shell (sh)
     - The GNU Bourne-Again shell (bash)
     - The C shell (csh)
+    - The TENEX C shell (tcsh)
     - The Korn Shell (ksh) 
     - The Z Shell (zsh) 
 
@@ -49,9 +50,9 @@ The shell we are looking at in this course is the Linux/Unix shell, which is a c
 
 The Linux/Unix shell has existed for a very long time (Thompson shell, 1971; Bourne shell, 1979). 
 
-- The reason it keeps being used is that it is a very powerful tool which lets users perform complex and powerful tasks. 
-- These tasks can often be done using a few keystrokes or maybe a few lines of code. 
-- It can be used to automate repetitive tasks or to combine smaller tasks into **scripts**, which helps the user work faster and be more effective. 
+It continues to be used because it is a very powerful tool that lets users perform complex tasks. These tasks can often be done using a few keystrokes or maybe a few lines of code.
+
+It can be used to automate repetitive tasks or to combine smaller tasks into **scripts**, which helps the user work faster and more effectively.
 
 Using the Linux/Unix shell is fundamental for a large number of advanced computing tasks, including in HPC (high-performance computing). 
 
@@ -61,12 +62,12 @@ In addition:
 - It is stable and reliable
 - Customizable
 - Runs on any hardware
-- Strong community
-- Many flavours are open source and free
-- Lots of applications
-- Lightweight
+- Has a strong community
+- Has many flavours that are open source and free
+- Has lots of applications
+- Many distros are lightweight
 
-While the use of Linux on desktop is only 2-3%, the vast majority of web servers (>96%), most mobile devices (Android is based on the Linux kernel), and all supercomputers on the <a href="https://en.wikipedia.org/wiki/TOP500" target="_blank">Top500</a> list run Linux.
+While the use of Linux on desktops is only 2-3%, the vast majority of web servers (>96%), most mobile devices (Android is based on the Linux kernel), and all supercomputers on the <a href="https://en.wikipedia.org/wiki/TOP500" target="_blank">Top500</a> list run Linux.
 
 For all of these reasons, and many more, it is a good idea to be more proficient in Linux. This course aims to help you with that. 
 

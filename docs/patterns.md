@@ -1,6 +1,6 @@
 # Finding patterns
 
-This section will look at finding patterns ([grep](#grep), [find](#find), [wild cards](#wild__cards), and [regular expressions](#regular__expressions)).  
+This section will look at finding patterns ([grep](#grep), [find](#find), and [regular expressions](#regular__expressions)).  
 
 !!! note "Learning objectives"
 
@@ -13,7 +13,6 @@ This section will look at finding patterns ([grep](#grep), [find](#find), [wild 
 
     - Learn about finding patterns
     - Learn to use ``grep`` and ``find``
-    - Learn to use wild cards
     - Learn to use regular expressions
 
 Here you will find descptions on how to search for files with specific patterns. 
@@ -22,7 +21,7 @@ Here you will find descptions on how to search for files with specific patterns.
 
     Try out / code along for some of these examples. 
 
-    You can use the contents of the directory ``/exercises/patterns`` that you got from the downloaded tarball (<a href="https://github.com/hpc2n/linux-command-line-101/raw/refs/heads/main/exercises.tar.gz">exercises.tar.gz</a>) to play with. If you have not done so already, right-click and save to download, or right-click and copy the url, then do ``wget THE-URL-YOU-COPIED`` in a terminal window to download it there. Then do <code>tar -zxvf patterns.tar.gz</code> to unpack.  
+    You can use the contents of the directory ``/exercises/patterns`` that you got from the downloaded tarball (<a href="https://github.com/hpc2n/intro-linux/raw/refs/heads/main/exercises.tar.gz">exercises.tar.gz</a>) to play with. If you have not done so already, right-click and save to download, or right-click and copy the url, then do ``wget THE-URL-YOU-COPIED`` in a terminal window to download it there. Then do <code>tar -zxvf patterns.tar.gz</code> to unpack.  
 
 ## grep 
 
@@ -134,103 +133,6 @@ For more options, check ``man find``
     find ../patterns/ -type f -name "myfile0.txt"
     ```
 
-# Enhancing the power of ``grep`` and ``find``
-
-
-
-## Wild cards
-
-Wild cards are metacharacters or placeholders (<a href="https://en.wikipedia.org/wiki/Wildcard_character">Wikipedia: Wildcard</a>) used to match
-one or more characters or numbers. In Linux shells, one can use them when finding patterns or when removing/listing all files of a certain type.
-
-Wild cards are also called "glob" or "globbing" patterns. 
-
-??? Globs
-
-    Globs, also known as glob (or globbing) patterns (<a href="https://en.wikipedia.org/wiki/Glob_(programming)">Wikipedia: Glob</a>) are patterns 
-    that can expand a wildcard pattern into a list of pathnames that match the given pattern. On the early versions of Linux, the command: ``/etc/glob``
-    was in charge of expanding the wildcard pattern.
-
-
-Due to their convenience, the concept of wild cards are commonly used in programming languages, however the symbols may vary between languages. Here is a list 
-of wild cards in Linux:
-
-
-**Common Linux wildcards**
-
-- **?** represents a single character
-- **\*** represents a string of characters (0 or more)
-- **[ ]** represents a range
-- **{ }** the terms are separated by commas and each term must be a wildcard or exact name
-- **[!]**  matches any character that is NOT listed between the [ and ]. This is a logical NOT.
-- **\\** specifies an "escape" character, when using a subsequent special character. 
-
-!!! Warning 
-
-    You may need quotation marks as well around some wildcards. 
-
-!!! tip "Try some of the commands below" 
-
-    Useful files for these examples are found in ``exercises/patterns`` 
-
-
-!!! Example "Some examples of use of wildcards"
-
-    ```bash
-    myfile?.txt
-    ``` 
-
-    This matches myfile0.txt, myfile1.txt,... for all letters between a-z and numbers between 0-9. Try with ``ls myfile?.txt``. 
-
-    ```bash
-    r*d
-    ```
-
-    This matches red, rad, ronald, ... anything starting with r and ending with d, including rd. 
-
-    ```bash
-    r[a,i,o]ck
-    ```
-
-    This matches rack, rick, rock.
-
-    ```bash
-    a[d-j]a
-    ```
-
-    This matches ada, afa, aja, ...  and any three letter word that starts with an a and ends with an a and has any character d to j in between. Try with ``ls a[d-j]a``. 
-   
-    ```bash
-    [0-9]
-    ``` 
-  
-    This matches a range of numbers from 0 to 9. 
-
-    ```bash
-    cp {*.dat,*.c,*.pdf} ~
-    ```
-
-    This specifies to copy any files ending in .dat, .c, and .pdf to the user's homedirectory. No spaces are allowed between the commas, etc. You could test it by creating a matched file in ``patterns`` directory with ``touch file.c`` and running the above command to see it only copies that one from the ``patterns`` directory. 
-
-    ```bash
-    rm thisfile[!8]*
-    ```
-
-    This will remove all files named thisfile*, except those that has an 8 at that position in it's name. Try running it in the ``patterns`` directory! Do ``ls`` before and after to see the change. Remember, you can always recreate the directory ``patterns`` by untar'ing it again.  
-
-    Find all files with extension ``.txt`` in the directory you are standing in and below: 
-
-    ```bash
-    find . -type f -name "*.txt"
-    ```
-
-    Find all files with ``file`` as part of the name in the directory ``expressions/patterns`` while standing in ``exercises/script``
-
-    ```bash
-    find ../patterns/ -type f -name "*file*"
-    ```
-
-
 ## Regular Expressions
 
 Regular Expressions are a type of patterns that are used when you are working with text. 
@@ -270,6 +172,5 @@ Some common examples of regular expressions:
 !!! note "Keypoints" 
 
     - Finding files with specific patterns in their names or content can be done with ``grep`` and ``find``
-    - Wildcards are metacharacters for one or more character or number and are useful when you are finding patterns or removing/copying/listing all files of a certain type 
     - Regular Expressions are a type of patterns that are used when you are working with text. They can be used with ``grep``, ``find``, and other programs 
 
