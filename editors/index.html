@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/editors/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Editors - Introduction to Linux</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="../assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Editors";
+        var mkdocs_page_input_path = "editors.md";
+        var mkdocs_page_url = "/intro-linux/editors/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/intro-linux-naiss.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modify/">Modifying the file tree</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Editors</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#less__more__cat">less, more, cat</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#command__line__editors">Command line editors</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gui__editors">GUI editors</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pipesfilters/">Piping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../patterns/">Finding patterns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../scripting/">Scripting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../connections/">Linux system overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-terminology/">Linux terminology</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../more-commands/">More commands</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data/">Data handling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Editors</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="editors">Editors<a class="headerlink" href="#editors" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Learning objectives</p>
+<p><strong>Questions</strong></p>
+<ul>
+<li>Which editors are good to use on the command line?</li>
+<li>Which editors are good for using in a GUI (graphical user interface) environment? </li>
+</ul>
+<p><strong>Objectives</strong> </p>
+<ul>
+<li>Learn about some command line editors</li>
+<li>Try and use <code>nano</code></li>
+<li>Learn about some GUI editors</li>
+<li>Try use <code>gedit</code> </li>
+</ul>
+</div>
+<p>Some editors are more suited for a GUI environment and some are more suited for a command line environment. </p>
+<h2 id="less__more__cat">less, more, cat<a class="headerlink" href="#less__more__cat" title="Permanent link">&para;</a></h2>
+<p>If you just need to see the content of a file, one of the commands <code>less</code>, <code>more</code>, or <code>cat</code> are probably the best, since there is no risk of you making changes to the file if you are just looking in it.</p>
+<div class="admonition note">
+<p class="admonition-title">less, more, cat - if you just need to see the content</p>
+<p>If you just need to see the content of a file, these commands are probably the best, since there is no risk of you making changes to the file if you are just looking in it. </p>
+<ul>
+<li>more: forward navigation and limited backward navigation in a file named FILE. <ul>
+<li>Usage: <code>more FILE</code></li>
+<li>Exit with: <code>q</code></li>
+</ul>
+</li>
+<li>less: forward and backward navigation and also has search options. <ul>
+<li>Usage <code>less FILE</code></li>
+<li>Exit with: <code>q</code> </li>
+</ul>
+</li>
+<li>cat: a tool for file-related operations (view, concatenate, create, copy, merge, and manipulate file contents). Usage: <code>cat [option] FILE</code> where option is various optional options (hint: <code>man cat</code> for more info).</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Reminder</p>
+<p>If you are just looking in a file, do not use an editor (nano, vim, emacs, &hellip;) as you risk making changes if, for instance, your cat runs across the keyboard! Use something like cat or less instead. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Try out <code>less</code> and <code>cat</code>!</p>
+<ul>
+<li>Go to the <code>exercises</code> directory (that you got from the tarball at the beginning of the course) and change directory to one of the subdirectories. </li>
+<li>Use <code>less</code> on one of the files. Use <code>cat</code> on one of the files. </li>
+</ul>
+<p><strong>Question</strong>: Why is <code>cat</code> good for short files, but not for long files? </p>
+</div>
+<h2 id="command__line__editors">Command line editors<a class="headerlink" href="#command__line__editors" title="Permanent link">&para;</a></h2>
+<p>These are all good editors for using on the command line: </p>
+<ul>
+<li><a href="https://www.nano-editor.org/" target="_blank">nano</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Vi" target="_blank">vi</a>, <a href="https://en.wikipedia.org/wiki/Vim_(text_editor)" target="_blank">vim</a></li>
+<li><a href="https://www.gnu.org/software/emacs/" target="_blank">emacs</a></li>
+</ul>
+<p>Of these, <code>vi/vim</code> as well as <code>emacs</code> are probably the most powerful, though the latter is better in a GUI environment. The easiest editor to use if you are not familiar with any of them is <code>nano</code>. </p>
+<div class="admonition example">
+<p class="admonition-title">Nano</p>
+<p><strong>HINT: code-along!</strong> </p>
+<ol>
+<li>Starting &ldquo;nano&rdquo;: Type <code>nano</code> FILENAME on the command line and press <code>Enter</code>. FILENAME is whatever you want to call your file. </li>
+<li>If FILENAME is a file that already exists, <code>nano</code> will open the file. If it dows not exist, it will be created.</li>
+<li>You now get an editor that looks like this: <br>
+<img alt="nano editor" src="../images/nano.png" style="width: 500px" /></li>
+<li>First thing to notice is that many of the commands are listed at the bottom. </li>
+<li>The <strong>^</strong> before the letter-commands means you should press CTRL and then the letter (while keeping CTRL down). </li>
+<li>Your prompt is in the editor window itself, and you can just type (or copy and paste) the content you want in your file.  </li>
+<li>When you want to exit (and possibly save), you press CTRL and then x while holding CTRL down (this is written CTRL-x or ^x). <code>nano</code> will ask you if you want to save the content of the buffer to the file. After that it will exit. </li>
+</ol>
+<p>There is a <a href="https://www.nano-editor.org/dist/latest/nano.html" target="_blank">manual for <code>nano</code> here</a>.  </p>
+</div>
+<h2 id="gui__editors">GUI editors<a class="headerlink" href="#gui__editors" title="Permanent link">&para;</a></h2>
+<p>If you are connecting with <a href="https://www.cendio.com/thinlinc/download/" target="_blank">ThinLinc</a>, you will be presented with a graphical user interface (GUI). (For Tetralith, the server is <code>tetralith.nsc.liu.se</code>). From within Thinlinc you can either open a terminal window/shell or you can choose editors from the menu. </p>
+<p>It differs a bit how Thinlinc looks depending on the centre, and it also differs which desktop environment they are running. For instance, NSC&rsquo;s Tetralith has the Xfce environment while HPC2N&rsquo;s Kebnekaise has MATE. </p>
+<p>Examples to open terminal: </p>
+<ul>
+<li>HPC2N: &ldquo;Applications&rdquo; -&gt; &ldquo;System Tools&rdquo; -&gt; &ldquo;MATE Terminal&rdquo; </li>
+<li>NSC: &ldquo;Applications&rdquo; -&gt; &ldquo;System&rdquo; -&gt; &ldquo;Xfce Terminal&rdquo;</li>
+</ul>
+<p>To choose editors from the menu: </p>
+<ul>
+<li>HPC2N: &ldquo;Applications -&gt; Accessories&rdquo;. </li>
+<li>NSC: &ldquo;Applications&rdquo; -&gt; Accessories&rdquo; and &ldquo;Applications&rdquo; -&gt; &ldquo;Development&rdquo;. </li>
+</ul>
+<p>Regardless, this gives several editor options, of which these have a graphical interface:  </p>
+<ul>
+<li>HPC2N/NSC: <a href="https://help.gnome.org/users/gedit/stable/" target="_blank">Text Editor (gedit)</a></li>
+<li>HPC2N: <a href="https://en.wikipedia.org/wiki/Pluma_(text_editor)" target="_blank">Pluma</a> - the default editor on the MATE desktop environments (that Thinlinc runs)</li>
+<li>HPC2N: <a href="https://en.wikipedia.org/wiki/Atom_(text_editor)" target="_blank">Atom</a> - no
+t just an editor, but an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment" target="_blank">IDE</a></li>
+<li>HPC2N/NSC: <a href="https://www.gnu.org/software/emacs/" target="_blank">Emacs (GUI)</a></li>
+<li>HPC2N/NSC (under &ldquo;Applications&rdquo; -&gt; &ldquo;Development&rdquo;): <a href="https://en.wikipedia.org/wiki/NEdit" target="_blank">NEdit &ldquo;Nirvana Text Editor&rdquo;</a></li>
+</ul>
+<p>If you are not familiar with any of these, a good recommendation would be to use <code>Text Editor/gedit</code>. </p>
+<div class="admonition example">
+<p class="admonition-title">Text Editor/gedit</p>
+<ol>
+<li>Starting &ldquo;gedit&rdquo;: From the menu, choose Applications -&gt; Accessories -&gt; Text Editor.</li>
+<li>You then get a window that looks similar to this: <br> 
+<img alt="gedit editor" src="../images/gedit.png" style="width: 400px" /></li>
+<li>You can open files by clicking &ldquo;Open&rdquo; in the top menu. </li>
+<li>Clicking the small file icon with a plus (located beside the &ldquo;Open&rdquo; button&rdquo;) will create a new document. </li>
+<li>Save by clicking &ldquo;Save&rdquo; in the menu. </li>
+<li>The menu on the top right (the three horizontal lines) gives you several other options, including &ldquo;Find&rdquo; and &ldquo;Find and Replace&rdquo;. </li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Keypoints</p>
+<ul>
+<li>If you just want to look in a file, it is better to use <code>less</code>, <code>more</code>, or <code>cat</code> </li>
+<li>Some editors are best for the command line and some are best for a GUI environment</li>
+<li><code>nano</code> is a good first editor for the command line</li>
+<li>other editors for the command line are: <code>vi</code>/<code>vim</code>, <code>emacs</code>, etc. </li>
+<li><code>gedit</code> (Text editor) is a good first editor for the GUI</li>
+<li>other editors for a GUI environment are: <code>Pluma</code>, <code>Atom</code>, <code>emacs (GUI)</code>, <code>NEdit</code>, etc. </li>
+</ul>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../modify/" class="btn btn-neutral float-left" title="Modifying the file tree"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../pipesfilters/" class="btn btn-neutral float-right" title="Piping">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../modify/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../pipesfilters/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/_markdown_exec_pyodide.js"></script>
+      <script src="../search/main.js"></script>
+      <script src="../js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

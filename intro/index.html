@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/intro/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Introduction - Introduction to Linux</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="../assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Introduction";
+        var mkdocs_page_input_path = "intro.md";
+        var mkdocs_page_url = "/intro-linux/intro/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/intro-linux-naiss.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Introduction</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what__is__linux">What is Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#shell">Shell</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why__linuxunix__shell">Why Linux/Unix (shell)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#more__information">More information</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modify/">Modifying the file tree</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../editors/">Editors</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pipesfilters/">Piping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../patterns/">Finding patterns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../scripting/">Scripting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../connections/">Linux system overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-terminology/">Linux terminology</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../more-commands/">More commands</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data/">Data handling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="introduction__to__linux">Introduction to Linux<a class="headerlink" href="#introduction__to__linux" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Welcome page and syllabus: <a href="https://hpc2n.github.io/intro-linux/index.html">https://hpc2n.github.io/intro-linux/index.html</a><ul>
+<li>Also link at the House symbol at the top of the page. </li>
+</ul>
+</li>
+</ul>
+<h2 id="what__is__linux">What is Linux<a class="headerlink" href="#what__is__linux" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most of the commands you learn in this course is agnostic and works on any Linux/Unix like system. MacOS is also a Unix-like OS, and the majority of the commands are the same. </p>
+</div>
+<p>Linux is a family of open-source Unix-like operating systems based on the Linux kernel, an operating system kernel first released on September 17, 1991, by Linus Torvalds.</p>
+<p>An operating system is the software that sits underneath all of the other software on a computer, managing the computer’s hardware (CPU, GPU, memory, storage&hellip;) and taking care of the connections between your other software and the hardware. </p>
+<p>Linux is typically packaged as a Linux distribution, which includes the kernel and supporting system software and libraries, many of which are provided by the GNU Project.</p>
+<p>In addition, a windowing system of some sort (X11, Wayland) interfaces directly with the underlying operating system and libraries, providing support for graphical hardware, pointing devices, and keyboards. The window manager generally runs on top of this windowing system.</p>
+<div class="admonition note">
+<p class="admonition-title">Distributions (distros)</p>
+<p>There are many Linux distribuitions, including Ubuntu, Debian, Fedora, Gentoo, and many others. Many distributions are free and open source, but there are also commercial distributions, like Red Hat Enterprise and SUSE.</p>
+<p>Desktop Linux distributions include <a href="https://en.wikipedia.org/wiki/Desktop_environment" target="_blank">a desktop environment</a>, like GNOME, MATE, KDE Plasma, Xfce, Unity, or many others. A window manager together with applications written using a widget toolkit are generally responsible for most of what the user sees.</p>
+</div>
+<h2 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h2>
+<p>The shell is a special user program. It is an interface between the keyboard and the operating system (OS) I.e. it takes commands input the user give from the keyboard and sends it to the OS which then performs the actions requested. </p>
+<p>The shell we are looking at in this course is the Linux/Unix shell, which is a command-line interpreter providing a Command Line Interface (CLI) for Unix-like systems. More about that in the next part. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are several shells, which has somewhat different properties: </p>
+<ul>
+<li>The Bourne Shell (sh)</li>
+<li>The GNU Bourne-Again shell (bash)</li>
+<li>The C shell (csh)</li>
+<li>The TENEX C shell (tcsh)</li>
+<li>The Korn Shell (ksh) </li>
+<li>The Z Shell (zsh) </li>
+</ul>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Most centers has <code>bash</code> as default. There are several reasons, but one is that it is what is compatible with SLURM - the batch scheduler used at most centers in Sweden. <code>bash</code> is also good for scripting. </p>
+<p>For the majority of the material in this course, it does not matter which shell you are using, but there are some commands where it is relevant. We will therefore be using <code>bash</code> for this course. </p>
+</div>
+<h2 id="why__linuxunix__shell">Why Linux/Unix (shell)<a class="headerlink" href="#why__linuxunix__shell" title="Permanent link">&para;</a></h2>
+<p>The Linux/Unix shell has existed for a very long time (Thompson shell, 1971; Bourne shell, 1979). </p>
+<p>It continues to be used because it is a very powerful tool that lets users perform complex tasks. These tasks can often be done using a few keystrokes or maybe a few lines of code.</p>
+<p>It can be used to automate repetitive tasks or to combine smaller tasks into <strong>scripts</strong>, which helps the user work faster and more effectively.</p>
+<p>Using the Linux/Unix shell is fundamental for a large number of advanced computing tasks, including in HPC (high-performance computing). </p>
+<p>In addition: </p>
+<ul>
+<li>Most HPC centers supercomputers run some flavour of Linux.</li>
+<li>It is stable and reliable</li>
+<li>Customizable</li>
+<li>Runs on any hardware</li>
+<li>Has a strong community</li>
+<li>Has many flavours that are open source and free</li>
+<li>Has lots of applications</li>
+<li>Many distros are lightweight</li>
+</ul>
+<p>While the use of Linux on desktops is only 2-3%, the vast majority of web servers (&gt;96%), most mobile devices (Android is based on the Linux kernel), and all supercomputers on the <a href="https://en.wikipedia.org/wiki/TOP500" target="_blank">Top500</a> list run Linux.</p>
+<p>For all of these reasons, and many more, it is a good idea to be more proficient in Linux. This course aims to help you with that. </p>
+<h2 id="more__information">More information<a class="headerlink" href="#more__information" title="Permanent link">&para;</a></h2>
+<p>There is much more information about <a href="https://en.wikipedia.org/wiki/Linux" target="_blank">Linux on Wikipedia</a>.</p>
+<p>Some pages with guides and/or cheat sheets: </p>
+<ul>
+<li><a href="https://linuxhandbook.com/" target="_blank">The Linux Handbook</a></li>
+<li><a href="https://www.geeksforgeeks.org/linux-tutorial/" target="_blanks">https://www.geeksforgeeks.org/linux-tutorial/</a></li>
+<li><a href="https://itsfoss.com/free-linux-training-courses/" target="_blank">14 Free Training Courses to Learn Linux Online</a></li>
+<li><a href="https://tldp.org/LDP/intro-linux/intro-linux.pdf">Introduction to Linux - A Hands on Guide</a></li>
+<li><a href="https://cloudacademy.com/course/linux-fundmentals-1346/the-linux-directory-structure/" target="_blank">Linux Fundamentals</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/linux-commands" target="_blank">Top 50+ Linux Commands You MUST Know</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cli/" class="btn btn-neutral float-right" title="The command line (CLI)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../cli/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/_markdown_exec_pyodide.js"></script>
+      <script src="../search/main.js"></script>
+      <script src="../js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

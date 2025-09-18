@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/pipesfilters/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Piping - Introduction to Linux</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="../assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Piping";
+        var mkdocs_page_input_path = "pipesfilters.md";
+        var mkdocs_page_url = "/intro-linux/pipesfilters/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/intro-linux-naiss.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modify/">Modifying the file tree</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../editors/">Editors</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Piping</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#echo">echo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#redirection">Redirection</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#head__tail">head, tail</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wc__sort">wc, sort</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#wc">wc</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#wc__-__capturing__output">wc - capturing output</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sort">sort</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pipes">Pipes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exporting__variables">Exporting variables</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../patterns/">Finding patterns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../scripting/">Scripting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../connections/">Linux system overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-terminology/">Linux terminology</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../more-commands/">More commands</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data/">Data handling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Piping</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="pipes__and__filters">Pipes and filters<a class="headerlink" href="#pipes__and__filters" title="Permanent link">&para;</a></h1>
+<p>In this section we will look at redirection, pipes (for combining multiple commands), filtering output, and variables and environment variables. </p>
+<div class="admonition note">
+<p class="admonition-title">Learning objectives</p>
+<p><strong>Questions</strong></p>
+<ul>
+<li>How do I redirect the output? </li>
+<li>How do I pass the output from one command to another command?</li>
+<li>How do I combine multiple commands?</li>
+<li>How do I sort and filter output? </li>
+<li>What are (environment) variables? </li>
+</ul>
+<p><strong>Objectives</strong> </p>
+<ul>
+<li>Learn how to redirect output </li>
+<li>Learn how to pass output from one command to another and combine multiple commands </li>
+<li>Learn to sort and filter the output </li>
+<li>Learn about variables and environment variables </li>
+</ul>
+</div>
+<h2 id="echo">echo<a class="headerlink" href="#echo" title="Permanent link">&para;</a></h2>
+<p>The echo command in Linux is a built-in command that allows users to display lines of text or strings that are passed as arguments. It is commonly used in shell scripts and batch files to output status text to the screen or a file, but can also be used to see the content of an &ldquo;environment variable&rdquo; or as a means to quickly send text from the command line to a file.</p>
+<p><strong>Syntax</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span><span class="o">[</span>option<span class="o">]</span><span class="w"> </span><span class="o">[</span>string<span class="o">]</span>
+</span></code></pre></div>
+<p>You can find options with <code>man echo</code>. <code>string</code> is the string that we want to display or do something with. </p>
+<p><strong>Example - try it!</strong></p>
+<p>Display the string &ldquo;I am learning Linux&rdquo;: </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>bbrydsoe@defiant:~$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;I am learning Linux&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>I<span class="w"> </span>am<span class="w"> </span>learning<span class="w"> </span>Linux<span class="w"> </span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>bbrydsoe@defiant:~$<span class="w"> </span>
+</span></code></pre></div>
+<h2 id="redirection">Redirection<a class="headerlink" href="#redirection" title="Permanent link">&para;</a></h2>
+<p>I/O redirection: Usually, standard input comes from the keyboard etc. and the standard output goes to the screen. There is also standard error. All of these can be redirected with Linux commands. </p>
+<ul>
+<li><strong>&gt;</strong> redirects the output of some command <ul>
+<li><strong>Example</strong>, output of &ldquo;ls&rdquo; to a file: <code>ls &gt; test.dat</code></li>
+</ul>
+</li>
+<li><strong>&gt;&gt;</strong> concatenate the output of some command to the content of a ﬁle<ul>
+<li><strong>Example</strong>, adds the output of ls to the end of a file &ldquo;test.dat&rdquo;: <code>ls &gt;&gt; test.dat</code></li>
+</ul>
+</li>
+<li><strong>&lt;</strong> changes the standard input</li>
+<li><strong>2&gt;</strong> redirects the standard error:<ul>
+<li><strong>Example</strong>, redirect the error that is thrown from your program named &ldquo;myprogram&rdquo; to a file &ldquo;error.log&rdquo;: <code>./myprogram 2&gt; error.log</code></li>
+</ul>
+</li>
+<li><strong>2&gt;&amp;1</strong> redirects both standard output and standard error<ul>
+<li><strong>Example</strong>, redirect output and errors from your program to the same file: <code>./myprogram &gt; logﬁle 2&gt;&amp;1</code></li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Some more examples</p>
+<p><strong>HINT: code-along!</strong> </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cat<span class="w"> </span>file<span class="w"> </span>&gt;&gt;<span class="w"> </span>file2
+</span></code></pre></div>
+<p>Append the contents of file 1 to file2</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;text to append_add_here&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>file2
+</span></code></pre></div>
+<p>Append some text to a file called file2</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;text to append\n&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>fileName
+</span></code></pre></div>
+<p>Another way to append some text to a file </p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Adding longer blocks of text to a file, using the command line.</p>
+<p><strong>HINT: code-along!</strong> </p>
+<ol>
+<li>
+<p>Open the file for writing
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>foo.txt
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Add some text: 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>This<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>test.
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>I<span class="w"> </span>like<span class="w"> </span>the<span class="w"> </span>Unix<span class="w"> </span>operating<span class="w"> </span>systems.
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>The<span class="w"> </span>weather<span class="w"> </span>is<span class="w"> </span>nice<span class="w"> </span>today.
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>I<span class="w"> </span>am<span class="w"> </span>feeling<span class="w"> </span>sleepy.<span class="w"> </span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>To save the changes press CTRL-d i.e. press and hold CTRL and press d. </p>
+</li>
+</ol>
+</div>
+<h3 id="head__tail">head, tail<a class="headerlink" href="#head__tail" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>head</strong> prints the first lines of a file. Usage: <code>head -n FILE</code></li>
+<li><strong>tail</strong> prints the lines at the end of a file. Usage: <code>tail -n FILE</code></li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>Let us use the files in the directory <code>exercises/patterns</code> you got from the downloaded tarball. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>head<span class="w"> </span>-3<span class="w"> </span>myfile3.txt<span class="w"> </span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Aaaand<span class="w"> </span>some<span class="w"> </span>text<span class="w"> </span>here<span class="w"> </span>as<span class="w"> </span>well.<span class="w"> </span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Should<span class="w"> </span>I<span class="w"> </span>have<span class="w"> </span>more<span class="w"> </span>lines?<span class="w"> </span>Probably.
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>This<span class="w"> </span>is<span class="w"> </span>going<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>a<span class="w"> </span>slightly<span class="w"> </span>longer<span class="w"> </span>file.
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>tail<span class="w"> </span>-2<span class="w"> </span>myfile3.txt<span class="w"> </span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>And<span class="w"> </span>more<span class="w"> </span>text.
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>And<span class="w"> </span>just<span class="w"> </span>a<span class="w"> </span>liiiitle<span class="w"> </span>more<span class="w"> </span>text.<span class="w"> </span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Try it</p>
+<p>Try the two examples above. You can check with <code>cat myfile3.txt</code> that it is correct. </p>
+</div>
+<h2 id="wc__sort">wc, sort<a class="headerlink" href="#wc__sort" title="Permanent link">&para;</a></h2>
+<p>These are some simple and very useful commands. </p>
+<h3 id="wc">wc<a class="headerlink" href="#wc" title="Permanent link">&para;</a></h3>
+<p><code>wc</code> is the ‘word count’ command: it counts the number of lines, words, and characters in files (returning the values in that order from left to right). </p>
+<div class="admonition useful options">
+<p class="admonition-title">Useful</p>
+<ul>
+<li><strong>-l</strong>: list number of lines per file</li>
+<li><strong>-m</strong>: list number of characters per file</li>
+<li><strong>-w</strong>: list number of words per file</li>
+</ul>
+</div>
+<p><strong>Examples</strong> </p>
+<p>I ran the examples on my work desktop &ldquo;defiant&rdquo;. My username is &ldquo;bbrydsoe&rdquo;. </p>
+<div class="admonition try">
+<p class="admonition-title">Code along</p>
+<p>Code along for the examples below. We will work with the files in the directory <code>exercises/patterns</code> that you got from the tarball you downloaded.</p>
+</div>
+<ol>
+<li></li>
+</ol>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>wc<span class="w"> </span>myfile1.txt<span class="w"> </span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">80</span><span class="w"> </span>myfile1.txt
+</span></code></pre></div>
+<code>wc</code> counted the number of lines, words, and characters in the file <code>myfile1.txt</code>. It says there are <strong>4 lines</strong>, <strong>15 words</strong>, and <strong>80 characters</strong>.<br><br> 
+2. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>wc<span class="w"> </span>*.txt
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="m">1</span><span class="w">   </span><span class="m">6</span><span class="w">  </span><span class="m">34</span><span class="w"> </span>fil.txt
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>myfile0.txt
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="m">4</span><span class="w">  </span><span class="m">15</span><span class="w">  </span><span class="m">80</span><span class="w"> </span>myfile1.txt
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">10</span><span class="w">  </span><span class="m">48</span><span class="w"> </span>myfile2.txt
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="m">7</span><span class="w">  </span><span class="m">38</span><span class="w"> </span><span class="m">203</span><span class="w"> </span>myfile3.txt
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>myfiles.txt
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>thisfile0.txt
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>thisfile1.txt
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>thisfile2.txt
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>thisfile3.txt
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>thisfile4.txt
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>thisfile5.txt
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>The<span class="w"> </span>sort<span class="w"> </span><span class="nb">command</span><span class="w"> </span>is<span class="w"> </span>used<span class="w"> </span><span class="k">in</span><span class="w"> </span>Linux<span class="w"> </span>to<span class="w"> </span>print<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>given<span class="w"> </span>order.<span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>thisfile6.txt
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>thisfile7.txt
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>thisfile8.txt
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>thisfile9.txt
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">  </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>thisfile.txt
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w"> </span><span class="m">14</span><span class="w">  </span><span class="m">69</span><span class="w"> </span><span class="m">365</span><span class="w"> </span>total
+</span></code></pre></div>
+<p>All lines, words, characters in the files with the extension <code>.txt</code>. Also sums up the total.<br><br> 
+3. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>myfile2.txt<span class="w"> </span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="m">2</span><span class="w"> </span>myfile2.txt
+</span></code></pre></div>
+<p>With <code>wc -l</code> you only get the number of lines of the file. <br><br>
+4.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>wc
+</span></code></pre></div>
+<p>If you do not give a file as input, <code>wc</code> will assume it should wait for input. You can escape this with CTRL-C (Press the CTRL key and hold it down, then press the C key). </p>
+<h4 id="wc__-__capturing__output">wc - capturing output<a class="headerlink" href="#wc__-__capturing__output" title="Permanent link">&para;</a></h4>
+<p>Assume you have a large number of files that you want to run <code>wc</code> on. Then it will not work well to just get the output thrown to screen. It would be much better to get the output to a file, and you can do that this way: </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>*.txt<span class="w"> </span>&gt;<span class="w"> </span>filelength.txt
+</span></code></pre></div>
+<p>This will take the number of lines for each file and put to the file <code>filelength.txt</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>cat<span class="w"> </span>filelength.txt<span class="w"> </span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="m">1</span><span class="w"> </span>fil.txt
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>myfile0.txt
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="m">4</span><span class="w"> </span>myfile1.txt
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="m">2</span><span class="w"> </span>myfile2.txt
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span><span class="m">7</span><span class="w"> </span>myfile3.txt
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>myfiles.txt
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile0.txt
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile1.txt
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile2.txt
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile3.txt
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile4.txt
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile5.txt
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile6.txt
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile7.txt
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile8.txt
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile9.txt
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile.txt
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w"> </span><span class="m">14</span><span class="w"> </span>total
+</span></code></pre></div>
+<p>In this case <code>less</code> might be better to use than <code>cat</code> if you have many files. </p>
+<h3 id="sort">sort<a class="headerlink" href="#sort" title="Permanent link">&para;</a></h3>
+<p>The sort command is used in Linux to print the output of a file in given order.</p>
+<div class="admonition note">
+<p class="admonition-title">Useful options</p>
+<ul>
+<li><strong>-n</strong>: compare according to string numerical value</li>
+<li><strong>-f</strong>: ignore case</li>
+<li><strong>-b</strong>: ignore leading blanks </li>
+</ul>
+</div>
+<p><strong>Examples</strong></p>
+<div class="admonition tip">
+<p class="admonition-title">Code along</p>
+<p>I suggest using the file <code>numbers.txt</code> in the directory <code>exercises/patterns</code>. </p>
+</div>
+<ol>
+<li>Sort the file <code>numbers.txt</code></li>
+</ol>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>sort<span class="w"> </span>numbers.txt<span class="w"> </span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="m">1</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="m">15</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="m">2</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="m">2</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="m">3</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="m">4</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="m">435</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="m">65</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="m">7</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="m">723</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="m">74</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="m">754</span>
+</span></code></pre></div>
+2. Let us try sorting with the options <code>-n</code> instead </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>numbers.txt<span class="w"> </span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="m">1</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="m">2</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="m">2</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="m">3</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="m">4</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="m">7</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="m">15</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="m">65</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="m">74</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="m">435</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="m">723</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="m">754</span>
+</span></code></pre></div>
+<p>This is the difference between the default (alphanumerical) and numerical sorting.<br><br> 
+3. What if we run sort on the output file <code>filelength.txt</code> we got from the section <code>wc - capturing output</code> above. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>filelength.txt<span class="w"> </span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>myfile0.txt
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>myfiles.txt
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile0.txt
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile1.txt
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile2.txt
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile3.txt
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile4.txt
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile5.txt
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile6.txt
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile7.txt
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile8.txt
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile9.txt
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile.txt
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">  </span><span class="m">1</span><span class="w"> </span>fil.txt
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">  </span><span class="m">2</span><span class="w"> </span>myfile2.txt
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">  </span><span class="m">4</span><span class="w"> </span>myfile1.txt
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">  </span><span class="m">7</span><span class="w"> </span>myfile3.txt
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w"> </span><span class="m">12</span><span class="w"> </span>numbers.txt
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w"> </span><span class="m">26</span><span class="w"> </span>total
+</span></code></pre></div>
+<h2 id="pipes">Pipes<a class="headerlink" href="#pipes" title="Permanent link">&para;</a></h2>
+<p>Also redirection! </p>
+<p>Pipes are used when you want to take the output of one command and use it as input for another command. This is often called &ldquo;to pass output to another command&rdquo;. </p>
+<p>In many cases it is possible to do the same with an intermediate file (or more), but it is often better to just combine the commands with one or more pipes. </p>
+<p>The pipe is symbolized by a <code>|</code> between the commands. </p>
+<p><strong>Examples</strong></p>
+<div class="admonition tip">
+<p class="admonition-title">Code along!</p>
+<p>Try code along for the three examples below. We recommend you use the files in the directory <code>exercises/patterns</code> to work with. </p>
+</div>
+<ol>
+<li>Further up on the page, we counted the lines in all the files with extensions <code>.txt</code> and threw the output to a file. Let us instead <em>pipe</em> the output to <code>sort -n</code> so we can sort it numerically. </li>
+</ol>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>*.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>myfile0.txt
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>myfiles.txt
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile0.txt
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile1.txt
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile2.txt
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile3.txt
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile4.txt
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile5.txt
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile6.txt
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile7.txt
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile8.txt
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile9.txt
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile.txt
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">  </span><span class="m">1</span><span class="w"> </span>fil.txt
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">  </span><span class="m">2</span><span class="w"> </span>myfile2.txt
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">  </span><span class="m">4</span><span class="w"> </span>myfile1.txt
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">  </span><span class="m">7</span><span class="w"> </span>myfile3.txt
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w"> </span><span class="m">12</span><span class="w"> </span>numbers.txt
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w"> </span><span class="m">26</span><span class="w"> </span>total
+</span></code></pre></div>
+2. We could also use <code>tail</code> on the output to instead see the end of the output: </p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>*.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-3
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile9.txt
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile.txt
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w"> </span><span class="m">26</span><span class="w"> </span>total
+</span></code></pre></div>
+3. Or we could combine several commands, and sort the output of <code>wc</code> and then run <code>head</code> on <em>that</em> output: </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>*.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-3
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>myfile0.txt
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>myfiles.txt
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span><span class="m">0</span><span class="w"> </span>thisfile0.txt
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>bbrydsoe@defiant:~/exercises/patterns$<span class="w"> </span>
+</span></code></pre></div>
+<h2 id="exporting__variables">Exporting variables<a class="headerlink" href="#exporting__variables" title="Permanent link">&para;</a></h2>
+<p>Variables can be very useful.  </p>
+<p><a href="https://en.wikipedia.org/wiki/Environment_variable" target="_blank">Environment variables</a> store data that is used by the operating system and other programs.</p>
+<p>Some are intrinsic to the operating system, some for a specific program/library/programming language, and some are created by the user. </p>
+<p>The variables can both be used in scripts and on the command line. Usually you reference them by putting a special symbol in front of or around the variable name. By convention, environment variable names are in UPPER CASE. </p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>$HOME</strong> Your home directory</li>
+<li><strong>$PWD</strong> This variable points to your current directory</li>
+<li><strong>$LD_LIBRARY_PATH</strong> a colon-separated list of directories that the dynamic linker should search for shared objects before searching in any other directories</li>
+<li><strong>$OMP_NUM_THREADS</strong> Number of OpenMP threads</li>
+<li><strong>$PYTHONPATH</strong> Path to the directory where your Python libraries and packages are installed </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">To see the content of an environment variable named ENVIRONMENT-VARIABLE</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$ENVIRONMENT</span>-VARIABLE
+</span></code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You will get a long list of all environment variables currently set with the command: </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>env
+</span></code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Some environment variables need to be exported in order to be used</p>
+<p>This is how you set the environment variable VARIABLE to value: </p>
+<p>For the <code>bash</code> shell
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">VARIABLE</span><span class="o">=</span>value
+</span></code></pre></div></p>
+<p>For <code>csh</code> and related shells
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>setenv<span class="w"> </span>VARIABLE<span class="w"> </span>value
+</span></code></pre></div></p>
+</div>
+<p>You can create your own variables to use, for instance in scripts. More about that under the section <a href="../patterns#scripting">scripting</a>. </p>
+<p><strong>Some examples:</strong> </p>
+<div class="admonition example">
+<p class="admonition-title">Setting the number of OpenMP threads to 8 in <code>bash</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span>
+</span></code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Adding a new path to <code>$LD_LIBRARY_PATH</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/your/custom/path/
+</span></code></pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The environment variable only retains the value you have set for the duration of the session. When you open a new terminal window or login again, you need to set it again. </p>
+<p>To avoid that, add it to your <code>.bashrc</code> file, but only do so if it should truly be persisten across many sessions (like adding a new directory to search to <code>LD_LIBRARY_PATH</code> for instance). </p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Quickly add a new directory to <code>LD_LIBRARY_PATH</code> in your <code>.bashrc</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export LD_LIBRARY_PATH=</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">:/your/custom/path/&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span></code></pre></div>
+<p>Change <code>/your/custom/path/</code> to the actual path to the directory for your library. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Keypoints</p>
+<ul>
+<li><code>echo</code> is used to print output of a string or an environment variable</li>
+<li>redirection is used to redirect the output of a command</li>
+<li>the output of one command can be passed to another command</li>
+<li>the command <code>wc</code> can be used to count words, lines, or characters</li>
+<li>the command <code>sort</code> is used to sort input </li>
+<li>pipes are used when passing the output of one command to another command. It is show as <code>|</code></li>
+<li>environment variables are used to store data that is used by the operating system and other programs</li>
+<li>Some common environment variables are: <ul>
+<li><strong>$HOME</strong> Your home directory</li>
+<li><strong>$PWD</strong> This variable points to your current directory</li>
+<li><strong>$LD_LIBRARY_PATH</strong> a colon-separated list of directories that the dynamic linker should search for shared objects before searching in any other directories</li>
+<li><strong>$OMP_NUM_THREADS</strong> Number of OpenMP threads</li>
+<li><strong>$PYTHONPATH</strong> Path to the directory where your Python libraries and packages are installed </li>
+</ul>
+</li>
+</ul>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../editors/" class="btn btn-neutral float-left" title="Editors"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../patterns/" class="btn btn-neutral float-right" title="Finding patterns">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../editors/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../patterns/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/_markdown_exec_pyodide.js"></script>
+      <script src="../search/main.js"></script>
+      <script src="../js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

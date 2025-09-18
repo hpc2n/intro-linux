@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/summary/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Summary - Introduction to Linux</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="../assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Summary";
+        var mkdocs_page_input_path = "summary.md";
+        var mkdocs_page_url = "/intro-linux/summary/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/intro-linux-naiss.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modify/">Modifying the file tree</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../editors/">Editors</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pipesfilters/">Piping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../patterns/">Finding patterns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../scripting/">Scripting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Summary</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../connections/">Linux system overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-terminology/">Linux terminology</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../more-commands/">More commands</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data/">Data handling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Summary</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
+<div class="admonition keypoints">
+<p class="admonition-title">Keypoints</p>
+<ul>
+<li>The command line (CLI)<ul>
+<li>an interface for typing commands directly to a computer&rsquo;s operating system.</li>
+<li>often gives access to many more capabilities than the graphical user interface does.</li>
+<li>practical and normally faster in situations where you login with a terminal on a remote system. </li>
+</ul>
+</li>
+<li>The File System<ul>
+<li>directory structure starts with the top root directory, shown as <code>/</code>.</li>
+<li>several standard subdirectories: <code>usr/bin</code>, <code>home</code>, <code>usr/lib</code>, <code>usr/lib64</code>, and <code>usr/local/bin</code>.</li>
+<li>important commands:<ul>
+<li>ls: lists files/directories</li>
+<li>cd: change directory</li>
+<li>chmod: change permissions</li>
+<li>mkdir: create directory</li>
+<li>rm: remove files or directories</li>
+<li>cp: copy files or directories</li>
+<li>mv: move or rename files or directories      </li>
+</ul>
+</li>
+<li>symbolic link: pointer to another file or directory</li>
+</ul>
+</li>
+<li>Pipes and filters<ul>
+<li>less, more, cat</li>
+<li>echo</li>
+<li>redirection</li>
+<li>wc, sort</li>
+<li>pipes</li>
+<li>environment variables: stores data that is used by the operating system and other programs. Can be exported and referenced. </li>
+</ul>
+</li>
+<li>Editors <ul>
+<li>command-line: nano, vim, emacs</li>
+<li>gui: gedit, pluma, emacs </li>
+</ul>
+</li>
+<li>Patterns and scripting <ul>
+<li>finding patterns<ul>
+<li>grep, find</li>
+<li>awk</li>
+<li>wild cards</li>
+<li>regular expressions</li>
+</ul>
+</li>
+<li>scripting</li>
+</ul>
+</li>
+<li>Data Handling <ul>
+<li>compressing and decompressing <ul>
+<li>gzip/gunzip </li>
+<li>bzip/bunzip</li>
+<li>zip</li>
+</ul>
+</li>
+<li>archiving<ul>
+<li>tar, tarballs </li>
+</ul>
+</li>
+<li>file transfer and syncing <ul>
+<li>scp</li>
+<li>sftp</li>
+<li>rsync</li>
+</ul>
+</li>
+<li>connecting<ul>
+<li>ssh</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Hints and tricks <ul>
+<li>auto-complete</li>
+<li>short-cuts</li>
+<li>alias </li>
+<li>finding help </li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition questions">
+<p class="admonition-title">Questions</p>
+<ul>
+<li>Ask the instructors now</li>
+<li>Send questions to support: <a href="https://supr.naiss.se/support/" target="_blank">https://supr.naiss.se/support/</a></li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">More information</p>
+<ul>
+<li>The Linux Handbook: <a href="https://linuxhandbook.com/" target="_blank">https://linuxhandbook.com/</a></li>
+<li>Linux Tutorial: <a href="https://www.geeksforgeeks.org/linux-tutorial/" target="_blank">https://www.geeksforgeeks.org/linux-tutorial/</a></li>
+<li>14 Free Training Courses to Learn Linux Online: <a href="https://itsfoss.com/free-linux-training-courses/" target="_blank">https://itsfoss.com/free-linux-training-courses/</a></li>
+<li>Introduction to Linux - A Hands on Guide: <a href="https://tldp.org/LDP/intro-linux/intro-linux.pdf" target="_blank">https://tldp.org/LDP/intro-linux/intro-linux.pdf</a></li>
+<li>Linux Fundamentals: <a href="https://www.digitalocean.com/community/tutorials/linux-commands" target="_blank">https://cloudacademy.com/course/linux-fundmentals-1346/the-linux-directory-structure/</a></li>
+<li>Top 50+ Linux Commands You MUST Know: https://www.digitalocean.com/community/tutorials/linux-commands</li>
+<li>Glossary of Linux Terms: https://www.miralishahidi.ir/resources/Linux%20Terminology%20Glossary.pdf</li>
+<li>Linux on Wikipedia: https://en.wikipedia.org/wiki/Linux</li>
+<li>25 Easy Bash Script Examples: https://www.hostinger.com/tutorials/bash-script-example</li>
+<li>HPC2N: https://docs.hpc2n.umu.se/tutorials/linuxguide/</li>
+<li>UPPMAX: https://docs.uppmax.uu.se/getting_started/linux/</li>
+<li>LUNARC: https://lunarc-documentation.readthedocs.io/en/latest/guides/linux/linux_basics_intro/ </li>
+<li>PDC: https://www.pdc.kth.se/support/documents/basics/introduction.html#basic-linux-for-new-hpc-users</li>
+<li>HPC2N docs: https://docs.hpc2n.umu.se/</li>
+</ul>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../hints/" class="btn btn-neutral float-left" title="Hints and tricks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tree/" class="btn btn-neutral float-right" title="Install tree">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../hints/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../tree/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/_markdown_exec_pyodide.js"></script>
+      <script src="../search/main.js"></script>
+      <script src="../js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

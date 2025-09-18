@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/hints/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Hints and tricks - Introduction to Linux</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="../assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Hints and tricks";
+        var mkdocs_page_input_path = "hints.md";
+        var mkdocs_page_url = "/intro-linux/hints/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/intro-linux-naiss.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modify/">Modifying the file tree</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../editors/">Editors</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pipesfilters/">Piping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../patterns/">Finding patterns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../scripting/">Scripting</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Hints and tricks</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#tab__auto-complete">Tab auto-complete</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#short-cuts__on__the__cli">Short-cuts on the CLI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#alias">Alias</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#finding__help">Finding help</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#misc">Misc</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../connections/">Linux system overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-terminology/">Linux terminology</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../more-commands/">More commands</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data/">Data handling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Hints and tricks</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="hints__and__tricks">Hints and tricks<a class="headerlink" href="#hints__and__tricks" title="Permanent link">&para;</a></h1>
+<p>This section contains some hints that might make working with Linux easier. </p>
+<h2 id="tab__auto-complete">Tab auto-complete<a class="headerlink" href="#tab__auto-complete" title="Permanent link">&para;</a></h2>
+<p>If you press TAB on the keyboard after starting to type a command or a file, it will auto-complete if no other matches or else suggest possible matches. </p>
+<h2 id="short-cuts__on__the__cli">Short-cuts on the CLI<a class="headerlink" href="#short-cuts__on__the__cli" title="Permanent link">&para;</a></h2>
+<p>CTRL-SOMEKEY refers to pressing down the CTRL key and then another key while continuing to hold down CTRL. </p>
+<p>Examples: </p>
+<ul>
+<li><strong>CTRL-a</strong>: Go to the beginning of the line</li>
+<li><strong>CTRL-e</strong>: Go to the end of the line</li>
+<li><strong>CTRL-l</strong>: Clear the terminal</li>
+<li><strong>TAB</strong>: Auto-complete (i.e. start write a command or file name and then press TAB to auto-complete, if possible)</li>
+<li><strong>ARROW-UP</strong>: Pressing the arrow-up key repeatedly will let you cycle through recent commands</li>
+<li><strong>CTRL-r</strong>: you will get a prompt to write text to search in the list of recent commands. The list is saved in <code>.bash.history</code> in your $HOME. </li>
+</ul>
+<h2 id="alias">Alias<a class="headerlink" href="#alias" title="Permanent link">&para;</a></h2>
+<p>You will often have to write the same command again and again. If it is a longer command, it is reducing your productivity having to repeat it. Then you can use the <code>alias</code> command to create an &lsquo;alias&rsquo; for your command.</p>
+<p>To see the currently definted aliases, execute the &lsquo;alias&rsquo; command:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span><span class="nb">alias</span>
+</span></code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>This is how it might look when you run <code>alias</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>b-an01<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$<span class="w"> </span><span class="nb">alias</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">cdn</span><span class="o">=</span><span class="s1">&#39;cat &gt;/dev/null&#39;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">dir</span><span class="o">=</span><span class="s1">&#39;ls -lAF&#39;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">l</span><span class="o">=</span><span class="s1">&#39;dir&#39;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls -F&#39;</span>
+</span></code></pre></div>
+<p>As an example, this means that if you type &lsquo;dir&rsquo; the actual command that is executed is &lsquo;ls -lAF&rsquo;.</p>
+</div>
+<p>In order to create a new alias, you could write:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">shortName</span><span class="o">=</span><span class="s2">&quot;your custom command here&quot;</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The alias will only be valid in that shell, and only until you logout. Next time you will have to issue the &lsquo;alias&rsquo; command again, unless you add it to either your <code>.bashrc</code> or <code>.bash.profile</code> file.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Adding a new alias to the .bashrc file, using &lsquo;nano&rsquo; editor</p>
+<ol>
+<li>
+<p>Open the file: <code>nano ~/.bashrc</code></p>
+</li>
+<li>
+<p>Inside the editor, scroll down to where your aliases are. If you do not have any, just add them at the end, like this
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">#My custom aliases</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">c</span><span class="o">=</span><span class="s2">&quot;clear&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s2">&quot;ls -alF&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Colourize ls output</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls --color=auto&#39;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># Colourize grep output</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">grep</span><span class="o">=</span><span class="s1">&#39;grep --color=auto&#39;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Easily list my SLURM batch jobs</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">jobs</span><span class="o">=</span><span class="s1">&#39;squeue -u $USER&#39;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># Find all entries starting with d in the output from the ls -lahrt command</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">ldir</span><span class="o">=</span>’ls<span class="w"> </span>-lahrt<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span><span class="s2">&quot;^d&quot;</span>’
+</span></code></pre></div></p>
+</li>
+<li>Save and Exit the file: <code>CTRL-x</code> (Press CTRL and hold it down while pressing x). Answer &lsquo;Y&rsquo; to save.</li>
+<li>Next time you start a shell or after a new login your new alias is available. To make it available immediately, run
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</span></code></pre></div></li>
+</ol>
+</div>
+<h2 id="finding__help">Finding help<a class="headerlink" href="#finding__help" title="Permanent link">&para;</a></h2>
+<p>You can often get more info on flags/options and usage for a Linux command with</p>
+<ul>
+<li><code>COMMAND --help</code></li>
+<li><code>man COMMAND</code></li>
+</ul>
+<p>where COMMAND is the Linux command you want information about, like <code>ls</code>, <code>mkdir</code>, <code>gcc</code>, etc. </p>
+<h2 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Write &lsquo;clear&rsquo; to clear the terminal</li>
+<li>write &lsquo;history&rsquo; to see a list of the most recent commands written in the terminal<ul>
+<li>You can change the number of saved commands by setting the environment variable HISTSIZE in your <code>.bashrc file</code> in your home directory. </li>
+<li>Example: Open <code>.bashrc</code> with <code>nano</code>. Somewhere (at the end for instance) add: <code>export HISTSIZE=NUMBER&rdquo;</code> where <code>NUMBER</code> is the number of commands to save, for instance 10000. </li>
+</ul>
+</li>
+<li><code>man PROGRAM</code> will give you the manual for a specific program or command, if it exists<ul>
+<li>Example: <code>man gcc</code> will give open manual/help for the compiler <code>gcc</code>, containing flags to the compiler etc. <strong>Note</strong> that you need to first load a module that has gcc in. </li>
+</ul>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../scripting/" class="btn btn-neutral float-left" title="Scripting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../summary/" class="btn btn-neutral float-right" title="Summary">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../scripting/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../summary/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/_markdown_exec_pyodide.js"></script>
+      <script src="../search/main.js"></script>
+      <script src="../js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

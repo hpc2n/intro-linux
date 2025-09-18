@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/scripting/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Scripting - Introduction to Linux</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="../assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Scripting";
+        var mkdocs_page_input_path = "scripting.md";
+        var mkdocs_page_url = "/intro-linux/scripting/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/intro-linux-naiss.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modify/">Modifying the file tree</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../editors/">Editors</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pipesfilters/">Piping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../patterns/">Finding patterns</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Scripting</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#permissions">Permissions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scripting_1">Scripting</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#more__advanced__example">More advanced example</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../connections/">Linux system overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-terminology/">Linux terminology</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../more-commands/">More commands</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data/">Data handling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Scripting</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="scripting">Scripting<a class="headerlink" href="#scripting" title="Permanent link">&para;</a></h1>
+<p>This section will look at scripting, but we start with a quick introduction to <strong>permissions</strong>.  </p>
+<div class="admonition note">
+<p class="admonition-title">Learning objectives</p>
+<p><strong>Questions</strong> </p>
+<ul>
+<li>What are file permissions?</li>
+<li>What is a script?</li>
+<li>How do I write a script? </li>
+</ul>
+<p><strong>Objectives</strong> </p>
+<ul>
+<li>Learn how to make a simple script </li>
+<li>Get a brief introduction to <strong>permissions</strong></li>
+</ul>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Code along!</p>
+<p>Try out / code along for some of these examples. </p>
+<p>You can use the contents of the directory <code>/exercises/script</code> that you got from the downloaded tarball (<a href="https://github.com/hpc2n/linux-command-line-101/raw/refs/heads/main/exercises.tar.gz">exercises.tar.gz</a>) to play with. If you have not done so already, right-click and save to download, or right-click and copy the url, then do <code>wget THE-URL-YOU-COPIED</code> in a terminal window to download it there. Then do <code>tar -zxvf patterns.tar.gz</code> to unpack.  </p>
+</div>
+<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The command <code>chmod</code> is used to change permissions for files and directories.</p>
+</div>
+<p>Permissions are needed to, among other things, make a file executable. </p>
+<p><strong>Let us take a look at an example</strong> </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>bbrydsoe@defiant:~/HPC2N/courses/linux-command-line-101/exercises/script$<span class="w"> </span>ls<span class="w"> </span>-lart
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>total<span class="w"> </span><span class="m">28</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>bbrydsoe<span class="w"> </span>folk<span class="w">    </span><span class="m">9</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">12</span>:56<span class="w"> </span>program.sh
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>bbrydsoe<span class="w"> </span>folk<span class="w">  </span><span class="m">153</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">12</span>:56<span class="w"> </span>imagefind.sh
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>bbrydsoe<span class="w"> </span>folk<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">12</span>:56<span class="w"> </span>image
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>bbrydsoe<span class="w"> </span>folk<span class="w">  </span><span class="m">128</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">12</span>:56<span class="w"> </span>file.txt
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>bbrydsoe<span class="w"> </span>folk<span class="w">   </span><span class="m">54</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">12</span>:56<span class="w"> </span>file_filtered.dat
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>bbrydsoe<span class="w"> </span>folk<span class="w">  </span><span class="m">120</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">12</span>:56<span class="w"> </span>file.dat
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>bbrydsoe<span class="w"> </span>folk<span class="w">   </span><span class="m">99</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">12</span>:56<span class="w"> </span>analysis.sh
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>drwxr-xr-x<span class="w"> </span><span class="m">5</span><span class="w"> </span>bbrydsoe<span class="w"> </span>folk<span class="w">   </span><span class="m">53</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">12</span>:56<span class="w"> </span>..
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>drwxr-xr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>bbrydsoe<span class="w"> </span>folk<span class="w">  </span><span class="m">133</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">12</span>:56<span class="w"> </span>.
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>bbrydsoe@defiant:~/HPC2N/courses/linux-command-line-101/exercises/script$<span class="w"> </span>
+</span></code></pre></div>
+<p>If you look at the left-most column, you see an example of <strong>permissions</strong>. </p>
+<div class="admonition note">
+<p class="admonition-title">There are three types of permission groups</p>
+<ul>
+<li><strong>owners</strong>: these permissions will only apply to owners and will not affect other groups.</li>
+<li><strong>groups</strong>: you can assign a group of users specific permissions, which will only impact users within the group. The members of your storage directory belongs here.</li>
+<li><strong>all users</strong>: these permissions will apply to all users, so be careful with this.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">There are three kinds of file permissions</p>
+<ul>
+<li>Read (r): This allows a user or a group to view a file (and so also to copy it).</li>
+<li>Write (w): This permits the user to write or modify a file or directory.</li>
+<li>Execute (x): A user or a group with execute permissions can execute a file. They can also view a subdirectory.</li>
+</ul>
+</div>
+<p>The permissions for a file, directory, or symbolic link has 10 &ldquo;bits&rdquo; and looks similar to this:</p>
+<p><img 400px="400px" alt="Permissions" src="../images/permissions.png" style="&quot;width:" /></p>
+<p>As shown, the first bit can be &ldquo;-&rdquo; (a file), &ldquo;d&rdquo; (a directory), or &ldquo;l&rdquo; (a link).</p>
+<p>The following group of 3 bits are for the owner, then the next 3 for the group, and then the last 3 for all users. Each can have the r(ead), w(rite), and (e)x(ecute) permission set.</p>
+<div class="admonition note">
+<p class="admonition-title">To change permissions, here are some examples</p>
+<ul>
+<li>owner<ul>
+<li><strong>chmod +rwx FILE/DIR</strong> to add all permissions of a file with name FILE or a directory with name DIR</li>
+<li><strong>chmod -rwx FILE/DIR</strong> to remove all permissions from a file with name FILE or a directory with name DIR</li>
+<li><strong>chmod +x FILE</strong> to add executable permissions</li>
+<li><strong>chmod -wx FILE</strong> to remove write and executable permissions</li>
+</ul>
+</li>
+<li>group<ul>
+<li><strong>chmod g+rwx FILE</strong> to add all permissions to FILE</li>
+<li><strong>chmod g-rwx FILE</strong> to remove all permissions to FILE</li>
+<li><strong>chmod g+wx FILE</strong> to give write and execute permissions to FILE</li>
+<li><strong>chmod g-x FILE</strong> to remove execute permissions to FILE</li>
+</ul>
+</li>
+<li>others<ul>
+<li><strong>chmod o+rwx FILE</strong> to add all permissions to FILE</li>
+<li><strong>chmod o-rwx FILE</strong> to remove all permissions to FILE</li>
+<li><strong>chmod o+w FILE</strong> to add write permissions to FILE</li>
+<li><strong>chmod o-rwx DIR</strong> to remove all permissions to DIR</li>
+</ul>
+</li>
+<li>all<ul>
+<li><strong>chmod ugo+rwx FILE/DIR</strong> to add all permissions for all users (owner, group, others) to file named FILE or directory named DIR</li>
+<li><strong>chmod a=rwx FILE/DIR</strong> same as above</li>
+<li><strong>chmod a=r DIR</strong> give read permissions to all for DIR</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is also possible to change the ownership of a file or a directory. We are not going to cover this here, but you can read about the command <code>chown</code> and how to use it in the &ldquo;<a href="../more-commands">More commands</a>&rdquo; section under EXTRAS.</p>
+</div>
+<h2 id="scripting_1">Scripting<a class="headerlink" href="#scripting_1" title="Permanent link">&para;</a></h2>
+<p>Scripting is used to perform complex or repetitive tasks without user intervention. All Linux commands can be used in a script including wild cards. </p>
+<p>The most common reason for making a script is probably to avoid writing the same command again and again. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If it is just a one-line command you want to do again and again, then <a href="../hints#alias">&lsquo;alias&rsquo;</a> is more suited for this. </p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Type along!</p>
+<p>The files <code>analysis.sh</code>, <code>program.sh</code>, and <code>file.dat</code> are all located in <code>exercises/scripts</code>. </p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Simple script &lsquo;analysis.sh&rsquo;</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>grep<span class="w"> </span><span class="s1">&#39;ABCD&#39;</span><span class="w"> </span>file.dat<span class="w"> </span>&gt;<span class="w"> </span>file_filtered.dat
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>./program.sh<span class="w"> </span>&lt;<span class="w"> </span>file_filtered.dat<span class="w"> </span>&gt;<span class="w"> </span>output.dat
+</span></code></pre></div>
+<p>This script can be executed with <code>./analysis.sh</code> (remember to check that the <a href="#permissions">permission</a> for executing the script <code>analysis.sh</code> as user is set - you should also make sure <code>program.sh</code> has permissions set to execute as user). </p>
+<p>To change the permissions to execute a script (here named <code>analysis.sh</code>), for just the user, you could do: </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>chmod<span class="w"> </span>u+x<span class="w"> </span>analysis.sh
+</span></code></pre></div>
+<p>The above script can then be executed with</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>./analysis.sh
+</span></code></pre></div>
+<p><strong>What it does</strong></p>
+<ul>
+<li>First line of the script: telling the system it should be executed in the <code>bash</code> shell, since commands differ between shells (the program loader is told to run the program <code>/bin/bash</code> as first argument). <code>#!</code> are called &ldquo;shebang&rdquo; </li>
+<li>second line: search for the string <code>ABCD</code> in the file <code>file.dat</code>, then redirect the output to the file <code>file_filtered.dat</code> </li>
+<li>third line: run the program <code>program.sh</code> (which counts lines on the input file: <code>wc -l $1</code>) with the file <code>file_filtered.dat</code> as input. It then redirects the output to the file <code>output.dat</code>.  </li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Execute a command on the output of find</p>
+<p>This example script <code>imagefind.sh</code> will find all files with the extention <code>.png</code> in <code>$HOME/exercises/script/image</code> and then copy them to a directory named <code>myimages</code>. <br> 
+Then it searches for files with <code>er</code> as part of the name and redirects the output to a file named <code>someimagesfiles.txt</code> </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>find<span class="w"> </span><span class="nv">$HOME</span>/exercises/script/image<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.png&quot;</span><span class="w"> </span>-exec<span class="w"> </span>cp<span class="w"> </span><span class="o">{}</span><span class="w"> </span>myimages<span class="w"> </span><span class="se">\;</span><span class="w"> </span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>find<span class="w"> </span>myimages<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*er*&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>someimagesfiles.txt
+</span></code></pre></div>
+</div>
+<h3 id="more__advanced__example">More advanced example<a class="headerlink" href="#more__advanced__example" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Execute a command on output of find and loop over output files</p>
+<p>This example script will find all files with extension <code>.eps</code> in the current directory (and below) and then copy them to the directory <code>figures</code>. <br> 
+Afterwards it creates a variable FIGFILES that contains the full path to the directory with the figures, and all the files in it. <br> 
+Then follows a loop over all files. <br> 
+Inside the loop we convert <code>.eps</code> files to <code>.pdf</code> files. The extra line before is just a way to avoid the newly created <code>.pdf</code> files ends up with extension <code>.eps.pdf</code>.  </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.eps&quot;</span><span class="w"> </span>-exec<span class="w"> </span>cp<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="nv">$HOME</span>/figures<span class="w"> </span><span class="se">\;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nv">FIGFILES</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/figures/*&quot;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$FIGFILES</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">do</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nv">g</span><span class="o">=</span><span class="si">${</span><span class="nv">f</span><span class="p">%.*</span><span class="si">}</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span>ps2pdf<span class="w"> </span>-DEPSCrop<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$g</span><span class="s2">.pdf&quot;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">done</span><span class="w"> </span>
+</span></code></pre></div>
+</div>
+<p>For more examples of (more useful) scripts, see for instance this <a href=https://www.hostinger.com/tutorials/bash-script-example" target="_blank">list of 25 Easy Bash Script Examples</a>. </p>
+<div class="admonition note">
+<p class="admonition-title">Keypoints</p>
+<ul>
+<li>You change permissions for files and directories with <code>chmod</code>   </li>
+<li>Scripting is used to perform complex or repetitive tasks without user intervention. All Linux commands can be used in a script including wild cards. </li>
+</ul>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../patterns/" class="btn btn-neutral float-left" title="Finding patterns"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hints/" class="btn btn-neutral float-right" title="Hints and tricks">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../patterns/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../hints/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/_markdown_exec_pyodide.js"></script>
+      <script src="../search/main.js"></script>
+      <script src="../js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

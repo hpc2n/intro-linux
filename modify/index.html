@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/modify/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Modifying the file tree - Introduction to Linux</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="../assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Modifying the file tree";
+        var mkdocs_page_input_path = "modify.md";
+        var mkdocs_page_url = "/intro-linux/modify/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/intro-linux-naiss.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Modifying the file tree</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#create__and__remove__directoriesfiles">Create and remove directories/files</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#directories">Directories</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#files">Files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cp__-__copy__filesdirectories">cp - copy files/directories</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mv__-__rename__filesdirectories">mv - rename files/directories</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exercise">Exercise</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#symbolic__links">Symbolic links</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../editors/">Editors</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pipesfilters/">Piping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../patterns/">Finding patterns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../scripting/">Scripting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../connections/">Linux system overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-terminology/">Linux terminology</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../more-commands/">More commands</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data/">Data handling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Modifying the file tree</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modifying__the__file__tree">Modifying the file tree<a class="headerlink" href="#modifying__the__file__tree" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Learning objectives</p>
+<p><strong>Questions</strong></p>
+<ul>
+<li>How do create and remove files and directories?</li>
+<li>How do I copy/rename files and directories? (You will see why these two operations are mentioned together.)</li>
+</ul>
+<p><strong>Learning objectives</strong></p>
+<ul>
+<li>Learn how to navigate the Linux file system</li>
+<li>Learn about files and directories</li>
+<li>Learn about paths</li>
+<li>Be able to create and delete files and directories, as well as rename and copy them</li>
+</ul>
+</div>
+<h2 id="create__and__remove__directoriesfiles">Create and remove directories/files<a class="headerlink" href="#create__and__remove__directoriesfiles" title="Permanent link">&para;</a></h2>
+<p>This section will show how to work with files and directories through command line interface.</p>
+<h3 id="directories">Directories<a class="headerlink" href="#directories" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>mkdir DIR</strong>: Create a directory DIR<ul>
+<li><strong>mkdir -p DIR/SUBDIR</strong>: create a directory DIR with the subdirectory SUBDIR</li>
+</ul>
+</li>
+<li><strong>rm -r DIR</strong>: Remove a directory DIR. The flag &ldquo;-r&rdquo; means recursively<ul>
+<li>You can also add &ldquo;-f&rdquo;. This means ignore nonexistent files and arguments, and never prompt. </li>
+<li>You can add the option &ldquo;-i&rdquo;. This means it will prompt before every removal. </li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Examples, creating and removing directories</p>
+<p>Create a directory called <code>mynewdir</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>mynewdir
+</span></code></pre></div>
+<p>Create a directory called <code>cooldir</code> which has a subdirectory called <code>fancydir</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>cooldir/fancydir
+</span></code></pre></div>
+<p>Remove the directory <code>mynewdir</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>rm<span class="w"> </span>-r<span class="w"> </span>mynewdir
+</span></code></pre></div>
+</div>
+<h3 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h3>
+<p>To create files, you would normally use an editor (<code>nano</code>, <code>vim</code>, <code>emacs</code>, etc.), but it is also possible to create an empty file with the command <code>touch</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>touch<span class="w"> </span>FILE
+</span></code></pre></div>
+<p>You can remove files with <code>rm</code>. Again, you can use the flag/option <code>-i</code> to prompt before removing a file. Be aware that files removed with <code>rm</code> are deleted <em>permanently</em>&mdash;they generally cannot be restored (people have gotten lucky with system backup snapshots, but don&rsquo;t count on those).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you do not add the flag/option &ldquo;-i&rdquo; the file will be deleted without prompting. Be careful!</p>
+<p>Be <strong>extra</strong> careful using <code>rm</code> with glob patterns (see <a href="../filesystem/#wild__cards">Wild Cards under The File System</a> and <a href="../patterns/#regular__expressions">Regular expressions</a> )! It is strongly recommended that you always test a pattern with <code>ls</code> and check that the output is what you expect before using <code>rm</code> on that pattern.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Examples</p>
+<p>Create a file called <code>file.txt</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>touch<span class="w"> </span>file.txt
+</span></code></pre></div>
+<p>Remove the file <code>file.txt</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>rm<span class="w"> </span>file.txt
+</span></code></pre></div>
+</div>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<p><strong>Reminder</strong></p>
+<ul>
+<li><strong>mkdir DIR</strong>: Create a directory DIR</li>
+<li><strong>rm -rf DIR</strong>: Remove a directory DIR. The flag “-r” means recursively and “-f” means do so without asking for each file and subdirectory. Useful, but dangerous. Be careful!</li>
+<li><strong>cd</strong>: Go to your home directory ($HOME)</li>
+<li><strong>cd DIR</strong>: Change directory to DIR</li>
+<li><strong>cd ..</strong>: Change directory to the parent directory of the current directory</li>
+<li><strong>cd -</strong>: go back to the previous directory</li>
+<li><strong>touch FILE</strong>: create an empty file with the name FILE</li>
+<li><strong>rm FILE</strong>: remove the file with the name FILE</li>
+<li>The command <code>pwd</code> tells you the current directory path.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Creating directories, changing directories, removing directory and file</p>
+<p>This example will test some of the things we just learned, as well as the command <code>cd</code> from the previous section. </p>
+<p><strong>HINT: Code-along!</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>mkdir<span class="w"> </span>myowntestdir
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>myowntestdir/
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>myowntestdir<span class="o">]</span>$<span class="w"> </span>mkdir<span class="w"> </span>testdir1
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>myowntestdir<span class="o">]</span>$<span class="w"> </span>mkdir<span class="w"> </span>testdir2
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>myowntestdir<span class="o">]</span>$<span class="w"> </span>mkdir<span class="w"> </span>testdir3
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>myowntestdir<span class="o">]</span>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>testdir3
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>myowntestdir<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>testdir1
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>file1.txt
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>file2.sh
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>file3.c
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>file4.dat
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>file5.txt
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span>rm<span class="w"> </span>file5.txt
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir1<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>myowntestdir<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>testdir2/
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir2<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>coolfile.txt
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir2<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>mycool.txt
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir2<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>so_cool_1.txt
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir2<span class="o">]</span>$<span class="w"> </span>touch<span class="w"> </span>cool1.txt
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir2<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>*cool*.txt
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>testdir2<span class="o">]</span>$<span class="w"> </span>rm<span class="w"> </span>-t<span class="w"> </span>*cool<span class="o">{</span>,1<span class="o">}</span>.txt
+</span></code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This was done on Tetralith. You will notice that only the current (subdir) is shown in the prompt. At some other centres <strong>all</strong> the (sub)dirs would be shown.</p>
+<p>Example: HPC2N</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>b-an01<span class="w"> </span><span class="o">[</span>~<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>mytestdir
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>b-an01<span class="w"> </span><span class="o">[</span>~/mytestdir<span class="o">]</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>testdir1
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>b-an01<span class="w"> </span><span class="o">[</span>~/mytestdir/testdir1<span class="o">]</span>$
+</span></code></pre></div>
+</div>
+<h2 id="cp__-__copy__filesdirectories">cp - copy files/directories<a class="headerlink" href="#cp__-__copy__filesdirectories" title="Permanent link">&para;</a></h2>
+<p>This command is used to copy files or directories.</p>
+<ul>
+<li><strong>cp myfile.txt DIR/</strong>: copy the file &ldquo;myfile.txt&rdquo; to the directory DIR</li>
+<li><strong>cp DIR1/ DIR2/</strong>: copy the directory DIR1 into the directory DIR2 (Note: overwrites existing files with same name)</li>
+<li><strong>cp -R DIR1/ DIR2/</strong>: copy the directory DIR1 and all subdirectories into the directory DIR2. </li>
+<li><strong>cp -i file.txt DIR/</strong>: Interactive. It will ask before overwriting if there is a file with the same name. </li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you do not add the option &ldquo;-i&rdquo; you risk overwriting an existing file, if it is named the same. </p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Code-along</p>
+<p>Go to the directory <code>mytestdir</code> under <code>exercises</code> directory that you got from the downloaded tarball. This is how the structure looks:</p>
+<p><img alt="folders of exercises directory structure" src="../images/exercises-folders.png" style="width: 500px;float: left" />
+<br><br style="clear: both;"></p>
+<ol>
+<li>Change to the subdirectory:</li>
+</ol>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>exercises
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">cd</span><span class="w"> </span>mytestdir
+</span></code></pre></div>
+2. Copy the file <code>myfile.txt</code> to the subdirectory <code>testdir1</code>:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cp<span class="w"> </span>myfile.txt<span class="w"> </span>testdir1
+</span></code></pre></div>
+3. Create a new directory called <code>testdir3</code> inside <code>testdir1</code></p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>testdir1
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>mkdir<span class="w"> </span>testdir3
+</span></code></pre></div>
+4. Copy the new subdirectory <code>testdir3</code> to the directory <code>testdir2</code>. Remember, &ldquo;testdir2&rdquo; is located outside &ldquo;testdir1&rdquo; and at the same &ldquo;level&rdquo;. This can be done in more than one way. Remember you need the option <code>-r</code> (for recursive) when copying directories:
+    a) &ldquo;Go up one&rdquo; and then copy:
+       <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>..
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>cp<span class="w"> </span>-r<span class="w"> </span>testdir1/testdir3<span class="w"> </span>testdir2/
+</span></code></pre></div>
+    b) Copy will standing inside <code>testdir1</code>
+       <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>cp<span class="w"> </span>-r<span class="w"> </span>testdir3<span class="w"> </span>../testdir2
+</span></code></pre></div>
+5. If you give the full path while copying, this can be done from anywhere.</p>
+</div>
+<h2 id="mv__-__rename__filesdirectories">mv - rename files/directories<a class="headerlink" href="#mv__-__rename__filesdirectories" title="Permanent link">&para;</a></h2>
+<p>The command <code>mv</code> is used to rename files and directories. It can also be used to <strong>move</strong> a file or directory to another location.</p>
+<ul>
+<li><strong>mv file1.txt file2.txt</strong>: renames <code>file1.txt</code> to <code>file2.txt</code></li>
+<li><strong>mv DIR1/ DIR2/</strong>: renames directory <code>DIR1</code> to directory <code>DIR2/</code></li>
+<li><strong>mv file1.txt DIR1/</strong>: moves the file <code>file1.txt</code> into the directory <code>DIR1/</code></li>
+<li><strong>mv -i file1.txt file2.txt</strong>: interactive. Asks before overwriting if there is already a file with the destination name.</li>
+<li><strong>mv -i DIR1/ DIR2/</strong>: interactive. Asks before overwriting if there is already a directory with that name.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>mv</code> complains if there is already a file/directory with the new name. You can force the renaming with &ldquo;-f&rdquo; at the cost of the disappearence of the file that previously held the name.</p>
+</div>
+<h3 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<ol>
+<li>Create three files (touch)</li>
+<li>Create a directory and then create a subdirectory of that directory (mkdir, cd)</li>
+<li>Create a file in the subdirectory (touch)</li>
+<li>Create another file inside the directory you created and then move it to the subdirectory you created (touch, cd, mv)</li>
+<li>Rename one of the directories (mv)</li>
+<li>Delete/remove a file (rm)</li>
+<li>Delete/remove the subdirectory (rm)</li>
+</ol>
+</div>
+<details class="note">
+<summary>Solution - click to reveal</summary>
+<ol>
+<li>I am randomly naming the files <code>afile.txt</code>, <code>bfile.txt</code>, <code>cfile.txt</code>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>touch<span class="w"> </span>afile.txt
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>touch<span class="w"> </span>bfile.txt
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>touch<span class="w"> </span>cfile.txt
+</span></code></pre></div></li>
+<li>I am naming the directory <code>newdir</code> and the subdirectory <code>subdir</code></li>
+</ol>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>mkdir<span class="w"> </span>newdir
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">cd</span><span class="w"> </span>newdir
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>mkdir<span class="w"> </span>subdir
+</span></code></pre></div>
+3. I am creating a file named <code>newfile.dat</code></p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">cd</span><span class="w"> </span>subdir
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>touch<span class="w"> </span>newfile.dat
+</span></code></pre></div>
+4. I am naming the file <code>secondfile.txt</code></p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">cd</span><span class="w"> </span>..
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>touch<span class="w"> </span>secondfile.txt
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>mv<span class="w"> </span>secondfile.txt<span class="w"> </span>subdir
+</span></code></pre></div>
+5. I will rename the first directory (top-level directory) I created, calling it <code>fancydir</code></p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">cd</span><span class="w"> </span>..
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>mv<span class="w"> </span>newdir<span class="w"> </span>fancydir
+</span></code></pre></div>
+6. I will remove the file <code>afile.txt</code> while standing &ldquo;above&rdquo; the directory <code>fancydir</code> (previously called <code>newdir</code>)</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>rm<span class="w"> </span>fancydir/afile.txt
+</span></code></pre></div>
+7. I am removing the subdirectory <code>subdir</code> while standing above the directory <code>fancydir</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>rm<span class="w"> </span>-r<span class="w"> </span>fancydir/subdir
+</span></code></pre></div>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can always check with <code>pwd</code> that you are standing in the directory you think you are!</p>
+</div>
+<h2 id="symbolic__links">Symbolic links<a class="headerlink" href="#symbolic__links" title="Permanent link">&para;</a></h2>
+<p>A symbolic link is a pointer to another file or directory. Symbolic links are also called soft links, or just symlinks. </p>
+<ul>
+<li>It is useful both for ease<ul>
+<li>you avoid using a long path each time you change to a directory, like your project directory</li>
+<li>as well as to avoid changing hard links within other scripts or programs. This is good if you for instance install a program or use a script that assumes the library it uses is called libcoolness.a and not libcoolness.2.0.a. You can then just update the symlink instead of renaming the library or updating potentially many instances where it is mentioned in the program.</li>
+</ul>
+</li>
+</ul>
+<p>Command:</p>
+<div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>ln<span class="w"> </span>-s<span class="w"> </span>real-file-or-lib<span class="w"> </span>link-name
+</span></code></pre></div>
+</div>
+
+<div class="admonition note">
+<p class="admonition-title">Example (on Tetralith)</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ln<span class="w"> </span>-s<span class="w"> </span>/proj/linux-intro/users/MYUSERNAME<span class="w"> </span><span class="nv">$HOME</span>/myproj
+</span></code></pre></div>
+<p>This creates a symbolic link named &ldquo;myproj&rdquo; in your home directory, pointing to the location /proj/linux-intro/users/MYUSERNAME. The directory &ldquo;linux-intro&rdquo; is the project storage directory for this course project. For me, this would look like this:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="o">[</span>x_birbr@tetralith1<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>-l
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>total<span class="w"> </span><span class="m">2</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>lrwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w">   </span><span class="m">31</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:01<span class="w"> </span>myproj<span class="w"> </span>-&gt;<span class="w"> </span>/proj/linux-intro/users/x_birbr
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>drwxrwxr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>x_birbr<span class="w"> </span>x_birbr<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:43<span class="w"> </span>mytestdir
+</span></code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Keypoints</p>
+<ul>
+<li>You create a directory named DIR with <code>mkdir DIR</code></li>
+<li>You remove a directory named DIR with <code>rm -r DIR</code></li>
+<li>You can create an (empty) file named FILE with <code>touch FILE</code></li>
+<li>You can remove a file named FILE with <code>rm FILE</code></li>
+<li>The command to copy files and directories is <code>cp</code></li>
+<li>The command to rename files and directories is <code>mv</code></li>
+<li>Symbolic links are pointers to another file or directory</li>
+<li>Always test glob patterns with <code>ls</code> before using the same patterns with <code>rm -r</code> to remove files in bulk. </li>
+</ul>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../filesystem/" class="btn btn-neutral float-left" title="The File System"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../editors/" class="btn btn-neutral float-right" title="Editors">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../filesystem/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../editors/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/_markdown_exec_pyodide.js"></script>
+      <script src="../search/main.js"></script>
+      <script src="../js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

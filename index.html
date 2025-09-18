@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Material for the course Introduction to Linux" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Introduction to Linux</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/intro-linux/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".">
+          <img src="images/intro-linux-naiss.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#important__info">Important info</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preliminary__schedule">Preliminary schedule</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preparations">Preparations</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="modify/">Modifying the file tree</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="editors/">Editors</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="pipesfilters/">Piping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="patterns/">Finding patterns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="scripting/">Scripting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="connections/">Linux system overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="linux-terminology/">Linux terminology</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="more-commands/">More commands</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="data/">Data handling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="cheat/">Linux cheat sheet</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="welcome__to__the__course__introduction__to__linux">Welcome to the course: Introduction to Linux<a class="headerlink" href="#welcome__to__the__course__introduction__to__linux" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">This material</p>
+<p>Here you will find the content of the workshop &ldquo;Introduction to Linux&rdquo;.</p>
+<ul>
+<li>Documentation about Linux at some of the Swedish HPC centres <ul>
+<li>HPC2N: <a href="https://docs.hpc2n.umu.se/tutorials/linuxguide/" target="_blank">https://docs.hpc2n.umu.se/tutorials/linuxguide/</a></li>
+<li>UPPMAX: <a href="https://docs.uppmax.uu.se/getting_started/linux/" target="_blank">https://docs.uppmax.uu.se/getting_started/linux/</a></li>
+<li>LUNARC: <a href="https://lunarc-documentation.readthedocs.io/en/latest/guides/linux/linux_basics_intro/" target="_blank">https://lunarc-documentation.readthedocs.io/en/latest/guides/linux/linux_basics_intro/</a></li>
+<li>PDC: <a href="https://support.pdc.kth.se/doc/support-docs/basics/introduction/#basic-linux-for-new-hpc-users" target="_blank">https://support.pdc.kth.se/doc/support-docs/basics/introduction/#basic-linux-for-new-hpc-users</a> </li>
+</ul>
+</li>
+<li>Documentation from Software Carpentry: <a href="https://swcarpentry.github.io/shell-novice/" target="_blank">https://swcarpentry.github.io/shell-novice/</a> </li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Prerequisites</p>
+<ul>
+<li>You need access to a Linux system. </li>
+<li>You will use your own computer or any other computer (including computing access at computing centers) you have access to and that runs Linux. </li>
+<li>The course project will be on Tetralith, for those that do not have other access to a computer that runs Linux.  <ul>
+<li>For those using Tetralith, there is a <a href="https://www.nsc.liu.se/support/getting-started/" target="_blank">Get started guide for NSC here</a>. </li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Learning outcome</p>
+<ul>
+<li>
+<p>This NAISS course aims to give a brief, but comprehensive introduction to the Linux operating system.</p>
+</li>
+<li>
+<p>What is Linux and why should I use it?</p>
+</li>
+<li>You will learn about</li>
+<li>the command line interface (CLI)</li>
+<li>navigating and modifying the file tree <ul>
+<li>ls</li>
+<li>mkdir</li>
+<li>cd</li>
+<li>mv</li>
+</ul>
+</li>
+<li>editors on the Linux system </li>
+<li>pipes, sorting, filters<ul>
+<li>redirection</li>
+<li>pipes</li>
+<li>etc. </li>
+</ul>
+</li>
+<li>patterns</li>
+<li>scripting</li>
+<li>
+<p>some handy hints and tricks </p>
+</li>
+<li>
+<p>This course will consist of lectures and type-alongs, as well as a few exercises where you get to try out what you have just learned.    </p>
+</li>
+</ul>
+</div>
+<ul>
+<li>This course has been reworked based on previous participant input. We would be grateful if you will fill the evaluation survey so we can further improve the course: <a href="https://forms.office.com/e/Ua8mQhxAZS" target="_blank">https://forms.office.com/e/Ua8mQhxAZS</a> </li>
+</ul>
+<div class="admonition admonition">
+<p class="admonition-title">Cluster-specific approaches</p>
+<p>The course is given by HPC2N (Kebnekaise), but will be done under NAISS on the NAISS system &ldquo;Tetralith&rdquo;. There is a <a href="https://www.nsc.liu.se/support/getting-started/" target="_blank">Get started guide for NSC here</a>.   </p>
+<ul>
+<li><strong>This is only relevant if you are using Tetralith!</strong></li>
+<li>The login node for Tetralith is <code>tetralith.nsc.liu.se</code>.</li>
+<li>It looks like this when I (<code>x_birbr</code> on &ldquo;Tetralith&rdquo;) login the first time from my computer &ldquo;defiant&rdquo;:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>bbrydsoe@defiant:~$<span class="w"> </span>ssh<span class="w"> </span>x_bibr@tetralith.nsc.liu.se
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>The<span class="w"> </span>authenticity<span class="w"> </span>of<span class="w"> </span>host<span class="w"> </span><span class="s1">&#39;tetralith.nsc.liu.se (2001:6b0:17:140::1:10)&#39;</span><span class="w"> </span>can<span class="s1">&#39;t be established.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s1">ECDSA key fingerprint is SHA256:dwFmOFzy59e+OdZmMLAW3fj+GeMGACYwjPgc7LKZgSU.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s1">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s1">Warning: Permanently added &#39;</span>tetralith.nsc.liu.se,2001:6b0:17:140::1:10<span class="err">&#39;</span><span class="w"> </span><span class="o">(</span>ECDSA<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>known<span class="w"> </span>hosts.
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Password:
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Verification<span class="w"> </span>code:
+</span></code></pre></div></li>
+<li>The verification code it asks about is a 2FA that you need to set. See here: <a href="https://www.nsc.liu.se/support/2fa/" target="_blank">https://www.nsc.liu.se/support/2fa/</a>.</li>
+</ul>
+</div>
+<h2 id="important__info">Important info<a class="headerlink" href="#important__info" title="Permanent link">&para;</a></h2>
+<ul>
+<li>There is an &ldquo;important info&rdquo; page for this course, containing info on the course project, login info for Tetralith, etc. It can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EQISMsSvKEpNruWFi2rewP4BhU-JpM4BLASnNHRol2NDUQ?e=9OZZhQ" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EQISMsSvKEpNruWFi2rewP4BhU-JpM4BLASnNHRol2NDUQ?e=9OZZhQ</a></li>
+<li>There is a Q/A page for use during the lectures. Since the lectures are recorded, you may get recorded if you ask questions in the Zoom, but you can always write questions on the Q/A and get answers there. It also has the advantage that you can go back and look at the answers later. The Q/A page can be found here: <a href="https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EXoIQT8MQkRIsSLV1Z_yFbcBVipJlLa82lmFC2jjV5DwjQ?e=v3K1uv" target="_blank">https://umeauniversity.sharepoint.com/:w:/s/HPC2N630/EXoIQT8MQkRIsSLV1Z_yFbcBVipJlLa82lmFC2jjV5DwjQ?e=v3K1uv</a> </li>
+</ul>
+<h2 id="preliminary__schedule">Preliminary schedule<a class="headerlink" href="#preliminary__schedule" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Topic</th>
+<th>Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9:00</td>
+<td>Welcome+Syllabus</td>
+<td></td>
+</tr>
+<tr>
+<td>9:10</td>
+<td>Introduction to Linux, motivation</td>
+<td>Lecture</td>
+</tr>
+<tr>
+<td>9:25</td>
+<td>The command line (CLI)</td>
+<td>Lecture+code along</td>
+</tr>
+<tr>
+<td>9:45</td>
+<td>Navigating the File System</td>
+<td>Lecture+code along+exercise</td>
+</tr>
+<tr>
+<td>9:55</td>
+<td>Modifying the file tree</td>
+<td>Lecture+code along+exercise</td>
+</tr>
+<tr>
+<td>10:05</td>
+<td>Editors</td>
+<td>Lecture+code along</td>
+</tr>
+<tr>
+<td>10:20</td>
+<td>BREAK</td>
+<td></td>
+</tr>
+<tr>
+<td>10:35</td>
+<td>Piping</td>
+<td>Lecture+code along+exercise</td>
+</tr>
+<tr>
+<td>10:55</td>
+<td>Finding patterns</td>
+<td>Lecture+code along+exercises</td>
+</tr>
+<tr>
+<td>11:15</td>
+<td>Scripting</td>
+<td>Lecture+code along</td>
+</tr>
+<tr>
+<td>11:30</td>
+<td>Hints and tricks</td>
+<td>Lecture+code along</td>
+</tr>
+<tr>
+<td>11:45</td>
+<td>More time for exercises</td>
+<td></td>
+</tr>
+<tr>
+<td>11:55</td>
+<td>Summary</td>
+<td></td>
+</tr>
+<tr>
+<td>12:00</td>
+<td>END</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="preparations">Preparations<a class="headerlink" href="#preparations" title="Permanent link">&para;</a></h2>
+<p>In order to type along and do the exercises, please prepare your course environment now: </p>
+<ol>
+<li>Login to the system you are using (Tetralith, your own computer, other system)</li>
+<li>Open a terminal if you do not already have one open. </li>
+<li>Create a directory to work in (<code>mkdir intro-linux</code>) and then switch to it (<code>cd intro-linux</code>)  </li>
+<li>Download the exercises with <code>wget https://github.com/hpc2n/intro-linux/raw/refs/heads/main/exercises.tar.gz</code> </li>
+<li>Extract the exercises with <code>tar zxvf exercises.tar.gz</code></li>
+<li>Enter the directory that was created: <code>cd exercises</code></li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="intro/" class="btn btn-neutral float-right" title="Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="intro/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="assets/_markdown_exec_pyodide.js"></script>
+      <script src="search/main.js"></script>
+      <script src="js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2025-09-18 13:02:18.051329+00:00
+-->

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://hpc2n.github.io/intro-linux/cheat/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Linux cheat sheet - Introduction to Linux</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_markdown_exec_pyodide.css" rel="stylesheet" />
+        <link href="../assets/_markdown_exec_ansi.css" rel="stylesheet" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Linux cheat sheet";
+        var mkdocs_page_input_path = "cheat.md";
+        var mkdocs_page_url = "/intro-linux/cheat/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/intro-linux-naiss.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cli/">The command line (CLI)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../filesystem/">The File System</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modify/">Modifying the file tree</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../editors/">Editors</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pipesfilters/">Piping</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../patterns/">Finding patterns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../scripting/">Scripting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hints/">Hints and tricks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../summary/">Summary</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Extras</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../tree/">Install tree</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../connections/">Linux system overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux-terminology/">Linux terminology</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../more-commands/">More commands</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data/">Data handling</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Linux cheat sheet</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Introduction to Linux</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Extras</li>
+      <li class="breadcrumb-item active">Linux cheat sheet</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="linux__cheat__sheet">Linux Cheat Sheet<a class="headerlink" href="#linux__cheat__sheet" title="Permanent link">&para;</a></h1>
+<p>written by P. Ojeda with minor updates/changes by B. Brydsø. </p>
+<p><strong>Miscellaneous</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Effect</th>
+<th>&boxv;</th>
+<th>Command</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ls</td>
+<td>List files in current directory</td>
+<td>&boxv;</td>
+<td>less FILE</td>
+<td>See the content of file FILE</td>
+</tr>
+<tr>
+<td>ls -lah</td>
+<td>List files in human readable format</td>
+<td>&boxv;</td>
+<td>vim FILE</td>
+<td>Edit FILE with vim</td>
+</tr>
+<tr>
+<td>cd /dir</td>
+<td>Change to the directory “dir”</td>
+<td>&boxv;</td>
+<td>whereis data</td>
+<td>Prints out the location of “data”</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>Your current PATH</td>
+<td>&boxv;</td>
+<td>tar -cvzf file.tgz FILE</td>
+<td>Pack and compress “FILE”</td>
+</tr>
+<tr>
+<td>rm FILE</td>
+<td>Delete FILE</td>
+<td>&boxv;</td>
+<td>gunzip file.tgz</td>
+<td>Uncompress “file.tgz”</td>
+</tr>
+<tr>
+<td>rm -rf DIR</td>
+<td>Delete directory DIR</td>
+<td>&boxv;</td>
+<td>tar -xvf file.tar</td>
+<td>Unpack “file.tar”</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wildcards</strong> </p>
+<table>
+<thead>
+<tr>
+<th>Wildcard</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>Means zero or any number of characters. Ex. File* could be File, File2, Fileuiwie, &hellip;</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Means only one character. Ex. File? could be File1, Filex, Fileh, but not File22</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>Means a range of characters. Ex. File[1-3] could be File1, File2, File3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>grep</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grep &lsquo;word&rsquo; file</td>
+<td>Search for the pattern &lsquo;word&rsquo; in &lsquo;file&rsquo;</td>
+</tr>
+<tr>
+<td>grep -rine &lsquo;word&rsquo; home</td>
+<td>Search for the pattern &lsquo;word&rsquo; recursively in the directory /home</td>
+</tr>
+</tbody>
+</table>
+<p><strong>find</strong> </p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find /home -name &lsquo;*.dat&rsquo;</td>
+<td>Find the files in the directory home ending in &lsquo;.dat&rsquo;</td>
+</tr>
+<tr>
+<td>find /home -mtime +60</td>
+<td>Find every file in /home that was modified more than 60 days ago</td>
+</tr>
+</tbody>
+</table>
+<p><strong>pipes</strong> </p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>|</td>
+<td>Take the output of one command as the input of another. Ex. ls</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Secure copy protocol</strong> </p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scp file user123@kebnekaise.hpc2n.umu.se:/home/u/user123/</td>
+<td>Copy “file” to the home directory of the user “user123”</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note: vim commands are in ESC mode</strong> </p>
+<table>
+<thead>
+<tr>
+<th>Bash shortcuts</th>
+<th>Meaning</th>
+<th>&boxv;</th>
+<th>vim commands</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ctrl+r</td>
+<td>Make a reverse search</td>
+<td>&boxv;</td>
+<td>:w file.txt</td>
+<td>Save file.txt</td>
+</tr>
+<tr>
+<td>ctrl+a</td>
+<td>Go to the beginning of the line</td>
+<td>&boxv;</td>
+<td>:q!</td>
+<td>Exit without saving</td>
+</tr>
+<tr>
+<td>ctrl+e</td>
+<td>Go to the end of the line</td>
+<td>&boxv;</td>
+<td>:%s/pat1/pat2/g</td>
+<td>Replace pattern “pat1” by “pat2”</td>
+</tr>
+<tr>
+<td>ctrl+w</td>
+<td>Delete the previous word</td>
+<td>&boxv;</td>
+<td>ctrl+v</td>
+<td>Start selection</td>
+</tr>
+<tr>
+<td>ctrl+k</td>
+<td>Delete words after cursor</td>
+<td>&boxv;</td>
+<td>dd</td>
+<td>Delete line</td>
+</tr>
+<tr>
+<td>ctrl+u</td>
+<td>Delete current line</td>
+<td>&boxv;</td>
+<td>x</td>
+<td>Delete character</td>
+</tr>
+<tr>
+<td>ctrl+l</td>
+<td>Clean terminal</td>
+<td>&boxv;</td>
+<td>r</td>
+<td>Replace character</td>
+</tr>
+</tbody>
+</table>
+<p><strong>awk</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>awk &lsquo;/gold/ {print $1}&rsquo; coins.txt</td>
+<td>Search for pattern “gold” in the file coins.txt and print first column</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Batch jobs</strong> </p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sbatch job.sh</td>
+<td>Launch “job.sh” to the queue</td>
+</tr>
+<tr>
+<td>squeue -u user123</td>
+<td>Check the jobs from the user “user123&rdquo;</td>
+</tr>
+<tr>
+<td>scancel JOBID</td>
+<td>Remove the job with id “JOBID” from the queue</td>
+</tr>
+<tr>
+<td>squeue -f JOBID</td>
+<td>Check the details about the job with id “JOBID”</td>
+</tr>
+</tbody>
+</table>
+<p><strong>sshfs</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sshfs user123@kebnekaise.hpc2n.umu.se /dir1/ /local/dir2</td>
+<td>Mount /dir1 (on Quarry) into your /local/dir2</td>
+</tr>
+<tr>
+<td>fusermount -u /local/dir2</td>
+<td>Unmount the /local/dir2</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../data/" class="btn btn-neutral float-left" title="Data handling"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../data/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/_markdown_exec_pyodide.js"></script>
+      <script src="../search/main.js"></script>
+      <script src="../js/open_in_new_tab.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
