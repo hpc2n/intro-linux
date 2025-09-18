@@ -41,7 +41,7 @@
 
     - This course will consist of lectures and type-alongs, as well as a few exercises where you get to try out what you have just learned.    
 
-- This course has been reworked based on previous participant input. We would be grateful if you will fill the evaluation survey so we can further improve the course: <a href="" target="_blank"></a> 
+- This course has been reworked based on previous participant input. We would be grateful if you will fill the evaluation survey so we can further improve the course: <a href="https://forms.office.com/e/Ua8mQhxAZS" target="_blank">https://forms.office.com/e/Ua8mQhxAZS</a> 
 
 !!! admonition "Cluster-specific approaches"
 
